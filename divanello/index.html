@@ -212,6 +212,7 @@
   .llegar{background:var(--superficie); border-top:1px solid var(--linea); border-bottom:1px solid var(--linea)}
   .llegar-rej{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center}
   @media (max-width:880px){.llegar-rej{grid-template-columns:1fr; gap:30px}}
+  .llegar .mapa{width:100%;aspect-ratio:4/3;border:1px solid var(--linea);display:block;background:var(--fondo)}
   .llegar .hueco{width:100%; aspect-ratio:4/3; border:1px dashed var(--linea); background:var(--fondo); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-align:center; padding:24px; color:var(--texto-sec)}
   .hueco b{font-family:var(--display); font-size:19px; font-weight:500; color:var(--texto)}
   .hueco span{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase}
@@ -412,7 +413,7 @@
 
   <section id="llegar" class="llegar">
     <div class="env llegar-rej">
-      <div class="hueco"><b>Foto de la fachada</b><span>Pendiente de que nos la envíen</span></div>
+      <iframe class="mapa" title="Mapa: Divanello, Calle Laredo 4, Murcia" src="https://maps.google.com/maps?q=Divanello%2C%20Calle%20Laredo%204%2C%20Murcia&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       <div>
         <div class="rotulo">Visítanos</div>
         <h2>Cómo <em>llegar</em></h2>
