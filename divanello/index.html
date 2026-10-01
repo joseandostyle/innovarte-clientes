@@ -488,45 +488,71 @@
     fotos[b.dataset.modelo] = b.querySelector('img').src;
   });
 
-  function irInicio(ancla) {
+  /* Navegación como una web real: cada ficha tiene su dirección (#sofa/Nombre),
+     así funcionan los botones de atrás y adelante y se puede enviar el enlace de un sofá. */
+  var PREFIJO = '#sofa/';
+  var posInicio = 0;           // dónde estaba el cliente en la portada al abrir una ficha
+  var enFicha = false;
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  function mostrarFicha(n) {
+    if (!fotos[n]) { mostrarInicio(null); return; }
+    if (!enFicha) posInicio = window.scrollY;
+    document.getElementById('f-nombre').textContent = n;
+    document.getElementById('f-miga').textContent = n;
+    document.getElementById('f-tipo').textContent = (n === 'Carol') ? 'Sillón' : 'Sofá';
+    var img = document.getElementById('f-img');
+    img.src = fotos[n]; img.alt = 'Sofá ' + n;
+    vInicio.classList.remove('activa');
+    vFicha.classList.add('activa');
+    enFicha = true;
+    document.title = 'Sofá ' + n + ' | Divanello';
+    window.scrollTo(0, 0);
+    document.getElementById('f-visualizar').onclick = function (ev) {
+      ev.preventDefault();
+      document.getElementById('modelo').value = n;
+      document.getElementById('modelo').dispatchEvent(new Event('change'));
+      location.hash = '#visualizador';
+    };
+  }
+
+  function mostrarInicio(ancla) {
+    var veniaDeFicha = enFicha;
     vFicha.classList.remove('activa');
     vInicio.classList.add('activa');
-    if (ancla) {
-      var d = document.querySelector(ancla);
-      if (d) d.scrollIntoView({behavior:'smooth', block:'start'});
-    } else { window.scrollTo(0, 0); }
+    enFicha = false;
+    document.title = TITULO;
+    var d = ancla && ancla.length > 1 ? document.querySelector(ancla) : null;
+    if (d) d.scrollIntoView({block:'start'});
+    else if (veniaDeFicha) window.scrollTo(0, posInicio);
   }
+
+  function ruta() {
+    var h = decodeURIComponent(location.hash || '');
+    if (h.indexOf(PREFIJO) === 0) mostrarFicha(h.slice(PREFIJO.length));
+    else mostrarInicio(h);
+  }
+  var TITULO = document.title;
+  window.addEventListener('hashchange', ruta);
+  window.addEventListener('popstate', ruta);
 
   document.addEventListener('click', function (e) {
     var ir = e.target.closest('[data-ir]');
-    if (ir) { e.preventDefault(); irInicio(null); return; }
-
-    var nav = e.target.closest('[data-nav]');
-    if (nav) {
+    if (ir) {
       e.preventDefault();
-      irInicio(nav.getAttribute('href'));
+      history.pushState(null, '', location.pathname + location.search);
+      mostrarInicio(null);
+      window.scrollTo(0, 0);
       return;
     }
-
     var tarjeta = e.target.closest('.modelo');
     if (tarjeta) {
-      var n = tarjeta.dataset.modelo;
-      document.getElementById('f-nombre').textContent = n;
-      document.getElementById('f-miga').textContent = n;
-      document.getElementById('f-tipo').textContent = (n === 'Carol') ? 'Sillón' : 'Sofá';
-      var img = document.getElementById('f-img');
-      img.src = fotos[n]; img.alt = 'Sofá ' + n;
-      vInicio.classList.remove('activa');
-      vFicha.classList.add('activa');
-      window.scrollTo(0, 0);
-      document.getElementById('f-visualizar').onclick = function (ev) {
-        ev.preventDefault();
-        document.getElementById('modelo').value = n;
-        document.getElementById('modelo').dispatchEvent(new Event('change'));
-        irInicio('#visualizador');
-      };
+      e.preventDefault();
+      location.hash = PREFIJO + encodeURIComponent(tarjeta.dataset.modelo);
     }
+    /* Los enlaces del menú (data-nav) son anclas normales: cambian la dirección y la ruta las atiende. */
   });
+  ruta();
 
   /* ---- Visualizador ---- */
   var modelo = document.getElementById('modelo');
