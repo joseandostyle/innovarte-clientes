@@ -897,10 +897,12 @@
     .tel{font-size:12px;padding:7px 10px}
     .env{padding:0 18px}
 
-    .heroe-img{height:clamp(300px,74vw,420px)}
-    .heroe h1{font-size:2.15rem}
-    .heroe p{font-size:15.5px}
-    .heroe-capa{background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.88) 55%,rgba(0,0,0,.95) 100%)}
+    /* Portada en móvil: la foto arriba y entera, el texto debajo (no encima) */
+    .heroe-img{height:auto;aspect-ratio:4/3;object-position:center 62%}
+    .heroe-capa{position:static;background:var(--negro);display:block;padding:22px 0 30px}
+    .heroe h1{font-size:2.15rem;margin-bottom:10px}
+    .heroe p{font-size:15.5px;margin-bottom:20px}
+    .heroe .acciones{gap:10px}
     .acciones .btn{width:100%;text-align:center}
 
     section{padding:52px 0}
