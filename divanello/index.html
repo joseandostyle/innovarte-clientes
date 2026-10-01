@@ -899,7 +899,7 @@
 
     /* Portada en móvil: foto vertical con el texto encima (titular arriba, botones abajo) */
     .heroe picture{display:block}
-    .heroe-img{height:auto;aspect-ratio:3/4;max-height:calc(100svh - 56px);object-fit:cover;object-position:center 60%}
+    .heroe-img{width:100%;height:calc(100vh - var(--cab,37px));height:calc(100svh - var(--cab,37px));aspect-ratio:auto;object-fit:cover;object-position:center 62%}
     .heroe-capa{background:linear-gradient(180deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.28) 30%,rgba(0,0,0,0) 46%,rgba(0,0,0,0) 62%,rgba(0,0,0,.66) 100%);align-items:stretch;padding:26px 0 22px}
     .heroe-capa .env{display:flex}
     .heroe-txt{display:flex;flex-direction:column;width:100%}
@@ -925,6 +925,9 @@
 
     .flotantes{right:14px;bottom:14px;gap:10px}
     .burbuja{width:52px;height:52px}
+    /* En móvil, los botones flotantes aparecen al bajar del hero para no tapar sus botones */
+    .flotantes{transition:opacity 200ms ease,transform 200ms ease}
+    body.en-heroe .flotantes{opacity:0;transform:translateY(12px);pointer-events:none}
     .burbuja svg{width:26px;height:26px}
     .panel-chat{right:12px;left:12px;bottom:86px;width:auto}
     .chat-cuerpo{height:250px}
@@ -935,6 +938,20 @@
     .tel{font-size:11px;padding:6px 8px}
   }
 </style>
+
+<script>
+/* Altura real de la cabecera (el hero ocupa justo la pantalla) y botones flotantes fuera del hero en móvil */
+(function(){
+  var cab = document.querySelector('header'), heroe = document.querySelector('.heroe');
+  function medir(){ if (cab) document.documentElement.style.setProperty('--cab', (cab.getBoundingClientRect().height + 1) + 'px'); }
+  medir(); window.addEventListener('resize', medir);
+  if (!heroe || !('IntersectionObserver' in window) || !window.matchMedia('(max-width:520px)').matches) return;
+  new IntersectionObserver(function(e){
+    var visible = e[0].isIntersecting && document.getElementById('vista-inicio').classList.contains('activa');
+    document.body.classList.toggle('en-heroe', visible);
+  }, {threshold:0.35}).observe(heroe);
+})();
+</script>
 
 
 <div style="background:#101010;color:#9a9a9a;font:13px/1.5 system-ui,sans-serif;padding:14px 20px;text-align:center;border-top:1px solid #2f2f2f">
