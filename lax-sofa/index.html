@@ -1324,18 +1324,25 @@ document.querySelectorAll('img[data-de]').forEach(function(i){ var o = document.
   var fichas = {};
   function clave(t){ return t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
   document.querySelectorAll('.ficha').forEach(function(f){ fichas[clave(f.dataset.ficha)] = f; });
-  var TITULO = document.title, enFicha = false, posInicio = 0;
+  var TITULO = document.title, enFicha = false, posInicio = null, cargada = false;
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  /* Al cambiar de vista se salta sin animación: con el desplazamiento suave de la página,
+     la vista nueva «rodaba» desde donde estaba la anterior */
+  var raiz = document.documentElement;
+  function saltar(fn){ raiz.style.scrollBehavior = 'auto'; void raiz.offsetHeight; fn(); raiz.style.scrollBehavior = ''; }
+  function irA(y){ try { window.scrollTo({ top: y, left: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, y); } }
+  function verEl(d){ try { d.scrollIntoView({ block: 'start', behavior: 'instant' }); } catch (e) { d.scrollIntoView({ block: 'start' }); } }
 
   function mostrarFicha(nombre){
     var f = fichas[clave(nombre)];
     if (!f) { mostrarInicio(null); return; }
-    if (!enFicha) posInicio = window.scrollY;
+    if (!enFicha) posInicio = cargada ? window.scrollY : null;
     inicio.hidden = true;
     Object.keys(fichas).forEach(function(k){ fichas[k].hidden = fichas[k] !== f; });
     enFicha = true;
     document.title = f.dataset.titulo + ' · Lax Sofá';
-    window.scrollTo(0, 0);
+    saltar(function(){ irA(0); });
   }
   function mostrarInicio(ancla){
     var veniaDeFicha = enFicha;
@@ -1344,8 +1351,13 @@ document.querySelectorAll('img[data-de]').forEach(function(i){ var o = document.
     enFicha = false;
     document.title = TITULO;
     var d = ancla && ancla.length > 1 ? document.getElementById(ancla.slice(1)) : null;
-    if (d) d.scrollIntoView({block:'start'});
-    else if (veniaDeFicha) window.scrollTo(0, posInicio);
+    if (!veniaDeFicha) { if (d) d.scrollIntoView({block:'start'}); return; }
+    saltar(function(){
+      /* al volver de una ficha, al mismo punto de los modelos donde se estaba */
+      if (posInicio !== null && (!d || d.id === 'catalogo')) irA(posInicio);
+      else if (d) verEl(d);
+      else irA(0);
+    });
   }
   function ruta(){
     var h = decodeURIComponent(location.hash || '');
@@ -1353,8 +1365,8 @@ document.querySelectorAll('img[data-de]').forEach(function(i){ var o = document.
     else mostrarInicio(h);
   }
   window.addEventListener('hashchange', ruta);
-  window.addEventListener('popstate', ruta);
   ruta();
+  cargada = true;
 
   /* Galería de cada ficha */
   document.querySelectorAll('.ficha').forEach(function(f){
