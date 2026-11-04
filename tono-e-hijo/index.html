@@ -8,575 +8,805 @@
 <body style="margin:0">
 <title>Guía Tono e Hijo</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#14212B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* Concepto: el cartel «SE VENDE» del balcón (amarillo y tinta) sobre papel de plano; app de bolsillo con pestañas abajo en el móvil */
+/* Concepto: el cartel «SE VENDE» del balcón (amarillo y tinta) sobre papel de plano; app con páginas propias y barra abajo en el móvil */
 :root{
-  --papel:#F7F8F6; --hoja:#FFFFFF; --tinta:#14212B; --suave:#55626C; --linea:#DCE1E3;
-  --cartel:#F2C230; --cartel-tinta:#14212B; --sello:#B3261E; --ok:#2E7D4F;
+  --papel:#F5F6F3; --hoja:#FFFFFF; --tinta:#14212B; --suave:#56636D; --linea:#DCE1E2; --hueco:#ECEFEC;
+  --cartel:#F2C230; --cartel-tinta:#14212B; --sello:#B3261E; --ok:#2E7D4F; --ok-fondo:#E3F1E8; --mal-fondo:#F8E4E2;
   --fd:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --fb:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --fm:"IBM Plex Mono",ui-monospace,Consolas,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --papel:#0F171D; --hoja:#16222A; --tinta:#E8EDEF; --suave:#9AA8B1; --linea:#2A3943;
-  --cartel:#F2C230; --cartel-tinta:#14212B; --sello:#F07A70; --ok:#6FCB95; color-scheme:dark}}
+  --papel:#0F171D; --hoja:#16222A; --tinta:#E8EDEF; --suave:#9AA8B1; --linea:#2A3943; --hueco:#1C2a33;
+  --sello:#F07A70; --ok:#6FCB95; --ok-fondo:#173326; --mal-fondo:#3A1C1A; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --papel:#0F171D; --hoja:#16222A; --tinta:#E8EDEF; --suave:#9AA8B1; --linea:#2A3943;
-  --cartel:#F2C230; --cartel-tinta:#14212B; --sello:#F07A70; --ok:#6FCB95; color-scheme:dark}
+  --papel:#0F171D; --hoja:#16222A; --tinta:#E8EDEF; --suave:#9AA8B1; --linea:#2A3943; --hueco:#1C2a33;
+  --sello:#F07A70; --ok:#6FCB95; --ok-fondo:#173326; --mal-fondo:#3A1C1A; color-scheme:dark}
 
 *{box-sizing:border-box}
-body{background:var(--papel);color:var(--tinta);font:15px/1.55 var(--fb);margin:0}
-.envoltura{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 110px}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--papel);color:var(--tinta);font:16px/1.55 var(--fb);margin:0;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--tinta)}
 h1,h2,h3{font-family:var(--fd);font-weight:700;line-height:1.05;text-wrap:balance;margin:0}
-h1{font-size:2.4rem;letter-spacing:.01em;text-transform:uppercase}
-h2{font-size:1.75rem;text-transform:uppercase;letter-spacing:.02em}
-h3{font-size:1.3rem}
+h1{font-size:2.3rem;text-transform:uppercase;letter-spacing:.01em}
+h2{font-size:1.6rem;text-transform:uppercase;letter-spacing:.02em}
+h3{font-size:1.25rem}
 p{margin:0}
-.etq{font:600 .72rem/1 var(--fb);letter-spacing:.09em;text-transform:uppercase;color:var(--suave)}
-button,select{font:inherit;color:inherit}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+input,select,textarea{font-size:16px}
 :focus-visible{outline:3px solid var(--cartel);outline-offset:2px}
-
-/* cabecera: el cartel */
-.cab{padding-block:20px 18px;display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between}
-.cartel{background:var(--cartel);color:var(--cartel-tinta);padding:10px 14px 8px;border:3px solid var(--cartel-tinta);display:inline-block}
-.cartel small{display:block;font:600 .7rem/1.2 var(--fb);letter-spacing:.12em;text-transform:uppercase}
-.cab .quien{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.selector{display:flex;border:1px solid var(--linea);background:var(--hoja)}
-.selector button{border:0;background:none;padding:8px 14px;cursor:pointer;font-weight:600}
-.selector button[aria-pressed="true"]{background:var(--tinta);color:var(--papel)}
-
-/* pestañas */
-nav.pestanas{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--hoja);border-top:1px solid var(--linea);
-  display:grid;grid-template-columns:repeat(5,1fr);padding-bottom:env(safe-area-inset-bottom,0px);
-  padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
-nav.pestanas a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 2px 9px;text-decoration:none;color:var(--suave);font:600 .72rem/1 var(--fb)}
-nav.pestanas a svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8}
-nav.pestanas a[aria-current="page"]{color:var(--tinta);box-shadow:inset 0 3px 0 var(--cartel)}
-@media (min-width:760px){
-  nav.pestanas{position:sticky;top:env(safe-area-inset-top,0px);bottom:auto;border:1px solid var(--linea);border-top:0;margin-bottom:22px;padding:0}
-  nav.pestanas a{flex-direction:row;justify-content:center;font-size:.85rem;padding:13px 4px}
-  .envoltura{padding-block:0 60px}
-}
-
-section.vista{display:grid;gap:22px}
-.bloque{background:var(--hoja);border:1px solid var(--linea);padding:18px}
-.intro{color:var(--suave);max-width:62ch}
-.supuesto,.comprobar{display:inline-block;font:600 .66rem/1 var(--fb);letter-spacing:.06em;text-transform:uppercase;padding:3px 6px;vertical-align:2px;white-space:nowrap}
+.etq{font:600 .72rem/1.2 var(--fb);letter-spacing:.09em;text-transform:uppercase;color:var(--suave)}
+.suave{color:var(--suave)}
+.num{font-family:var(--fm);font-variant-numeric:tabular-nums}
+.supuesto,.comprobar{display:inline-block;font:600 .64rem/1 var(--fb);letter-spacing:.06em;text-transform:uppercase;padding:3px 6px;vertical-align:2px;white-space:nowrap}
 .supuesto{border:1px dashed var(--suave);color:var(--suave)}
 .comprobar{border:1px solid var(--sello);color:var(--sello)}
-ul.lista{margin:0;padding-left:1.1rem;display:grid;gap:6px}
-.num{font-family:var(--fm);font-variant-numeric:tabular-nums}
 
-/* Hoy */
-.fases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.fases button{border:1px solid var(--linea);background:var(--hoja);padding:10px;text-align:left;cursor:pointer}
-.fases button b{display:block;font-family:var(--fd);font-size:1.1rem;text-transform:uppercase}
-.fases button span{font-size:.78rem;color:var(--suave)}
-.fases button[aria-pressed="true"]{border:2px solid var(--tinta);background:var(--cartel);color:var(--cartel-tinta)}
-.fases button[aria-pressed="true"] span{color:var(--cartel-tinta)}
-@media (max-width:480px){.fases{grid-template-columns:1fr}}
-.horario{list-style:none;margin:0;padding:0;display:grid}
-.horario li{display:grid;grid-template-columns:7.2rem 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--linea)}
-.horario li:first-child{border-top:0}
-.horario .h{font-family:var(--fm);font-size:.85rem;color:var(--suave);padding-top:2px}
-.horario b{display:block}
-@media (max-width:420px){.horario li{grid-template-columns:1fr;gap:2px}}
-.contadores{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
-.cont{border:1px solid var(--linea);padding:12px;display:grid;gap:8px;background:var(--papel)}
-.cont .fila{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.cont .valor{font:500 1.7rem/1 var(--fm);font-variant-numeric:tabular-nums}
-.cont .valor small{font-size:.85rem;color:var(--suave)}
-.cont .botones{display:flex;gap:6px}
-.cont button{width:40px;height:40px;border:1px solid var(--linea);background:var(--hoja);cursor:pointer;font-size:1.2rem}
-.barra{height:6px;background:var(--linea)}
-.barra i{display:block;height:100%;background:var(--tinta);width:0;transition:width .25s}
-.cont.cumplido .barra i{background:var(--ok)}
-.consejo{border-left:4px solid var(--cartel);padding:12px 14px;background:var(--hoja);border-top:1px solid var(--linea);border-right:1px solid var(--linea);border-bottom:1px solid var(--linea)}
-.acciones{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.boton{border:1px solid var(--tinta);background:var(--tinta);color:var(--papel);padding:9px 14px;cursor:pointer;font-weight:600}
-.boton.sec{background:none;color:var(--tinta)}
-.boton.peligro{border-color:var(--sello);background:var(--sello);color:#fff}
+/* barra de arriba */
+.barra-sup{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--tinta);color:#fff}
+.barra-sup .in{max-width:880px;margin:0 auto;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));padding-block:8px;display:flex;align-items:center;gap:10px;min-height:56px}
+.atras{display:inline-flex;align-items:center;gap:4px;background:none;border:0;color:#fff;padding:8px 8px 8px 2px;cursor:pointer;font-weight:600}
+.atras svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2}
+.marca{display:flex;align-items:center;gap:8px;text-decoration:none;color:#fff;min-width:0}
+.marca b{background:var(--cartel);color:var(--cartel-tinta);font:700 1.05rem/1 var(--fd);text-transform:uppercase;padding:6px 8px 5px;letter-spacing:.03em;white-space:nowrap}
+.titulo-sup{font:700 1.15rem/1.1 var(--fd);text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
+.socio{margin-left:auto;display:flex;border:1px solid rgba(255,255,255,.35)}
+.socio button{background:none;border:0;color:#fff;padding:7px 11px;cursor:pointer;font-weight:600;font-size:.88rem}
+.socio button[aria-pressed="true"]{background:var(--cartel);color:var(--cartel-tinta)}
 
-/* Formación */
-.progreso{display:flex;align-items:center;gap:12px}
-.progreso .barra{flex:1;height:10px}
-details.mod{background:var(--hoja);border:1px solid var(--linea)}
-details.mod>summary{list-style:none;cursor:pointer;padding:14px 16px;display:grid;grid-template-columns:2.4rem 1fr auto;gap:12px;align-items:center}
-details.mod>summary::-webkit-details-marker{display:none}
-.mod .n{font:700 1.6rem/1 var(--fd);color:var(--suave)}
-.mod.hecho .n{color:var(--ok)}
-.mod .t{min-width:0}
-.mod .t b{font-family:var(--fd);font-size:1.2rem;display:block;line-height:1.1}
-.mod .t span{font-size:.8rem;color:var(--suave)}
-.mod .marca{font:600 .7rem/1 var(--fb);text-transform:uppercase;letter-spacing:.06em;color:var(--ok)}
-.mod .cuerpo{padding:0 16px 18px;display:grid;gap:14px;border-top:1px solid var(--linea);padding-top:14px}
-.mod h4{margin:0 0 6px;font:600 .75rem/1 var(--fb);letter-spacing:.09em;text-transform:uppercase;color:var(--suave)}
-.ejercicio{background:var(--cartel);color:var(--cartel-tinta);padding:12px 14px}
-.ejercicio h4{color:var(--cartel-tinta)}
-.ejercicio label{display:flex;gap:8px;align-items:center;margin-top:10px;font-weight:600;cursor:pointer}
-.ejercicio input{width:20px;height:20px;accent-color:var(--cartel-tinta)}
-.grupo-fase{display:grid;gap:10px}
+main{max-width:880px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 120px;display:grid;gap:22px}
+main>*{min-width:0}
+.pagina-entra{animation:entra .22s ease-out}
+@keyframes entra{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-/* Guiones */
-.guion{display:grid;gap:10px}
-.guion .texto{white-space:pre-line;background:var(--papel);border:1px solid var(--linea);padding:14px;font-size:.95rem}
-.guion .cab-g{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
-.objs{display:grid;gap:10px}
-.obj{border-top:1px solid var(--linea);padding-top:10px;display:grid;gap:4px}
-.obj:first-child{border-top:0;padding-top:0}
-.obj b{font-family:var(--fd);font-size:1.15rem}
-.obj p{color:var(--tinta)}
+/* barra de abajo */
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--hoja);border-top:1px solid var(--linea);
+  display:grid;grid-template-columns:repeat(5,1fr);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+nav.tabs a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 2px 8px;text-decoration:none;color:var(--suave);font:600 .7rem/1 var(--fb)}
+nav.tabs svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.8}
+nav.tabs a[aria-current="page"]{color:var(--tinta);box-shadow:inset 0 3px 0 var(--cartel)}
+@media (min-width:880px){
+  nav.tabs{left:50%;transform:translateX(-50%);bottom:16px;width:560px;border:1px solid var(--linea);box-shadow:0 8px 24px rgba(20,33,43,.12)}
+}
 
-/* Legal */
+/* piezas */
+.tarjeta{background:var(--hoja);border:1px solid var(--linea);padding:18px;display:grid;gap:12px}
+.tarjeta.cartel{background:var(--cartel);color:var(--cartel-tinta);border:2px solid var(--cartel-tinta)}
+.tarjeta.cartel .etq{color:var(--cartel-tinta)}
+.rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}
+.acceso{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;text-decoration:none;background:var(--hoja);border:1px solid var(--linea);padding:14px;transition:border-color .15s,transform .15s}
+.acceso:hover{border-color:var(--tinta)}
+.acceso:active{transform:scale(.99)}
+.acceso .ico{width:44px;height:44px;display:grid;place-items:center;background:var(--hueco)}
+.acceso .ico svg{width:24px;height:24px;stroke:var(--tinta);fill:none;stroke-width:1.8}
+.acceso b{font-family:var(--fd);font-size:1.2rem;display:block;line-height:1.1}
+.acceso span.d{font-size:.84rem;color:var(--suave)}
+.flecha{width:18px;height:18px;stroke:var(--suave);fill:none;stroke-width:2}
+.boton{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:2px solid var(--tinta);background:var(--tinta);color:var(--papel);padding:11px 16px;cursor:pointer;font-weight:600;text-decoration:none;min-height:46px}
+.boton.sec{background:transparent;color:var(--tinta)}
+.boton.amarillo{background:var(--cartel);border-color:var(--cartel-tinta);color:var(--cartel-tinta)}
+.boton.peligro{background:var(--sello);border-color:var(--sello);color:#fff}
+.boton:active{transform:scale(.98)}
+.boton[disabled]{opacity:.45;cursor:not-allowed}
+.fila{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.entre{justify-content:space-between}
+.barra-p{height:8px;background:var(--hueco);flex:1;min-width:80px}
+.barra-p i{display:block;height:100%;background:var(--tinta);transition:width .3s}
+.barra-p.ok i{background:var(--ok)}
+ul.lista{margin:0;padding-left:1.15rem;display:grid;gap:8px}
+ol.pasos{margin:0;padding:0;list-style:none;counter-reset:p;display:grid;gap:10px}
+ol.pasos li{counter-increment:p;display:grid;grid-template-columns:30px 1fr;gap:10px}
+ol.pasos li::before{content:counter(p);font:700 1.1rem/30px var(--fd);text-align:center;background:var(--tinta);color:var(--papel);height:30px}
+.segmentos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.segmentos button{border:1px solid var(--linea);background:var(--hoja);padding:10px;text-align:left;cursor:pointer;min-height:64px}
+.segmentos b{display:block;font-family:var(--fd);font-size:1.05rem;text-transform:uppercase;line-height:1.1}
+.segmentos span{font-size:.75rem;color:var(--suave)}
+.segmentos button[aria-pressed="true"]{border:2px solid var(--tinta);background:var(--cartel);color:var(--cartel-tinta)}
+.segmentos button[aria-pressed="true"] span{color:var(--cartel-tinta)}
+@media (max-width:520px){.segmentos{gap:6px}.segmentos button{min-height:0;padding:9px 8px}.segmentos b{font-size:.95rem}.segmentos span{display:none}}
+
+/* hoy */
+.tareas{list-style:none;margin:0;padding:0;display:grid}
+.tareas li{border-top:1px solid var(--linea)}
+.tareas li:first-child{border-top:0}
+.tareas label{display:grid;grid-template-columns:26px 6.3rem 1fr;gap:10px;padding:12px 0;cursor:pointer;align-items:start}
+.tareas input{width:22px;height:22px;margin-top:2px;accent-color:var(--ok)}
+.tareas .h{font-family:var(--fm);font-size:.82rem;color:var(--suave);padding-top:3px}
+.tareas b{display:block}
+.tareas .tx{font-size:.92rem;color:var(--suave)}
+.tareas input:checked~div b{text-decoration:line-through;color:var(--suave)}
+@media (max-width:440px){.tareas label{grid-template-columns:26px 1fr}.tareas .h{grid-column:2}.tareas label>div{grid-column:2}}
+.contadores{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px}
+.cont{border:1px solid var(--linea);padding:12px;display:grid;gap:8px;background:var(--hoja)}
+.cont .v{font:500 1.8rem/1 var(--fm);font-variant-numeric:tabular-nums}
+.cont .v small{font-size:.8rem;color:var(--suave)}
+.cont .bot{display:flex;gap:6px}
+.cont .bot button{width:46px;height:46px;border:1px solid var(--linea);background:var(--papel);cursor:pointer;font-size:1.3rem;font-weight:600}
+.cont .bot button.mas{background:var(--tinta);color:var(--papel);border-color:var(--tinta)}
+.cont.hecho{border-color:var(--ok)}
+
+/* módulos */
+.mod-item{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;text-decoration:none;background:var(--hoja);border:1px solid var(--linea);padding:12px 14px}
+.mod-item:hover{border-color:var(--tinta)}
+.mod-item .n{font:700 1.9rem/1 var(--fd);color:var(--suave);text-align:center}
+.mod-item.hecho .n{color:var(--ok)}
+.mod-item b{font-family:var(--fd);font-size:1.2rem;display:block;line-height:1.1}
+.estado{font:600 .68rem/1 var(--fb);letter-spacing:.06em;text-transform:uppercase;padding:5px 7px;white-space:nowrap}
+.estado.ok{background:var(--ok-fondo);color:var(--ok)}
+.estado.medio{background:var(--hueco);color:var(--tinta)}
+.cab-mod{display:grid;gap:10px}
+.cab-mod .n{font:700 4rem/0.85 var(--fd);color:var(--cartel);-webkit-text-stroke:2px var(--tinta)}
+.indice{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.indice a{flex:0 0 auto;text-decoration:none;border:1px solid var(--linea);background:var(--hoja);padding:7px 11px;font-weight:600;font-size:.86rem}
+.indice a.hecho{border-color:var(--ok);color:var(--ok)}
+.pregunta{display:grid;gap:8px;border-top:1px solid var(--linea);padding-top:14px}
+.pregunta:first-of-type{border-top:0;padding-top:0}
+.opcion{display:block;width:100%;text-align:left;border:1px solid var(--linea);background:var(--papel);padding:12px 14px;cursor:pointer;min-height:48px}
+.opcion:hover{border-color:var(--tinta)}
+.opcion.bien{background:var(--ok-fondo);border-color:var(--ok);font-weight:600}
+.opcion.mal{background:var(--mal-fondo);border-color:var(--sello)}
+.explica{font-size:.92rem;padding:10px 12px;border-left:3px solid var(--ok);background:var(--hoja)}
+.explica.mal{border-left-color:var(--sello)}
+.ejercicio{background:var(--cartel);color:var(--cartel-tinta);border:2px solid var(--cartel-tinta);padding:16px;display:grid;gap:10px}
+.ejercicio .etq{color:var(--cartel-tinta)}
+textarea{width:100%;min-height:96px;border:1px solid var(--linea);background:var(--hoja);color:var(--tinta);padding:10px;resize:vertical}
+.ejercicio textarea{border-color:var(--cartel-tinta);background:#fff;color:#14212B}
+.check-grande{display:flex;gap:10px;align-items:center;font-weight:600;cursor:pointer}
+.check-grande input{width:24px;height:24px;accent-color:var(--cartel-tinta)}
+.navmod{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.navmod a{text-decoration:none;border:1px solid var(--linea);background:var(--hoja);padding:12px;display:grid;gap:2px}
+.navmod a:last-child{text-align:right}
+.navmod b{font-family:var(--fd);font-size:1.05rem}
+
+/* practicar */
+.tarjeta-obj{background:var(--hoja);border:2px solid var(--tinta);padding:22px 18px;display:grid;gap:14px;min-height:260px;align-content:start}
+.tarjeta-obj .frase{font:700 1.9rem/1.1 var(--fd)}
+.respuesta{border-top:1px dashed var(--linea);padding-top:14px}
+.texto-guion{white-space:pre-line;background:var(--hoja);border:1px solid var(--linea);padding:16px;font-size:1rem;line-height:1.65}
+.texto-guion.grande{font-size:1.2rem}
+
+/* calculadoras */
+.campos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:10px}
+.campo{display:grid;gap:4px}
+.campo label{font-size:.82rem;font-weight:600;color:var(--suave)}
+.campo input,.campo select{width:100%;border:1px solid var(--linea);background:var(--hoja);padding:10px;min-height:46px}
+.resultado{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px}
+.dato{background:var(--hueco);padding:12px;display:grid;gap:2px}
+.dato .v{font:500 1.35rem/1.15 var(--fm);font-variant-numeric:tabular-nums}
+.dato.fuerte{background:var(--tinta);color:var(--papel)}
+.dato.fuerte .etq{color:var(--papel);opacity:.8}
+.testigos{display:grid;gap:8px}
+.testigo{display:grid;grid-template-columns:1fr 1fr 44px;gap:8px;align-items:end}
+.testigo button{height:46px;border:1px solid var(--linea);background:var(--hoja);cursor:pointer}
+
+/* papeles */
 .checks{list-style:none;margin:0;padding:0;display:grid}
-.checks li{display:grid;grid-template-columns:24px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--linea)}
+.checks li{border-top:1px solid var(--linea)}
 .checks li:first-child{border-top:0}
-.checks input{width:20px;height:20px;margin-top:2px;accent-color:var(--tinta)}
-.checks small{display:block;color:var(--suave);margin-top:2px}
-.fuentes{font-size:.82rem;color:var(--suave)}
-.fuentes a{color:inherit}
-
-/* Arranque */
+.checks label{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:12px 0;cursor:pointer}
+.checks input{width:22px;height:22px;margin-top:1px;accent-color:var(--ok)}
+.checks small{display:block;color:var(--suave);margin-top:3px;font-size:.88rem}
+.op{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;text-decoration:none;background:var(--hoja);border:1px solid var(--linea);padding:12px 14px}
 .tabla{overflow-x:auto}
-table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.92rem}
 th,td{text-align:left;vertical-align:top;padding:10px 8px;border-top:1px solid var(--linea)}
-th{font:600 .72rem/1.2 var(--fb);letter-spacing:.08em;text-transform:uppercase;color:var(--suave);border-top:0}
-td:first-child{font-family:var(--fd);font-size:1.05rem;font-weight:700;white-space:nowrap}
+th{font:600 .7rem/1.2 var(--fb);letter-spacing:.08em;text-transform:uppercase;color:var(--suave);border-top:0}
+.decision{border-top:1px solid var(--linea);padding-top:12px;display:grid;gap:6px}
+.decision:first-child{border-top:0;padding-top:0}
+.decision summary{cursor:pointer;display:flex;gap:10px;align-items:center;list-style:none}
+.decision summary::-webkit-details-marker{display:none}
+.decision summary b{font-family:var(--fd);font-size:1.15rem;flex:1}
 .semana{list-style:none;margin:0;padding:0;display:grid}
-.semana li{display:grid;grid-template-columns:5.5rem 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--linea)}
+.semana li{border-top:1px solid var(--linea)}
 .semana li:first-child{border-top:0}
-.semana .d{font:700 1.05rem/1.2 var(--fd);text-transform:uppercase}
-.etapas{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-.etapa{border:1px solid var(--linea);padding:14px;background:var(--hoja);display:grid;gap:8px;align-content:start}
-.pie{color:var(--suave);font-size:.8rem;padding-top:8px}
+.semana label{display:grid;grid-template-columns:26px 5.4rem 1fr;gap:10px;padding:11px 0;cursor:pointer}
+.semana input{width:22px;height:22px;accent-color:var(--ok)}
+.semana .d{font:700 1.05rem/1.3 var(--fd);text-transform:uppercase}
+@media (max-width:440px){.semana label{grid-template-columns:26px 1fr}.semana label>span:last-child{grid-column:2}}
+.aviso{font-size:.84rem;color:var(--suave);border-top:1px solid var(--linea);padding-top:12px}
+.fuentes a{color:var(--suave)}
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tinta);color:var(--papel);padding:10px 16px;font-weight:600;z-index:50;transition:opacity .2s;max-width:calc(100% - 32px)}
 
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media print{
-  nav.pestanas,.selector,.acciones,.fases,.contadores,.cont{display:none!important}
-  section.vista[hidden]{display:grid!important}
-  section.vista{break-before:page}
-  section.vista:first-of-type{break-before:auto}
-  details.mod .cuerpo{display:grid!important}
-  .bloque,.mod,.guion,.etapa{break-inside:avoid}
+  .barra-sup,nav.tabs,.toast,.no-imprimir{display:none!important}
   body{background:#fff}
-  .envoltura{padding-block:0}
+  main{padding-block:0}
+  .tarjeta,.pregunta,.mod-imp{break-inside:avoid}
+  .salto{break-before:page}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 </style>
 
-<div class="envoltura">
-  <header class="cab">
-    <div>
-      <div class="cartel"><small>Guía de arranque</small><h1>Tono e Hijo</h1></div>
-      <p class="etq" style="margin-top:8px">Inmobiliaria · Elche · versión 1 · noviembre 2026</p>
+<header class="barra-sup">
+  <div class="in">
+    <button class="atras" type="button" id="atras" hidden aria-label="Volver"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <a class="marca" href="#inicio" id="marca"><b>Tono e Hijo</b></a>
+    <span class="titulo-sup" id="titulo-sup" hidden></span>
+    <div class="socio" role="group" aria-label="Quién eres">
+      <button type="button" data-socio="Tono">Tono</button>
+      <button type="button" data-socio="Carlos">Carlos</button>
     </div>
-    <div class="quien">
-      <span class="etq">¿Quién eres?</span>
-      <div class="selector" role="group" aria-label="Socio">
-        <button type="button" data-socio="Tono">Tono</button>
-        <button type="button" data-socio="Carlos">Carlos</button>
-      </div>
-    </div>
-  </header>
+  </div>
+</header>
 
-  <nav class="pestanas" aria-label="Secciones">
-    <a href="#hoy"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Hoy</a>
-    <a href="#formacion"><svg viewBox="0 0 24 24"><path d="M4 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg>Formación</a>
-    <a href="#guiones"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg>Guiones</a>
-    <a href="#legal"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12l2 2 4-4"/></svg>Papeles</a>
-    <a href="#arranque"><svg viewBox="0 0 24 24"><path d="M5 21V4h11l-2 4 2 4H5"/></svg>Arranque</a>
-  </nav>
+<main id="app" tabindex="-1"></main>
 
-  <!-- HOY -->
-  <section class="vista" id="v-hoy" data-vista="hoy">
-    <div style="display:grid;gap:8px">
-      <h2>Hoy</h2>
-      <p class="intro">Qué toca hacer cada día según en qué punto estéis. Las cifras son un punto de partida <span class="supuesto">supuesto</span>: a partir del segundo mes se ajustan con vuestros propios números.</p>
-    </div>
-    <div class="fases" role="group" aria-label="Fase">
-      <button type="button" data-fase="0"><b>Arranque</b><span>0 exclusivas · meses 0–2</span></button>
-      <button type="button" data-fase="1"><b>Primeras captaciones</b><span>de 1 a 5 exclusivas</span></button>
-      <button type="button" data-fase="2"><b>Rodaje</b><span>más de 5 exclusivas</span></button>
-    </div>
-    <div class="consejo" id="consejo"></div>
-    <div class="bloque">
-      <p class="etq" style="margin-bottom:6px">El día</p>
-      <ol class="horario" id="horario"></ol>
-    </div>
-    <div class="bloque" style="display:grid;gap:14px">
-      <div class="acciones" style="justify-content:space-between">
-        <div><p class="etq">Esta semana · <span id="socio-nombre">Tono</span></p><p class="intro" style="font-size:.85rem">Toca + cada vez que hagas una. Se guarda en este móvil.</p></div>
-        <div class="acciones"><button class="boton sec" type="button" id="nueva-semana">Empezar semana nueva</button><button class="boton peligro" type="button" id="confirmar-semana" hidden>Sí, poner a cero</button></div>
-      </div>
-      <div class="contadores" id="contadores"></div>
-    </div>
-  </section>
-
-  <!-- FORMACIÓN -->
-  <section class="vista" id="v-formacion" data-vista="formacion" hidden>
-    <div style="display:grid;gap:8px">
-      <h2>Formación</h2>
-      <p class="intro">Diez módulos, en el orden en que los vais a necesitar. Cada uno termina con un ejercicio <b>en la calle, con casos reales</b>: un módulo cuenta como hecho cuando el ejercicio está hecho, no cuando está leído.</p>
-    </div>
-    <div class="progreso"><span class="etq" id="prog-txt">0 de 10</span><div class="barra"><i id="prog-barra"></i></div></div>
-    <div id="modulos" style="display:grid;gap:22px"></div>
-  </section>
-
-  <!-- GUIONES -->
-  <section class="vista" id="v-guiones" data-vista="guiones" hidden>
-    <div style="display:grid;gap:8px">
-      <h2>Guiones</h2>
-      <p class="intro">Para leerlos justo antes de llamar a una puerta o de una visita. No son para recitarlos: ensayadlos entre los dos hasta poder decirlos con vuestras palabras.</p>
-    </div>
-    <div id="guiones" style="display:grid;gap:14px"></div>
-    <div class="bloque" style="display:grid;gap:12px">
-      <h3>Las 10 objeciones de siempre</h3>
-      <p class="intro" style="font-size:.9rem">Primero preguntar y escuchar; luego responder. Una objeción suele ser una duda sin resolver.</p>
-      <div class="objs" id="objeciones"></div>
-    </div>
-  </section>
-
-  <!-- PAPELES -->
-  <section class="vista" id="v-legal" data-vista="legal" hidden>
-    <div style="display:grid;gap:8px">
-      <h2>Papeles</h2>
-      <p class="intro">Lo legal para abrir y lo que hay que tener en cada operación. Está comprobado a 4 de noviembre de 2026 con las fuentes del final, pero <b>no sustituye a un abogado ni a la gestoría</b>: lo marcado <span class="comprobar">comprobar</span> se confirma con ellos antes de actuar.</p>
-    </div>
-    <div class="bloque" style="display:grid;gap:10px">
-      <h3>Antes de abrir</h3>
-      <ul class="checks" id="check-abrir"></ul>
-    </div>
-    <div class="bloque" style="display:grid;gap:10px">
-      <h3>En cada operación</h3>
-      <ul class="checks" id="check-operacion"></ul>
-    </div>
-    <p class="fuentes">Fuentes: <a href="https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Noticias-Judiciales/El-TSJCV-estima-un-recurso-de-la-CNMC-y-anula-varios-requisitos-del-Registro-de-Agentes-de-Intermediacion-Inmobiliaria-de-la-Comunidad-Valenciana" target="_blank" rel="noopener">TSJCV, nota del 17/01/2025</a> · <a href="https://www.gva.es/downloads/publicados/PR/FAQ_RAI_CAST.pdf" target="_blank" rel="noopener">Preguntas frecuentes del registro (GVA)</a> · <a href="https://www.boe.es/eli/es/cir/2023/06/26/1/con/20230628" target="_blank" rel="noopener">Circular 1/2023 de la AEPD (BOE)</a> · <a href="https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/la-aepd-publica-la-circular-sobre-el-derecho-de-los-usuarios" target="_blank" rel="noopener">AEPD, llamadas comerciales</a> · <a href="https://www.dsca.gob.es/es/comunicacion/notas-prensa/consumo-advierte-inmobiliarias-es-ilegal-cobrar-comision-gestion-personas" target="_blank" rel="noopener">Consumo, honorarios del alquiler</a> · <a href="https://www.sepblac.es/wp-content/uploads/2018/03/cor_sector_inmobiliario.pdf" target="_blank" rel="noopener">SEPBLAC, sector inmobiliario</a></p>
-  </section>
-
-  <!-- ARRANQUE -->
-  <section class="vista" id="v-arranque" data-vista="arranque" hidden>
-    <div style="display:grid;gap:8px">
-      <h2>Arranque</h2>
-      <p class="intro">Las decisiones que hay que tomar antes de abrir, la primera semana y los primeros 90 días.</p>
-    </div>
-    <div class="bloque" style="display:grid;gap:10px">
-      <h3>Decisiones, por orden de impacto</h3>
-      <div class="tabla"><table><thead><tr><th>Decisión</th><th>Qué recomendamos</th><th>Por qué</th></tr></thead><tbody id="decisiones"></tbody></table></div>
-    </div>
-    <div class="bloque" style="display:grid;gap:10px">
-      <h3>Esta semana</h3>
-      <ul class="semana" id="semana"></ul>
-    </div>
-    <div style="display:grid;gap:10px">
-      <h3>Los primeros 90 días</h3>
-      <div class="etapas" id="etapas"></div>
-    </div>
-    <div class="bloque" style="display:grid;gap:10px">
-      <h3>Presupuesto de arranque <span class="supuesto">supuesto · pedir presupuestos</span></h3>
-      <div class="tabla"><table><thead><tr><th>Partida</th><th>Orientativo</th><th>Nota</th></tr></thead><tbody id="presupuesto"></tbody></table></div>
-      <p class="intro" style="font-size:.9rem">Contad con <b>6 meses de gastos sin ningún cobro</b>: una compraventa tarda de 3 a 6 meses desde la captación hasta la notaría, y se cobra en la notaría <span class="supuesto">supuesto</span>.</p>
-    </div>
-    <div class="bloque" style="display:grid;gap:10px">
-      <h3>Riesgos que hay que vigilar</h3>
-      <ul class="lista" id="riesgos"></ul>
-    </div>
-    <p class="pie">Preparado por Innovarte para Tono e Hijo. Lo marcado como supuesto es una cifra de partida del sector, sin comprobar en Elche: se sustituye por la vuestra en cuanto la tengáis.</p>
-  </section>
-</div>
+<nav class="tabs" aria-label="Secciones">
+  <a href="#inicio" data-sec="inicio"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>Inicio</a>
+  <a href="#formacion" data-sec="formacion"><svg viewBox="0 0 24 24"><path d="M4 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg>Formación</a>
+  <a href="#practicar" data-sec="practicar"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg>Practicar</a>
+  <a href="#calculadoras" data-sec="calculadoras"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18"/><path d="M8 7h8M8 11h2M12 11h2M8 15h2M12 15h2M16 11v6"/></svg>Calcular</a>
+  <a href="#papeles" data-sec="papeles"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12l2 2 4-4"/></svg>Papeles</a>
+</nav>
+<div class="toast" id="toast" hidden></div>
 
 <script>
 (function(){
-  var S = function(k, d){ try{ var v = localStorage.getItem('teh:' + k); return v === null ? d : JSON.parse(v); }catch(e){ return d; } };
-  var G = function(k, v){ try{ localStorage.setItem('teh:' + k, JSON.stringify(v)); }catch(e){} };
-  var $ = function(s){ return document.querySelector(s); };
-  var esc = function(t){ return String(t).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
-  /* [s] = supuesto, [c] = comprobar */
-  var marcas = function(t){ return esc(t).replace(/\[s\]/g,'<span class="supuesto">supuesto</span>').replace(/\[c\]/g,'<span class="comprobar">comprobar</span>').replace(/\*\*(.+?)\*\*/g,'<b>$1</b>'); };
+'use strict';
+/* ================= almacenamiento (en este aparato) ================= */
+function S(k, d){ try{ var v = localStorage.getItem('teh2:' + k); return v === null ? d : JSON.parse(v); }catch(e){ return d; } }
+function G(k, v){ try{ localStorage.setItem('teh2:' + k, JSON.stringify(v)); }catch(e){} }
+function $(s, r){ return (r || document).querySelector(s); }
+function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+function esc(t){ return String(t == null ? '' : t).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+/* [s] = supuesto, [c] = comprobar, **negrita** */
+function md(t){ return esc(t).replace(/\[s\]/g,'<span class="supuesto">supuesto</span>').replace(/\[c\]/g,'<span class="comprobar">comprobar</span>').replace(/\*\*(.+?)\*\*/g,'<b>$1</b>'); }
+function eur(n){ return isFinite(n) ? Math.round(n).toLocaleString('es-ES') + ' €' : '—'; }
+function hoyClave(){ var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+function semanaClave(){ var d = new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate() + 3 - (d.getDay() + 6) % 7); var w1 = new Date(d.getFullYear(), 0, 4); return d.getFullYear() + '-s' + (1 + Math.round(((d - w1) / 864e5 - 3 + (w1.getDay() + 6) % 7) / 7)); }
+function toast(t){ var e = $('#toast'); e.textContent = t; e.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(function(){ e.hidden = true; }, 1800); }
+var I = {
+  flecha:'<svg class="flecha" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>',
+  dia:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  libro:'<svg viewBox="0 0 24 24"><path d="M4 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg>',
+  habla:'<svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/></svg>',
+  calc:'<svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18"/><path d="M8 7h8M8 11h2M12 11h2M8 15h2M12 15h2"/></svg>',
+  papel:'<svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12l2 2 4-4"/></svg>',
+  bandera:'<svg viewBox="0 0 24 24"><path d="M5 21V4h11l-2 4 2 4H5"/></svg>',
+  llave:'<svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg>'
+};
 
-  var socio = S('socio','Tono');
-  var fase = S('fase',0);
+var estado = { socio: S('socio', 'Tono'), fase: S('fase', 0) };
+function P(k, d){ return S(estado.socio + ':' + k, d); }   /* progreso de cada socio */
+function PG(k, v){ G(estado.socio + ':' + k, v); }
 
-  /* ---------- HOY ---------- */
-  var DIAS = [
-    [ ['09:00–09:30','Preparar el día','Revisar la zona en los portales (pisos nuevos de particulares, bajadas de precio), elegir los portales que se van a visitar y repasar el guion.'],
-      ['09:30–12:00','Prospección en la calle, sin interrupciones','Puerta a puerta en vuestra zona, comercios, porteros y conserjes, carteles de «se vende» de particulares. Es el bloque más importante del día: no se mueve.'],
-      ['12:00–13:30','Formación con ejercicio','El módulo que toque (lo propone la pestaña Formación). Ensayo de guiones entre los dos, grabado con el móvil.'],
-      ['16:30–18:30','Valoraciones y seguimiento','Visitar a los propietarios que han dicho que sí a una valoración. Llamar a quien os dio permiso para llamarle.'],
-      ['18:30–19:00','Apuntar y planear','Anotar cada contacto en el CRM o la hoja: nombre, inmueble, qué dijo, cuándo volver. Dejar listo el día siguiente.'] ],
-    [ ['09:00–09:30','Revisar las exclusivas','Visitas de ayer, mensajes de los portales, compradores nuevos que encajan con lo que tenéis.'],
-      ['09:30–11:30','Prospección (mínimo 2 horas)','Igual que en el arranque. Aunque haya trabajo, este bloque no se quita: es la venta de dentro de tres meses.'],
-      ['11:30–13:30','Comercialización','Fotos, anuncios, planos y certificado energético de lo captado. Informe semanal a cada propietario.'],
-      ['16:30–19:00','Compradores y visitas','Cualificar antes de enseñar: hipoteca y plazos. Visitas agrupadas. Llamar a cada visita en menos de 24 horas.'],
-      ['19:00–19:15','Apuntar','Contactos, visitas y ofertas al CRM. Siguiente paso de cada operación con fecha.'] ],
-    [ ['09:00–09:30','Reunión corta entre los dos','Operaciones abiertas, quién lleva qué, qué se puede caer esta semana.'],
-      ['09:30–11:00','Prospección (mínimo 1,5 horas)','En rodaje es fácil dejarla. Si se deja, a los tres meses no hay inmuebles.'],
-      ['11:00–13:30','Cierres y papeles','Ofertas, reservas, arras, tasaciones, notaría. Comprobaciones de la pestaña Papeles.'],
-      ['16:30–19:00','Visitas y captaciones','Los dos con agenda propia. Pedir un referido y una reseña en cada operación cerrada.'],
-      ['Viernes','Repaso de la semana (30 min)','Números de la semana frente a los mínimos, qué módulo repasar y la zona de la semana siguiente.'] ]
-  ];
-  var METAS = [
-    [['puertas','Puertas y comercios visitados',100],['contactos','Propietarios con los que habéis hablado',25],['citas','Citas de valoración',2],['captaciones','Captaciones firmadas',0.5],['ensayos','Ensayos de guion grabados',3]],
-    [['puertas','Puertas y comercios visitados',80],['contactos','Propietarios con los que habéis hablado',25],['citas','Citas de valoración',3],['captaciones','Captaciones firmadas',1],['visitas','Visitas con compradores',4]],
-    [['contactos','Propietarios con los que habéis hablado',20],['citas','Citas de valoración',3],['captaciones','Captaciones firmadas',1],['visitas','Visitas con compradores',6],['ofertas','Ofertas por escrito',1],['referidos','Referidos pedidos',2]]
-  ];
+/* ================= contenido ================= */
+var FASES = [
+  {nombre:'Arranque', d:'0 exclusivas · meses 0–2', bloque:'Semanas 1–2 · para poder salir a la calle'},
+  {nombre:'Primeras captaciones', d:'de 1 a 5 exclusivas', bloque:'Semanas 2–4 · para conseguir inmuebles'},
+  {nombre:'Rodaje', d:'más de 5 exclusivas', bloque:'Mes 2 en adelante · para cerrar'}
+];
+var DIAS = [
+  [ ['09:00','Preparar el día','Mirar la zona en los portales (pisos nuevos de particulares, bajadas de precio) y elegir los portales que se visitan hoy.'],
+    ['09:30','Prospección en la calle','Puerta a puerta en vuestra zona, comercios, porteros y carteles de «se vende». No se mueve: es lo más importante del día.'],
+    ['12:00','Formación con ejercicio','El módulo que toque. Ensayo de guiones entre los dos, grabado con el móvil.'],
+    ['16:30','Valoraciones y seguimiento','Ver a los propietarios que han aceptado una valoración. Volver a quien os dio permiso.'],
+    ['18:30','Apuntar y planear','Cada contacto al CRM o la hoja: nombre, inmueble, qué dijo y cuándo volver.'] ],
+  [ ['09:00','Revisar las exclusivas','Visitas de ayer, mensajes de los portales, compradores que encajan.'],
+    ['09:30','Prospección (mínimo 2 horas)','Aunque haya trabajo, no se quita: es la venta de dentro de tres meses.'],
+    ['11:30','Comercialización','Fotos, anuncios, planos y certificado energético. Informe semanal a cada propietario.'],
+    ['16:30','Compradores y visitas','Cualificar antes de enseñar. Visitas agrupadas. Llamar en menos de 24 horas.'],
+    ['19:00','Apuntar','Contactos, visitas y ofertas al CRM, con el siguiente paso y su fecha.'] ],
+  [ ['09:00','Reunión corta entre los dos','Operaciones abiertas, quién lleva qué y qué se puede caer esta semana.'],
+    ['09:30','Prospección (mínimo 1,5 horas)','En rodaje es fácil dejarla. Si se deja, a los tres meses no hay inmuebles.'],
+    ['11:00','Cierres y papeles','Ofertas, reservas, arras, tasaciones, notaría. Comprobar la lista de Papeles.'],
+    ['16:30','Visitas y captaciones','Cada uno con su agenda. Reseña y referido en cada operación cerrada.'],
+    ['Vie.','Repaso de la semana','30 minutos: números frente a los mínimos y qué módulo repasar.'] ]
+];
+var METAS = [
+  [['puertas','Puertas y comercios',100],['contactos','Propietarios con los que habéis hablado',25],['citas','Citas de valoración',2],['ensayos','Ensayos de guion grabados',3]],
+  [['puertas','Puertas y comercios',80],['contactos','Propietarios con los que habéis hablado',25],['citas','Citas de valoración',3],['captaciones','Captaciones firmadas',1],['visitas','Visitas con compradores',4]],
+  [['contactos','Propietarios con los que habéis hablado',20],['citas','Citas de valoración',3],['captaciones','Captaciones firmadas',1],['visitas','Visitas con compradores',6],['ofertas','Ofertas por escrito',1],['referidos','Referidos pedidos',2]]
+];
 
-  function contadores(){ return S('cont:' + socio, {}); }
-  function pintarHoy(){
-    document.querySelectorAll('[data-fase]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.fase === fase)); });
-    $('#horario').innerHTML = DIAS[fase].map(function(d){ return '<li><span class="h">' + d[0] + '</span><div><b>' + esc(d[1]) + '</b>' + esc(d[2]) + '</div></li>'; }).join('');
-    $('#socio-nombre').textContent = socio;
-    var c = contadores();
-    $('#contadores').innerHTML = METAS[fase].map(function(m){
-      var v = c[m[0]] || 0, meta = m[2], pct = Math.min(100, meta ? v / meta * 100 : 0);
-      var metaTxt = meta < 1 ? '1 cada 2 semanas' : 'objetivo ' + meta;
-      return '<div class="cont' + (v >= meta ? ' cumplido' : '') + '"><span class="etq">' + esc(m[1]) + '</span>' +
-        '<div class="fila"><span class="valor num">' + v + ' <small>' + metaTxt + '</small></span>' +
-        '<span class="botones"><button type="button" aria-label="Quitar una" data-menos="' + m[0] + '">−</button><button type="button" aria-label="Sumar una" data-mas="' + m[0] + '">+</button></span></div>' +
-        '<div class="barra"><i style="width:' + pct + '%"></i></div></div>';
-    }).join('');
-    $('#consejo').innerHTML = consejo(c);
-  }
-  function consejo(c){
-    var hechos = S('mods:' + socio, {});
-    var sig = MODULOS.find(function(m){ return !hechos[m.id]; });
-    var t = '';
-    if ((c.contactos || 0) >= 15 && (c.citas || 0) === 0) t = 'Habláis con propietarios pero no sale ninguna cita: repasad el <b>módulo 4</b> y el guion de la puerta.';
-    else if ((c.citas || 0) >= 3 && (c.captaciones || 0) === 0) t = 'Hay citas pero no captaciones: repasad el <b>módulo 5</b> (la entrevista y la exclusiva) y las objeciones.';
-    else if (fase > 0 && (c.visitas || 0) >= 6 && (c.ofertas || 0) === 0) t = 'Muchas visitas y ninguna oferta: o el precio no está bien o los compradores no están cualificados. <b>Módulos 3 y 7</b>.';
-    else if (sig) t = 'Módulo de hoy: <b>' + sig.n + '. ' + esc(sig.titulo) + '</b>. Ejercicio: ' + esc(sig.ejercicio);
-    else t = 'Todos los módulos hechos. Ahora toca repetir los ejercicios con casos nuevos y ajustar los objetivos a vuestros números reales.';
-    return '<p class="etq" style="margin-bottom:6px">Recomendación para ' + esc(socio) + '</p><p>' + t + '</p>';
-  }
-  document.addEventListener('click', function(e){
-    var b = e.target.closest('button'); if (!b) return;
-    if (b.dataset.fase !== undefined){ fase = +b.dataset.fase; G('fase', fase); pintarHoy(); }
-    if (b.dataset.socio){ socio = b.dataset.socio; G('socio', socio); pintarSocio(); }
-    if (b.dataset.mas || b.dataset.menos){
-      var c = contadores(), k = b.dataset.mas || b.dataset.menos;
-      c[k] = Math.max(0, (c[k] || 0) + (b.dataset.mas ? 1 : -1)); G('cont:' + socio, c); pintarHoy();
-    }
-    if (b.id === 'nueva-semana'){ $('#confirmar-semana').hidden = false; b.textContent = 'Cancelar'; b.id = 'cancelar-semana'; return; }
-    if (b.id === 'cancelar-semana' || b.id === 'confirmar-semana'){
-      if (b.id === 'confirmar-semana') G('cont:' + socio, {});
-      $('#confirmar-semana').hidden = true; var n = $('#cancelar-semana'); if (n){ n.id = 'nueva-semana'; n.textContent = 'Empezar semana nueva'; }
-      pintarHoy();
-    }
-    if (b.dataset.copiar !== undefined){
-      var txt = document.getElementById(b.dataset.copiar).innerText;
-      var ok = function(){ b.textContent = 'Copiado'; setTimeout(function(){ b.textContent = 'Copiar'; }, 1500); };
-      try{ navigator.clipboard.writeText(txt).then(ok, function(){ seleccionar(b.dataset.copiar); }); }catch(err){ seleccionar(b.dataset.copiar); }
-    }
-  });
-  function seleccionar(id){ var r = document.createRange(); r.selectNodeContents(document.getElementById(id)); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+var MODULOS = [
+ {n:1,f:0,t:'Lo legal y los documentos',dur:'2 sesiones de 45 min',
+  obj:'Saber qué podéis hacer, qué firmar en cada momento y qué no hay que hacer nunca.',
+  claves:['**Registro de Agentes de la Comunitat Valenciana**: sin inscripción no se puede intermediar. El número va en toda la publicidad (ver Papeles).','**Nota de encargo**: el contrato con el propietario. Precio de salida, honorarios, duración, si es en exclusiva y cómo se termina. Un modelo revisado por un abogado y siempre el mismo.','**Hoja de visita**: la firma el comprador en cada visita. Prueba que llegó por vosotros.','**Reserva y arras**: la reserva aparta el piso. Las arras penitenciales (art. 1454 del Código Civil) dejan echarse atrás: el comprador pierde lo entregado o el vendedor lo devuelve doble. Las confirmatorias son un pago a cuenta. Siempre por escrito y diciendo de qué tipo son.','**Nota simple** del Registro de la Propiedad antes de captar: dueño, cargas, hipotecas, embargos.','**Certificado de eficiencia energética**: obligatorio para anunciar; la etiqueta va en el anuncio.'],
+  pasos:['Pedid a un abogado modelos de nota de encargo (con y sin exclusiva), hoja de visita, oferta, reserva y arras.','Guardadlos en el móvil y en papel: siempre los mismos.','Antes de cada captación, pedid la nota simple.','No enseñéis ni anunciéis nada sin nota de encargo firmada.'],
+  errores:['Enseñar un piso sin nota de encargo firmada.','Cobrar dinero a cuenta sin un documento que diga qué es y qué pasa si se cae la venta.','Captar sin nota simple y enterarse del embargo en la notaría.'],
+  test:[['¿Qué tiene que estar firmado antes de anunciar o enseñar un piso?',['El contrato de arras','La nota de encargo','La hoja de visita'],1,'La nota de encargo es vuestro contrato con el propietario. Sin ella no podéis anunciar ni reclamar honorarios.'],
+        ['Con arras penitenciales, si el comprador se echa atrás…',['Recupera todo lo que pagó','Pierde lo que entregó','Tiene que pagar el doble'],1,'Pierde lo entregado. Si el que se echa atrás es el vendedor, devuelve el doble (art. 1454 del Código Civil).'],
+        ['¿Qué documento dice quién es el dueño y si hay cargas?',['La nota simple del Registro','El certificado energético','El recibo del IBI'],0,'La nota simple: titulares, hipotecas, embargos y otras cargas.']],
+  ej:'Rellenad entre los dos la nota de encargo, una hoja de visita y unas arras de un piso inventado. Apuntad aquí las dudas para el abogado.'},
+ {n:2,f:0,t:'Blanqueo de capitales y datos personales',dur:'1 sesión de 45 min',
+  obj:'Cumplir dos obligaciones que casi todas las agencias pequeñas olvidan hasta que llega una inspección.',
+  claves:['Las agencias inmobiliarias son **sujetos obligados** de la Ley 10/2010 de prevención del blanqueo de capitales.','En cada operación: **identificar al cliente** (DNI; en sociedades, quién está detrás), preguntar de dónde sale el dinero si algo no cuadra y **guardar los documentos** [c].','Formación en prevención del blanqueo y un responsable ante el SEPBLAC. Si el manual interno es obligatorio para una agencia de dos personas depende del tamaño [c].','**Efectivo**: en España no se pueden pagar en efectivo 1.000 € o más cuando interviene un empresario o profesional (Ley 7/2012).','**Datos personales (RGPD)**: a cada contacto que guardáis hay que decirle quién guarda sus datos y para qué. Un texto corto en la hoja de visita y en la web.','**Llamadas comerciales**: desde el 29/06/2023 hace falta consentimiento previo o un interés legítimo justificado (Ley 11/2022 y Circular 1/2023 de la AEPD). Llamar en frío a listas de particulares es arriesgado [c]. Por eso esta guía capta sobre todo en persona.'],
+  pasos:['Preguntad a la gestoría o a un asesor de blanqueo qué os toca exactamente.','Haced una carpeta por operación con las copias de DNI y los papeles.','Poned el texto de protección de datos en la hoja de visita.','Decidid con un abogado cómo contactar a particulares.'],
+  errores:['Aceptar pagos grandes en efectivo sin preguntar.','Llamar a una lista de teléfonos sacada de los portales.','Guardar los contactos solo en el WhatsApp personal.'],
+  test:[['¿Las inmobiliarias están obligadas por la ley de blanqueo de capitales?',['Sí, son sujetos obligados','Solo las de más de 10 empleados','No, solo los bancos'],0,'Sí: la Ley 10/2010 incluye a las agencias y agentes inmobiliarios.'],
+        ['Desde junio de 2023, para llamar a un particular y ofrecerle vuestros servicios…',['Basta con que su número esté en un portal','Hace falta su consentimiento previo o un interés legítimo justificado','No hay ningún límite'],1,'La Ley 11/2022 y la Circular 1/2023 de la AEPD lo exigen. Consultadlo con un abogado antes de llamar en frío.'],
+        ['Un comprador quiere pagar 3.000 € de reserva en efectivo. ¿Qué hacéis?',['Aceptarlo sin más','No se puede: con un profesional de por medio el límite está por debajo de 1.000 €','Aceptarlo si firma un recibo'],1,'Con un empresario o profesional de por medio, no se pueden pagar en efectivo 1.000 € o más. Mejor transferencia, que además deja rastro.']],
+  ej:'Apuntad aquí la respuesta de la gestoría: qué os toca hacer a vosotros por el blanqueo de capitales.'},
+ {n:3,f:0,t:'Valorar un piso',dur:'2 sesiones y práctica',
+  obj:'Dar un precio defendible con datos, porque el precio es lo que más decide si un piso se vende.',
+  claves:['**Testigos**: de 5 a 8 pisos parecidos de la misma zona. Mejor vendidos que anunciados: el anuncio es lo que se pide, no lo que se paga.','**Ajustes**: planta y ascensor, estado (para entrar o reformar), orientación, terraza, garaje, año del edificio.','**Tres precios**: el de salida, el de cierre esperado y el mínimo del propietario.','**Precio caro = piso quemado**: tras 6–8 semanas sin visitas, los compradores lo descartan y luego cuesta más bajarlo [s].','Entregar la valoración **por escrito**, con los testigos.'],
+  pasos:['Buscad testigos de la misma zona y tipo (calculadora de valoración).','Pasad todo a precio por m² y ajustad por lo que lo hace mejor o peor.','Sacad un rango, no un número.','Preparad la hoja con testigos para enseñarla al propietario.'],
+  errores:['Subir el precio para conseguir la captación.','Usar solo anuncios como testigos.','No preguntar qué necesita sacar el propietario y para cuándo.'],
+  test:[['¿Cuál es el mejor testigo para valorar?',['Un piso parecido ya vendido en la zona','El anuncio más caro de la calle','Lo que pide el propietario'],0,'Lo vendido es lo que la gente ha pagado de verdad.'],
+        ['¿Cuántos testigos conviene usar?',['Uno muy parecido','De 5 a 8','Más de 20'],1,'Con 5 a 8 parecidos se ve el rango sin mezclar pisos que no se parecen.'],
+        ['Un piso sale caro y pasa dos meses sin visitas. ¿Qué suele pasar?',['Se vende igual','Se «quema»: los compradores lo descartan','Sube de precio'],1,'Cuanto más tiempo lleva, más sospecha el comprador y más rebaja pide.']],
+  ej:'Valorad por separado 3 pisos anunciados en vuestra zona con la calculadora. Apuntad aquí vuestros dos precios y por qué difieren.'},
+ {n:4,f:1,t:'Conseguir propietarios',dur:'1 sesión y todas las mañanas',
+  obj:'Tener una entrada constante de propietarios que quieren vender, sin depender de la suerte.',
+  claves:['**Vuestra ventaja: sois administradores de fincas.** En las comunidades sabéis antes que nadie quién vende, hereda o se muda. Con permiso del presidente: aviso en el portal, presencia en la junta, buena relación con el conserje.','**Farming de zona**: un barrio, siempre el mismo. Las mismas calles cada semana, buzoneo con algo útil (precios vendidos del barrio) y presentarse a comercios, bares y farmacias.','**Carteles de particulares**: acercarse en persona ofreciendo algo concreto (valoración por escrito, fotos).','**Referidos**: abogados de herencias, gestorías, asesores y bancos de la zona. Un café al mes con cada uno.','Apuntarlo **todo**: quien hoy dice «no» vende dentro de un año.'],
+  pasos:['Elegid la zona y dibujad el recorrido de cada mañana.','Lista de las comunidades que administráis, con presidente y conserje.','Lista de 5 personas que os pueden pasar propietarios.','Cada mañana, 2 horas en la calle, y apuntar cada conversación.'],
+  errores:['Abarcar todo Elche.','Hacer buzoneo un mes y dejarlo.','No volver a quien dijo «ahora no».'],
+  test:[['¿Cuál es vuestra mayor ventaja para conseguir pisos?',['Anunciar en más portales','Las comunidades que ya administráis','Cobrar menos que nadie'],1,'Conocéis los edificios y a los vecinos: os enteráis antes de quién vende.'],
+        ['¿Qué es el farming de zona?',['Buzonear todo Elche una vez','Trabajar siempre el mismo barrio, semana tras semana','Comprar listas de teléfonos'],1,'La constancia en un barrio es lo que hace que os llamen a vosotros.'],
+        ['Un propietario os dice «ahora no». ¿Qué hacéis?',['Insistir hasta que diga que sí','Olvidarlo','Apuntarlo y volver cuando os haya dicho'],2,'Con fecha en el CRM. Muchos venden meses después.']],
+  ej:'Esta semana: 100 puertas o comercios de vuestra zona, la lista de comunidades y 5 personas que os pasen propietarios. Apuntad aquí lo que habéis aprendido.'},
+ {n:5,f:1,t:'La entrevista de captación y la exclusiva',dur:'2 sesiones y ensayos',
+  obj:'Salir de la primera reunión con el piso en exclusiva y a un precio que se pueda vender.',
+  claves:['**Primero preguntar** (20 minutos): por qué vende, para cuándo, qué hará después, si lo ha intentado ya y quién más decide.','**Después, el plan de venta** por escrito: precio con testigos, fotos y planos, portales, cartel, visitas filtradas e informe semanal.','**Pedir la exclusiva** sin rodeos: de 3 a 6 meses, con vuestros compromisos por escrito y la posibilidad de terminarla si no cumplís.','**Honorarios**: decirlos con naturalidad y no bajarlos en la primera reunión.','Si el propietario no acepta ni exclusiva ni un precio razonable, **se puede decir que no**.'],
+  pasos:['Saludo y ver la casa (10 min).','Preguntas (20 min): el guion de Practicar.','Plan de venta (15 min).','Precio y honorarios (5 min).','Pedir la firma de la exclusiva.'],
+  errores:['Empezar hablando de vosotros en vez de preguntar.','Dejar la nota de encargo para «otro día».','Aceptar un precio imposible por no perder el piso.'],
+  test:[['¿Con qué se empieza la entrevista de captación?',['Hablando de la agencia','Preguntando y escuchando','Dando el precio'],1,'Hasta saber por qué vende y para cuándo, no sabéis qué ofrecerle.'],
+        ['¿Cómo se plantea bien una exclusiva?',['Indefinida, para no perder el piso','Plazo corto, compromisos por escrito y la opción de terminarla','De palabra'],1,'El propietario firma más fácil si ve qué vais a hacer y que puede salirse si no cumplís.'],
+        ['El propietario exige un precio que no se puede conseguir. ¿Qué hacéis?',['Aceptarlo y ya bajará','Enseñarle los testigos y, si no cambia, decir que no','Ofrecerle un descuento en honorarios'],1,'Un piso caro os quita tiempo y dinero y quema vuestro nombre en el barrio.']],
+  ej:'Juego de rol grabado: uno hace de propietario difícil (entrenador de objeciones) y el otro capta. Cambiad de papel. Apuntad aquí qué objeción os cuesta más.'},
+ {n:6,f:1,t:'Preparar el piso y el anuncio',dur:'1 sesión y práctica',
+  obj:'Que el anuncio gane la comparación en el portal y traiga visitas buenas.',
+  claves:['**Fotos**: con luz de día, gran angular sin deformar, persianas subidas y nada personal. 20–30 fotos; la mejor, la primera.','**Puesta a punto** sencilla: quitar trastos, despejar encimeras, una bombilla que funcione en cada cuarto.','**Plano** del piso y **certificado energético** con su etiqueta.','**Título que venda**: lo que lo hace distinto («Ático con terraza de 30 m² en Altabix»), no «Piso en venta».','**Portales**: en Elche se mueven sobre todo Idealista y Fotocasa [s]. El CRM los publica a la vez.'],
+  pasos:['Lista de retoques al propietario dos días antes de las fotos.','Fotos con luz de día, de la puerta hacia dentro.','Plano, certificado y descripción con los datos que pregunta todo el mundo (gastos de comunidad, IBI, orientación).','Publicar y revisar a la semana: visitas, guardados y mensajes.'],
+  errores:['Fotos con el móvil, de noche, con la cama sin hacer.','Copiar la descripción del propietario.','Publicar sin certificado energético.'],
+  test:[['¿Cuándo se hacen las fotos?',['De noche, con todas las luces','Con luz de día y las persianas subidas','Cuando venga el comprador'],1,'La luz natural es lo que más vende en una foto de piso.'],
+        ['¿Se puede anunciar sin certificado energético?',['Sí, se pide después','No, la etiqueta tiene que ir en el anuncio','Solo en alquiler'],1,'Es obligatorio para anunciar en venta y en alquiler.'],
+        ['¿Qué título funciona mejor?',['«Piso en venta»','«Oportunidad única»','«Ático con terraza de 30 m² en Altabix»'],2,'El título tiene que decir lo que lo hace distinto de los otros 50 del portal.']],
+  ej:'Haced las fotos y el anuncio completo de la casa de uno de vosotros. Comparadlo con los 5 mejores anuncios de la zona y apuntad aquí qué mejoraríais.'},
+ {n:7,f:2,t:'Compradores: cualificar y enseñar',dur:'1 sesión y práctica',
+  obj:'Enseñar el piso solo a quien puede y quiere comprarlo.',
+  claves:['**Antes de la visita**: ¿necesita hipoteca y la tiene estudiada? ¿tiene que vender otro piso antes? ¿para cuándo? ¿quién más decide?','**Visitas agrupadas** en la misma franja: el comprador ve que hay interés.','**En la visita**: dejar mirar, contar lo que no se ve (orientación, comunidad, gastos) y preguntar qué le ha parecido.','**Hoja de visita firmada**, siempre.','**Seguimiento en menos de 24 horas**, y contárselo al propietario.'],
+  pasos:['Cinco preguntas antes de dar cita (guion en Practicar).','Agrupar visitas en una franja.','Hoja de visita firmada.','Llamada al día siguiente.','Informe al propietario.'],
+  errores:['Enseñar a todo el que llama.','No llamar después de la visita.','Hablar mal de otros pisos.'],
+  test:[['¿Qué hacéis antes de dar una cita de visita?',['Nada, cuantas más visitas mejor','Cualificar: hipoteca, plazos y quién decide','Pedir una señal'],1,'Cada visita que no puede comprar os quita una hora y cansa al propietario.'],
+        ['¿Para qué sirve la hoja de visita?',['Para nada, es papeleo','Para probar que el comprador llegó por vosotros','Para cobrar al comprador'],1,'Si luego intenta comprar sin vosotros, la hoja os protege.'],
+        ['¿Cuándo se llama después de una visita?',['En menos de 24 horas','A la semana','Si llama él'],0,'Al día siguiente todavía se acuerda y podéis resolver dudas.']],
+  ej:'Escribid vuestras 6 preguntas de cualificación y probadlas con 3 conocidos que busquen casa. Apuntad aquí lo que respondieron.'},
+ {n:8,f:2,t:'Negociar y cerrar',dur:'2 sesiones',
+  obj:'Llevar una oferta hasta la notaría sin que se caiga por el camino.',
+  claves:['**Ofertas siempre por escrito**: precio, forma de pago, plazos y si depende de la hipoteca.','**Contraofertas**: llevarlas entre las partes sin decidir por ninguna. Vuestro trabajo es que se entiendan.','**Reserva → arras → notaría**: plazos claros y el documento de cada paso (módulo 1).','**Hipoteca y tasación**: si la tasación sale por debajo, el banco presta menos. Hablad antes de qué se hace en ese caso.','**Antes de la notaría**: nota simple al día, certificado de deudas de la comunidad, recibo del IBI, certificado energético y lo que pida el notario [c].','**Impuestos**: el comprador paga el ITP (o el IVA si es nueva); el vendedor, la plusvalía municipal y el IRPF de la ganancia. Los tipos, con la gestoría [c].'],
+  pasos:['Oferta por escrito.','Contraoferta hasta el acuerdo.','Reserva y arras firmadas, diciendo de qué tipo son.','Tasación e hipoteca.','Papeles y cita en la notaría.','Reseña y referido el día de la firma.'],
+  errores:['Ofertas de palabra.','Prometer plazos que dependen del banco.','Dar consejo fiscal: eso es de la gestoría.'],
+  test:[['¿Cómo tiene que llegar una oferta?',['Por WhatsApp de voz','Por escrito, con precio, pago y plazos','De palabra en la visita'],1,'Lo que no está escrito no se puede presentar ni defender.'],
+        ['La tasación sale por debajo del precio. ¿Qué pasa?',['Nada','El banco presta menos y el comprador tiene que poner más o renegociar','La venta se anula sola'],1,'Por eso hay que hablarlo antes de firmar las arras.'],
+        ['El comprador os pregunta cuánto pagará de ITP exactamente.',['Se lo calculáis vosotros','Le mandáis a la gestoría o a su asesor','Le dais una cifra aproximada'],1,'No deis consejo fiscal: un error es responsabilidad vuestra.']],
+  ej:'Simulad una operación entera con un piso inventado: oferta, contraoferta, reserva y arras, y la lista de papeles para la notaría. Apuntad aquí dónde os habéis atascado.'},
+ {n:9,f:2,t:'Después de vender: reseñas y referidos',dur:'1 sesión',
+  obj:'Que cada venta traiga la siguiente.',
+  claves:['Pedir la **reseña en Google** el día de la firma, con el enlace directo en un mensaje.','Pedir un **referido** concreto: «¿Conoces a alguien que esté pensando en vender?».','Llamar al cabo de 1, 6 y 12 meses.','Ficha de Google Business con fotos, horario y respuesta a todas las reseñas.'],
+  pasos:['Crear la ficha de Google Business.','Sacar el enlace directo para dejar reseña.','Mensaje de reseña preparado (Practicar).','Recordatorios a 1, 6 y 12 meses en el CRM.'],
+  errores:['Desaparecer después de cobrar.','Pedir la reseña semanas después.'],
+  test:[['¿Cuándo se pide la reseña?',['El día de la firma','Al mes','Nunca, queda mal'],0,'Es el día en que el cliente está más contento.'],
+        ['¿Cómo se pide un referido?',['«Si sabes de algo, me dices»','«¿Conoces a alguien que esté pensando en vender?»','No se pide'],1,'Una pregunta concreta hace pensar en una persona concreta.']],
+  ej:'Cread la ficha de Google Business de Tono e Hijo y pegad aquí el enlace para dejar reseña.'},
+ {n:10,f:2,t:'Organizarse y medir',dur:'1 sesión y cada viernes',
+  obj:'Saber cada semana qué funciona y qué no, con números y no con sensaciones.',
+  claves:['**El embudo**: puertas → propietarios con los que habéis hablado → citas de valoración → captaciones → visitas → ofertas → arras → notaría.','**El viernes, 30 minutos**: cifras de la semana frente a los mínimos. Donde se rompe el embudo está el módulo que hay que repasar.','**Reparto entre los dos**: quién capta y quién comercializa cada inmueble, y cómo se reparte la comisión. Por escrito, en el pacto de socios.','**El CRM** guarda inmuebles, compradores y seguimientos. Esta guía dice qué hacer cada día.'],
+  pasos:['Cada día, sumar en Hoy lo que hacéis.','El viernes, mirar los números y la calculadora del embudo.','Elegir un módulo para repasar.','Ajustar los objetivos con vuestros datos a partir del segundo mes.'],
+  errores:['Medir solo las ventas: llegan tarde y no dicen dónde está el fallo.','No apuntar los «no».'],
+  test:[['¿Por qué no basta con contar las ventas?',['Porque llegan tarde y no dicen dónde está el fallo','Porque no importan','Porque las cuenta la gestoría'],0,'El embudo os dice si falla la calle, la cita, la captación o el cierre.'],
+        ['Hacéis muchas valoraciones y ninguna captación. ¿Qué repasáis?',['El módulo 6 (anuncios)','El módulo 5 (entrevista y exclusiva)','El módulo 9 (reseñas)'],1,'El fallo está entre la cita y la firma: la entrevista y las objeciones.']],
+  ej:'El primer viernes, mirad vuestros números y escribid aquí en una frase dónde se rompe vuestro embudo.'}
+];
 
-  /* ---------- FORMACIÓN ---------- */
-  var FASES = ['Semanas 1–2 · para poder salir a la calle','Semanas 2–4 · para conseguir inmuebles','Mes 2 en adelante · para cerrar'];
-  var MODULOS = [
-    {id:'m1',n:1,f:0,titulo:'Lo legal y los documentos',dur:'2 sesiones de 45 min',
-     obj:'Saber qué podéis hacer, qué firmar en cada momento y qué no hay que hacer nunca.',
-     claves:['**Registro de Agentes de la Comunitat Valenciana**: sin inscripción no se puede intermediar. El número va en toda la publicidad (pestaña Papeles).','**Nota de encargo**: el contrato con el propietario. Recoge precio de salida, honorarios, duración, si es en exclusiva y cómo se termina. Un modelo revisado por un abogado y siempre el mismo.','**Hoja de visita**: la firma el comprador en cada visita. Prueba que el comprador llegó por vosotros.','**Reserva y arras**: la reserva aparta el piso. Las arras penitenciales (art. 1454 del Código Civil) dejan echarse atrás: el comprador pierde lo entregado o el vendedor lo devuelve doble. Las confirmatorias son un pago a cuenta. Siempre por escrito y diciendo de qué tipo son.','**Nota simple** del Registro de la Propiedad antes de captar: quién es el dueño, cargas, hipotecas, embargos.','**Certificado de eficiencia energética**: obligatorio para anunciar; la etiqueta va en el anuncio.'],
-     errores:['Enseñar un piso sin nota de encargo firmada.','Cobrar dinero a cuenta sin un documento que diga qué es y qué pasa si se cae la venta.','Captar sin pedir la nota simple: os enteráis del embargo en la notaría.'],
-     ejercicio:'Pedid a un abogado que revise un modelo de nota de encargo, de hoja de visita y de arras. Rellenad los tres con un piso inventado entre los dos.'},
-    {id:'m2',n:2,f:0,titulo:'Blanqueo de capitales y datos personales',dur:'1 sesión de 45 min',
-     obj:'Cumplir dos obligaciones que casi todas las agencias pequeñas olvidan hasta que llega una inspección.',
-     claves:['Las agencias inmobiliarias son **sujetos obligados** de la Ley 10/2010 de prevención del blanqueo de capitales.','En cada operación: **identificar al cliente** (DNI, y en sociedades quién está detrás), saber de dónde sale el dinero si algo no cuadra y **guardar los documentos** [c].','Formación en prevención del blanqueo y un responsable ante el SEPBLAC. Si el manual interno es obligatorio para una agencia de dos personas depende del tamaño [c].','**Datos personales (RGPD)**: cada contacto que guardáis necesita informarle de quién guarda sus datos y para qué. Un texto corto en la hoja de visita y en el formulario de la web.','**Llamadas comerciales**: desde el 29/06/2023 hace falta consentimiento previo o un interés legítimo justificado para llamar a vender (Ley 11/2022 y Circular 1/2023 de la AEPD). Llamar en frío a particulares que anuncian su piso es arriesgado [c]. Por eso esta guía capta sobre todo en persona.'],
-     errores:['Aceptar pagos en efectivo grandes sin preguntar.','Llamar a una lista de teléfonos sacada de los portales.','Guardar los contactos en el WhatsApp personal sin más.'],
-     ejercicio:'Pedid a la gestoría o a un asesor de prevención del blanqueo qué os toca exactamente a vosotros. Apuntad la respuesta en la pestaña Papeles.'},
-    {id:'m3',n:3,f:0,titulo:'Valorar un piso',dur:'2 sesiones + práctica',
-     obj:'Dar un precio defendible con datos, no con intuición, porque el precio es lo que más decide si un piso se vende.',
-     claves:['**Testigos**: de 5 a 8 pisos parecidos de la misma zona. Mejor vendidos que anunciados (el anuncio es lo que se pide, no lo que se paga).','**Ajustes**: planta y ascensor, estado (para entrar o para reformar), orientación, terraza, garaje, año del edificio.','**Tres precios**: el de salida, el de cierre esperado y el mínimo del propietario. Se habla de los tres.','**Precio caro = piso quemado**: tras 6–8 semanas sin visitas en el portal, los compradores lo descartan y luego cuesta más bajarlo.','Entregar la valoración **por escrito**, con los testigos. Es lo que diferencia a un profesional del «yo creo que vale…».'],
-     errores:['Subir el precio para conseguir la captación.','Usar solo anuncios de los portales como testigos.','No preguntar al propietario qué necesita sacar y para cuándo.'],
-     ejercicio:'Valorad por separado 3 pisos anunciados en vuestra zona. Comparad vuestros precios y discutid las diferencias.'},
-    {id:'m4',n:4,f:1,titulo:'Conseguir propietarios: la zona y las comunidades',dur:'1 sesión + todas las mañanas',
-     obj:'Tener una entrada constante de propietarios que quieren vender, sin depender de la suerte.',
-     claves:['**Vuestra ventaja: sois administradores de fincas.** En las comunidades sabéis antes que nadie quién vende, hereda o se muda. Con permiso del presidente: aviso en el portal, presencia en la junta, buena relación con el conserje.','**Farming de zona**: un barrio, siempre el mismo. Mismas calles cada semana, buzoneo con algo útil (precios vendidos del barrio, no «compramos su piso»), presentarse a comercios, bares y farmacias.','**Carteles de particulares**: llamar a la puerta o al número del cartel ofreciendo algo concreto (valoración por escrito, fotos). Ojo con las llamadas comerciales: pestaña Papeles [c].','**Referidos**: abogados de herencias, gestorías, asesores, bancos de la zona. Un café al mes con cada uno.','Apuntarlo **todo**: el propietario que hoy dice «no» vende dentro de un año.'],
-     errores:['Abarcar todo Elche.','Hacer buzoneo un mes y dejarlo.','No volver a quien dijo «ahora no».'],
-     ejercicio:'Esta semana: 100 puertas o comercios de vuestra zona, una lista de las comunidades que administráis y 5 personas que os puedan pasar propietarios.'},
-    {id:'m5',n:5,f:1,titulo:'La entrevista de captación y la exclusiva',dur:'2 sesiones + ensayos',
-     obj:'Salir de la primera reunión con el piso en exclusiva y a un precio que se pueda vender.',
-     claves:['**Primero preguntar** (20 minutos): por qué vende, para cuándo, qué va a hacer después, si ha probado ya y qué pasó, quién más decide.','**Luego el plan de venta**, por escrito: precio con testigos, fotos y planos, portales, cartel, visitas filtradas, informe semanal.','**Pedir la exclusiva** sin rodeos: 3 a 6 meses, con lo que os comprometéis a hacer y la posibilidad de terminarla si no cumplís.','**Honorarios**: decirlos con naturalidad y no bajarlos en la primera reunión. Un precio que se negocia a la primera dice «no confío en lo que vendo».','Si el propietario no quiere exclusiva ni un precio razonable, **se puede decir que no**.'],
-     errores:['Empezar hablando de vosotros en vez de preguntar.','Dejar la nota de encargo para «otro día».','Aceptar un precio imposible por no perder el piso.'],
-     ejercicio:'Juego de rol grabado: uno hace de propietario difícil (las 10 objeciones de la pestaña Guiones) y el otro capta. Cambiad de papel. Repetidlo hasta firmar sin dudar.'},
-    {id:'m6',n:6,f:1,titulo:'Preparar el piso y el anuncio',dur:'1 sesión + práctica',
-     obj:'Que el anuncio gane la comparación en el portal y traiga visitas buenas.',
-     claves:['**Fotos**: con luz de día, gran angular sin deformar, persianas subidas, sin objetos personales. 20–30 fotos, la mejor la primera.','**Pequeña puesta a punto**: quitar trastos, despejar encimeras, una bombilla que funcione en cada cuarto.','**Plano** del piso y **certificado energético** con su etiqueta.','**Título que venda**: lo que lo hace distinto («Ático con terraza de 30 m² en Altabix»), no «Piso en venta».','**Portales**: en Elche se mueven sobre todo Idealista y Fotocasa [s]. El CRM los publica a la vez.'],
-     errores:['Fotos con el móvil, de noche, con la cama sin hacer.','Copiar la descripción del propietario.','Publicar sin certificado energético.'],
-     ejercicio:'Haced las fotos y el anuncio completo de la casa de uno de vosotros. Comparadlo con los 5 mejores anuncios de la zona.'},
-    {id:'m7',n:7,f:2,titulo:'Compradores: cualificar y enseñar',dur:'1 sesión + práctica',
-     obj:'Enseñar el piso solo a quien puede y quiere comprarlo.',
-     claves:['**Antes de la visita**: ¿necesita hipoteca y la tiene estudiada? ¿tiene que vender otro piso antes? ¿para cuándo? ¿quién más decide?','**Visitas agrupadas** en la misma franja: el comprador ve que hay interés.','**Durante la visita**: dejar mirar, señalar lo que no se ve (orientación, comunidad, gastos), preguntar qué le ha parecido.','**Hoja de visita firmada** siempre.','**Seguimiento en menos de 24 horas** y contárselo al propietario.'],
-     errores:['Enseñar a todo el que llama.','No llamar después de la visita.','Hablar mal de otros pisos.'],
-     ejercicio:'Escribid entre los dos vuestras 6 preguntas de cualificación y probadlas con 3 personas conocidas que estén buscando casa.'},
-    {id:'m8',n:8,f:2,titulo:'Negociar y cerrar',dur:'2 sesiones',
-     obj:'Llevar una oferta hasta la notaría sin que se caiga por el camino.',
-     claves:['**Ofertas siempre por escrito**, con precio, forma de pago, plazos y si depende de la hipoteca.','**Contraofertas**: llevarlas entre las partes sin decidir por ninguna. Vuestro trabajo es que se entiendan.','**Reserva → arras → notaría**: plazos claros y el documento de cada paso (módulo 1).','**Hipoteca y tasación**: si la tasación sale por debajo, el banco presta menos. Hay que hablar antes de qué se hace en ese caso.','**Antes de la notaría**: nota simple al día, certificado de deudas de la comunidad (vosotros lo conocéis bien), recibo del IBI, certificado energético y lo que pida el notario [c].','**Impuestos**: el comprador paga el ITP (o el IVA si es nueva); el vendedor, la plusvalía municipal y el IRPF de la ganancia. Los tipos se comprueban con la gestoría [c].'],
-     errores:['Ofertas de palabra.','Prometer plazos que dependen del banco.','Dar consejo fiscal: eso es para la gestoría.'],
-     ejercicio:'Simulad una operación entera con un piso inventado: oferta, contraoferta, reserva y arras rellenadas, y una lista de los papeles para la notaría.'},
-    {id:'m9',n:9,f:2,titulo:'Después de vender: reseñas y referidos',dur:'1 sesión',
-     obj:'Que cada venta traiga la siguiente.',
-     claves:['Pedir la **reseña en Google** el día de la firma, con el enlace directo en un mensaje.','Pedir un **referido** concreto: «¿Conoces a alguien que esté pensando en vender?».','Llamar al cabo de 1, 6 y 12 meses. Felicitar en fechas señaladas.','La ficha de Google Business con fotos, horario y respuestas a todas las reseñas.'],
-     errores:['Desaparecer después de cobrar.','Pedir la reseña semanas después.'],
-     ejercicio:'Cread la ficha de Google Business de Tono e Hijo y preparad el mensaje de reseña con su enlace.'},
-    {id:'m10',n:10,f:2,titulo:'Organizarse y medir',dur:'1 sesión + cada viernes',
-     obj:'Saber cada semana qué funciona y qué no, con números y no con sensaciones.',
-     claves:['**El embudo**: puertas → propietarios con los que habéis hablado → citas de valoración → captaciones → exclusivas → visitas → ofertas → arras → notaría.','**El viernes, 30 minutos**: cifras de la semana frente a los mínimos (pestaña Hoy). Donde se rompe el embudo, ese es el módulo que hay que repasar.','**Reparto entre los dos**: quién capta y quién comercializa cada inmueble, y cómo se reparte la comisión. Por escrito, en el pacto de socios.','**El CRM** guarda inmuebles, compradores y seguimientos. Esta guía dice qué hacer cada día.'],
-     errores:['Medir solo las ventas: llegan tarde y no dicen dónde está el fallo.','No apuntar los «no».'],
-     ejercicio:'El primer viernes, sacad vuestros números de la semana y escribid en una frase dónde se rompe vuestro embudo.'}
-  ];
-  function pintarModulos(){
-    var hechos = S('mods:' + socio, {}), abiertos = S('abiertos', {});
-    $('#modulos').innerHTML = FASES.map(function(nombre, i){
-      return '<div class="grupo-fase"><p class="etq">' + nombre + '</p>' + MODULOS.filter(function(m){ return m.f === i; }).map(function(m){
-        var h = !!hechos[m.id];
-        return '<details class="mod' + (h ? ' hecho' : '') + '" data-mod="' + m.id + '"' + (abiertos[m.id] ? ' open' : '') + '><summary><span class="n">' + m.n + '</span><span class="t"><b>' + esc(m.titulo) + '</b><span>' + esc(m.dur) + '</span></span>' + (h ? '<span class="marca">Hecho</span>' : '<span></span>') + '</summary>' +
-          '<div class="cuerpo"><p><b>Para qué:</b> ' + esc(m.obj) + '</p>' +
-          '<div><h4>Lo esencial</h4><ul class="lista">' + m.claves.map(function(c){ return '<li>' + marcas(c) + '</li>'; }).join('') + '</ul></div>' +
-          '<div><h4>Errores típicos</h4><ul class="lista">' + m.errores.map(function(c){ return '<li>' + marcas(c) + '</li>'; }).join('') + '</ul></div>' +
-          '<div class="ejercicio"><h4>Ejercicio</h4><p>' + esc(m.ejercicio) + '</p><label><input type="checkbox" id="ej-' + m.id + '" data-hecho="' + m.id + '"' + (h ? ' checked' : '') + '> Hecho por ' + esc(socio) + '</label></div></div></details>';
-      }).join('') + '</div>';
-    }).join('');
-    var n = MODULOS.filter(function(m){ return hechos[m.id]; }).length;
-    $('#prog-txt').textContent = socio + ': ' + n + ' de 10';
-    $('#prog-barra').style.width = (n * 10) + '%';
-  }
-  document.addEventListener('change', function(e){
-    var t = e.target;
-    if (t.dataset.hecho){ var h = S('mods:' + socio, {}); h[t.dataset.hecho] = t.checked; G('mods:' + socio, h); pintarModulos(); pintarHoy(); }
-    if (t.dataset.check){ var c = S('checks', {}); c[t.dataset.check] = t.checked; G('checks', c); }
-  });
-  document.addEventListener('toggle', function(e){
-    if (e.target.dataset && e.target.dataset.mod){ var a = S('abiertos', {}); a[e.target.dataset.mod] = e.target.open; G('abiertos', a); }
-  }, true);
+var GUIONES = [
+  ['Puerta a puerta o comercio','Para presentarse en vuestra zona. 30 segundos.',
+   'Buenos días, soy {socio}, de Tono e Hijo. Somos administradores de fincas y ahora también inmobiliaria, aquí en [barrio].\n\nNo vengo a venderle nada: estamos preparando un informe con lo que se ha vendido en esta calle este año y a qué precio. ¿Le interesa que se lo deje?\n\n(Si dice que sí) ¿Sabe de algún vecino que esté pensando en vender o alquilar? Si alguna vez le hace falta, aquí tiene mi tarjeta.'],
+  ['Cartel de un particular','Cuando veis un cartel de «se vende» de particular. En persona, mejor que por teléfono.',
+   'Hola, soy {socio}, de Tono e Hijo, la inmobiliaria de [barrio]. He visto el cartel de su piso.\n\nNo le voy a pedir que lo deje en nuestras manos hoy. Le propongo algo: le preparo gratis una valoración por escrito con lo que se ha vendido de verdad en esta zona, para que sepa si el precio que pide se puede conseguir.\n\nSi le sirve, perfecto. Si un día quiere ayuda con las visitas o con los papeles, ya me conoce. ¿Le viene bien que se la traiga el jueves?'],
+  ['Entrevista de captación','La primera reunión en casa del propietario. 45–60 minutos.',
+   '1. Saludo y ver la casa (10 min): dejar que la enseñe él. Apuntar todo.\n\n2. Preguntas (20 min):\n· ¿Por qué ha decidido vender?\n· ¿Para cuándo lo necesita?\n· ¿Qué va a hacer después?\n· ¿Lo ha intentado ya? ¿Qué pasó?\n· ¿Quién más decide?\n· ¿Qué es lo que más le preocupa de vender?\n\n3. Plan de venta (15 min): la valoración con testigos, cómo lo vamos a enseñar, en qué portales y cada cuánto le informamos.\n\n4. Precio y honorarios (5 min), con naturalidad.\n\n5. Pedir la exclusiva: «Para hacer todo esto bien necesitamos llevarlo solo nosotros durante [3–6] meses. Si no cumplimos lo que le he dicho, la puede terminar. ¿Lo firmamos hoy y empezamos el lunes con las fotos?»'],
+  ['Cualificar a un comprador','Antes de enseñar cualquier piso.',
+   'Gracias por escribir por el piso de [calle]. Para enseñárselo bien, le hago cinco preguntas rápidas:\n\n1. ¿Busca para vivir o para invertir?\n2. ¿Va a necesitar hipoteca? ¿La tiene hablada con el banco?\n3. ¿Tiene que vender otra casa antes?\n4. ¿Para cuándo le gustaría estar dentro?\n5. ¿Quién más tiene que ver el piso para decidir?\n\nPerfecto. Tengo visitas el martes a las 17:30 y a las 18:30. ¿Cuál le viene mejor?'],
+  ['Seguimiento de una visita','En menos de 24 horas. Por teléfono mejor que por mensaje.',
+   'Hola, soy {socio}, de Tono e Hijo. Le llamo por la visita de ayer al piso de [calle]. ¿Qué le pareció?\n\n(Escuchar sin interrumpir.)\n\n¿Hay algo que le haya hecho dudar? … ¿Y si eso se resolviera, sería el piso para usted?\n\n(Si hay interés) Lo siguiente sería hacer una oferta por escrito. Se la preparo yo y se la llevo al propietario. ¿Qué cantidad le parece justa?'],
+  ['Pedir reseña y referido','El día de la firma en la notaría.',
+   'Enhorabuena, ya es suyo. Nos ha encantado acompañarles.\n\nDos cosas que a una inmobiliaria pequeña como la nuestra nos ayudan muchísimo:\n\n1. Si se ha sentido bien atendido, ¿nos dejaría una reseña en Google? Le mando ahora el enlace por WhatsApp.\n2. ¿Conoce a alguien que esté pensando en vender o comprar? Con que nos pase su nombre, le llamamos nosotros con mucho cuidado.']
+];
+var OBJECIONES = [
+  ['Ya lo vendo yo','Puede hacerlo, mucha gente lo intenta. ¿Qué tal va hasta ahora? Le ofrecemos lo que a solas cuesta más: filtrar a quien no puede comprar, defender el precio y llevar los papeles hasta la notaría. Le dejo la valoración y, si en unas semanas cambia de idea, me llama.'],
+  ['Otra agencia me cobra menos','Es lógico mirarlo. ¿Qué le ofrecen por ese precio? (Escuchar.) Lo que importa es lo que le queda en el bolsillo: un piso bien valorado y bien enseñado se vende antes y con menos rebaja. Esto es lo que hacemos nosotros por nuestros honorarios.'],
+  ['No quiero exclusiva','Le entiendo: da miedo atarse. Sin exclusiva su piso sale en cuatro agencias a cuatro precios distintos y el comprador piensa que algo pasa. Por eso lo hacemos con un plazo corto y con lo que nos comprometemos por escrito. Si no cumplimos, la termina.'],
+  ['Quiero sacarlo más caro y ya bajaré','Es lo más habitual y lo que peor sale: las primeras semanas son las de más visitas, y si el precio está alto se pierden. Mire estos testigos: es lo que se ha pagado de verdad aquí. Salgamos a un precio que traiga visitas.'],
+  ['Me lo voy a pensar','Claro, es una decisión importante. ¿Qué es lo que le hace dudar? (Casi siempre es el precio, la exclusiva o la confianza.) Si le parece, quedamos el jueves, lo habla con su familia y lo vemos juntos.'],
+  ['Ahora no es buen momento','De acuerdo. ¿Para cuándo cree que lo sería? Le dejo la valoración y le llamo entonces, ¿le parece bien? (Apuntarlo con fecha.)'],
+  ['Sois nuevos','Es verdad, la inmobiliaria es nueva. Pero llevamos años administrando fincas en Elche: conocemos los edificios, las comunidades y sus papeles mejor que nadie. Y al ser pocos, su piso lo llevamos nosotros dos en persona.'],
+  ['Tengo un conocido que me lo vende','Perfecto si ya tiene un comprador. Si no, nuestra propuesta es la misma: valorarlo bien, enseñarlo bien y cuidar los papeles. Si su conocido tiene un comprador, podemos trabajar con él.'],
+  ['¿Por qué pagar si el comprador sale del portal?','El portal pone el anuncio; no filtra, no enseña, no negocia ni prepara la notaría. Ese trabajo, y que la venta no se caiga a mitad, es lo que se paga.'],
+  ['Quiero que me lo compréis vosotros','No compramos pisos: le ayudamos a venderlo al mejor comprador. Si tiene prisa, podemos ajustar el precio y el plan para vender rápido, y se lo explico con números.']
+];
+var ABRIR = [
+  ['pacto','Pacto de socios firmado','Reparto, quién aporta qué, cómo se reparten las comisiones y qué pasa si uno se va.'],
+  ['forma','Forma jurídica decidida con la gestoría','SL o autónomos: responsabilidad, impuestos e imagen.'],
+  ['registro','Inscripción en el Registro de Agentes de Intermediación Inmobiliaria de la Comunitat Valenciana','Obligatoria (Ley 2/2017 y Decreto 98/2022). El número va en la publicidad. Ser administrador de fincas no basta para intermediar.'],
+  ['seguro','Seguro de responsabilidad civil profesional','El TSJCV anuló en enero de 2025 la garantía de 60.000 € y el seguro obligatorios del decreto; la sentencia no era firme. Contratarlo es lo prudente [c].'],
+  ['pbc','Prevención del blanqueo de capitales','Sujetos obligados (Ley 10/2010): identificar clientes, guardar documentos, formación y responsable ante el SEPBLAC [c].'],
+  ['rgpd','Protección de datos','Registro de lo que guardáis, texto informativo en hoja de visita y web, y contrato con el CRM.'],
+  ['llamadas','Cómo contactar a particulares','Desde el 29/06/2023 las llamadas comerciales necesitan consentimiento previo o interés legítimo justificado (Circular 1/2023 de la AEPD) [c].'],
+  ['modelos','Modelos revisados por un abogado','Nota de encargo (con y sin exclusiva), hoja de visita, oferta, reserva y arras.'],
+  ['alquiler','Si hacéis alquiler: quién paga los honorarios','Desde la Ley 12/2023 (art. 20.1 LAU), en vivienda habitual los paga el propietario. Cobrarlos al inquilino es ilegal según Consumo.']
+];
+var OPERACION = [
+  ['nota','Nota de encargo firmada','Antes de anunciar o enseñar.'],
+  ['simple','Nota simple del Registro','Titulares, cargas, hipotecas y embargos.'],
+  ['cee','Certificado energético','Su etiqueta en el anuncio.'],
+  ['identv','Vendedor identificado (blanqueo)','DNI; en sociedades, quién está detrás. Copia guardada.'],
+  ['anuncio','Fotos, plano y anuncio publicados',''],
+  ['visitas','Hojas de visita firmadas',''],
+  ['identc','Comprador identificado (blanqueo)',''],
+  ['oferta','Oferta por escrito aceptada','Precio, forma de pago, plazos, si depende de la hipoteca.'],
+  ['arras','Reserva y arras firmadas','Diciendo de qué tipo son.'],
+  ['tasacion','Tasación e hipoteca aprobadas',''],
+  ['notaria','Papeles para la notaría','Certificado de deudas de la comunidad, IBI, certificado energético y lo que pida el notario [c].'],
+  ['firma','Firma en notaría y cobro',''],
+  ['resena','Reseña y referido pedidos','El día de la firma.']
+];
+var DECISIONES = [
+  ['Pacto de socios','Firmarlo antes del primer euro.','Es lo que más rompe las agencias de dos personas en el primer año.'],
+  ['Forma jurídica','SL desde el principio, o autónomos y SL más adelante: con los números de la gestoría.','Responsabilidad, impuestos e imagen ante el propietario.'],
+  ['De dónde saldrán los inmuebles','① Las comunidades que administráis ② una zona trabajada a fondo ③ referidos.','Sin inmuebles no hay negocio; si hay producto, los compradores llegan solos.'],
+  ['Zona','Uno o dos barrios de Elche, siempre los mismos, donde ya os conocen.','Ser «los de ese barrio» vale más que estar en todo Elche.'],
+  ['Exclusiva','Pedirla siempre (3–6 meses, con plan escrito). Sin exclusiva, solo con buen precio.','Sin exclusiva competís con cuatro agencias por el mismo piso.'],
+  ['Honorarios','Un porcentaje y un mínimo fijos, sin rebajar en la primera reunión. En la zona suele estar entre el 3 y el 5 % más IVA [s].','Un precio que cede a la primera transmite poca confianza.'],
+  ['Venta o alquiler','Empezar por la venta. Alquiler solo si encaja con la administración de fincas.','En alquiler de vivienda habitual los honorarios los paga el propietario (Ley 12/2023).'],
+  ['Local','Pensarlo: a pie de calle capta mucho, pero es el gasto fijo más alto. Alternativa: despacho con dirección.','Es lo que más pesa en el presupuesto.'],
+  ['CRM y portales','Un CRM inmobiliario del mercado que publique en los portales (Inmovilla, Witei, Mobilia u otros; demo de 2 o 3).','Hacerlo a medida es caro y no aporta nada.']
+];
+var SEMANA = [
+  ['Lunes','Cita con la gestoría (forma jurídica, pacto de socios, impuestos). Empezar la inscripción en el Registro de Agentes.'],
+  ['Martes','Precio de seguro de responsabilidad civil a 2 o 3 corredores. Pedir demo de 2 o 3 CRM.'],
+  ['Miércoles','Elegir el barrio y recorrerlo a pie: agencias, carteles de particulares, comercios y porteros.'],
+  ['Jueves','Módulos 1 y 3. Vuestra versión de los guiones y ensayo de las 5 primeras objeciones, grabado.'],
+  ['Viernes','Primeras 50 puertas. Lista de comunidades y de 5 personas que os pasen propietarios. Primer repaso de números.']
+];
+var ETAPAS = [
+  ['Días 1–30','Abrir bien',['Registro, gestoría, seguro y modelos','Barrio elegido y recorrido','Módulos 1 a 5','Ficha de Google Business y tarjetas','Primeras 5 valoraciones por escrito']],
+  ['Días 31–60','Primeras exclusivas',['2 o 3 captaciones en exclusiva [s]','CRM y anuncios en los portales','Módulos 6 y 7','Informe semanal a cada propietario']],
+  ['Días 61–90','Primeras ofertas',['Primeras ofertas por escrito y quizá la primera reserva [s]','Módulos 8 a 10','Objetivos ajustados a vuestros números','Decidir local, web y más portales']]
+];
+var PRESUPUESTO = [
+  ['Gestoría y constitución','500–1.500 €','Según la forma jurídica.'],
+  ['Seguro de responsabilidad civil','Pedir precio','2 o 3 corredores.'],
+  ['CRM inmobiliario','50–150 €/mes','Que publique en los portales.'],
+  ['Portales','150–600 €/mes','Según el número de anuncios.'],
+  ['Marca, tarjetas, carteles y web','1.000–2.500 €','Con el número de registro.'],
+  ['Fotos','Cámara gran angular o fotógrafo','Lo que más se nota en el portal.'],
+  ['Local','Lo que más pesa','Si lo hay.']
+];
+var RIESGOS = ['Anunciarse sin estar inscritos o sin seguro.','Captar caro y llenarse de pisos que no se venden.','Olvidar el blanqueo de capitales y los datos personales.','Llamar en frío a listas de teléfonos: puede acabar en multa de la AEPD.','Dejar de captar cuando hay trabajo: mes bueno, trimestre vacío.','Pelearse por las comisiones sin pacto de socios.','Quedarse sin dinero: se cobra en la notaría, no al captar.'];
+var FUENTES = '<a href="https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Noticias-Judiciales/El-TSJCV-estima-un-recurso-de-la-CNMC-y-anula-varios-requisitos-del-Registro-de-Agentes-de-Intermediacion-Inmobiliaria-de-la-Comunidad-Valenciana" target="_blank" rel="noopener">TSJCV, 17/01/2025</a> · <a href="https://www.gva.es/downloads/publicados/PR/FAQ_RAI_CAST.pdf" target="_blank" rel="noopener">Registro de agentes (GVA)</a> · <a href="https://www.boe.es/eli/es/cir/2023/06/26/1/con/20230628" target="_blank" rel="noopener">Circular 1/2023 AEPD</a> · <a href="https://www.dsca.gob.es/es/comunicacion/notas-prensa/consumo-advierte-inmobiliarias-es-ilegal-cobrar-comision-gestion-personas" target="_blank" rel="noopener">Consumo, honorarios del alquiler</a> · <a href="https://www.sepblac.es/wp-content/uploads/2018/03/cor_sector_inmobiliario.pdf" target="_blank" rel="noopener">SEPBLAC, sector inmobiliario</a>';
 
-  /* ---------- GUIONES ---------- */
-  var GUIONES = [
-    ['Puerta a puerta o comercio de la zona','Para presentarse en vuestra zona. 30 segundos.',
-     'Buenos días, soy Tono, de Tono e Hijo. Somos administradores de fincas y ahora también inmobiliaria, aquí en [barrio].\n\nNo vengo a venderle nada: estamos preparando un informe con lo que se ha vendido en esta calle este año y a qué precio. ¿Le interesa que se lo deje?\n\n(Si dice que sí) ¿Sabe de algún vecino que esté pensando en vender o en alquilar? Si alguna vez le hace falta, aquí tiene mi tarjeta.'],
-    ['Cartel de un particular («se vende»)','Cuando veis un cartel de particular en vuestra zona. En persona, mejor que por teléfono.',
-     'Hola, soy Carlos, de Tono e Hijo, la inmobiliaria de [barrio]. He visto el cartel de su piso.\n\nNo le voy a pedir que lo deje en nuestras manos hoy. Le propongo algo: le preparo gratis una valoración por escrito con lo que se ha vendido de verdad en esta zona, para que sepa si el precio que pide se puede conseguir.\n\nSi le sirve, perfecto. Si un día quiere ayuda con las visitas o con los papeles, ya me conoce. ¿Le viene bien que se la traiga el jueves?'],
-    ['Entrevista de captación','La primera reunión en casa del propietario. 45–60 minutos.',
-     '1. Saludo y ver la casa (10 min): dejar que la enseñe él. Apuntar todo.\n\n2. Preguntas (20 min):\n· ¿Por qué ha decidido vender?\n· ¿Para cuándo lo necesita?\n· ¿Qué va a hacer después: comprar otro, irse de alquiler…?\n· ¿Lo ha intentado ya? ¿Qué pasó?\n· ¿Quién más decide?\n· ¿Qué es lo que más le preocupa de vender?\n\n3. Plan de venta (15 min): la valoración con testigos, cómo lo vamos a enseñar, en qué portales, cada cuánto le informamos.\n\n4. Precio y honorarios (5 min): los tres precios y nuestros honorarios, con naturalidad.\n\n5. Pedir la exclusiva: «Para hacer todo esto bien necesitamos llevarlo solo nosotros durante [3–6] meses. Si no cumplimos lo que le he dicho, la puede terminar. ¿Lo firmamos hoy y empezamos el lunes con las fotos?»'],
-    ['Cualificar a un comprador','Antes de enseñar cualquier piso, por teléfono o al recibir un mensaje del portal.',
-     'Gracias por escribir por el piso de [calle]. Para enseñárselo bien, le hago cinco preguntas rápidas:\n\n1. ¿Busca para vivir o para invertir?\n2. ¿Va a necesitar hipoteca? ¿La tiene hablada con el banco?\n3. ¿Tiene que vender otra casa antes?\n4. ¿Para cuándo le gustaría estar dentro?\n5. ¿Quién más tiene que ver el piso para decidir?\n\nPerfecto. Tengo visitas el martes a las 17:30 y a las 18:30. ¿Cuál le viene mejor?'],
-    ['Seguimiento después de una visita','En menos de 24 horas. Por teléfono mejor que por mensaje.',
-     'Hola, soy Tono, de Tono e Hijo. Le llamo por la visita de ayer al piso de [calle]. ¿Qué le pareció?\n\n(Escuchar sin interrumpir.)\n\n¿Hay algo que le haya hecho dudar? … ¿Y si eso se resolviera, sería el piso para usted?\n\n(Si hay interés) Lo siguiente sería hacer una oferta por escrito. Se la preparo yo y se la llevo al propietario. ¿Qué cantidad le parece justa?'],
-    ['Pedir reseña y referido','El día de la firma en notaría.',
-     'Enhorabuena, ya es suyo. Nos ha encantado acompañarles.\n\nDos cosas que a una inmobiliaria pequeña como la nuestra nos ayudan muchísimo:\n\n1. Si se ha sentido bien atendido, ¿nos dejaría una reseña en Google? Le mando ahora el enlace por WhatsApp.\n2. ¿Conoce a alguien que esté pensando en vender o comprar? Con que nos pase su nombre, le llamamos nosotros con mucho cuidado.']
-  ];
-  var OBJECIONES = [
-    ['«Ya lo vendo yo»','Puede hacerlo, mucha gente lo intenta. ¿Qué tal va hasta ahora? Le ofrecemos lo que a solas cuesta más: filtrar a quien no puede comprar, defender el precio y llevar los papeles hasta la notaría. Le dejo la valoración y, si en unas semanas cambia de idea, me llama.'],
-    ['«Otra agencia me cobra menos»','Es lógico mirarlo. ¿Qué le ofrecen por ese precio? (Escuchar.) Lo que importa es lo que le queda a usted en el bolsillo: un piso bien valorado y bien enseñado se vende antes y con menos rebaja. Esto es lo que hacemos nosotros por nuestros honorarios.'],
-    ['«No quiero exclusiva»','Le entiendo: da miedo atarse. Sin exclusiva su piso sale en cuatro agencias a cuatro precios distintos y el comprador piensa que algo pasa. Por eso lo hacemos con un plazo corto y por escrito lo que nos comprometemos a hacer. Si no cumplimos, la termina.'],
-    ['«Quiero sacarlo más caro y ya bajaré»','Es lo que más se hace y lo que peor sale: las primeras semanas son las de más visitas, y si el precio está alto se pierden. Mire estos testigos: es lo que se ha pagado de verdad aquí. Salgamos a un precio que traiga visitas.'],
-    ['«Me lo voy a pensar»','Claro, es una decisión importante. ¿Qué es lo que le hace dudar? (Casi siempre es el precio, la exclusiva o la confianza.) Si le parece, quedamos el jueves, se lo piensa con su familia y lo vemos juntos.'],
-    ['«Ahora no es buen momento»','De acuerdo. ¿Para cuándo cree que lo sería? Le dejo la valoración y le llamo entonces, ¿le parece bien? (Apuntarlo en el CRM con fecha.)'],
-    ['«Sois nuevos»','Es verdad, la inmobiliaria es nueva. Pero llevamos años administrando fincas en Elche: conocemos los edificios, las comunidades y sus papeles mejor que nadie. Y al ser pocos, su piso lo llevamos nosotros dos en persona.'],
-    ['«Tengo un conocido que me lo vende»','Perfecto si tiene un comprador ya. Si no, nuestra propuesta es la misma: valorarlo bien, enseñarlo bien y cuidar los papeles. Si su conocido tiene un comprador, podemos trabajar con él.'],
-    ['«¿Por qué tengo que pagar si el comprador lo encuentro yo en el portal?»','El portal pone el anuncio; no filtra, no enseña, no negocia ni prepara la notaría. Ese trabajo, y que la venta no se caiga a mitad, es lo que se paga.'],
-    ['«Quiero que me lo compréis vosotros»','No compramos pisos: le ayudamos a venderlo al mejor comprador. Si tiene prisa, podemos ajustar el precio y el plan para vender rápido, y se lo explico con números.']
-  ];
-  $('#guiones').innerHTML = GUIONES.map(function(g, i){
-    return '<div class="bloque guion"><div class="cab-g"><div><h3>' + esc(g[0]) + '</h3><p class="intro" style="font-size:.88rem">' + esc(g[1]) + '</p></div><button class="boton sec" type="button" data-copiar="g' + i + '">Copiar</button></div><div class="texto" id="g' + i + '">' + esc(g[2]) + '</div></div>';
+/* ================= progreso ================= */
+function modEstado(m){
+  var t = P('test-' + m.n, {}), e = P('ej-' + m.n, false);
+  var bien = m.test.filter(function(q, i){ return t[i] === q[2]; }).length;
+  return { testOk: bien === m.test.length, bien: bien, ej: !!e, hecho: bien === m.test.length && !!e, empezado: Object.keys(t).length > 0 || !!e };
+}
+function modsHechos(){ return MODULOS.filter(function(m){ return modEstado(m).hecho; }).length; }
+function siguienteMod(){ return MODULOS.find(function(m){ return !modEstado(m).hecho; }); }
+function contadores(){ return P('cont-' + semanaClave(), {}); }
+
+/* ================= páginas ================= */
+var R = {};
+function cab(etq, titulo, intro){ return '<div style="display:grid;gap:8px"><span class="etq">' + etq + '</span><h1>' + titulo + '</h1>' + (intro ? '<p class="suave" style="max-width:62ch">' + intro + '</p>' : '') + '</div>'; }
+function acceso(href, ico, t, d, extra){ return '<a class="acceso" href="#' + href + '"><span class="ico">' + I[ico] + '</span><span><b>' + t + '</b><span class="d">' + d + '</span></span>' + (extra || I.flecha) + '</a>'; }
+
+R.inicio = function(){
+  var sig = siguienteMod(), n = modsHechos(), c = contadores();
+  var hoyT = P('tareas-' + hoyClave(), {}), tHechas = Object.keys(hoyT).filter(function(k){ return hoyT[k]; }).length;
+  var ops = S('ops', []);
+  return cab('Inmobiliaria · Elche', 'Hola, ' + esc(estado.socio), 'Vuestra guía de arranque: qué hacer cada día, formación con tests, guiones para ensayar, calculadoras y los papeles de cada operación.') +
+   '<div><p class="etq" style="margin-bottom:8px">¿En qué punto estáis?</p><div class="segmentos" role="group" aria-label="Fase">' +
+   FASES.map(function(f, i){ return '<button type="button" data-fase="' + i + '" aria-pressed="' + (estado.fase === i) + '"><b>' + f.nombre + '</b><span>' + f.d + '</span></button>'; }).join('') + '</div></div>' +
+   (sig ? '<div class="tarjeta cartel"><span class="etq">Lo siguiente para ' + esc(estado.socio) + '</span><h2>Módulo ' + sig.n + ' · ' + esc(sig.t) + '</h2><p>' + esc(sig.obj) + '</p><div class="fila"><a class="boton" href="#modulo-' + sig.n + '">Empezar el módulo</a></div></div>'
+        : '<div class="tarjeta cartel"><span class="etq">Formación completa</span><h2>Los 10 módulos hechos</h2><p>Ahora toca repetir los ejercicios con casos nuevos y ajustar los objetivos a vuestros números.</p></div>') +
+   '<div class="rejilla">' +
+     acceso('hoy','dia','Hoy', tHechas + ' de ' + DIAS[estado.fase].length + ' tareas · ' + (c.puertas || c.contactos || 0) + ' contactos esta semana') +
+     acceso('formacion','libro','Formación', n + ' de 10 módulos hechos') +
+     acceso('objeciones','habla','Entrenar objeciones','10 objeciones con su respuesta') +
+     acceso('guiones','habla','Guiones','6 situaciones para ensayar') +
+     acceso('calculadoras','calc','Calculadoras','Honorarios, valoración y embudo') +
+     acceso('operaciones','llave','Operaciones', ops.length ? ops.length + ' en marcha' : 'Lista de papeles por piso') +
+     acceso('papeles','papel','Antes de abrir','Lo legal para empezar') +
+     acceso('arranque','bandera','Plan de arranque','Decisiones, semana 1 y 90 días') +
+   '</div>' +
+   diagnostico(c);
+};
+function diagnostico(c){
+  var t = '';
+  if ((c.contactos || 0) >= 15 && (c.citas || 0) === 0) t = 'Habláis con propietarios pero no sale ninguna cita: repasad el <a href="#modulo-4">módulo 4</a> y el <a href="#guion-1">guion de la puerta</a>.';
+  else if ((c.citas || 0) >= 3 && (c.captaciones || 0) === 0) t = 'Hay citas pero no captaciones: repasad el <a href="#modulo-5">módulo 5</a> y <a href="#objeciones">entrenad las objeciones</a>.';
+  else if ((c.visitas || 0) >= 6 && (c.ofertas || 0) === 0 && estado.fase > 0) t = 'Muchas visitas y ninguna oferta: o el precio no está bien o los compradores no están cualificados. <a href="#modulo-3">Módulo 3</a> y <a href="#modulo-7">módulo 7</a>.';
+  return t ? '<div class="tarjeta" style="border-left:4px solid var(--sello)"><span class="etq">Lo que dicen vuestros números</span><p>' + t + '</p></div>' : '';
+}
+
+R.hoy = function(){
+  var t = P('tareas-' + hoyClave(), {}), c = contadores();
+  var fecha = new Date().toLocaleDateString('es-ES', {weekday:'long', day:'numeric', month:'long'});
+  return cab(fecha, 'Hoy', 'Plan de ' + FASES[estado.fase].nombre.toLowerCase() + '. Marcad cada bloque al terminarlo; mañana empieza limpio. Cámbialo de fase en Inicio.') +
+   '<div class="tarjeta"><ul class="tareas">' + DIAS[estado.fase].map(function(d, i){
+     return '<li><label><input type="checkbox" data-tarea="' + i + '"' + (t[i] ? ' checked' : '') + '><span class="h">' + d[0] + '</span><div><b>' + esc(d[1]) + '</b><span class="tx">' + esc(d[2]) + '</span></div></label></li>';
+   }).join('') + '</ul></div>' +
+   '<div style="display:grid;gap:10px"><div class="fila entre"><h2>Esta semana</h2><span class="etq">' + esc(estado.socio) + ' · se pone a cero cada lunes</span></div>' +
+   '<p class="suave" style="font-size:.9rem">Toca + cada vez que hagas una. Los objetivos son un punto de partida <span class="supuesto">supuesto</span>: ajustadlos con vuestros números a partir del segundo mes.</p>' +
+   '<div class="contadores">' + METAS[estado.fase].map(function(m){
+     var v = c[m[0]] || 0, pct = Math.min(100, v / m[2] * 100);
+     return '<div class="cont' + (v >= m[2] ? ' hecho' : '') + '"><span class="etq">' + esc(m[1]) + '</span><div class="fila entre"><span class="v">' + v + ' <small>/ ' + m[2] + '</small></span><span class="bot"><button type="button" data-menos="' + m[0] + '" aria-label="Quitar una">−</button><button type="button" class="mas" data-mas="' + m[0] + '" aria-label="Sumar una">+</button></span></div><div class="barra-p' + (v >= m[2] ? ' ok' : '') + '"><i style="width:' + pct + '%"></i></div></div>';
+   }).join('') + '</div></div>' + diagnostico(c);
+};
+
+R.formacion = function(){
+  var n = modsHechos();
+  return cab('Formación', 'Diez módulos', 'En el orden en que los vais a necesitar. Un módulo está hecho cuando habéis acertado el test <b>y</b> hecho el ejercicio en la calle.') +
+   '<div class="fila"><span class="etq">' + esc(estado.socio) + ': ' + n + ' de 10</span><div class="barra-p' + (n === 10 ? ' ok' : '') + '"><i style="width:' + n * 10 + '%"></i></div></div>' +
+   FASES.map(function(f, i){
+     return '<div style="display:grid;gap:8px"><span class="etq">' + f.bloque + '</span>' + MODULOS.filter(function(m){ return m.f === i; }).map(function(m){
+       var e = modEstado(m);
+       var st = e.hecho ? '<span class="estado ok">Hecho</span>' : e.empezado ? '<span class="estado medio">' + (e.testOk ? 'Falta ejercicio' : 'Empezado') + '</span>' : I.flecha;
+       return '<a class="mod-item' + (e.hecho ? ' hecho' : '') + '" href="#modulo-' + m.n + '"><span class="n">' + m.n + '</span><span><b>' + esc(m.t) + '</b><span class="suave" style="font-size:.84rem">' + esc(m.dur) + ' · test de ' + m.test.length + '</span></span>' + st + '</a>';
+     }).join('') + '</div>';
+   }).join('');
+};
+
+function moduloHTML(m, imprimir){
+  var e = modEstado(m), t = P('test-' + m.n, {}), prev = MODULOS[m.n - 2], next = MODULOS[m.n];
+  var test = m.test.map(function(q, i){
+    var r = t[i], resp = r !== undefined;
+    return '<div class="pregunta"><b>' + (i + 1) + '. ' + esc(q[0]) + '</b>' + q[1].map(function(o, j){
+      var cls = (resp || imprimir) && j === q[2] ? ' bien' : resp && j === r && r !== q[2] ? ' mal' : '';
+      return '<button type="button" class="opcion' + cls + '" data-q="' + m.n + '-' + i + '-' + j + '">' + esc(o) + '</button>';
+    }).join('') + ((resp || imprimir) ? '<p class="explica' + (r === q[2] || imprimir ? '' : ' mal') + '">' + (imprimir ? '' : r === q[2] ? '<b>Correcto.</b> ' : '<b>No es esa.</b> ') + esc(q[3]) + (resp && r !== q[2] ? ' <button type="button" class="boton sec" style="min-height:34px;padding:4px 10px;margin-left:6px" data-reintentar="' + m.n + '-' + i + '">Repetir</button>' : '') + '</p>' : '') + '</div>';
   }).join('');
-  $('#objeciones').innerHTML = OBJECIONES.map(function(o){ return '<div class="obj"><b>' + esc(o[0]) + '</b><p>' + esc(o[1]) + '</p></div>'; }).join('');
+  return '<div class="cab-mod' + (imprimir ? ' salto' : '') + '"><div class="fila"><span class="n">' + m.n + '</span><span class="etq">' + FASES[m.f].bloque + '<br>' + esc(m.dur) + '</span></div><h1>' + esc(m.t) + '</h1><p class="suave">' + esc(m.obj) + '</p></div>' +
+   (imprimir ? '' : '<div class="indice no-imprimir"><a href="#m' + m.n + '-esencial">Lo esencial</a><a href="#m' + m.n + '-pasos">Cómo se hace</a><a href="#m' + m.n + '-errores">Errores</a><a href="#m' + m.n + '-test"' + (e.testOk ? ' class="hecho"' : '') + '>Test ' + e.bien + '/' + m.test.length + '</a><a href="#m' + m.n + '-ejercicio"' + (e.ej ? ' class="hecho"' : '') + '>Ejercicio</a></div>') +
+   '<section class="tarjeta" id="m' + m.n + '-esencial"><h3>Lo esencial</h3><ul class="lista">' + m.claves.map(function(c){ return '<li>' + md(c) + '</li>'; }).join('') + '</ul></section>' +
+   '<section class="tarjeta" id="m' + m.n + '-pasos"><h3>Cómo se hace</h3><ol class="pasos">' + m.pasos.map(function(c){ return '<li><span>' + md(c) + '</span></li>'; }).join('') + '</ol></section>' +
+   '<section class="tarjeta" id="m' + m.n + '-errores"><h3>Errores típicos</h3><ul class="lista">' + m.errores.map(function(c){ return '<li>' + md(c) + '</li>'; }).join('') + '</ul></section>' +
+   '<section class="tarjeta" id="m' + m.n + '-test"><div class="fila entre"><h3>Test rápido</h3>' + (e.testOk ? '<span class="estado ok">Aprobado</span>' : '<span class="etq">' + e.bien + ' de ' + m.test.length + '</span>') + '</div>' + test + '</section>' +
+   '<section class="ejercicio" id="m' + m.n + '-ejercicio"><span class="etq">Ejercicio en la calle</span><p><b>' + esc(m.ej) + '</b></p>' +
+   (imprimir ? '' : '<textarea id="nota-' + m.n + '" data-nota="' + m.n + '" placeholder="Vuestras notas (se guardan solas)">' + esc(P('nota-' + m.n, '')) + '</textarea><label class="check-grande"><input type="checkbox" data-ej="' + m.n + '"' + (e.ej ? ' checked' : '') + '> Ejercicio hecho por ' + esc(estado.socio) + '</label>') + '</section>' +
+   (imprimir ? '' : (e.hecho ? '<div class="tarjeta" style="border-color:var(--ok)"><b style="color:var(--ok)">Módulo ' + m.n + ' hecho.</b></div>' : '') +
+   '<div class="navmod no-imprimir">' + (prev ? '<a href="#modulo-' + prev.n + '"><span class="etq">← Anterior</span><b>' + prev.n + '. ' + esc(prev.t) + '</b></a>' : '<span></span>') + (next ? '<a href="#modulo-' + next.n + '"><span class="etq">Siguiente →</span><b>' + next.n + '. ' + esc(next.t) + '</b></a>' : '<a href="#formacion"><span class="etq">Fin</span><b>Volver a la formación</b></a>') + '</div>');
+}
+R.modulo = function(n){ var m = MODULOS[n - 1]; return m ? moduloHTML(m) : R.formacion(); };
 
-  /* ---------- PAPELES ---------- */
-  var ABRIR = [
-    ['pacto','Pacto de socios firmado','Reparto, quién aporta qué, cómo se reparten las comisiones de lo que capta cada uno y qué pasa si uno se va.'],
-    ['forma','Forma jurídica decidida con la gestoría','SL o autónomos. Afecta a la responsabilidad, a los impuestos y a la imagen.'],
-    ['registro','Inscripción en el Registro de Agentes de Intermediación Inmobiliaria de la Comunitat Valenciana','Obligatoria (Ley 2/2017 y Decreto 98/2022). El número va en la publicidad. Ser administrador de fincas no basta para intermediar.'],
-    ['garantia','Seguro de responsabilidad civil profesional','El TSJCV anuló en enero de 2025 la garantía de 60.000 € y el seguro obligatorios del decreto, pero la sentencia no es firme. Contratarlo es lo prudente: un error en una compraventa puede salir muy caro [c].'],
-    ['pbc','Prevención del blanqueo de capitales','Sois sujetos obligados (Ley 10/2010): identificar clientes, guardar documentos, formación y responsable ante el SEPBLAC. Si el manual es obligatorio depende del tamaño [c].'],
-    ['rgpd','Protección de datos','Registro de lo que guardáis, texto informativo en hoja de visita y web, y contrato con el CRM como encargado del tratamiento.'],
-    ['llamadas','Política de llamadas comerciales','Desde el 29/06/2023, llamar para vender un servicio requiere consentimiento previo o interés legítimo justificado (Circular 1/2023 AEPD). Decidid con un abogado cómo contactar a particulares [c].'],
-    ['modelos','Modelos revisados por un abogado','Nota de encargo (con y sin exclusiva), hoja de visita, oferta, reserva y arras.'],
-    ['alquiler','Si hacéis alquiler: quién paga los honorarios','Desde la Ley 12/2023 (art. 20.1 LAU), en vivienda habitual los gastos de gestión inmobiliaria y de formalización del contrato son del propietario. Cobrarlos al inquilino es ilegal según Consumo.']
-  ];
-  var OPERACION = [
-    ['nota','Nota de encargo firmada antes de anunciar o enseñar',''],
-    ['simple','Nota simple del Registro de la Propiedad','Titulares, cargas, hipotecas y embargos.'],
-    ['cee','Certificado de eficiencia energética y su etiqueta en el anuncio',''],
-    ['ident','Identificación de vendedor y comprador (blanqueo de capitales)','DNI; en sociedades, quién está detrás. Copia guardada.'],
-    ['visita','Hoja de visita firmada en cada visita',''],
-    ['oferta','Oferta por escrito','Precio, forma de pago, plazos y si depende de la hipoteca.'],
-    ['arras','Reserva y arras por escrito, diciendo de qué tipo son','Penitenciales, confirmatorias o penales.'],
-    ['notaria','Papeles para la notaría','Certificado de deudas de la comunidad, recibo del IBI, certificado energético y lo que pida el notario [c].'],
-    ['resena','Reseña y referido pedidos','El día de la firma.']
-  ];
-  function pintarChecks(id, lista, pref){
-    var c = S('checks', {});
-    $(id).innerHTML = lista.map(function(x){
-      var k = pref + x[0];
-      return '<li><input type="checkbox" id="ck-' + k + '" data-check="' + k + '"' + (c[k] ? ' checked' : '') + '><label for="ck-' + k + '"><b>' + esc(x[1]) + '</b>' + (x[2] ? '<small>' + marcas(x[2]) + '</small>' : '') + '</label></li>';
-    }).join('');
-  }
-  pintarChecks('#check-abrir', ABRIR, 'a-');
-  pintarChecks('#check-operacion', OPERACION, 'o-');
+R.practicar = function(){
+  var vistas = P('obj-sabidas', {}), sab = Object.keys(vistas).filter(function(k){ return vistas[k]; }).length;
+  return cab('Practicar', 'Ensayar antes de salir', 'Lo que no se ensaya se olvida delante del propietario. Practicad entre los dos, en voz alta.') +
+   '<div class="rejilla">' + acceso('objeciones','habla','Entrenador de objeciones', sab + ' de 10 dominadas') + acceso('guiones','habla','Guiones','6 situaciones, con tu nombre puesto') + '</div>' +
+   '<div class="tarjeta"><h3>Cómo ensayar</h3><ol class="pasos"><li><span>Uno hace de propietario o comprador difícil; el otro, de agente.</span></li><li><span>Grabadlo con el móvil y escuchadlo juntos.</span></li><li><span>Cambiad de papel y repetid hasta decirlo con vuestras palabras.</span></li><li><span>Sumad cada ensayo en «Hoy».</span></li></ol></div>';
+};
 
-  /* ---------- ARRANQUE ---------- */
-  var DECISIONES = [
-    ['Pacto de socios','Firmarlo antes del primer euro.','Es lo que más rompe las agencias de dos personas en el primer año.'],
-    ['Forma jurídica','SL desde el principio o autónomos y SL después; con números de la gestoría.','Responsabilidad, impuestos e imagen ante el propietario.'],
-    ['Origen de los inmuebles','① Las comunidades que administráis ② una zona trabajada a fondo ③ referidos.','Sin inmuebles no hay negocio; los compradores llegan solos si hay producto.'],
-    ['Zona','Uno o dos barrios de Elche, siempre los mismos. Elegir donde ya os conocen y donde están vuestras comunidades.','Ser «los de ese barrio» vale más que estar en todo Elche.'],
-    ['Exclusiva','Pedirla siempre (3–6 meses, con plan escrito). Sin exclusiva, solo con buen precio.','Sin exclusiva compites con cuatro agencias por el mismo piso.'],
-    ['Honorarios','Un porcentaje y un mínimo fijos, sin rebajar en la primera reunión. En la zona suele estar entre el 3 y el 5 % más IVA [s].','Un precio que cede a la primera transmite poca confianza.'],
-    ['Venta o alquiler','Empezar por la venta; el alquiler solo si encaja con la administración de fincas.','En alquiler de vivienda habitual los honorarios los paga el propietario (Ley 12/2023).'],
-    ['Local','Pensarlo: a pie de calle en vuestra zona capta mucho, pero es el gasto fijo más alto. Alternativa: despacho con dirección.','Lo que más pesa en el presupuesto.'],
-    ['CRM y portales','Un CRM inmobiliario del mercado que publique en los portales (Inmovilla, Witei, Mobilia u otros; pedid demo de 2 o 3).','Hacer eso a medida es caro y no aporta nada.']
-  ];
-  var SEMANA = [
-    ['Lunes','Cita con la gestoría (forma jurídica, pacto de socios, impuestos). Mirar los requisitos del Registro de Agentes en la web de la Generalitat y empezar la inscripción.'],
-    ['Martes','Pedir precio de seguro de responsabilidad civil a 2 o 3 corredores. Pedir demo de 2 o 3 CRM.'],
-    ['Miércoles','Elegir el barrio. Recorrerlo a pie: qué agencias hay, carteles de particulares, comercios y porteros.'],
-    ['Jueves','Módulos 1 y 3. Escribir entre los dos vuestra versión de los guiones y ensayar las 5 primeras objeciones, grabándolo.'],
-    ['Viernes','Primeras 50 puertas en el barrio. Lista de comunidades que administráis y de 5 personas que os puedan pasar propietarios. Primer repaso de números.']
-  ];
-  var ETAPAS = [
-    ['Días 1–30','Abrir bien',['Registro, gestoría, seguro y modelos de documentos','Barrio elegido y recorrido','Módulos 1 a 5 hechos','Ficha de Google Business y tarjetas','Primeras 5 valoraciones por escrito']],
-    ['Días 31–60','Primeras exclusivas',['2 o 3 captaciones en exclusiva [s]','CRM funcionando y anuncios en los portales','Módulos 6 y 7','Informe semanal a cada propietario','Primeras visitas con hoja firmada']],
-    ['Días 61–90','Primeras ofertas',['Primeras ofertas por escrito y quizá la primera reserva [s]','Módulos 8 a 10','Revisar los objetivos de la pestaña Hoy con vuestros números reales','Decidir si hace falta local, web propia o más portales']]
-  ];
-  var PRESUPUESTO = [
-    ['Gestoría y constitución','500–1.500 €','Según la forma jurídica.'],
-    ['Seguro de responsabilidad civil','Pedir precio','2 o 3 corredores.'],
-    ['CRM inmobiliario','50–150 €/mes','Que publique en los portales.'],
-    ['Portales','150–600 €/mes','Según el número de anuncios.'],
-    ['Marca, tarjetas, carteles y web','1.000–2.500 €','Carteles «se vende» con vuestro número de registro.'],
-    ['Fotos','Cámara gran angular o fotógrafo por piso','Lo que más se nota en el portal.'],
-    ['Local','Lo que más pesa','Si lo hay.']
-  ];
-  var RIESGOS = [
-    'Anunciarse sin estar inscritos en el registro o sin seguro.',
-    'Captar caro por conseguir el piso y llenarse de inmuebles que no se venden.',
-    'Olvidar el blanqueo de capitales y los datos personales hasta que llega una inspección.',
-    'Llamar en frío a listas de teléfonos: desde 2023 puede acabar en multa de la AEPD.',
-    'Dejar de captar cuando hay trabajo: mes bueno, trimestre vacío.',
-    'Pelearse por las comisiones sin pacto de socios.',
-    'Quedarse sin dinero: se cobra en la notaría, no al captar.'
-  ];
-  $('#decisiones').innerHTML = DECISIONES.map(function(d){ return '<tr><td>' + esc(d[0]) + '</td><td>' + marcas(d[1]) + '</td><td>' + marcas(d[2]) + '</td></tr>'; }).join('');
-  $('#semana').innerHTML = SEMANA.map(function(d){ return '<li><span class="d">' + d[0] + '</span><span>' + esc(d[1]) + '</span></li>'; }).join('');
-  $('#etapas').innerHTML = ETAPAS.map(function(e){ return '<div class="etapa"><span class="etq">' + e[0] + '</span><h3>' + e[1] + '</h3><ul class="lista">' + e[2].map(function(x){ return '<li>' + marcas(x) + '</li>'; }).join('') + '</ul></div>'; }).join('');
-  $('#presupuesto').innerHTML = PRESUPUESTO.map(function(p){ return '<tr><td>' + esc(p[0]) + '</td><td class="num">' + esc(p[1]) + '</td><td>' + esc(p[2]) + '</td></tr>'; }).join('');
-  $('#riesgos').innerHTML = RIESGOS.map(function(r){ return '<li>' + esc(r) + '</li>'; }).join('');
+R.objeciones = function(){
+  var i = S('obj-i', 0) % OBJECIONES.length, o = OBJECIONES[i], vistas = P('obj-sabidas', {}), ver = R.objeciones.ver;
+  var sab = Object.keys(vistas).filter(function(k){ return vistas[k]; }).length;
+  return cab('Practicar · ' + (i + 1) + ' de ' + OBJECIONES.length, 'Entrenador de objeciones', 'Lee la frase del propietario, contesta en voz alta y después mira la respuesta. Primero preguntar y escuchar; luego responder.') +
+   '<div class="fila"><span class="etq">' + sab + ' de 10 dominadas</span><div class="barra-p' + (sab === 10 ? ' ok' : '') + '"><i style="width:' + sab * 10 + '%"></i></div></div>' +
+   '<div class="tarjeta-obj"><span class="etq">El propietario dice</span><p class="frase">«' + esc(o[0]) + '»</p>' +
+   (ver ? '<div class="respuesta"><span class="etq">Una buena respuesta</span><p style="margin-top:6px">' + esc(o[1]) + '</p></div><div class="fila"><button class="boton" type="button" data-obj-marca="1">La tengo</button><button class="boton sec" type="button" data-obj-marca="0">Repasarla</button></div>'
+        : '<div class="fila" style="margin-top:auto"><button class="boton amarillo" type="button" data-obj-ver>Ver la respuesta</button></div>') +
+   '</div><div class="fila entre"><button class="boton sec" type="button" data-obj-mover="-1">← Anterior</button>' + (vistas[i] ? '<span class="estado ok">Dominada</span>' : '') + '<button class="boton sec" type="button" data-obj-mover="1">Siguiente →</button></div>' +
+   '<details class="tarjeta"><summary style="cursor:pointer"><b>Ver las 10 juntas</b></summary><div style="display:grid;gap:12px;margin-top:10px">' + OBJECIONES.map(function(x, k){ return '<div><b>' + (vistas[k] ? '✓ ' : '') + '«' + esc(x[0]) + '»</b><p class="suave">' + esc(x[1]) + '</p></div>'; }).join('') + '</div></details>';
+};
 
-  /* ---------- navegación ---------- */
-  var VISTAS = ['hoy','formacion','guiones','legal','arranque'];
-  function ir(){
-    var v = location.hash.replace('#','');
-    if (VISTAS.indexOf(v) < 0) v = 'hoy';
-    document.querySelectorAll('section.vista').forEach(function(s){ s.hidden = s.dataset.vista !== v; });
-    document.querySelectorAll('nav.pestanas a').forEach(function(a){ if (a.getAttribute('href') === '#' + v) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
-    window.scrollTo(0, 0);
+R.guiones = function(){
+  return cab('Practicar', 'Guiones', 'Para leerlos antes de llamar a una puerta o de una visita. No son para recitar: decidlos con vuestras palabras.') +
+   '<div style="display:grid;gap:10px">' + GUIONES.map(function(g, i){ var n = P('ens-' + (i + 1), 0); return acceso('guion-' + (i + 1), 'habla', esc(g[0]), esc(g[1]) + (n ? ' · ensayado ' + n + (n === 1 ? ' vez' : ' veces') : '')); }).join('') + '</div>';
+};
+R.guion = function(n){
+  var g = GUIONES[n - 1]; if (!g) return R.guiones();
+  var txt = g[2].replace(/\{socio\}/g, estado.socio), ens = P('ens-' + n, 0), grande = S('grande', false);
+  return cab('Guion ' + n + ' de ' + GUIONES.length, esc(g[0]), esc(g[1])) +
+   '<div class="fila"><button class="boton sec" type="button" data-copiar="texto-guion">Copiar</button><button class="boton sec" type="button" data-grande aria-pressed="' + grande + '">' + (grande ? 'Letra normal' : 'Letra grande') + '</button><button class="boton amarillo" type="button" data-ensayo="' + n + '">Lo he ensayado (' + ens + ')</button></div>' +
+   '<div class="texto-guion' + (grande ? ' grande' : '') + '" id="texto-guion">' + esc(txt) + '</div>' +
+   '<div class="navmod">' + (n > 1 ? '<a href="#guion-' + (n - 1) + '"><span class="etq">← Anterior</span><b>' + esc(GUIONES[n - 2][0]) + '</b></a>' : '<span></span>') + (n < GUIONES.length ? '<a href="#guion-' + (n + 1) + '"><span class="etq">Siguiente →</span><b>' + esc(GUIONES[n][0]) + '</b></a>' : '<a href="#objeciones"><span class="etq">Ahora</span><b>Entrenar objeciones</b></a>') + '</div>';
+};
+
+/* ---------- calculadoras ---------- */
+R.calculadoras = function(){
+  return cab('Calcular', 'Calculadoras', 'Para tener los números claros delante del propietario y entre vosotros. Son orientativas: no sustituyen a la gestoría ni a una tasación.') +
+   '<div style="display:grid;gap:10px">' + acceso('honorarios','calc','Honorarios','Cuánto cobráis, el IVA y el reparto entre los dos') + acceso('valoracion','calc','Valoración por testigos','Rango de precio con pisos parecidos') + acceso('embudo','calc','Embudo','Cuántas puertas hacen falta para vuestras ventas') + '</div>';
+};
+function campo(id, label, val, extra){ return '<div class="campo"><label for="' + id + '">' + label + '</label><input id="' + id + '" inputmode="decimal" data-calc value="' + esc(val) + '"' + (extra || '') + '></div>'; }
+function num(id){ var e = document.getElementById(id); return e ? parseFloat(String(e.value).replace(/\./g,'').replace(',', '.')) : NaN; }
+R.honorarios = function(){
+  var v = S('calc-hon', {precio:'180000', pct:'4', min:'4000', cap:'50'});
+  return cab('Calculadora', 'Honorarios', 'Con el porcentaje y el mínimo que decidáis. Precios sin IVA; el IVA es el 21 %.') +
+   '<div class="tarjeta"><div class="campos">' + campo('h-precio','Precio de venta (€)', v.precio) + campo('h-pct','Honorarios (%)', v.pct) + campo('h-min','Mínimo (€)', v.min) + campo('h-cap','Para quien capta (%)', v.cap) + '</div>' +
+   '<div class="resultado" id="res-hon"></div><p class="aviso">El reparto entre quien capta y quien vende es una decisión vuestra: dejadla escrita en el pacto de socios. El porcentaje de la zona (3–5 %) es un <span class="supuesto">supuesto</span>.</p></div>';
+};
+function calcHon(){
+  var p = num('h-precio'), pc = num('h-pct'), mi = num('h-min') || 0, ca = num('h-cap');
+  if (!$('#res-hon')) return;
+  var h = Math.max(p * pc / 100, mi), iva = h * .21, cap = h * ca / 100;
+  $('#res-hon').innerHTML = '<div class="dato fuerte"><span class="etq">Honorarios sin IVA</span><span class="v">' + eur(h) + '</span></div><div class="dato"><span class="etq">IVA (21 %)</span><span class="v">' + eur(iva) + '</span></div><div class="dato"><span class="etq">Factura total</span><span class="v">' + eur(h + iva) + '</span></div><div class="dato"><span class="etq">Quien capta</span><span class="v">' + eur(cap) + '</span></div><div class="dato"><span class="etq">Quien vende</span><span class="v">' + eur(h - cap) + '</span></div>';
+  G('calc-hon', {precio:$('#h-precio').value, pct:$('#h-pct').value, min:$('#h-min').value, cap:$('#h-cap').value});
+}
+R.valoracion = function(){
+  var v = S('calc-val', {m2:'90', aj:'0', t:[['165000','85'],['178000','92'],['159000','88'],['','']]});
+  return cab('Calculadora', 'Valoración por testigos', 'Poned pisos parecidos de la misma zona (mejor vendidos que anunciados) y ajustad por lo que hace mejor o peor al vuestro.') +
+   '<div class="tarjeta"><div class="campos">' + campo('v-m2','Metros del piso a valorar', v.m2) +
+   '<div class="campo"><label for="v-aj">Ajuste (estado, planta, terraza…)</label><select id="v-aj" data-calc>' + [-15,-10,-5,0,5,10,15].map(function(a){ return '<option value="' + a + '"' + (String(a) === String(v.aj) ? ' selected' : '') + '>' + (a > 0 ? '+' : '') + a + ' %</option>'; }).join('') + '</select></div></div>' +
+   '<span class="etq">Testigos (precio y metros)</span><div class="testigos" id="testigos">' + v.t.map(function(t, i){ return filaTestigo(i, t); }).join('') + '</div>' +
+   '<div class="fila"><button class="boton sec" type="button" data-testigo-mas>+ Añadir testigo</button></div><div class="resultado" id="res-val"></div>' +
+   '<p class="aviso">Es una estimación para preparar la conversación, no una tasación oficial. El ejemplo que viene puesto es inventado: cambiadlo por vuestros testigos.</p></div>';
+};
+function filaTestigo(i, t){ return '<div class="testigo"><div class="campo"><label for="t-p' + i + '">Precio (€)</label><input id="t-p' + i + '" inputmode="decimal" data-calc value="' + esc(t[0]) + '"></div><div class="campo"><label for="t-m' + i + '">Metros</label><input id="t-m' + i + '" inputmode="decimal" data-calc value="' + esc(t[1]) + '"></div><button type="button" data-testigo-quitar="' + i + '" aria-label="Quitar testigo">×</button></div>'; }
+function leerTestigos(){ return $$('#testigos .testigo').map(function(f){ var ins = $$('input', f); return [ins[0].value, ins[1].value]; }); }
+function calcVal(){
+  if (!$('#res-val')) return;
+  var t = leerTestigos(), m2 = num('v-m2'), aj = parseFloat($('#v-aj').value) || 0;
+  var pm = t.map(function(x){ var p = parseFloat(String(x[0]).replace(/\./g,'').replace(',','.')), m = parseFloat(String(x[1]).replace(',','.')); return p > 0 && m > 0 ? p / m : null; }).filter(Boolean).sort(function(a, b){ return a - b; });
+  if (!pm.length || !(m2 > 0)){ $('#res-val').innerHTML = '<p class="suave">Poned al menos un testigo y los metros.</p>'; }
+  else {
+    var media = pm.reduce(function(a, b){ return a + b; }, 0) / pm.length, med = pm.length % 2 ? pm[(pm.length - 1) / 2] : (pm[pm.length / 2 - 1] + pm[pm.length / 2]) / 2;
+    var base = med * (1 + aj / 100) * m2;
+    $('#res-val').innerHTML = '<div class="dato"><span class="etq">€/m² mediana (' + pm.length + ' testigos)</span><span class="v">' + eur(med) + '</span></div><div class="dato"><span class="etq">€/m² media</span><span class="v">' + eur(media) + '</span></div><div class="dato fuerte"><span class="etq">Precio orientativo</span><span class="v">' + eur(base) + '</span></div><div class="dato"><span class="etq">Rango (±5 %)</span><span class="v">' + eur(base * .95) + ' – ' + eur(base * 1.05) + '</span></div>' + (pm.length < 5 ? '<p class="suave" style="grid-column:1/-1">Con menos de 5 testigos el rango es poco fiable.</p>' : '');
   }
-  function pintarSocio(){
-    document.querySelectorAll('[data-socio]').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.socio === socio)); });
-    pintarHoy(); pintarModulos();
-  }
-  addEventListener('hashchange', ir);
-  pintarSocio(); ir();
+  G('calc-val', {m2:$('#v-m2').value, aj:$('#v-aj').value, t:t});
+}
+R.embudo = function(){
+  var v = S('calc-emb', {ventas:'12', hon:'6000', semanas:'46', r1:'25', r2:'10', r3:'35', r4:'60'});
+  return cab('Calculadora', 'Embudo', 'De las ventas que queréis al año a lo que hay que hacer cada semana. Los porcentajes son <span class="supuesto">supuestos</span> de partida: cambiadlos por los vuestros en cuanto tengáis datos.') +
+   '<div class="tarjeta"><div class="campos">' + campo('e-ventas','Ventas al año (los dos)', v.ventas) + campo('e-hon','Honorarios medios por venta (€)', v.hon) + campo('e-semanas','Semanas de trabajo al año', v.semanas) + '</div>' +
+   '<span class="etq">Vuestros porcentajes</span><div class="campos">' + campo('e-r1','De puerta a conversación (%)', v.r1) + campo('e-r2','De conversación a cita (%)', v.r2) + campo('e-r3','De cita a captación (%)', v.r3) + campo('e-r4','De captación a venta (%)', v.r4) + '</div>' +
+   '<div class="resultado" id="res-emb"></div><p class="aviso">Los mínimos de la pestaña Hoy son más altos a propósito durante los primeros meses: todavía no tenéis cartera ni nombre en el barrio, y parte de lo que sembréis ahora se cosecha más tarde.</p></div>';
+};
+function calcEmb(){
+  if (!$('#res-emb')) return;
+  var ve = num('e-ventas'), ho = num('e-hon'), se = num('e-semanas') || 46, r1 = num('e-r1') / 100, r2 = num('e-r2') / 100, r3 = num('e-r3') / 100, r4 = num('e-r4') / 100;
+  var cap = ve / r4, cit = cap / r3, con = cit / r2, pue = con / r1;
+  var sem = function(x){ return isFinite(x) ? (x / se / 2).toLocaleString('es-ES', {maximumFractionDigits:1}) : '—'; };
+  $('#res-emb').innerHTML = '<div class="dato fuerte"><span class="etq">Facturación al año (sin IVA)</span><span class="v">' + eur(ve * ho) + '</span></div><div class="dato"><span class="etq">Captaciones al año</span><span class="v">' + (isFinite(cap) ? Math.ceil(cap) : '—') + '</span></div>' +
+   '<div class="dato"><span class="etq">Puertas por semana y socio</span><span class="v">' + sem(pue) + '</span></div><div class="dato"><span class="etq">Conversaciones por semana y socio</span><span class="v">' + sem(con) + '</span></div><div class="dato"><span class="etq">Citas por semana y socio</span><span class="v">' + sem(cit) + '</span></div><div class="dato"><span class="etq">Captaciones por semana y socio</span><span class="v">' + sem(cap) + '</span></div>';
+  G('calc-emb', {ventas:$('#e-ventas').value, hon:$('#e-hon').value, semanas:$('#e-semanas').value, r1:$('#e-r1').value, r2:$('#e-r2').value, r3:$('#e-r3').value, r4:$('#e-r4').value});
+}
+
+/* ---------- papeles y operaciones ---------- */
+function checks(lista, pref, guardado){
+  return '<ul class="checks">' + lista.map(function(x){ var k = pref + x[0]; return '<li><label><input type="checkbox" data-check="' + k + '"' + (guardado[k] ? ' checked' : '') + '><span><b>' + esc(x[1]) + '</b>' + (x[2] ? '<small>' + md(x[2]) + '</small>' : '') + '</span></label></li>'; }).join('') + '</ul>';
+}
+R.papeles = function(){
+  var c = S('checks', {}), n = ABRIR.filter(function(x){ return c['a-' + x[0]]; }).length;
+  return cab('Papeles', 'Antes de abrir', 'Comprobado a 4 de noviembre de 2026. <b>No sustituye a un abogado ni a la gestoría</b>: lo marcado <span class="comprobar">comprobar</span> se confirma con ellos antes de actuar.') +
+   '<div class="fila"><span class="etq">' + n + ' de ' + ABRIR.length + ' hechos</span><div class="barra-p' + (n === ABRIR.length ? ' ok' : '') + '"><i style="width:' + n / ABRIR.length * 100 + '%"></i></div></div>' +
+   '<div class="tarjeta">' + checks(ABRIR, 'a-', c) + '</div>' +
+   '<div class="rejilla">' + acceso('operaciones','llave','Operaciones','Lista de papeles para cada piso') + acceso('arranque','bandera','Plan de arranque','Decisiones, semana 1 y 90 días') + '</div>' +
+   '<p class="aviso fuentes">Fuentes: ' + FUENTES + '</p>';
+};
+R.operaciones = function(){
+  var ops = S('ops', []);
+  return cab('Papeles', 'Operaciones', 'Una lista por piso, desde la nota de encargo hasta la reseña. Se guarda en este aparato.') +
+   '<form class="tarjeta" id="form-op"><label class="etq" for="op-nombre">Nueva operación</label><div class="fila"><input id="op-nombre" style="flex:1;min-width:0;border:1px solid var(--linea);background:var(--hoja);padding:10px;min-height:46px" placeholder="Ej.: Piso calle Jorge Juan, 3.º B" maxlength="80"><button class="boton" type="submit">Añadir</button></div></form>' +
+   (ops.length ? '<div style="display:grid;gap:8px">' + ops.map(function(o, i){ var n = OPERACION.filter(function(x){ return o.c[x[0]]; }).length; return '<a class="op" href="#operacion-' + (i + 1) + '"><span><b>' + esc(o.nombre) + '</b><br><span class="suave" style="font-size:.85rem">' + n + ' de ' + OPERACION.length + ' pasos</span></span><span class="barra-p' + (n === OPERACION.length ? ' ok' : '') + '" style="width:80px"><i style="width:' + n / OPERACION.length * 100 + '%"></i></span></a>'; }).join('') + '</div>'
+     : '<div class="tarjeta"><p class="suave">Todavía no hay ninguna. Añadid la primera cuando firméis una nota de encargo; mientras, aquí tenéis la lista que seguirá cada piso:</p><ul class="lista">' + OPERACION.map(function(x){ return '<li>' + esc(x[1]) + '</li>'; }).join('') + '</ul></div>');
+};
+R.operacion = function(n){
+  var ops = S('ops', []), o = ops[n - 1]; if (!o) return R.operaciones();
+  var k = OPERACION.filter(function(x){ return o.c[x[0]]; }).length;
+  return cab('Operación', esc(o.nombre), 'Marcad cada paso al hacerlo.') +
+   '<div class="fila"><span class="etq">' + k + ' de ' + OPERACION.length + '</span><div class="barra-p' + (k === OPERACION.length ? ' ok' : '') + '"><i style="width:' + k / OPERACION.length * 100 + '%"></i></div></div>' +
+   '<div class="tarjeta"><ul class="checks">' + OPERACION.map(function(x){ return '<li><label><input type="checkbox" data-opcheck="' + (n - 1) + ':' + x[0] + '"' + (o.c[x[0]] ? ' checked' : '') + '><span><b>' + esc(x[1]) + '</b>' + (x[2] ? '<small>' + md(x[2]) + '</small>' : '') + '</span></label></li>'; }).join('') + '</ul></div>' +
+   '<div class="tarjeta"><label class="etq" for="op-nota">Notas</label><textarea id="op-nota" data-opnota="' + (n - 1) + '" placeholder="Propietario, teléfono, precio, fechas…">' + esc(o.nota || '') + '</textarea></div>' +
+   '<div class="fila"><button class="boton sec" type="button" data-op-borrar="' + (n - 1) + '">Borrar operación</button><button class="boton peligro" type="button" data-op-confirmar="' + (n - 1) + '" hidden>Sí, borrarla</button></div>';
+};
+R.arranque = function(){
+  var c = S('checks', {}), d = S('decis', {});
+  return cab('Papeles', 'Plan de arranque', 'Las decisiones antes de abrir, la primera semana y los primeros 90 días.') +
+   '<div class="tarjeta"><h3>Decisiones, por orden de importancia</h3>' + DECISIONES.map(function(x, i){
+     return '<details class="decision"><summary>' + (d[i] ? '<span class="estado ok">Decidido</span>' : '<span class="estado medio">Pendiente</span>') + '<b>' + esc(x[0]) + '</b>' + I.flecha + '</summary><p>' + md(x[1]) + '</p><p class="suave" style="font-size:.9rem">' + md(x[2]) + '</p><label class="check-grande" style="font-weight:600"><input type="checkbox" data-decis="' + i + '"' + (d[i] ? ' checked' : '') + ' style="accent-color:var(--ok)"> Ya lo hemos decidido</label></details>';
+   }).join('') + '</div>' +
+   '<div class="tarjeta"><h3>Esta semana</h3><ul class="semana">' + SEMANA.map(function(x, i){ var k = 's-' + i; return '<li><label><input type="checkbox" data-check="' + k + '"' + (c[k] ? ' checked' : '') + '><span class="d">' + x[0] + '</span><span>' + esc(x[1]) + '</span></label></li>'; }).join('') + '</ul></div>' +
+   '<h2>Los primeros 90 días</h2><div class="rejilla">' + ETAPAS.map(function(e){ return '<div class="tarjeta"><span class="etq">' + e[0] + '</span><h3>' + e[1] + '</h3><ul class="lista">' + e[2].map(function(x){ return '<li>' + md(x) + '</li>'; }).join('') + '</ul></div>'; }).join('') + '</div>' +
+   '<div class="tarjeta"><h3>Presupuesto de arranque <span class="supuesto">supuesto</span></h3><div class="tabla"><table><thead><tr><th>Partida</th><th>Orientativo</th><th>Nota</th></tr></thead><tbody>' + PRESUPUESTO.map(function(p){ return '<tr><td><b>' + esc(p[0]) + '</b></td><td class="num">' + esc(p[1]) + '</td><td>' + esc(p[2]) + '</td></tr>'; }).join('') + '</tbody></table></div><p>Contad con <b>6 meses de gastos sin ningún cobro</b>: una compraventa tarda de 3 a 6 meses de la captación a la notaría, y se cobra en la notaría <span class="supuesto">supuesto</span>.</p></div>' +
+   '<div class="tarjeta"><h3>Riesgos que hay que vigilar</h3><ul class="lista">' + RIESGOS.map(function(r){ return '<li>' + esc(r) + '</li>'; }).join('') + '</ul></div>';
+};
+
+/* página para el PDF: todo seguido */
+R.imprimir = function(){
+  var c = {};
+  return '<div class="tarjeta cartel"><span class="etq">Guía de arranque · Elche · noviembre 2026</span><h1>Tono e Hijo</h1><p>La versión en papel de la app: <b>clientes.innovarteweb.com/tono-e-hijo</b>. En la app, además, están los tests con corrección, el entrenador de objeciones, las calculadoras y las listas por operación.</p></div>' +
+   '<h2>El día, según la fase</h2>' + FASES.map(function(f, i){ return '<div class="tarjeta"><h3>' + f.nombre + ' <span class="suave" style="font-size:.9rem">· ' + f.d + '</span></h3><ul class="lista">' + DIAS[i].map(function(d){ return '<li><b>' + d[0] + ' · ' + esc(d[1]) + '.</b> ' + esc(d[2]) + '</li>'; }).join('') + '</ul><p class="suave" style="font-size:.9rem">Mínimos semanales por socio <span class="supuesto">supuesto</span>: ' + METAS[i].map(function(m){ return esc(m[1]).toLowerCase() + ' ' + m[2]; }).join(' · ') + '</p></div>'; }).join('') +
+   MODULOS.map(function(m){ return moduloHTML(m, true); }).join('') +
+   '<h2 class="salto">Guiones</h2>' + GUIONES.map(function(g){ return '<div class="tarjeta"><h3>' + esc(g[0]) + '</h3><p class="suave">' + esc(g[1]) + '</p><div class="texto-guion">' + esc(g[2].replace(/\{socio\}/g, 'Tono')) + '</div></div>'; }).join('') +
+   '<div class="tarjeta"><h3>Las 10 objeciones</h3>' + OBJECIONES.map(function(o){ return '<p><b>«' + esc(o[0]) + '»</b> ' + esc(o[1]) + '</p>'; }).join('') + '</div>' +
+   '<div class="salto"></div>' + R.papeles() + '<div class="tarjeta"><h3>En cada operación</h3>' + checks(OPERACION, 'x-', c) + '</div>' + R.arranque();
+};
+
+/* ================= navegación ================= */
+var PADRE = {hoy:'inicio', formacion:'inicio', modulo:'formacion', practicar:'inicio', objeciones:'practicar', guiones:'practicar', guion:'guiones', calculadoras:'inicio', honorarios:'calculadoras', valoracion:'calculadoras', embudo:'calculadoras', papeles:'inicio', operaciones:'papeles', operacion:'operaciones', arranque:'papeles'};
+var SECCION = {inicio:'inicio', hoy:'inicio', formacion:'formacion', modulo:'formacion', practicar:'practicar', objeciones:'practicar', guiones:'practicar', guion:'practicar', calculadoras:'calculadoras', honorarios:'calculadoras', valoracion:'calculadoras', embudo:'calculadoras', papeles:'papeles', operaciones:'papeles', operacion:'papeles', arranque:'papeles'};
+var TITULO = {hoy:'Hoy', formacion:'Formación', modulo:'Módulo', practicar:'Practicar', objeciones:'Objeciones', guiones:'Guiones', guion:'Guion', calculadoras:'Calculadoras', honorarios:'Honorarios', valoracion:'Valoración', embudo:'Embudo', papeles:'Papeles', operaciones:'Operaciones', operacion:'Operación', arranque:'Arranque'};
+var actual = {r:'inicio', n:0}, profundidad = 0;
+
+function leerRuta(){
+  var h = decodeURIComponent(location.hash.slice(1));
+  var m = /^(modulo|guion|operacion)-(\d+)$/.exec(h);
+  if (m) return {r:m[1], n:+m[2], ancla:null};
+  var a = /^m(\d+)-(esencial|pasos|errores|test|ejercicio)$/.exec(h);   /* anclas dentro de un módulo */
+  if (a) return {r:'modulo', n:+a[1], ancla:h};
+  return {r: R[h] && h !== 'modulo' && h !== 'guion' && h !== 'operacion' ? h : 'inicio', n:0, ancla:null};
+}
+function pintar(mantenerScroll){
+  var ruta = leerRuta(), y = window.scrollY;
+  var cambia = ruta.r !== actual.r || ruta.n !== actual.n;
+  actual = ruta;
+  var app = $('#app');
+  app.innerHTML = R[ruta.r](ruta.n);
+  if (cambia){ app.classList.remove('pagina-entra'); void app.offsetWidth; app.classList.add('pagina-entra'); }
+  var sec = SECCION[ruta.r] || 'inicio';
+  $$('nav.tabs a').forEach(function(a){ if (a.dataset.sec === sec) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  var sub = ruta.r !== 'inicio' && ruta.r !== 'imprimir';
+  $('#atras').hidden = !sub; $('#titulo-sup').hidden = !sub; $('#marca').hidden = sub;
+  $('#titulo-sup').textContent = ruta.r === 'modulo' ? 'Módulo ' + ruta.n : ruta.r === 'guion' ? 'Guion ' + ruta.n : (TITULO[ruta.r] || '');
+  $$('[data-socio]').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.socio === estado.socio)); });
+  document.title = (sub ? (TITULO[ruta.r] || '') + ' · ' : '') + 'Guía Tono e Hijo';
+  if (ruta.r === 'honorarios') calcHon();
+  if (ruta.r === 'valoracion') calcVal();
+  if (ruta.r === 'embudo') calcEmb();
+  if (ruta.ancla){ var el = document.getElementById(ruta.ancla); if (el) el.scrollIntoView({block:'start'}); }
+  else if (mantenerScroll) window.scrollTo(0, y);
+  else if (cambia){ window.scrollTo(0, 0); app.focus({preventScroll:true}); }
+}
+function repintar(){ pintar(true); }
+addEventListener('hashchange', function(){ profundidad++; pintar(false); });
+$('#atras').addEventListener('click', function(){
+  if (profundidad > 0 && history.length > 1){ profundidad -= 2; history.back(); }
+  else { var p = PADRE[actual.r] || 'inicio'; location.hash = p; }
+});
+
+/* ================= interacción ================= */
+document.addEventListener('click', function(e){
+  var b = e.target.closest('button'); if (!b) return;
+  var d = b.dataset;
+  if (d.socio){ estado.socio = d.socio; G('socio', d.socio); toast('Ahora ves el progreso de ' + d.socio); repintar(); return; }
+  if (d.fase !== undefined){ estado.fase = +d.fase; G('fase', estado.fase); repintar(); return; }
+  if (d.mas || d.menos){ var c = contadores(), k = d.mas || d.menos; c[k] = Math.max(0, (c[k] || 0) + (d.mas ? 1 : -1)); PG('cont-' + semanaClave(), c); repintar(); return; }
+  if (d.q){ var p = d.q.split('-'), t = P('test-' + p[0], {}); if (t[p[1]] !== undefined) return; t[p[1]] = +p[2]; PG('test-' + p[0], t); var m = MODULOS[p[0] - 1]; if (modEstado(m).testOk) toast('Test aprobado'); repintar(); return; }
+  if (d.reintentar){ var r = d.reintentar.split('-'), tt = P('test-' + r[0], {}); delete tt[r[1]]; PG('test-' + r[0], tt); repintar(); return; }
+  if (d.objVer !== undefined){ R.objeciones.ver = true; repintar(); return; }
+  if (d.objMarca !== undefined){ var i = S('obj-i', 0) % OBJECIONES.length, v = P('obj-sabidas', {}); v[i] = d.objMarca === '1'; PG('obj-sabidas', v); G('obj-i', i + 1); R.objeciones.ver = false; repintar(); window.scrollTo(0, 0); return; }
+  if (d.objMover){ G('obj-i', (S('obj-i', 0) + OBJECIONES.length + +d.objMover) % OBJECIONES.length); R.objeciones.ver = false; repintar(); return; }
+  if (d.copiar){ var txt = document.getElementById(d.copiar).innerText; try{ navigator.clipboard.writeText(txt).then(function(){ toast('Copiado'); }, function(){ seleccionar(d.copiar); }); }catch(err){ seleccionar(d.copiar); } return; }
+  if (d.grande !== undefined){ G('grande', !S('grande', false)); repintar(); return; }
+  if (d.ensayo){ PG('ens-' + d.ensayo, P('ens-' + d.ensayo, 0) + 1); var cc = contadores(); if (METAS[estado.fase].some(function(x){ return x[0] === 'ensayos'; })){ cc.ensayos = (cc.ensayos || 0) + 1; PG('cont-' + semanaClave(), cc); } toast('Ensayo apuntado'); repintar(); return; }
+  if (d.testigoMas !== undefined){ var f = leerTestigos(); f.push(['','']); var cv = S('calc-val', {}); cv.t = f; cv.m2 = $('#v-m2').value; cv.aj = $('#v-aj').value; G('calc-val', cv); repintar(); return; }
+  if (d.testigoQuitar !== undefined){ var g = leerTestigos(); g.splice(+d.testigoQuitar, 1); if (!g.length) g.push(['','']); var cq = S('calc-val', {}); cq.t = g; cq.m2 = $('#v-m2').value; cq.aj = $('#v-aj').value; G('calc-val', cq); repintar(); return; }
+  if (d.opBorrar !== undefined){ var cf = $('[data-op-confirmar]'); cf.hidden = !cf.hidden; b.textContent = cf.hidden ? 'Borrar operación' : 'Cancelar'; return; }
+  if (d.opConfirmar !== undefined){ var ops = S('ops', []); ops.splice(+d.opConfirmar, 1); G('ops', ops); toast('Operación borrada'); location.hash = 'operaciones'; return; }
+});
+function seleccionar(id){ var r = document.createRange(); r.selectNodeContents(document.getElementById(id)); var s = getSelection(); s.removeAllRanges(); s.addRange(r); toast('Texto seleccionado: cópialo'); }
+document.addEventListener('change', function(e){
+  var t = e.target, d = t.dataset;
+  if (d.tarea !== undefined){ var x = P('tareas-' + hoyClave(), {}); x[d.tarea] = t.checked; PG('tareas-' + hoyClave(), x); if (t.checked && Object.keys(x).filter(function(k){ return x[k]; }).length === DIAS[estado.fase].length) toast('Día completo'); return; }
+  if (d.ej){ PG('ej-' + d.ej, t.checked); if (t.checked && modEstado(MODULOS[d.ej - 1]).hecho) toast('Módulo ' + d.ej + ' hecho'); repintar(); return; }
+  if (d.check){ var c = S('checks', {}); c[d.check] = t.checked; G('checks', c); if (actual.r === 'papeles') repintar(); return; }
+  if (d.decis !== undefined){ var de = S('decis', {}); de[d.decis] = t.checked; G('decis', de); var su = t.closest('details').querySelector('.estado'); su.className = 'estado ' + (t.checked ? 'ok' : 'medio'); su.textContent = t.checked ? 'Decidido' : 'Pendiente'; return; }
+  if (d.opcheck){ var p = d.opcheck.split(':'), ops = S('ops', []); ops[+p[0]].c[p[1]] = t.checked; G('ops', ops); repintar(); return; }
+  if (d.calc !== undefined && t.tagName === 'SELECT'){ calcVal(); }
+});
+document.addEventListener('input', function(e){
+  var t = e.target, d = t.dataset;
+  if (d.calc !== undefined){ if (actual.r === 'honorarios') calcHon(); if (actual.r === 'valoracion') calcVal(); if (actual.r === 'embudo') calcEmb(); return; }
+  if (d.nota){ PG('nota-' + d.nota, t.value); return; }
+  if (d.opnota !== undefined){ var ops = S('ops', []); ops[+d.opnota].nota = t.value; G('ops', ops); }
+});
+document.addEventListener('submit', function(e){
+  if (e.target.id !== 'form-op') return;
+  e.preventDefault();
+  var n = $('#op-nombre').value.trim(); if (!n) { $('#op-nombre').focus(); return; }
+  var ops = S('ops', []); ops.push({nombre:n, c:{}, nota:''}); G('ops', ops); toast('Operación añadida'); location.hash = 'operacion-' + ops.length;
+});
+
+pintar(false);
 })();
 </script>
 
