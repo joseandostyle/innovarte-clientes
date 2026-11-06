@@ -87,10 +87,9 @@ footer a{color:var(--accent-deep)}
   <header class="top">
     <div class="marca">Innovarte · para Electro House</div>
     <h1>Vuestra tienda online, a vuestra medida</h1>
-    <p class="intro">Con estas respuestas haremos la web tal y como trabajáis. Están todas en esta página: podéis leerlas primero y contestar después, sin prisa.</p>
+    <p class="intro">Son 14 preguntas cortas, unos 3 minutos. Con ellas haremos la web tal y como trabajáis. Están todas en esta página: podéis leerlas antes de contestar.</p>
     <ul class="avisos">
-      <li><b>Lo que vais marcando se guarda en este móvil u ordenador</b>, así que podéis dejarlo a medias y seguir luego.</li>
-      <li><b>Solo hay que rellenar vuestro nombre.</b> Lo demás, lo que sepáis; si dudáis, marcad «aconsejadnos».</li>
+            <li><b>Casi todo es marcar una casilla.</b> Si dudáis, marcad «aconsejadnos».</li>
       <li><b>Se envía una sola vez.</b> Al terminar, pulsad «Enviar respuestas» abajo del todo y nos llegan directamente.</li>
     </ul>
     <nav class="indice" id="indice" aria-label="Apartados"></nav>
@@ -106,73 +105,44 @@ footer a{color:var(--accent-deep)}
 <script>
 // Clave pública de Web3Forms (sirve solo para recibir el formulario en el correo de Innovarte).
 const WEB3FORMS_KEY = "8e45e3b3-1498-48a4-8e11-3e9857dc0dc4";
-const CLAVE_LOCAL = "eh-cuestionario-2026-11";
+const CLAVE_LOCAL = "eh-cuestionario-2026-11-v2";
 const ENVIADO = CLAVE_LOCAL + "-enviado";
 
 const BLOQUES = [
- { id:"tara", titulo:"Los artículos de tara", intro:"Cada artículo de tara es una sola unidad. La idea es que nunca se venda dos veces (una en la tienda y otra en la web). Hay cuatro formas de hacerlo:",
+ { id:"tara", titulo:"Los artículos de tara", intro:"Cada artículo de tara es una sola unidad: la idea es que nunca se venda dos veces (en la tienda y en la web). Las cuatro formas de hacerlo:",
    explica:[
-    ["A · Solo por WhatsApp","En la web no se puede pagar: el cliente pregunta «¿sigue disponible?» por WhatsApp con el mensaje ya escrito."],
-    ["B · Se paga, pero se cobra cuando confirmáis","El dinero del cliente queda retenido, no cobrado. Os llega un aviso; si la unidad sigue ahí, se cobra con un toque. Si no, se anula y no se le cobra nada.",true],
-    ["C · Compra directa","Se compra como cualquier producto. Lo que vendáis en la tienda lo marcáis como vendido en el móvil para que desaparezca de la web."],
+    ["A · Solo por WhatsApp","En la web no se paga: el cliente pregunta «¿sigue disponible?» por WhatsApp."],
+    ["B · Se paga, pero se cobra cuando confirmáis","El dinero queda retenido. Si la unidad sigue ahí, se cobra con un toque; si no, se anula sin cobrar nada.",true],
+    ["C · Compra directa","Como cualquier producto. Lo que vendáis en la tienda lo marcáis como vendido en el móvil."],
     ["D · Reserva y se paga en la tienda","El cliente lo aparta 24 o 48 horas y lo paga al venir a verlo."]],
    preguntas:[
-    {id:"tara_forma", t:"¿Cómo preferís vender los artículos de tara en la web?", tipo:"multi", ops:["A · Solo por WhatsApp","B · Se paga y se cobra cuando confirmamos","C · Compra directa y la marcamos vendida","D · Reserva en la web y se paga en la tienda","No lo tenemos claro: aconsejadnos"], nota:true, ayuda:"Se pueden combinar (por ejemplo B y el botón de WhatsApp a la vez)."},
-    {id:"tara_confirma", t:"Si alguien paga un artículo de tara en la web, ¿en cuánto tiempo podéis confirmar que sigue ahí?", tipo:"uno", ops:["En menos de 1 hora","En el mismo día","En 24 horas","Más de 24 horas"]},
-    {id:"tara_finde", t:"¿Y los fines de semana?", tipo:"uno", ops:["También confirmamos sábado y domingo","Solo el sábado","Hasta el lunes no"]},
-    {id:"tara_vendido", t:"Cuando vendáis un artículo de tara en la tienda, ¿cómo preferís marcarlo como vendido en la web?", tipo:"uno", ops:["Buscándolo en el panel por su nombre o su foto y pulsando «vendido»","Con una pegatina con código en cada artículo, que se escanea con el móvil","Lo que sea más fácil: aconsejadnos"]},
-    {id:"tara_quien", t:"¿Quién se encargaría de subir los artículos a la web y de marcarlos como vendidos?", tipo:"texto", ph:"Nombre o puesto"},
-    {id:"tara_desde", t:"¿Desde dónde los subiríais?", tipo:"multi", ops:["Desde el móvil","Desde el ordenador"]},
-    {id:"tara_cuantos", t:"¿Cuántos artículos de tara tenéis a la vez, más o menos?", tipo:"uno", ops:["Menos de 20","Entre 20 y 50","Entre 50 y 100","Más de 100"]},
-    {id:"tara_rotacion", t:"¿Cuántos entran y salen a la semana?", tipo:"uno", ops:["Menos de 5","Entre 5 y 15","Entre 15 y 30","Más de 30"]},
-    {id:"tara_reserva", t:"¿Dejáis reservar un artículo para que el cliente venga a verlo?", tipo:"uno", ops:["Sí, sin señal","Sí, con una señal","No"], nota:true},
-    {id:"tara_garantia", t:"¿Qué garantía tienen los artículos de tara?", tipo:"uno", ops:["La misma que los nuevos, la de la marca","La damos nosotros","Depende del artículo"], nota:true, ayuda:"Si el aparato es nuevo, la garantía legal es de 3 años."}
+    {id:"tara_forma", t:"¿Cómo preferís vender los artículos de tara en la web?", tipo:"multi", ops:["A · Solo por WhatsApp","B · Se paga y se cobra cuando confirmamos","C · Compra directa y la marcamos vendida","D · Reserva en la web y se paga en la tienda","Aconsejadnos"]},
+    {id:"tara_confirma", t:"Si alguien paga un artículo de tara, ¿en cuánto tiempo podéis confirmar que sigue ahí?", tipo:"uno", ops:["En menos de 1 hora","En el mismo día","En 24 horas o más"]},
+    {id:"tara_vendido", t:"Al vender un artículo de tara en la tienda, ¿cómo preferís marcarlo como vendido en la web?", tipo:"uno", ops:["Buscándolo en el móvil y pulsando «vendido»","Con una pegatina con código que se escanea","Aconsejadnos"]},
+    {id:"tara_cuantos", t:"¿Cuántos artículos de tara tenéis a la vez, más o menos?", tipo:"uno", ops:["Menos de 20","Entre 20 y 50","Entre 50 y 100","Más de 100"]}
    ]},
- { id:"cobro", titulo:"El cobro online", intro:"Por fuera la web es la misma en todos los casos. Lo que cambia es quién cobra los pagos y qué se paga cada mes:",
+ { id:"cobro", titulo:"El cobro online", intro:"Por fuera la web es igual en todos los casos; cambia quién cobra y qué se paga cada mes:",
    explica:[
     ["1 · Software de tiendas de terceros","Cuota mensual y un porcentaje de cada venta. Es la más barata de hacer."],
-    ["2A · Todo propio, con el TPV virtual de vuestro banco","Sin cuota de plataforma; la comisión que tengáis con el banco, normalmente la más baja. Admite Bizum si el banco lo activa. Cuesta más hacerla."],
-    ["2B · Todo propio, con Stripe","Sin cuota mensual y una comisión pequeña por venta. Alta rápida y sin trámites con el banco. Cuesta más hacerla."]],
+    ["2A · Todo propio, con el TPV virtual de vuestro banco","Sin cuota de plataforma y la comisión de vuestro banco, normalmente la más baja. Cuesta más hacerla."],
+    ["2B · Todo propio, con Stripe","Sin cuota mensual y una comisión pequeña por venta, sin trámites con el banco. Cuesta más hacerla."]],
    preguntas:[
-    {id:"cobro_opcion", t:"¿Qué opción preferís?", tipo:"uno", ops:["1 · Software de tiendas de terceros","2A · Propia, con nuestro banco","2B · Propia, con Stripe","Aconsejadnos"], nota:true},
-    {id:"cobro_banco", t:"¿Con qué banco trabajáis?", tipo:"texto", ph:"Nombre del banco"},
-    {id:"cobro_tpv", t:"¿Tenéis TPV virtual (para cobrar por internet)?", tipo:"uno", ops:["Sí, ya lo tenemos","No, pero lo pediríamos","No, y preferimos no pedirlo","No lo sabemos"]},
-    {id:"cobro_bizum", t:"¿Queréis que se pueda pagar con Bizum?", tipo:"uno", ops:["Sí","No","Nos da igual"]},
-    {id:"cobro_volumen", t:"¿Cuánto pensáis vender online al mes, más o menos?", tipo:"uno", ops:["Menos de 1.000 €","Entre 1.000 y 3.000 €","Entre 3.000 y 10.000 €","Más de 10.000 €","Ni idea todavía"]},
-    {id:"cobro_tienda", t:"¿Cómo os pagan hoy en la tienda?", tipo:"multi", ops:["Datáfono del banco","Efectivo","Bizum","Transferencia","Financiación"]},
-    {id:"cobro_efectivo", t:"¿Qué parte de las ventas de la tienda se paga en efectivo?", tipo:"uno", ops:["Poca","Más o menos la mitad","La mayoría"]}
+    {id:"cobro_opcion", t:"¿Qué opción preferís?", tipo:"uno", ops:["1 · Software de tiendas de terceros","2A · Propia, con nuestro banco","2B · Propia, con Stripe","Aconsejadnos"]},
+    {id:"cobro_tpv", t:"¿Tenéis TPV virtual en el banco (para cobrar por internet)?", tipo:"uno", ops:["Sí","No, pero lo pediríamos","No lo sabemos"], nota:true, notaPh:"¿Con qué banco trabajáis? (opcional)"}
    ]},
- { id:"nuevos", titulo:"Electrodomésticos nuevos de catálogo", preguntas:[
-    {id:"nuevos_cuantos", t:"¿Cuántos productos nuevos queréis tener en la web?", tipo:"uno", ops:["Menos de 50","Entre 50 y 200","Entre 200 y 500","Más de 500"]},
-    {id:"nuevos_stock", t:"¿Los tenéis en la tienda o se piden al proveedor?", tipo:"uno", ops:["En la tienda","Se piden al proveedor","De las dos formas"]},
-    {id:"nuevos_archivo", t:"¿Vuestro proveedor os da un archivo con los productos, fotos y fichas técnicas?", tipo:"uno", ops:["Sí, un Excel o similar","Sí, desde su web","No","No lo sabemos"], nota:true, notaPh:"¿Qué proveedor?", ayuda:"Nos ahorraría meter los productos uno a uno."},
-    {id:"nuevos_precios", t:"¿Cada cuánto cambian los precios?", tipo:"uno", ops:["Casi nunca","Cada mes, más o menos","Cada semana"]}
+ { id:"tienda", titulo:"Productos y envío", preguntas:[
+    {id:"nuevos_cuantos", t:"¿Cuántos electrodomésticos nuevos (no de tara) queréis en la web?", tipo:"uno", ops:["Menos de 50","Entre 50 y 200","Más de 200"]},
+    {id:"nuevos_archivo", t:"¿Vuestro proveedor os da un archivo con los productos, fotos y fichas?", tipo:"uno", ops:["Sí","No","No lo sabemos"], ayuda:"Nos ahorraría meterlos a mano."},
+    {id:"envio_zonas", t:"¿A qué zonas lleváis los pedidos?", tipo:"multi", ops:["Orihuela y Vega Baja","Resto de Alicante","Región de Murcia","Toda España"]},
+    {id:"envio_montaje", t:"¿Instaláis el aparato y os lleváis el viejo?", tipo:"uno", ops:["Sí, incluido en el precio","Sí, pero se cobra aparte","No"]}
    ]},
- { id:"envio", titulo:"Envío, montaje y devoluciones", preguntas:[
-    {id:"envio_zonas", t:"¿A qué zonas llegáis?", tipo:"multi", ops:["Orihuela","Vega Baja","Resto de la provincia de Alicante","Región de Murcia","Toda España"], nota:true},
-    {id:"envio_transporte", t:"¿Con qué transporte?", tipo:"uno", ops:["Propio","Agencia de transporte","Los dos"]},
-    {id:"envio_coste", t:"¿Cuánto cuesta el envío para el cliente?", tipo:"uno", ops:["Gratis","Según la zona","Gratis a partir de cierto importe"], nota:true, notaPh:"Detalles (zonas, importes…)"},
-    {id:"envio_instalacion", t:"¿Instaláis el aparato?", tipo:"uno", ops:["Sí, incluido","Sí, se cobra aparte","No"], nota:true},
-    {id:"envio_retirada", t:"¿Os lleváis el aparato viejo?", tipo:"uno", ops:["Sí, gratis","Sí, cobrándolo","No"], ayuda:"Al vender uno nuevo, la tienda está obligada a recoger el viejo equivalente; hay que contarlo en la web."},
-    {id:"envio_recogida", t:"¿Se puede recoger la compra en la tienda?", tipo:"uno", ops:["Sí","No"]},
-    {id:"envio_devolucion", t:"Comprando online, el cliente tiene 14 días para devolver. Si devuelven un frigorífico, ¿quién paga la recogida?", tipo:"uno", ops:["Nosotros","El cliente","No lo hemos pensado: aconsejadnos"]},
-    {id:"envio_financiacion", t:"¿Ofrecéis financiación?", tipo:"uno", ops:["Sí, y queremos que salga en la web","Sí, pero mejor que no salga en la web","No"], nota:true, notaPh:"¿Con qué entidad?"}
+ { id:"cocinas", titulo:"Cocinas y canapés", preguntas:[
+    {id:"cocinas_web", t:"Cocinas: ¿qué queréis que pueda hacer la gente en la web?", tipo:"multi", ops:["Pedir presupuesto","Pedir cita en la tienda","Mandar medidas y fotos de su cocina","Escribiros por WhatsApp"]},
+    {id:"canapes_venta", t:"Canapés: ¿se compran online o solo con presupuesto?", tipo:"uno", ops:["Se compran online","Solo presupuesto","Las dos cosas"]}
    ]},
- { id:"cocinas", titulo:"Cocinas a medida y canapés", preguntas:[
-    {id:"cocinas_web", t:"Cocinas: ¿qué queréis que pueda hacer la gente en la web?", tipo:"multi", ops:["Pedir presupuesto","Pedir cita en la tienda","Mandar medidas y fotos de su cocina","Ver cocinas que habéis montado","Escribiros por WhatsApp"]},
-    {id:"cocinas_fotos", t:"¿Tenéis fotos de cocinas que hayáis montado (de clientes reales)?", tipo:"uno", ops:["Sí, bastantes","Alguna","No"], ayuda:"Son lo que más vende."},
-    {id:"canapes_venta", t:"Canapés: ¿se compran online o solo con presupuesto?", tipo:"uno", ops:["Se compran online","Solo presupuesto","Las dos cosas"]},
-    {id:"canapes_detalle", t:"Contadnos de los canapés: medidas, colores, plazo de entrega y si se montan", tipo:"area"}
-   ]},
- { id:"practico", titulo:"Lo práctico", preguntas:[
-    {id:"pr_dominio", t:"¿Tenéis dominio (la dirección de la web) y correo propio?", tipo:"uno", ops:["Sí, los dos","Solo el dominio","Ninguno","No lo sabemos"], nota:true, notaPh:"¿Cuál es vuestra web o vuestro correo ahora?"},
-    {id:"pr_whatsapp", t:"WhatsApp de la tienda: ¿qué número y quién contesta?", tipo:"texto", ph:"Número y persona"},
-    {id:"pr_plazo", t:"¿Para cuándo os gustaría tenerla?", tipo:"uno", ops:["Para Black Friday","Para Navidad","En los primeros meses de 2027","Sin prisa, mejor bien hecha"]},
-    {id:"pr_redes", t:"¿Qué redes usáis?", tipo:"multi", ops:["Instagram","Facebook","TikTok","Ninguna"]},
-    {id:"pr_publicidad", t:"¿Hacéis publicidad en internet?", tipo:"uno", ops:["Sí","No","Nos gustaría empezar"]},
-    {id:"pr_ejemplos", t:"¿Qué tiendas o webs os gustan como ejemplo, y por qué?", tipo:"area"},
-    {id:"pr_logo", t:"El logo nuevo, ¿para cuándo estará?", tipo:"uno", ops:["Ya está listo","En unas semanas","Sin fecha todavía"]},
-    {id:"pr_otros", t:"¿Algo más que queráis contarnos?", tipo:"area"}
+ { id:"final", titulo:"Para terminar", preguntas:[
+    {id:"pr_plazo", t:"¿Para cuándo os gustaría tenerla?", tipo:"uno", ops:["Para Navidad","En los primeros meses de 2027","Sin prisa, mejor bien hecha"]},
+    {id:"pr_otros", t:"¿Algo más que queráis contarnos? (opcional)", tipo:"area"}
    ]}
 ];
 
