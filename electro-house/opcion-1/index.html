@@ -2,731 +2,779 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<meta name="theme-color" content="#F26B1D">
-<title>Electro House · Outlet de electrodomésticos en Orihuela</title>
-<meta name="description" content="Electrodomésticos nuevos de las mejores marcas con taras estéticas de exposición, cocinas a medida y canapés. Tienda en Orihuela.">
+<title>Outlet de electrodomésticos en Orihuela · Electro House</title>
+<meta name="description" content="Electrodomésticos nuevos de las mejores marcas con taras estéticas de exposición, cocinas a medida y canapés. Tienda en la calle Obispo Rocamora de Orihuela.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#CC4A08">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#A83C06">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Outlet de electrodomésticos en Orihuela · Electro House">
+<meta property="og:description" content="Nuevos, con taras estéticas de exposición. Te enseñamos la tara en foto antes de comprar.">
+<meta property="og:image" content="fachada.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23CC4A08'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='900' font-size='15' fill='white' text-anchor='middle'%3EEH%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"WebSite","name":"Electro House","inLanguage":"es"},
+ {"@type":"Store","name":"Electro House","description":"Outlet de electrodomésticos nuevos con taras estéticas de exposición, cocinas a medida y canapés.","telephone":"+34865535940","address":{"@type":"PostalAddress","streetAddress":"C/ Obispo Rocamora, 32","postalCode":"03300","addressLocality":"Orihuela","addressRegion":"Alicante","addressCountry":"ES"},"image":"fachada.jpg"}
+]}
+</script>
 <style>
 :root{
-  --naranja:#F26B1D; --naranja-osc:#D9560C; --naranja-claro:#FFF1E8;
-  --negro:#16181B; --gris-osc:#2A2D33; --texto:#1C1E22; --suave:#5E6470;
-  --linea:#E6E8EC; --fondo:#F6F7F9; --blanco:#fff; --beige:#F4EEE8; --verde:#1E8E4A;
-  --radio:14px; --sombra:0 1px 2px rgba(16,24,40,.06),0 4px 14px rgba(16,24,40,.06);
+  --rotulo:#CC4A08;
+  --rotulo-claro:#F26B1D;
+  --fondo:#F4F5F6;
+  --papel:#FFFFFF;
+  --tinta:#17191C;
+  --suave:#565D67;
+  --linea:#D9DCE1;
+  --suelo:#E7E9EC;
+  --precio:#B8420A;
+  --pegatina:#FFEADB;
+  --pegatina-borde:#F1B287;
+  --pegatina-tinta:#5B2A0B;
+  --ok:#1D7A46;
+  --wa:#1F8C4E;
+  --cab:120px;
+  --radio:2px;
+  --salida:cubic-bezier(.23,1,.32,1);
+  --rapido:140ms;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --rotulo:#A83C06; --rotulo-claro:#E8641C;
+    --fondo:#121416; --papel:#1A1D20; --tinta:#EDEFF2; --suave:#A6ADB6; --linea:#2D3137; --suelo:#202327;
+    --precio:#FF9459; --pegatina:#3A2416; --pegatina-borde:#6E3C1C; --pegatina-tinta:#FFDCC6; --ok:#4CC27F; --wa:#1F8C4E;
+    color-scheme:dark;
+  }
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{margin:0;background:var(--blanco);color:var(--texto);font:15px/1.5 Montserrat,system-ui,sans-serif;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer;color:inherit}
-img,svg{display:block;max-width:100%}
-.cont{max-width:1200px;margin:0 auto;padding:0 16px}
-.demo{background:var(--negro);color:#d8dbe0;font-size:12px;text-align:center;padding:7px 16px}
-.demo b{color:#fff}
+html{overflow-x:clip;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--cab) + 12px)}
+body{margin:0;background:var(--fondo);color:var(--tinta);font:400 17px/1.55 Barlow,system-ui,sans-serif;overflow-x:hidden}
+::selection{background:var(--rotulo-claro);color:#fff}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+img{display:block;max-width:100%;height:auto}
+button,a,[role="button"]{touch-action:manipulation}
+button,.btn,.chip,.nav a{-webkit-user-select:none;user-select:none}
+button{font:inherit;color:inherit;cursor:pointer}
+input,textarea,select{font:inherit;font-size:16px}
+:focus-visible{outline:2px solid var(--rotulo-claro);outline-offset:3px}
+.cont{max-width:1240px;margin:0 auto;padding:0 16px}
+@media(min-width:900px){.cont{padding:0 32px}}
+h1,h2,h3{font-family:"Barlow Condensed",Barlow,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.005em;line-height:1;margin:0;text-wrap:balance}
+.i{font-size:1.25em;line-height:0;vertical-align:-.18em}
+.oculto{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* Cabecera */
-header.cab{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--linea)}
-.cab-fila{display:flex;align-items:center;gap:12px;height:62px}
-.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:21px;letter-spacing:-.01em;white-space:nowrap}
-.logo .h{color:var(--naranja)}
-.logo-sello{width:30px;height:30px;border-radius:7px;background:var(--naranja);display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800}
-.busca{flex:1;position:relative;max-width:520px;margin-left:auto}
-.busca input{width:100%;height:42px;border:1px solid var(--linea);border-radius:999px;padding:0 44px 0 16px;font:inherit;font-size:16px;background:var(--fondo)}
-.busca input:focus{outline:2px solid var(--naranja);outline-offset:0;background:#fff}
-.busca button{position:absolute;right:4px;top:4px;width:34px;height:34px;border:0;border-radius:50%;background:transparent;display:grid;place-items:center}
-.iconos{display:flex;gap:4px;margin-left:auto}
-.ico{width:42px;height:42px;border:0;background:transparent;border-radius:10px;display:grid;place-items:center;position:relative}
-.ico:hover{background:var(--fondo)}
-.globo{position:absolute;top:4px;right:3px;min-width:18px;height:18px;border-radius:9px;background:var(--naranja);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 4px}
-.busca-movil{display:none;padding:0 0 10px}
-.nav{display:flex;gap:6px;overflow-x:auto;padding:8px 0 10px;scrollbar-width:none}
-.nav::-webkit-scrollbar{display:none}
-.nav a{flex:none;font-weight:600;font-size:14px;padding:7px 14px;border-radius:8px;white-space:nowrap}
-.nav a.on{background:var(--naranja);color:#fff}
-.nav a.outlet{color:var(--naranja-osc)}
-.nav a.outlet.on{color:#fff}
-@media(max-width:760px){
-  .cab-fila .busca{display:none}
-  .busca-movil{display:block}
-  .busca-movil .busca{max-width:none;margin:0}
-  .logo{font-size:19px}
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 22px;border:0;border-radius:var(--radio);font:700 17px/1 Barlow,sans-serif;text-decoration:none;white-space:nowrap;transition:transform var(--rapido) var(--salida),background-color var(--rapido) ease,color var(--rapido) ease}
+.btn:active{transform:scale(.97)}
+.btn-tinta{background:var(--tinta);color:var(--papel)}
+.btn-blanco{background:#fff;color:#17191C}
+.btn-linea{background:transparent;color:var(--tinta);box-shadow:inset 0 0 0 1.5px var(--tinta)}
+.btn-wa{background:var(--wa);color:#fff}
+@media (hover:hover) and (pointer:fine){
+  .btn-tinta:hover{background:var(--rotulo);color:#fff}
+  .btn-blanco:hover{background:#FFEADB}
+  .btn-linea:hover{background:var(--tinta);color:var(--papel)}
 }
 
-/* Portada */
-.hero{margin-top:14px;border-radius:18px;overflow:hidden;position:relative;background:linear-gradient(120deg,#F26B1D 0%,#F7883A 60%,#F59B54 100%);color:#fff}
-.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
-.slides::-webkit-scrollbar{display:none}
-.slide{flex:0 0 100%;scroll-snap-align:start;display:grid;grid-template-columns:1fr;align-items:center;gap:8px;padding:26px 22px 44px;min-height:330px}
-.slide h1,.slide h2{font-size:clamp(30px,8vw,52px);line-height:1.02;font-style:italic;font-weight:800;margin:0;letter-spacing:-.02em}
-.slide p{margin:10px 0 18px;font-size:15px;max-width:30ch;opacity:.95}
-.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:10px;font-weight:700;padding:12px 18px;min-height:46px;font-size:15px}
-.btn-blanco{background:#fff;color:var(--naranja-osc)}
-.btn-nar{background:var(--naranja);color:#fff}
-.btn-nar:hover{background:var(--naranja-osc)}
-.btn-neg{background:var(--negro);color:#fff}
-.btn-linea{background:#fff;border:1.5px solid var(--linea);color:var(--texto)}
-.btn-wa{background:#1FAF55;color:#fff}
-.slide .ilu{display:flex;align-items:flex-end;justify-content:center;gap:0;margin-top:6px}
-@media(max-width:759px){.slide{min-height:0;align-content:start;padding-bottom:40px}.slide .ilu>*{max-width:300px!important}.slide .ilu svg{max-height:170px}.slide .ilu{height:180px;overflow:hidden;align-items:flex-end}}
-.puntos{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;gap:7px}
-.puntos button{width:8px;height:8px;border-radius:4px;border:0;background:rgba(255,255,255,.55);padding:0}
-.puntos button.on{width:22px;background:#fff}
-.pct{position:absolute;right:18px;top:18px;width:58px;height:58px;border-radius:14px;background:#fff;color:var(--naranja);display:grid;place-items:center;font-size:30px;font-weight:800;transform:rotate(8deg);box-shadow:0 6px 16px rgba(0,0,0,.15)}
-@media(min-width:760px){
-  .slide{grid-template-columns:1fr 1.1fr;padding:40px 48px 54px;min-height:380px}
-  .slide .ilu{margin:0}
-}
-.ventajas{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:18px 0 6px;border:1px solid var(--linea);border-radius:var(--radio);padding:14px 6px}
-.ventajas div{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;font-size:12px;font-weight:600;line-height:1.25;padding:0 4px}
-.ventajas div+div{border-left:1px solid var(--linea)}
-.ventajas svg{color:var(--naranja)}
-.sec{margin-top:30px}
-.sec-tit{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}
-.sec-tit h2{font-size:21px;margin:0;letter-spacing:-.01em}
-.sec-tit a{color:var(--naranja-osc);font-weight:700;font-size:14px;white-space:nowrap}
-.sub{color:var(--suave);margin:-6px 0 12px;font-size:14px}
-
-/* Tarjetas de producto */
-.fila-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:46%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:none;margin:0 -16px;padding-left:16px;padding-right:16px}
-.fila-scroll::-webkit-scrollbar{display:none}
-.fila-scroll>*{scroll-snap-align:start}
-@media(min-width:760px){.fila-scroll{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);overflow:visible;margin:0;padding:0}}
-.rejilla{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-@media(min-width:760px){.rejilla{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:1024px){.rejilla{grid-template-columns:repeat(4,1fr)}}
-.tarjeta{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column;position:relative;box-shadow:var(--sombra);transition:transform .15s ease}
-@media(hover:hover){.tarjeta:hover{transform:translateY(-2px)}}
-.tarjeta .foto{aspect-ratio:1/1;background:var(--fondo);display:grid;place-items:center;padding:10px}
-.tarjeta .foto svg{width:88%;height:88%}
-.dto{position:absolute;top:10px;right:10px;background:var(--naranja);color:#fff;font-weight:800;font-size:13px;padding:4px 8px;border-radius:8px}
-.chip-tara{position:absolute;top:10px;left:10px;background:var(--negro);color:#fff;font-size:11px;font-weight:700;padding:4px 8px;border-radius:6px;letter-spacing:.02em}
-.tarjeta .info{padding:10px 12px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
-.tarjeta .nom{font-weight:600;font-size:14px;line-height:1.3}
-.precio{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:4px}
-.precio .p{color:#D93A12;font-weight:800;font-size:20px}
-.precio .antes{color:var(--suave);text-decoration:line-through;font-size:13px}
-.tarjeta .tara-txt{font-size:12px;color:var(--suave);line-height:1.35}
-
-/* Bandas */
-.banda-cocina{display:grid;grid-template-columns:1fr;border-radius:18px;overflow:hidden;background:var(--gris-osc);color:#fff;margin-top:30px}
-.banda-cocina .ilu{background:#E9E2D8;min-height:190px;display:grid;place-items:end center}
-.banda-cocina .txt{padding:22px}
-.banda-cocina h2{font-size:26px;margin:0 0 6px;letter-spacing:-.01em}
-.banda-cocina p{margin:0 0 16px;opacity:.85}
-@media(min-width:760px){.banda-cocina{grid-template-columns:1.1fr 1fr}.banda-cocina .txt{padding:36px;align-self:center}}
-.banda-canape{position:relative;border-radius:18px;overflow:hidden;background:var(--beige);margin-top:16px;display:grid;grid-template-columns:1fr;padding:22px}
-.banda-canape h2{font-size:26px;margin:0 0 4px;color:#7A1F12}
-.banda-canape p{margin:0 0 14px;max-width:24ch}
-.banda-canape .desde{position:absolute;top:16px;right:16px;background:#fff;border-radius:12px;padding:8px 12px;text-align:center;box-shadow:var(--sombra);color:var(--naranja-osc);font-weight:800;line-height:1}
-.banda-canape .desde small{display:block;font-size:12px;font-weight:700;color:var(--texto);margin-bottom:4px}
-.banda-canape .desde b{font-size:28px}
-@media(min-width:760px){.banda-canape{grid-template-columns:1fr 1.2fr;align-items:center;padding:30px 36px}}
-.visita{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--linea);border-radius:18px;overflow:hidden;margin-top:30px}
-.visita img{width:100%;height:100%;object-fit:cover;max-height:420px}
-.visita .txt{padding:22px}
-.visita h2{margin:0 0 8px;font-size:22px}
-.visita ul{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px}
-.visita li{display:flex;gap:10px;align-items:flex-start}
-.visita li svg{flex:none;color:var(--naranja);margin-top:2px}
-@media(min-width:760px){.visita{grid-template-columns:1fr 1fr}.visita .txt{padding:36px;align-self:center}}
-
-/* Pie */
-footer.pie{background:var(--negro);color:#C9CDD3;margin-top:40px;padding:22px 0 calc(90px + env(safe-area-inset-bottom));font-size:13px}
-.pie-ventajas{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding-bottom:18px;border-bottom:1px solid #2E3238}
-.pie-ventajas div{display:flex;gap:8px;align-items:center;color:#fff;font-weight:600}
-.pie-ventajas svg{color:var(--naranja);flex:none}
-@media(min-width:760px){.pie-ventajas{grid-template-columns:repeat(4,1fr)}}
-.pie-bajo{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding-top:16px}
-.pie-bajo .logo{font-size:17px;color:#fff}
-.pie-bajo span{color:#9AA0A8}
-
-/* Botón WhatsApp */
-.wa{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));width:56px;height:56px;border-radius:50%;background:#1FAF55;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.22);z-index:40;border:0}
-
-/* Listados */
-.miga{font-size:13px;color:var(--suave);margin:16px 0 6px;display:flex;gap:6px;flex-wrap:wrap}
-.miga a{color:var(--naranja-osc);font-weight:600}
-h1.tit{font-size:26px;margin:4px 0 4px;letter-spacing:-.01em}
-.filtros{display:flex;gap:8px;overflow-x:auto;margin:14px -16px 12px;padding:0 16px 4px;scrollbar-width:none}
-.filtros::-webkit-scrollbar{display:none}
-.filtros button{flex:none;border:1px solid var(--linea);background:#fff;border-radius:999px;padding:8px 14px;font-weight:600;font-size:13px;min-height:38px}
-.filtros button.on{background:var(--negro);border-color:var(--negro);color:#fff}
-.barra-orden{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;font-size:13px;color:var(--suave)}
-.barra-orden select{font:inherit;font-size:14px;border:1px solid var(--linea);border-radius:8px;padding:7px 10px;background:#fff;color:var(--texto)}
-.vacio{text-align:center;padding:40px 16px;color:var(--suave)}
-.aviso-outlet{background:var(--naranja-claro);border-radius:var(--radio);padding:14px 16px;font-size:14px;margin:10px 0 4px;display:flex;gap:12px;align-items:flex-start}
-.aviso-outlet svg{flex:none;color:var(--naranja-osc)}
-
-/* Ficha */
-.ficha{display:grid;grid-template-columns:1fr;gap:18px;margin-top:6px}
-@media(min-width:860px){.ficha{grid-template-columns:1.1fr 1fr;gap:36px}}
-.galeria .grande{background:var(--fondo);border-radius:18px;aspect-ratio:1/1;display:grid;place-items:center;position:relative;overflow:hidden}
-.galeria .grande>svg{width:78%;height:78%}
-.galeria .grande .zoom{position:relative;width:78%;aspect-ratio:1/1}
-.galeria .grande .zoom svg{width:100%;height:100%}
-.miniaturas{display:flex;gap:10px;margin-top:10px}
-.miniaturas button{width:74px;height:74px;border-radius:12px;border:2px solid transparent;background:var(--fondo);padding:6px}
-.miniaturas button.on{border-color:var(--naranja)}
-.miniaturas button svg{width:100%;height:100%}
-.etiqueta-foto{position:absolute;left:12px;bottom:12px;background:rgba(22,24,27,.85);color:#fff;font-size:12px;font-weight:600;padding:5px 9px;border-radius:7px}
-.ficha h1{font-size:24px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
-.ficha .ref{font-size:12px;color:var(--suave)}
-.ficha .precio .p{font-size:32px}
-.ficha .precio .antes{font-size:16px}
-.ahorro{display:inline-block;background:#E8F6EE;color:var(--verde);font-weight:700;font-size:13px;border-radius:6px;padding:3px 8px;margin-top:6px}
-.caja-tara{border:1.5px solid var(--naranja);border-radius:var(--radio);padding:14px 16px;margin:16px 0;background:var(--naranja-claro)}
-.caja-tara h3{margin:0 0 4px;font-size:15px;display:flex;gap:8px;align-items:center}
-.caja-tara p{margin:0;font-size:14px}
-.unidad{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13px;color:var(--naranja-osc);margin-top:8px}
-.acciones{display:grid;gap:10px;margin:16px 0}
-.acciones .btn{justify-content:center;width:100%}
-.nota-cobro{font-size:13px;color:var(--suave);display:flex;gap:8px;align-items:flex-start;margin:-2px 0 6px}
-.nota-cobro svg{flex:none;color:var(--verde);margin-top:1px}
-.datos{list-style:none;padding:0;margin:16px 0 0;border-top:1px solid var(--linea)}
-.datos li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--linea);font-size:14px}
-.datos li span:first-child{color:var(--suave)}
-.datos li span:last-child{font-weight:600;text-align:right}
-.ventajas-ficha{display:grid;gap:8px;margin-top:16px}
-.ventajas-ficha div{display:flex;gap:10px;font-size:14px;align-items:flex-start}
-.ventajas-ficha svg{flex:none;color:var(--naranja);margin-top:1px}
-
-/* Carrito y pedido */
-.lineas{display:grid;gap:10px;margin-top:10px}
-.linea{display:grid;grid-template-columns:72px 1fr auto;gap:12px;align-items:center;border:1px solid var(--linea);border-radius:var(--radio);padding:10px}
-.linea .mini{width:72px;height:72px;background:var(--fondo);border-radius:10px;padding:6px}
-.linea .mini svg{width:100%;height:100%}
-.linea .n{font-weight:600;font-size:14px;line-height:1.3}
-.linea .t{font-size:12px;color:var(--naranja-osc);font-weight:700}
-.linea .der{text-align:right;display:grid;gap:6px;justify-items:end}
-.cant{display:flex;align-items:center;border:1px solid var(--linea);border-radius:8px}
-.cant button{width:32px;height:32px;border:0;background:transparent;font-size:18px}
-.cant span{min-width:22px;text-align:center;font-weight:700}
-.quitar{border:0;background:none;color:var(--suave);font-size:12px;text-decoration:underline;padding:0}
-.resumen{border:1px solid var(--linea);border-radius:var(--radio);padding:16px;margin-top:16px;display:grid;gap:8px}
-.resumen .f{display:flex;justify-content:space-between}
-.resumen .total{font-size:20px;font-weight:800;border-top:1px solid var(--linea);padding-top:10px}
-.forma{display:grid;gap:12px;margin-top:12px}
-.forma label{font-size:13px;font-weight:600;display:grid;gap:5px}
-.forma input,.forma textarea,.forma select{font:inherit;font-size:16px;border:1px solid var(--linea);border-radius:10px;padding:11px 12px;background:#fff;color:var(--texto);width:100%}
-.forma input:focus,.forma textarea:focus{outline:2px solid var(--naranja);outline-offset:0}
-.opciones{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.opciones label{border:1.5px solid var(--linea);border-radius:10px;padding:12px;display:flex;gap:8px;align-items:center;font-weight:600;cursor:pointer;font-size:14px}
-.opciones label:has(input:checked){border-color:var(--naranja);background:var(--naranja-claro)}
-.opciones input{accent-color:var(--naranja);width:18px;height:18px;margin:0}
-.ok-pedido{text-align:center;padding:30px 10px}
-.ok-pedido .circ{width:64px;height:64px;border-radius:50%;background:#E8F6EE;color:var(--verde);display:grid;place-items:center;margin:0 auto 12px}
-.toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:var(--negro);color:#fff;padding:12px 16px;border-radius:12px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;max-width:calc(100% - 32px);text-align:center}
-.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
-.sugeridas{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.sugeridas a{border:1px solid var(--linea);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
-
-/* Fotos */
-.tarjeta .foto{padding:0;background:#fff;overflow:hidden}
-.tarjeta .foto{padding:8%}
-.tarjeta .foto img{width:100%;height:100%;object-fit:contain}
-.galeria .grande{background:#fff;border:1px solid var(--linea)}
-.galeria .grande img{width:86%;height:86%;object-fit:contain}
-.galeria .grande .zoom img{width:100%;height:100%}
-.galeria .grande .zoom{position:relative;width:86%;height:86%}
-.aro{position:absolute;width:64px;height:64px;margin:-32px 0 0 -32px;border:3px solid var(--naranja);border-radius:50%;box-shadow:0 0 0 4px rgba(242,107,29,.3),0 0 0 999px rgba(0,0,0,.18)}
-.miniaturas button{padding:0;overflow:hidden;position:relative}
-.miniaturas button{background:#fff;border-color:var(--linea)}
-.miniaturas button img{width:100%;height:100%;object-fit:contain;padding:4px}
-.mini-aro{position:absolute;inset:20px;border:2px solid var(--naranja);border-radius:50%}
-.linea .mini{padding:4px;overflow:hidden;background:#fff;border:1px solid var(--linea)}.linea .mini img{width:100%;height:100%;object-fit:contain}
-.banda-cocina .ilu{min-height:220px}.banda-cocina .ilu img{width:100%;height:100%;object-fit:cover}
-.canape-foto{justify-self:center;width:100%;max-width:420px;border-radius:14px;overflow:hidden;margin-top:14px}
-.canape-foto img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.collage{position:relative;height:250px;max-width:420px;width:100%;justify-self:center}
-.collage img{position:absolute;object-fit:contain;background:#fff;padding:10px;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.18)}
-.collage .c1{left:0;top:0;width:44%;height:100%}
-.collage .c2{left:38%;top:14%;width:40%;height:62%;z-index:2}
-.collage .c3{right:0;bottom:0;width:34%;height:46%;z-index:3}
-.foto-slide{border-radius:14px;overflow:hidden;border:4px solid #fff;box-shadow:0 10px 24px rgba(0,0,0,.18);max-width:440px;width:100%;justify-self:center}
-.foto-slide img{width:100%;aspect-ratio:4/3;object-fit:cover}
-@media(min-width:760px){.collage{height:290px}}
-@media(max-width:759px){.collage{height:200px}.foto-slide img{aspect-ratio:16/9}.slide{gap:16px}}
-
-/* Hero escaparate */
-.hero{background:#fff;color:var(--texto);box-shadow:0 1px 2px rgba(16,24,40,.06),0 12px 32px rgba(16,24,40,.08)}
-.slide{display:grid;grid-template-columns:1fr;gap:0!important;padding:0!important;min-height:0!important;align-content:stretch;align-items:stretch!important}
-.h-txt{position:relative;color:#fff;padding:24px 22px 26px;background:radial-gradient(140% 120% at 0% 0%,#FF8F45 0%,#F26B1D 48%,#D9560C 100%);overflow:hidden}
-.h-txt::after{content:"";position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;border-radius:50%;border:34px solid rgba(255,255,255,.08)}
-.h-txt>*{position:relative;z-index:1}
-.ceja{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:rgba(22,24,27,.22);border-radius:6px;padding:6px 10px;margin-bottom:14px}
-.h-txt h1,.h-txt h2{font-size:clamp(34px,9vw,56px);line-height:.98;font-style:italic;font-weight:800;margin:0;letter-spacing:-.02em}
-.h-txt p{margin:12px 0 18px;font-size:15px;max-width:32ch;opacity:.95}
-.escaparate{position:relative;height:250px;overflow:hidden;background:linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 68%,#F3F4F6 68%,#F3F4F6 100%)}
-.escaparate::before{content:"";position:absolute;left:0;right:0;top:68%;height:1px;background:#E6E8EC}
-.escaparate.foto img{width:100%;height:100%;object-fit:cover}
-.pz{position:absolute;bottom:20%;display:block;transition:transform .25s cubic-bezier(.2,.8,.2,1);-webkit-tap-highlight-color:transparent;outline-offset:6px}
-.pz img{display:block;height:100%;width:auto}
-.pz::after{content:"";position:absolute;left:2%;right:2%;bottom:-6px;height:12px;background:radial-gradient(closest-side,rgba(16,24,40,.22),transparent);z-index:-1}
-@media(hover:hover){.pz:hover{transform:translateY(-4px)}}
-.pz-frigo{height:72%;left:12%}
-.pz-lava{height:50%;left:38%}
-.pz-frei{height:23%;left:69%}
-.etq{position:absolute;display:flex;flex-direction:column;align-items:center;background:#fff;border:1px solid #E6E8EC;border-radius:8px;padding:5px 9px 6px;font-weight:800;font-size:15px;color:#D93A12;line-height:1.1;box-shadow:0 6px 16px rgba(16,24,40,.10);z-index:3}
-.etq b{font-size:11px;color:#fff;background:var(--naranja);border-radius:4px;padding:1px 5px;margin-bottom:3px}
-.etq::before{content:"";position:absolute;left:50%;top:-14px;height:14px;border-left:1.5px dashed #C9CED6}
-.etq-frigo{left:27%;top:12%}
-.etq-lava{left:56%;top:18%}
-.etq-frei{left:80%;top:44%}
-.puntos{bottom:12px}
-.puntos button{background:rgba(22,24,27,.22)}
-.puntos button.on{background:var(--naranja)}
-@media(min-width:760px){
-  .slide{grid-template-columns:1fr 1.1fr;min-height:400px!important}
-  .h-txt{padding:48px 44px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-  .escaparate{height:auto;min-height:400px}
-  .pz-frigo{height:70%;left:16%}.pz-lava{height:44%;left:42%}.pz-frei{height:22%;left:73%}
-  .etq-frigo{left:30%;top:12%}.etq-lava{left:62%;top:26%}.etq-frei{left:84%;top:46%}
-  .puntos{left:47.6%;right:0}
-}
-/* Buscador: resultados al escribir */
+/* Cabecera: el rótulo */
+.rotulo{position:sticky;top:0;z-index:30;background:var(--rotulo);color:#fff;padding-top:env(safe-area-inset-top)}
+.rot-fila{display:flex;align-items:center;gap:14px;height:58px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;flex:none}
+.marca-sello{width:36px;height:36px;display:grid;place-items:center;border:2px solid #fff;font:800 16px/1 "Barlow Condensed",sans-serif}
+.marca-nombre{font:800 24px/.9 "Barlow Condensed",sans-serif;letter-spacing:.01em}
+.marca-nombre small{display:block;font:700 11px/1 Barlow,sans-serif;letter-spacing:.16em;margin-top:4px;color:#FFE6D6}
+.nav{display:flex;gap:2px}
+.nav a{color:#fff;text-decoration:none;font:700 16px/1 Barlow,sans-serif;padding:11px 12px;border-radius:var(--radio);white-space:nowrap}
+.nav a[aria-current="page"]{background:rgba(0,0,0,.24)}
+@media (hover:hover) and (pointer:fine){.nav a:hover{background:rgba(0,0,0,.14)}}
+.carro{margin-left:auto;position:relative;width:46px;height:46px;display:grid;place-items:center;color:#fff;text-decoration:none;font-size:27px;border-radius:var(--radio)}
+.carro .n{position:absolute;top:2px;right:0;min-width:20px;height:20px;padding:0 5px;background:#fff;color:#17191C;font:800 12px/20px Barlow,sans-serif;text-align:center;border-radius:10px}
 .busca{position:relative}
-.sugs{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--linea);border-radius:14px;box-shadow:0 12px 32px rgba(16,24,40,.16);z-index:50;overflow:hidden}
+.busca-campo{display:flex;align-items:center;background:#fff;color:#17191C;border-radius:var(--radio);height:48px;cursor:text}
+.busca-campo .i{margin:0 2px 0 14px;font-size:22px;color:#565D67}
+.busca input{flex:1;min-width:0;height:100%;border:0;background:transparent;color:#17191C;padding:0 12px 0 8px;outline:none}
+.busca input::placeholder{color:#656C76}
+.busca-campo:focus-within{box-shadow:0 0 0 3px #17191C}
+.busca input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.rot-busca{padding:0 0 10px}
+.rot-nav{overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 6px 8px}
+.rot-nav::-webkit-scrollbar{display:none}
+@media(min-width:1000px){
+  .rot-fila{height:76px;gap:20px}
+  .rot-busca,.rot-nav{display:none}
+  .rot-fila .busca{flex:1;max-width:420px;margin-left:auto}
+  .rot-fila .carro{margin-left:0}
+}
+@media(max-width:999px){.rot-fila .busca,.rot-fila .nav{display:none}}
+
+/* Resultados al escribir */
+.sugs{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--papel);color:var(--tinta);border:1px solid var(--linea);border-radius:var(--radio);z-index:50;max-height:70svh;overflow:auto;overscroll-behavior:contain;box-shadow:0 16px 40px rgba(20,22,26,.2)}
 .sugs.on{display:block}
-.sug{display:flex;gap:12px;align-items:center;padding:8px 12px}
-.sug img{width:48px;height:48px;border-radius:8px;object-fit:contain;flex:none;background:#fff;border:1px solid var(--linea);padding:3px}
-.sug .sn{display:block;font-weight:600;font-size:14px;line-height:1.3}
-.sug .sp{display:block;font-size:13px;color:var(--suave)}
-.sug .sp b{color:var(--naranja-osc)}
-.sug:hover,.sug.act,.sug-todos.act{background:var(--fondo)}
-.sug-todos{display:block;padding:11px 12px;border-top:1px solid var(--linea);font-weight:700;color:var(--naranja-osc);font-size:14px}
-.sug-vacio{padding:14px;font-size:14px;color:var(--suave)}
-.sug-vacio a{color:var(--naranja-osc);font-weight:700}
-mark{background:#FFE2CC;color:inherit;border-radius:3px;padding:0 1px}
-:focus-visible{outline:2px solid var(--naranja);outline-offset:2px}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.sug{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:8px 12px;text-decoration:none}
+.sug+.sug{border-top:1px solid var(--linea)}
+.sug .ft{width:56px;height:56px;background:#fff;border:1px solid var(--linea);display:grid;place-items:center}
+.sug .ft img{width:48px;height:48px;object-fit:contain}
+.sug .sn{display:block;font-weight:600;line-height:1.25}
+.sug .tag{display:block;font:700 12px/1.4 Barlow,sans-serif;color:var(--precio);letter-spacing:.04em;text-transform:uppercase}
+.sug .sp{font:800 21px/1 "Barlow Condensed",sans-serif;color:var(--precio);white-space:nowrap}
+.sug.act,.sug-todos.act{background:var(--fondo)}
+@media (hover:hover) and (pointer:fine){.sug:hover,.sug-todos:hover{background:var(--fondo)}}
+.sug-todos{display:block;padding:13px 12px;border-top:1px solid var(--linea);font-weight:700;color:var(--precio);text-decoration:none}
+.sug-vacio{padding:14px 12px;color:var(--suave)}
+.sug-vacio a{color:var(--precio);font-weight:700}
+mark{background:var(--pegatina);color:inherit;padding:0 1px}
+
+/* Portada: rótulo + escaparate */
+.hero{min-height:calc(100svh - var(--cab) - var(--demo,28px));display:grid;grid-template-rows:auto 1fr;background:var(--rotulo);color:#fff}
+.hero-rot{padding:22px 0 24px}
+.hero h1{font-size:clamp(38px,11.4vw,120px);line-height:.9;overflow-wrap:anywhere}
+.hero,.hero-rot .cont{grid-template-columns:minmax(0,1fr)}
+.hero h1 span{display:block}
+.hero-rot p{margin:14px 0 0;font:500 clamp(17px,4.4vw,21px)/1.4 Barlow,sans-serif;max-width:38ch;color:#FFF1E7}
+.escaparate{position:relative;background:linear-gradient(180deg,#FFFFFF 0%,#F1F3F5 100%);color:#17191C;overflow:hidden;min-height:330px;border-top:6px solid #17191C}
+@media (prefers-color-scheme:dark){.escaparate{background:linear-gradient(180deg,#F3F4F6 0%,#E3E6EA 100%)}}
+.escaparate::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;background:#E6E8EB;border-top:1px solid #D3D7DC}
+.pz{position:absolute;bottom:22%;z-index:2;display:block;text-decoration:none;transition:transform 220ms var(--salida)}
+.pz img{height:100%;width:auto;max-width:none}
+.pz::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:14px;background:radial-gradient(closest-side,rgba(20,22,26,.26),transparent);z-index:-1}
+.pz:active{transform:scale(.98)}
+@media (hover:hover) and (pointer:fine){.pz:hover{transform:translateY(-4px)}}
+.pz-1{height:62%;left:6%}
+.pz-2{height:42%;left:33%}
+.pz-3{height:21%;left:64%}
+.etq{position:absolute;z-index:3;background:#FFEADB;color:#5B2A0B;border:1px solid #F1B287;border-radius:var(--radio);padding:6px 10px 7px;text-decoration:none;line-height:1}
+.etq b{display:block;font:800 26px/1 "Barlow Condensed",sans-serif;color:#B8420A}
+.etq s{font:600 13px/1 Barlow,sans-serif}
+.etq em{font:700 11px/1 Barlow,sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:4px}
+.etq-1{left:23%;top:10%}
+.etq-2{left:54%;top:20%}
+.etq-3{left:76%;top:44%}
+.escaparate-pie{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:0 16px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.escaparate-nota{font:600 14px/1.3 Barlow,sans-serif;color:#454B53;max-width:17ch;text-align:right}
+@media(min-width:900px){
+  .hero-rot{padding:40px 0 34px}
+  .hero-rot .cont{display:grid;grid-template-columns:auto minmax(0,1fr);gap:56px;align-items:end}
+  .hero h1{font-size:clamp(60px,6.3vw,104px);overflow-wrap:normal;white-space:nowrap}
+  .hero-rot p{font-size:21px;margin:0 0 8px}
+  .pz-1{height:76%;left:22%}.pz-2{height:52%;left:39%}.pz-3{height:26%;left:57%}
+  .etq-1{left:31.5%;top:6%}.etq-2{left:51%;top:20%}.etq-3{left:67%;top:44%}
+  .escaparate-pie{padding:0 32px 24px;max-width:1240px;margin:0 auto}
+}
+@media(max-width:899px) and (max-height:740px){
+  .hero-rot{padding:14px 0 16px}
+  .hero h1{font-size:clamp(34px,10.2vw,46px)}
+  .hero-rot p{font-size:16px;margin-top:8px}
+  .escaparate{min-height:250px}
+  .etq b{font-size:21px}.etq em{display:none}
+  .escaparate-nota{display:none}.pz{bottom:30%}.escaparate::after{height:36%}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 span,.hero-rot p,.pz,.etq{animation:entra 560ms var(--salida) both}
+  .hero h1 span:nth-child(2){animation-delay:60ms}
+  .hero-rot p{animation-delay:120ms}
+  .pz-1{animation-delay:120ms}.pz-2{animation-delay:180ms}.pz-3{animation-delay:240ms}
+  .etq{animation-delay:320ms}
+}
+@keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* Secciones de portada */
+.sec{padding:56px 0}
+.sec-cab{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px}
+.sec-cab h2{font-size:clamp(36px,8vw,58px)}
+.sec-cab a{font-weight:700;color:var(--precio);white-space:nowrap;text-decoration:none;padding:8px 0}
+.sec-entrada{margin:12px 0 0;color:var(--suave);max-width:52ch}
+
+.riel{display:grid;grid-auto-flow:column;grid-auto-columns:min(76%,300px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;margin:0 -16px;padding:0 16px 4px}
+.riel::-webkit-scrollbar{display:none}
+.riel>*{scroll-snap-align:start}
+@media(min-width:900px){.riel{grid-auto-columns:calc((100% - 42px)/4);margin:0;padding:0}}
+
+.prod{position:relative;display:flex;flex-direction:column;background:var(--papel);border:1px solid var(--linea);border-radius:var(--radio);text-decoration:none;color:inherit;transition:border-color var(--rapido) ease,transform var(--rapido) var(--salida)}
+@media (hover:hover) and (pointer:fine){.prod:hover{border-color:var(--tinta)}.prod:hover .prod-foto img{transform:scale(1.03)}}
+.prod:active{transform:scale(.99)}
+.prod-foto{aspect-ratio:1/1;background:#fff;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--linea)}
+.prod-foto img{width:84%;height:84%;object-fit:contain;transition:transform 300ms var(--salida)}
+.prod-info{padding:14px 14px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.prod-nom{font-weight:600;line-height:1.3}
+.prod-precio{margin-top:auto;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px}
+.prod-precio b{font:800 30px/1 "Barlow Condensed",sans-serif;color:var(--precio)}
+.prod-precio s{color:var(--suave);font-size:15px}
+.prod-precio .desde{font-size:14px;color:var(--suave);font-weight:600}
+.dto{font:800 14px/1 Barlow,sans-serif;background:#CC4A08;color:#fff;padding:4px 6px;border-radius:var(--radio)}
+.unica{position:absolute;top:10px;left:10px;z-index:1;background:#17191C;color:#fff;font:700 12px/1 Barlow,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:6px 8px;border-radius:var(--radio)}
+.pegatina{display:block;background:var(--pegatina);color:var(--pegatina-tinta);border:1px solid var(--pegatina-borde);border-radius:var(--radio);padding:8px 10px;font-size:14px;line-height:1.35}
+.pegatina b{display:block;font:800 13px/1 "Barlow Condensed",sans-serif;letter-spacing:.08em;margin-bottom:4px}
+
+.tara{background:var(--papel);border-block:1px solid var(--linea)}
+.tara-grid{display:grid;gap:28px}
+.tara h2{font-size:clamp(36px,8vw,58px)}
+.tara-lista{list-style:none;padding:0;margin:22px 0 0}
+.tara-lista li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--linea)}
+.tara-lista .i{font-size:30px;color:var(--precio);line-height:1}
+.tara-lista b{display:block;font-weight:700}
+.tara-lista span{color:var(--suave)}
+.tara-demo{background:#fff;border:1px solid var(--linea);position:relative;aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden}
+.tara-demo img{width:80%;height:80%;object-fit:contain}
+.tara-demo .marco{position:relative;width:80%;height:80%}
+.tara-demo .marco img{width:100%;height:100%}
+.tara-demo .pegatina{position:absolute;left:14px;bottom:14px;max-width:72%}
+@media(min-width:900px){.tara-grid{grid-template-columns:1fr 1fr;gap:56px;align-items:center}}
+
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cat{background:var(--papel);border:1px solid var(--linea);border-radius:var(--radio);text-decoration:none;color:inherit;display:grid;grid-template-rows:1fr auto;min-height:200px;overflow:hidden;transition:border-color var(--rapido) ease,transform var(--rapido) var(--salida)}
+.cat .ft{background:#fff;display:grid;place-items:center;padding:14px}
+.cat img{max-height:120px;width:auto;object-fit:contain}
+.cat .tx{padding:12px 14px 14px;border-top:1px solid var(--linea)}
+.cat h3{font-size:25px}
+.cat p{margin:4px 0 0;font-size:14px;color:var(--suave);line-height:1.35}
+.cat-grande{grid-column:span 2}
+.cat-grande img{max-height:200px}
+@media (hover:hover) and (pointer:fine){.cat:hover{border-color:var(--tinta)}}
+.cat:active{transform:scale(.99)}
+@media(min-width:900px){.cats{grid-template-columns:repeat(4,1fr)}.cat-grande{grid-column:span 2;grid-row:span 2}.cat-grande img{max-height:320px}}
+
+.cocinas{position:relative;color:#fff;min-height:560px;display:grid;align-items:end;overflow:hidden}
+.cocinas img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cocinas-panel{position:relative;background:#CC4A08;padding:28px 22px 30px;margin:0 16px 16px;max-width:520px}
+.cocinas-panel h2,.cocinas-panel h1{font-size:clamp(38px,9vw,64px)}
+.cocinas-panel p{margin:12px 0 22px;color:#FFF1E7}
+@media(min-width:900px){.cocinas{min-height:640px}.cocinas-panel{margin:0 0 48px 48px;padding:40px 40px 44px}}
+
+.canape{display:grid;gap:22px;align-items:center}
+.canape-precio{font:800 clamp(100px,30vw,200px)/.82 "Barlow Condensed",sans-serif;color:var(--precio);letter-spacing:-.02em}
+.canape-precio small{display:block;font-size:22px;letter-spacing:.08em;color:var(--tinta);margin-bottom:8px}
+.canape h2{font-size:clamp(32px,7vw,46px)}
+.canape p{margin:10px 0 20px;color:var(--suave);max-width:40ch}
+.canape-foto{background:#fff;border:1px solid var(--linea)}
+.canape-foto img{width:100%;aspect-ratio:4/3;object-fit:cover}
+@media(min-width:900px){.canape{grid-template-columns:auto 1fr 1.1fr;gap:44px}}
+
+.visita{display:grid;background:var(--papel);border:1px solid var(--linea)}
+.visita img{width:100%;height:100%;max-height:520px;object-fit:cover;object-position:50% 40%}
+.visita-tx{padding:26px 22px 28px}
+.visita h2{font-size:clamp(34px,7vw,50px)}
+.datos-tienda{list-style:none;padding:0;margin:18px 0 18px;display:grid;gap:12px}
+.datos-tienda li{display:flex;gap:12px;align-items:flex-start}
+.datos-tienda .i{color:var(--precio);font-size:24px;line-height:1.1}
+.nota-google{font-size:15px;color:var(--suave);margin:0}
+.acc{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+@media(min-width:900px){.visita{grid-template-columns:1fr 1fr}.visita-tx{padding:44px;align-self:center}}
+
+.pie{background:var(--rotulo);color:#fff;margin-top:56px;padding:36px 0 calc(110px + env(safe-area-inset-bottom))}
+.pie-grid{display:grid;gap:22px}
+.pie .marca-nombre{font-size:32px}
+.pie p{margin:0;color:#FFF1E7}
+.pie a{color:#fff}
+@media(min-width:900px){.pie-grid{grid-template-columns:1.2fr 1fr 1fr;align-items:start}}
+
+/* Páginas interiores */
+.pag{padding:24px 0 8px}
+.miga{display:flex;gap:8px;flex-wrap:wrap;font-size:15px;color:var(--suave);margin-bottom:10px}
+.miga a{color:var(--precio);font-weight:600;text-decoration:none}
+h1.tit{font-size:clamp(42px,10vw,74px)}
+.filtros{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:18px -16px 14px;padding:0 16px}
+.filtros::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:44px;padding:0 16px;border:1.5px solid var(--linea);background:var(--papel);border-radius:var(--radio);font-weight:600;transition:transform var(--rapido) var(--salida)}
+.chip:active{transform:scale(.97)}
+.chip[aria-pressed="true"]{background:var(--tinta);border-color:var(--tinta);color:var(--papel)}
+.barra{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;color:var(--suave);font-size:15px}
+.barra select{border:1.5px solid var(--linea);background:var(--papel);color:var(--tinta);border-radius:var(--radio);padding:8px 10px;margin-left:6px}
+.rejilla{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:760px){.rejilla{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1100px){.rejilla{grid-template-columns:repeat(4,1fr);gap:16px}}
+.rejilla .prod-precio b{font-size:26px}
+.rejilla .prod-info{padding:12px 12px 14px}
+@media(max-width:420px){.rejilla .pegatina{font-size:13px}.rejilla .prod-nom{font-size:16px}}
+.aviso{background:var(--pegatina);color:var(--pegatina-tinta);border:1px solid var(--pegatina-borde);padding:14px 16px;border-radius:var(--radio);display:flex;gap:12px;margin-top:14px;max-width:760px}
+.aviso .i{font-size:24px;line-height:1.1;flex:none}
+.vacio{padding:40px 0;text-align:center;color:var(--suave)}
+.vacio .btn{margin-top:16px}
+
+.ficha{display:grid;gap:22px}
+@media(min-width:900px){.ficha{grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}}
+.visor{position:relative;background:#fff;border:1px solid var(--linea);aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden}
+.visor .marco{position:relative;width:84%;height:84%}
+.visor .marco img{width:100%;height:100%;object-fit:contain}
+.aro{position:absolute;width:78px;height:78px;margin:-39px 0 0 -39px;pointer-events:none}
+.aro circle{fill:none;stroke:#F26B1D;stroke-width:4;stroke-dasharray:227;stroke-dashoffset:227;transform:rotate(-90deg);transform-origin:50% 50%}
+.visor[data-vista="tara"] .aro circle{animation:traza 520ms var(--salida) 60ms forwards}
+.visor[data-vista="producto"] .aro{display:none}
+.tara-demo .aro circle{stroke-dashoffset:0}
+@keyframes traza{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.visor[data-vista="tara"] .aro circle{animation:none;stroke-dashoffset:0}}
+.visor-pie{position:absolute;left:12px;bottom:12px;font:700 13px/1 Barlow,sans-serif;background:#17191C;color:#fff;padding:7px 9px;border-radius:var(--radio)}
+.seg{display:grid;grid-template-columns:1fr 1fr;margin-top:10px;border:1.5px solid var(--tinta);border-radius:var(--radio)}
+.seg button{min-height:48px;border:0;background:transparent;font-weight:700;transition:background-color var(--rapido) ease,color var(--rapido) ease}
+.seg button[aria-pressed="true"]{background:var(--tinta);color:var(--papel)}
+.ficha h1{font-size:clamp(36px,8vw,56px)}
+.ref{font-size:14px;color:var(--suave);margin-top:8px}
+.ficha .prod-precio{margin:18px 0 6px}
+.ficha .prod-precio b{font-size:58px}
+.ahorro{display:inline-block;font-weight:700;color:var(--ok)}
+.ficha .pegatina{margin:18px 0 0;font-size:16px;padding:12px 14px}
+.ficha .pegatina b{font-size:15px}
+.acciones{display:grid;gap:10px;margin:22px 0 10px}
+.acciones .btn{width:100%}
+.retiene{display:flex;gap:10px;font-size:15px;color:var(--suave);align-items:flex-start;margin:0}
+.retiene .i{color:var(--ok);font-size:22px;line-height:1.1}
+.hechos{list-style:none;padding:0;margin:22px 0 0;border-top:1px solid var(--linea)}
+.hechos li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--linea)}
+.hechos li span:first-child{color:var(--suave)}
+.hechos li span:last-child{font-weight:600;text-align:right}
+
+.lineas{display:grid;gap:10px;margin-top:16px}
+.linea{display:grid;grid-template-columns:76px 1fr auto;gap:14px;align-items:center;background:var(--papel);border:1px solid var(--linea);padding:10px;border-radius:var(--radio)}
+.linea .ft{width:76px;height:76px;background:#fff;display:grid;place-items:center;border:1px solid var(--linea)}
+.linea .ft img{width:64px;height:64px;object-fit:contain}
+.linea .n{font-weight:600;line-height:1.3}
+.linea .t{font:700 12px/1.4 Barlow,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--precio)}
+.linea .der{display:grid;gap:8px;justify-items:end}
+.linea .der b{font:800 24px/1 "Barlow Condensed",sans-serif}
+.cant{display:flex;align-items:center;border:1.5px solid var(--linea);border-radius:var(--radio)}
+.cant button{width:44px;height:44px;border:0;background:transparent;font-size:20px}
+.cant span{min-width:24px;text-align:center;font-weight:700}
+.quitar{border:0;background:none;color:var(--suave);text-decoration:underline;padding:8px 0;font-size:14px}
+.resumen{background:var(--papel);border:1px solid var(--linea);padding:16px;margin-top:14px;display:grid;gap:8px;border-radius:var(--radio)}
+.resumen .f{display:flex;justify-content:space-between;gap:12px}
+.resumen .total{border-top:1px solid var(--linea);padding-top:12px;font:800 28px/1 "Barlow Condensed",sans-serif}
+.forma{display:grid;gap:16px;margin-top:16px;max-width:640px}
+.forma label,.forma .grupo-t{display:grid;gap:6px;font-weight:600;font-size:16px}
+.forma input:not([type=radio]),.forma textarea{width:100%;border:1.5px solid var(--linea);background:var(--papel);color:var(--tinta);border-radius:var(--radio);padding:12px 14px}
+.forma input:not([type=radio]):focus,.forma textarea:focus{outline:2px solid var(--rotulo-claro);outline-offset:0;border-color:transparent}
+.forma [aria-invalid="true"]{border-color:#B42318!important}
+.forma .ayuda{font-weight:400;font-size:14px;color:var(--suave)}
+.opciones{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opciones label{display:flex;gap:10px;align-items:center;border:1.5px solid var(--linea);background:var(--papel);padding:12px;border-radius:var(--radio);cursor:pointer;font-weight:600}
+.opciones label:has(input:checked){border-color:var(--tinta);box-shadow:inset 0 0 0 1px var(--tinta)}
+.opciones input{width:20px;height:20px;accent-color:var(--rotulo);margin:0}
+.error{color:#B42318;font-size:14px;font-weight:600}
+@media (prefers-color-scheme:dark){.error{color:#FF8A80}}
+.hecho{padding:44px 16px;text-align:center;max-width:560px;margin:0 auto}
+.hecho .i{font-size:56px;color:var(--ok)}
+.hecho h1{font-size:50px;margin:12px 0}
+.hecho p{color:var(--suave)}
+.sugeridas{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;justify-content:center}
+
+/* Botones flotantes: asistente y WhatsApp */
+.flotan{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:40;display:grid;gap:10px;transition:opacity 200ms ease,transform 200ms var(--salida)}
+.flotan.fuera{opacity:0;transform:translateY(12px);pointer-events:none}
+.flotan button{width:56px;height:56px;border:0;border-radius:var(--radio);display:grid;place-items:center;font-size:28px;color:#fff;box-shadow:0 8px 20px rgba(20,22,26,.25);transition:transform var(--rapido) var(--salida)}
+.flotan button:active{transform:scale(.94)}
+.f-asis{background:#CC4A08}
+.f-wa{background:var(--wa)}
+.asis{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--papel);color:var(--tinta);border-top:4px solid var(--rotulo);max-height:78svh;display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom);transform:translateY(105%);visibility:hidden;transition:transform 260ms var(--salida),visibility 0s 260ms;box-shadow:0 -12px 40px rgba(20,22,26,.25)}
+.asis.on{transform:none;visibility:visible;transition:transform 260ms var(--salida)}
+@media(min-width:700px){.asis{left:auto;right:24px;bottom:24px;width:400px;border:1px solid var(--linea);border-top:4px solid var(--rotulo)}}
+.asis-cab{display:flex;align-items:center;justify-content:space-between;padding:12px 12px 12px 16px;border-bottom:1px solid var(--linea)}
+.asis-cab h2{font-size:28px}
+.asis-cab button{width:44px;height:44px;border:0;background:transparent;font-size:24px}
+.asis-cuerpo{padding:16px;overflow:auto;overscroll-behavior:contain;display:grid;gap:12px}
+.msg{padding:12px 14px;border-radius:var(--radio);max-width:92%;line-height:1.45}
+.msg-el{background:var(--fondo);border:1px solid var(--linea)}
+.msg-tu{background:var(--tinta);color:var(--papel);justify-self:end}
+.preguntas{display:flex;flex-wrap:wrap;gap:8px}
+.preguntas button{border:1.5px solid var(--linea);background:var(--papel);border-radius:var(--radio);padding:10px 12px;font-weight:600;font-size:15px;min-height:44px}
+.toast{position:fixed;left:50%;bottom:calc(150px + env(safe-area-inset-bottom));z-index:70;transform:translate(-50%,10px);opacity:0;background:#17191C;color:#fff;padding:12px 16px;border-radius:var(--radio);font-weight:600;width:max-content;max-width:calc(100% - 32px);transition:opacity 180ms ease,transform 180ms var(--salida);pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.saltar{position:absolute;left:12px;top:-60px;z-index:100;background:#17191C;color:#fff;padding:12px 16px;font-weight:700;border-radius:var(--radio)}
+.saltar:focus{top:12px}
+.prod-precio b,.sug .sp,.etq b,.linea .der b,.resumen,.canape-precio{font-variant-numeric:tabular-nums}
+@media (hover:hover) and (pointer:fine){.chip:hover{border-color:var(--tinta)}.seg button:hover:not([aria-pressed="true"]){background:var(--fondo)}.preguntas button:hover{border-color:var(--tinta)}}
+.demo{background:#17191C;color:#D7DADF;font-size:13px;text-align:center;padding:6px 16px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0ms!important;animation-duration:0ms!important;animation-delay:0ms!important}}
 </style>
 </head>
 <body>
-<div class="demo"><b>Maqueta de demostración</b> · productos, fotos y precios de muestra</div>
-<header class="cab">
+<a class="saltar" href="#app">Saltar al contenido</a>
+<div class="demo" id="demo">Maqueta: productos, fotos y precios de muestra</div>
+<header class="rotulo" id="rotulo">
   <div class="cont">
-    <div class="cab-fila">
-      <a href="#/" class="logo" aria-label="Electro House, inicio"><span class="logo-sello">EH</span><span>ELECTRO <span class="h">HOUSE</span></span></a>
-      <form class="busca" data-busca role="search"><input type="search" name="q" placeholder="Buscar electrodomésticos, cocinas, canapés…" aria-label="Buscar" autocomplete="off"><button aria-label="Buscar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button></form>
-      <div class="iconos">
-        <a class="ico" href="#/contacto" aria-label="Contacto"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
-        <a class="ico" href="#/carrito" aria-label="Carrito"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h2l2.4 11h11l2-8H6.2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg><span class="globo" id="globo">0</span></a>
-      </div>
+    <div class="rot-fila">
+      <a class="marca" href="#/" aria-label="Electro House, inicio"><span class="marca-sello" aria-hidden="true">EH</span><span class="marca-nombre" translate="no">ELECTRO HOUSE<small>OUTLET · ORIHUELA</small></span></a>
+      <nav class="nav" aria-label="Secciones">
+        <a href="#/outlet" data-r="outlet">Outlet</a>
+        <a href="#/electrodomesticos" data-r="electrodomesticos">Electrodomésticos</a>
+        <a href="#/cocinas" data-r="cocinas">Cocinas</a>
+        <a href="#/canapes" data-r="canapes">Canapés</a>
+        <a href="#/tienda" data-r="tienda">La tienda</a>
+      </nav>
+      <form class="busca" data-busca role="search"><label class="busca-campo"><i class="ph ph-magnifying-glass i" aria-hidden="true"></i><span class="oculto">Buscar</span><input type="search" name="q" placeholder="Busca tu electrodoméstico…" autocomplete="off" enterkeyhint="search"></label></form>
+      <a class="carro" href="#/carrito" aria-label="Carrito"><i class="ph ph-shopping-cart-simple" aria-hidden="true"></i><span class="n" id="n-carro">0</span></a>
     </div>
-    <div class="busca-movil"><form class="busca" data-busca role="search"><input type="search" name="q" placeholder="Busca: lavadora, freidora de aire…" aria-label="Buscar" autocomplete="off"><button aria-label="Buscar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button></form></div>
-    <nav class="nav" id="nav" aria-label="Secciones">
-      <a href="#/" data-r="inicio">Inicio</a>
-      <a href="#/outlet" data-r="outlet" class="outlet">Outlet tara</a>
+    <div class="rot-busca"><form class="busca" data-busca role="search"><label class="busca-campo"><i class="ph ph-magnifying-glass i" aria-hidden="true"></i><span class="oculto">Buscar</span><input type="search" name="q" placeholder="Busca: lavadora, freidora de aire…" autocomplete="off" enterkeyhint="search"></label></form></div>
+    <nav class="rot-nav nav" aria-label="Secciones (móvil)">
+      <a href="#/outlet" data-r="outlet">Outlet</a>
       <a href="#/electrodomesticos" data-r="electrodomesticos">Electrodomésticos</a>
-      <a href="#/cocinas" data-r="cocinas">Cocinas a medida</a>
+      <a href="#/cocinas" data-r="cocinas">Cocinas</a>
       <a href="#/canapes" data-r="canapes">Canapés</a>
-      <a href="#/contacto" data-r="contacto">Contacto</a>
+      <a href="#/tienda" data-r="tienda">La tienda</a>
     </nav>
   </div>
 </header>
 
-<main id="app" class="cont" tabindex="-1"></main>
+<main id="app" tabindex="-1"></main>
 
 <footer class="pie">
-  <div class="cont">
-    <div class="pie-ventajas">
-      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Tienda en Orihuela</div>
-      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>Envío a domicilio</div>
-      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Compra segura</div>
-      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/></svg>Atención en tienda</div>
-    </div>
-    <div class="pie-bajo">
-      <span class="logo"><span>ELECTRO <span class="h">HOUSE</span></span></span>
-      <span>C/ Obispo Rocamora, 32 · 03300 Orihuela</span>
-      <span>865 53 59 40</span>
-      <span>Aviso legal · Privacidad · Condiciones de compra</span>
-    </div>
+  <div class="cont pie-grid">
+    <div><div class="marca-nombre" translate="no">ELECTRO HOUSE</div><p style="margin-top:8px">Electrodomésticos nuevos de las mejores marcas con taras estéticas de exposición.</p></div>
+    <div><p>C/ Obispo Rocamora, 32<br>03300 Orihuela (Alicante)</p><p style="margin-top:8px"><a href="tel:+34865535940">865 53 59 40</a></p></div>
+    <div><p>Aviso legal · Privacidad · Condiciones de compra</p></div>
   </div>
 </footer>
 
-<button class="wa" id="wa" aria-label="Escríbenos por WhatsApp"><svg width="30" height="30" viewBox="0 0 32 32" fill="#fff"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.8 1.2 3.2 1.4 3.4 2.4 3.6 5.8 5c2.1.9 3 1 4 .8.7-.1 1.9-.8 2.2-1.5s.3-1.3.2-1.5-.3-.2-.6-.4z"/></svg></button>
+<div class="flotan" id="flotan">
+  <button class="f-asis" id="b-asis" aria-label="Preguntar al asistente" aria-controls="asis" aria-expanded="false"><i class="ph-fill ph-chat-circle-text" aria-hidden="true"></i></button>
+  <button class="f-wa" id="b-wa" aria-label="Escribir por WhatsApp"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i></button>
+</div>
+<section class="asis" id="asis" aria-label="Asistente" aria-hidden="true">
+  <div class="asis-cab"><h2>Pregúntanos</h2><button id="cerrar-asis" aria-label="Cerrar"><i class="ph ph-x" aria-hidden="true"></i></button></div>
+  <div class="asis-cuerpo" id="asis-cuerpo">
+    <div class="msg msg-el">Hola. Te respondo con lo que sabemos de la tienda. Para algo concreto, mejor por WhatsApp.</div>
+    <div class="preguntas" id="preguntas"></div>
+  </div>
+</section>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/minisearch@6.3.0/dist/umd/index.min.js"></script>
 <script>
-/* ===== Catálogo de muestra (fotos de producto de muestra; se sustituyen por las de la tienda) ===== */
-const CATS = {
-  lavado:{n:"Lavado", d:"Lavadoras, secadoras y lavavajillas"},
-  frio:{n:"Frío", d:"Frigoríficos y congeladores"},
-  coccion:{n:"Cocción", d:"Hornos, placas, campanas y microondas"},
-  pequeno:{n:"Pequeño electrodoméstico", d:"Freidoras de aire, cafeteras y más"},
-  clima:{n:"Climatización", d:"Aire acondicionado y calefacción"},
-  canapes:{n:"Canapés", d:"Canapés abatibles de madera"}
+/* Catálogo de muestra (fotos de producto de muestra; se sustituyen por las de la tienda) */
+const CATS={
+  lavado:{n:"Lavado",d:"Lavadoras, secadoras y lavavajillas",f:"lavadora-1"},
+  frio:{n:"Frío",d:"Frigoríficos y combis",f:"frigorifico-combi"},
+  coccion:{n:"Cocción",d:"Hornos, placas, campanas y microondas",f:"horno"},
+  pequeno:{n:"Pequeño electrodoméstico",d:"Freidoras de aire y cafeteras",f:"freidora-1"},
+  clima:{n:"Climatización",d:"Aire acondicionado portátil",f:"aire"},
+  canapes:{n:"Canapés",d:"Canapés abatibles de madera",f:"canape"}
 };
-const P = [
- {id:"lavadora-9kg-a3", n:"Lavadora 9 kg A+++ carga frontal", c:"lavado", f:"lavadora-1", p:349, a:499, tara:"Rozadura en el lateral izquierdo. Una vez instalada no se ve.", marca:[22,55], syn:"lavar ropa"},
- {id:"frigorifico-combi-no-frost", n:"Frigorífico combi No Frost 186 cm", c:"frio", f:"frigorifico-combi", p:499, a:699, tara:"Pequeño golpe en la puerta de abajo.", marca:[52,72], syn:"nevera frigo refrigerador combi"},
- {id:"microondas-grill-25l", n:"Microondas con grill 25 L", c:"coccion", f:"microondas-1", p:69, a:99, tara:"Arañazo leve en la parte de arriba.", marca:[45,30], syn:"micro grill"},
- {id:"horno-doble", n:"Horno doble multifunción", c:"coccion", f:"horno", p:279, a:399, tara:"Solo la caja dañada: el aparato está perfecto.", marca:[50,45], syn:"horno pirolitico"},
- {id:"lavavajillas-60-13", n:"Lavavajillas 60 cm, 13 servicios", c:"lavado", f:"lavavajillas", p:329, a:459, tara:"Marca en el panel frontal, junto al asa.", marca:[50,25], syn:"friegaplatos lavaplatos"},
- {id:"frigorifico-4-puertas", n:"Frigorífico 4 puertas", c:"frio", f:"frigorifico-4p", p:899, a:1199, tara:"Abolladura pequeña en el lateral derecho.", marca:[62,60], syn:"nevera frigo refrigerador americano"},
- {id:"secadora-8kg", n:"Secadora 8 kg", c:"lavado", f:"secadora", p:389, a:549, tara:"Rozadura en la tapa de arriba.", marca:[50,22], syn:"secar ropa"},
- {id:"aire-portatil", n:"Aire acondicionado portátil", c:"clima", f:"aire", p:259, a:349, tara:"Caja abierta, sin estrenar.", marca:[50,50], syn:"climatizador frio aire acondicionado"},
- {id:"freidora-aire-5-5l", n:"Freidora de aire 5,5 L", c:"pequeno", f:"freidora-1", p:79, syn:"airfryer air fryer freidora aire sin aceite"},
- {id:"freidora-aire-4l", n:"Freidora de aire 4 L", c:"pequeno", f:"freidora-2", p:59, syn:"airfryer air fryer freidora aire sin aceite"},
- {id:"cafetera-superautomatica", n:"Cafetera superautomática", c:"pequeno", f:"cafetera", p:229, a:299, syn:"cafe expreso espresso"},
- {id:"placa-induccion-3", n:"Placa de inducción 3 zonas", c:"coccion", f:"placa", p:249, syn:"induccion vitro vitroceramica fuegos"},
- {id:"campana-decorativa-60", n:"Campana extractora 60 cm", c:"coccion", f:"campana", p:149, syn:"extractor humos"},
- {id:"microondas-20l", n:"Microondas 20 L", c:"coccion", f:"microondas-2", p:79, syn:"micro"},
- {id:"lavadora-8kg", n:"Lavadora 8 kg A+++", c:"lavado", f:"lavadora-2", p:399, syn:"lavar ropa"},
- {id:"canape-madera", n:"Canapé abatible de madera", c:"canapes", f:"canape", p:199, desde:true, syn:"canape somier cama abatible"}
+const P=[
+ {id:"lavadora-9kg-a3",n:"Lavadora 9 kg A+++ carga frontal",c:"lavado",f:"lavadora-1",p:349,a:499,tara:"Rozadura en el lateral izquierdo. Instalada no se ve.",marca:[22,50],syn:"lavar ropa"},
+ {id:"frigorifico-combi-no-frost",n:"Frigorífico combi No Frost 186 cm",c:"frio",f:"frigorifico-combi",p:499,a:699,tara:"Pequeño golpe en la puerta de abajo.",marca:[50,72],syn:"nevera frigo refrigerador combi"},
+ {id:"microondas-grill-25l",n:"Microondas con grill 25 L",c:"coccion",f:"microondas-1",p:69,a:99,tara:"Arañazo leve en la parte de arriba.",marca:[50,30],syn:"micro grill"},
+ {id:"horno-multifuncion",n:"Horno multifunción",c:"coccion",f:"horno",p:279,a:399,tara:"Solo la caja dañada: el aparato está perfecto.",marca:[50,30],syn:"horno pirolitico"},
+ {id:"lavavajillas-60-13",n:"Lavavajillas 60 cm, 13 servicios",c:"lavado",f:"lavavajillas",p:329,a:459,tara:"Marca en el panel frontal, junto al asa.",marca:[50,20],syn:"friegaplatos lavaplatos"},
+ {id:"frigorifico-4-puertas",n:"Frigorífico 4 puertas",c:"frio",f:"frigorifico-4p",p:899,a:1199,tara:"Abolladura pequeña en el lateral.",marca:[38,60],syn:"nevera frigo refrigerador americano"},
+ {id:"secadora-8kg",n:"Secadora 8 kg",c:"lavado",f:"secadora",p:389,a:549,tara:"Rozadura en la tapa de arriba.",marca:[50,18],syn:"secar ropa"},
+ {id:"aire-portatil",n:"Aire acondicionado portátil",c:"clima",f:"aire",p:259,a:349,tara:"Caja abierta, sin estrenar.",marca:[50,50],syn:"climatizador frio aire acondicionado"},
+ {id:"freidora-aire-5-5l",n:"Freidora de aire 5,5 L",c:"pequeno",f:"freidora-1",p:79,syn:"airfryer air fryer freidora aire sin aceite"},
+ {id:"freidora-aire-4l",n:"Freidora de aire 4 L",c:"pequeno",f:"freidora-2",p:59,syn:"airfryer air fryer freidora aire sin aceite"},
+ {id:"cafetera-superautomatica",n:"Cafetera superautomática",c:"pequeno",f:"cafetera",p:229,a:299,syn:"cafe expreso espresso"},
+ {id:"placa-induccion-3",n:"Placa de inducción 3 zonas",c:"coccion",f:"placa",p:249,syn:"induccion vitro vitroceramica fuegos"},
+ {id:"campana-60",n:"Campana extractora 60 cm",c:"coccion",f:"campana",p:149,syn:"extractor humos"},
+ {id:"microondas-20l",n:"Microondas 20 L",c:"coccion",f:"microondas-2",p:79,syn:"micro"},
+ {id:"lavadora-8kg",n:"Lavadora 8 kg A+++",c:"lavado",f:"lavadora-2",p:399,syn:"lavar ropa"},
+ {id:"canape-madera",n:"Canapé abatible de madera",c:"canapes",f:"canape",p:199,desde:true,syn:"canape somier cama abatible"}
 ];
+const EXT={secadora:"png","hero-frigorifico-combi":"png","hero-lavavajillas":"png","hero-freidora-1":"png"};
 
-/* ===== Utilidades ===== */
-const $ = s=>document.querySelector(s);
-const app = $("#app");
-const eur = n=>n.toLocaleString("es-ES")+" €";
-const pct = x=>x.a?Math.round((1-x.p/x.a)*100):0;
-const esc = s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const norm = s=>String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9ñ]+/g," ").trim();
-const EXT = {secadora:"png","hero-frigorifico-combi":"png","hero-lavavajillas":"png","hero-freidora-1":"png"};
-const img = (f,alt,cls="")=>`<img class="${cls}" src="fotos/${f}.${EXT[f]||"jpg"}" alt="${esc(alt)}" loading="lazy" decoding="async">`;
-const foto = x=>img(x.f, x.n);
-let carrito = [];
-try{carrito = JSON.parse(localStorage.getItem("eh-carrito")||"[]")}catch(e){}
-const guardar = ()=>{try{localStorage.setItem("eh-carrito",JSON.stringify(carrito))}catch(e){} $("#globo").textContent = carrito.reduce((s,l)=>s+l.q,0)};
+const $=s=>document.querySelector(s);
+const app=$("#app");
+const eur=n=>n.toLocaleString("es-ES")+" €";
+const pct=x=>x.a?Math.round((1-x.p/x.a)*100):0;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm=s=>String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9ñ]+/g," ").trim();
+const src=f=>`fotos/${f}.${EXT[f]||"jpg"}`;
+const img=(f,alt,extra="")=>`<img src="${src(f)}" alt="${esc(alt)}" ${/loading=/.test(extra)?"":'loading="lazy"'} decoding="async" ${/width=/.test(extra)?"":'width="600" height="600"'} ${extra}>`;
+const porId=id=>P.find(p=>p.id===id);
+let carrito=[]; try{carrito=JSON.parse(localStorage.getItem("eh1-carrito")||"[]")}catch(e){}
+function guardar(){ try{localStorage.setItem("eh1-carrito",JSON.stringify(carrito))}catch(e){} $("#n-carro").textContent=carrito.reduce((s,l)=>s+l.q,0); }
 function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove("on"),2600)}
-$("#wa").addEventListener("click",()=>toast("Aquí irá el WhatsApp de la tienda"));
+function medirCab(){ const r=document.documentElement.style; r.setProperty("--cab",$("#rotulo").offsetHeight+"px"); r.setProperty("--demo",$("#demo").offsetHeight+"px"); }
+addEventListener("resize",medirCab,{passive:true});
 
-/* ===== Buscador (como el de una tienda online: tolerancia a faltas, sinónimos, plurales y resultados al escribir) =====
-   - Sin acentos ni mayúsculas, y singular/plural iguales («lavadoras» = «lavadora»).
-   - Faltas según lo larga que sea la palabra: hasta 3 letras ninguna, de 4 a 7 una, de 8 en adelante dos
-     («nebera» → nevera, «aifrayer» → airfryer). Es la regla de Algolia, Meilisearch y Typesense.
-   - Busca mientras escribes («frei» ya encuentra las freidoras).
-   - Sinónimos por producto (air fryer, freidora sin aceite, nevera, friegaplatos, vitro…).
-   - Primero intenta que salgan todas las palabras; si no hay nada, vale con alguna. */
-const VACIAS = new Set(["de","la","el","los","las","para","con","sin","y","a","en","un","una","del"]);
-const raiz = t=>{ t=norm(t); if(!t||VACIAS.has(t)) return null; if(t.length>4 && t.endsWith("es") && !/(ses|ces)$/.test(t)) t=t.slice(0,-2); else if(t.length>3 && t.endsWith("s") && !t.endsWith("ss")) t=t.slice(0,-1); return t; };
-const faltas = term => term.length<4 ? 0 : term.length<8 ? 1 : 2;
-let IDX = null, VOCAB = null;
+/* Buscador: faltas según la longitud (ninguna hasta 3 letras, una de 4 a 7, dos desde 8), también en la
+   palabra a medio escribir; sinónimos por producto; singular y plural; sin acentos; resultados al escribir. */
+const VACIAS=new Set(["de","la","el","los","las","para","con","sin","y","a","en","un","una","del"]);
+const raiz=t=>{ t=norm(t); if(!t||VACIAS.has(t)) return null; if(t.length>4&&t.endsWith("es")&&!/(ses|ces)$/.test(t)) t=t.slice(0,-2); else if(t.length>3&&t.endsWith("s")&&!t.endsWith("ss")) t=t.slice(0,-1); return t; };
+const faltas=t=>t.length<4?0:t.length<8?1:2;
 function lev(a,b){if(a===b)return 0;const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let v=Array.from({length:n+1},(_,i)=>i);for(let i=1;i<=m;i++){let p=v[0];v[0]=i;for(let j=1;j<=n;j++){const t=v[j];v[j]=Math.min(v[j]+1,v[j-1]+1,p+(a[i-1]===b[j-1]?0:1));p=t}}return v[n]}
-function vocab(){ if(VOCAB) return VOCAB; const s=new Set(); for(const x of P) for(const w of (x.n+" "+CATS[x.c].n+" "+(x.syn||"")).split(/\s+/)){ const r=raiz(w); if(r) s.add(r); } return VOCAB=[...s]; }
-/* Cada palabra se convierte en las palabras del catálogo que se le parecen: igual, con faltas permitidas, que empiezan por ella
-   o, en la última palabra (la que se está escribiendo), cuyo principio se le parece («aifray» → airfryer). */
-function expandir(q){
-  const toks=q.split(/\s+/).map(raiz).filter(Boolean);
+let IDX=null,VOCAB=null;
+function indice(){ if(IDX||!window.MiniSearch) return IDX;
+  IDX=new MiniSearch({fields:["n","cat","syn"],storeFields:["id"],processTerm:t=>t.split(/\s+/).map(raiz).filter(Boolean),searchOptions:{boost:{n:3,syn:2,cat:1}}});
+  IDX.addAll(P.map(x=>({id:x.id,n:x.n,cat:CATS[x.c].n,syn:x.syn||""}))); return IDX; }
+function vocab(){ if(VOCAB) return VOCAB; const s=new Set(); for(const x of P) for(const w of (x.n+" "+CATS[x.c].n+" "+(x.syn||"")).split(/\s+/)){const r=raiz(w); if(r) s.add(r);} return VOCAB=[...s]; }
+function expandir(q){ const toks=q.split(/\s+/).map(raiz).filter(Boolean);
   return toks.map((t,i)=>{ const k=faltas(t), ult=i===toks.length-1;
-    return vocab().filter(w=> w===t || (k && lev(t,w)<=k) || (t.length>2 && w.startsWith(t)) || (ult && k && t.length>=4 && w.length>t.length && Math.min(lev(t,w.slice(0,t.length)),lev(t,w.slice(0,t.length+1)))<=(t.length>=6?2:k))); });
-}
-function indice(){
-  if(IDX || !window.MiniSearch) return IDX;
-  IDX = new MiniSearch({
-    fields:["n","cat","syn"], storeFields:["id"],
-    processTerm: t => t.split(/\s+/).map(raiz).filter(Boolean),
-    searchOptions:{ boost:{n:3, syn:2, cat:1}, prefix:t=>t.length>2, fuzzy:faltas, maxFuzzy:2 }
-  });
-  IDX.addAll(P.map(x=>({id:x.id, n:x.n, cat:CATS[x.c].n, syn:x.syn||""})));
-  return IDX;
-}
-function buscar(q){
-  const ix = indice(); if(!ix || !norm(q)) return {res:[], terms:[]};
-  const grupos = expandir(q), op = {prefix:false, fuzzy:false};
-  const consulta = cmb => ({combineWith:cmb, queries: grupos.filter(g=>g.length).map(g=>({combineWith:"OR", queries:g}))});
-  if(!grupos.some(g=>g.length)) return {res:[], terms:[]};
-  let r = grupos.every(g=>g.length) ? ix.search(consulta("AND"), op) : [];
-  if(!r.length) r = ix.search(consulta("OR"), op);
-  if(r.length){ const top=r[0].score; r=r.filter(o=>o.score>=top*0.3); }
-  return {res:r.map(o=>P.find(p=>p.id===o.id)), terms:[...new Set(r.flatMap(o=>o.terms))]};
-}
-function quizas(q){ const ix=indice(); if(!ix) return []; return ix.autoSuggest(q,{fuzzy:0.35,prefix:true}).slice(0,3).map(s=>s.suggestion); }
-function resalta(texto, terms){
-  return texto.split(/(\s+)/).map(w=>{ const r=raiz(w); return r && terms.some(t=>r===t || r.startsWith(t) || t.startsWith(r)&&r.length>3) ? `<mark>${esc(w)}</mark>` : esc(w); }).join("");
-}
-/* Resultados al escribir */
-document.querySelectorAll("[data-busca]").forEach(f=>{
-  const inp=f.q; const caja=document.createElement("div"); caja.className="sugs"; caja.setAttribute("role","listbox"); caja.id="sugs-"+Math.random().toString(36).slice(2,7); f.appendChild(caja);
+    return vocab().filter(w=> w===t || (k&&lev(t,w)<=k) || (t.length>2&&w.startsWith(t)) || (ult&&k&&t.length>=4&&w.length>t.length&&Math.min(lev(t,w.slice(0,t.length)),lev(t,w.slice(0,t.length+1)))<=(t.length>=6?2:k))); }); }
+function buscar(q){ const ix=indice(); if(!ix||!norm(q)) return {res:[],terms:[]};
+  const g=expandir(q), op={prefix:false,fuzzy:false}; if(!g.some(x=>x.length)) return {res:[],terms:[]};
+  const c=cmb=>({combineWith:cmb,queries:g.filter(x=>x.length).map(x=>({combineWith:"OR",queries:x}))});
+  let r=g.every(x=>x.length)?ix.search(c("AND"),op):[]; if(!r.length) r=ix.search(c("OR"),op);
+  if(r.length){const top=r[0].score; r=r.filter(o=>o.score>=top*.3);}
+  return {res:r.map(o=>porId(o.id)),terms:[...new Set(r.flatMap(o=>o.terms))]}; }
+function quizas(q){ const ix=indice(); return ix? ix.autoSuggest(q,{fuzzy:.35,prefix:true}).slice(0,3).map(s=>s.suggestion):[]; }
+function resalta(t,terms){ return t.split(/(\s+)/).map(w=>{const r=raiz(w); return r&&terms.some(x=>r===x||r.startsWith(x)||(x.startsWith(r)&&r.length>3))?`<mark>${esc(w)}</mark>`:esc(w)}).join(""); }
+document.querySelectorAll("[data-busca]").forEach((f,fi)=>{
+  const inp=f.q, caja=document.createElement("div"); caja.className="sugs"; caja.id="sugs-"+fi; caja.setAttribute("role","listbox"); f.appendChild(caja);
   inp.setAttribute("role","combobox"); inp.setAttribute("aria-autocomplete","list"); inp.setAttribute("aria-controls",caja.id); inp.setAttribute("aria-expanded","false");
-  let sel=-1, t;
+  let sel=-1,t;
   const cerrar=()=>{caja.classList.remove("on");inp.setAttribute("aria-expanded","false");sel=-1};
-  const pinta=()=>{
-    const q=inp.value.trim(); if(q.length<2){cerrar();return}
+  const pinta=()=>{ const q=inp.value.trim(); if(q.length<2){cerrar();return}
     const {res,terms}=buscar(q);
-    if(!res.length){ const s=quizas(q); caja.innerHTML=`<div class="sug-vacio">Sin resultados${s.length?` · ¿Quizá buscabas <a href="#/buscar/${encodeURIComponent(s[0])}">${esc(s[0])}</a>?`:""}</div>`; }
-    else caja.innerHTML = res.slice(0,5).map((x,i)=>`<a class="sug" role="option" id="${caja.id}-${i}" href="#/producto/${x.id}">${foto(x)}<span><span class="sn">${resalta(x.n,terms)}</span><span class="sp">${x.desde?"desde ":""}${eur(x.p)}${x.tara?` · <b>Outlet</b>`:""}</span></span></a>`).join("") + `<a class="sug-todos" href="#/buscar/${encodeURIComponent(q)}">Ver los ${res.length} resultados →</a>`;
-    caja.classList.add("on"); inp.setAttribute("aria-expanded","true"); sel=-1;
-  };
-  inp.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(pinta,90)});
-  inp.addEventListener("focus",()=>{ if(inp.value.trim().length>1) pinta(); });
-  inp.addEventListener("keydown",e=>{
-    const ops=[...caja.querySelectorAll("a")]; if(!caja.classList.contains("on")||!ops.length) return;
-    if(e.key==="ArrowDown"||e.key==="ArrowUp"){ e.preventDefault(); sel=(sel+(e.key==="ArrowDown"?1:-1)+ops.length)%ops.length; ops.forEach((o,i)=>o.classList.toggle("act",i===sel)); inp.setAttribute("aria-activedescendant",ops[sel].id||""); }
-    else if(e.key==="Enter" && sel>=0){ e.preventDefault(); location.hash=ops[sel].getAttribute("href"); cerrar(); inp.blur(); }
-    else if(e.key==="Escape") cerrar();
-  });
+    if(!res.length){const s=quizas(q); caja.innerHTML=`<div class="sug-vacio">No hay nada con «${esc(q)}».${s.length?` ¿Querías decir <a href="#/buscar/${encodeURIComponent(s[0])}">${esc(s[0])}</a>?`:""}</div>`;}
+    else caja.innerHTML=res.slice(0,5).map((x,i)=>`<a class="sug" role="option" id="${caja.id}-${i}" href="#/producto/${x.id}"><span class="ft">${img(x.f,"")}</span><span><span class="sn">${resalta(x.n,terms)}</span>${x.tara?`<span class="tag">Outlet · unidad única</span>`:""}</span><span class="sp">${x.desde?"desde ":""}${eur(x.p)}</span></a>`).join("")+`<a class="sug-todos" href="#/buscar/${encodeURIComponent(q)}">Ver los ${res.length} resultados</a>`;
+    caja.classList.add("on"); inp.setAttribute("aria-expanded","true"); sel=-1; };
+  inp.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(pinta,80)});
+  inp.addEventListener("focus",()=>{if(inp.value.trim().length>1)pinta()});
+  inp.addEventListener("keydown",e=>{ const ops=[...caja.querySelectorAll("a")]; if(!caja.classList.contains("on")||!ops.length) return;
+    if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault(); sel=(sel+(e.key==="ArrowDown"?1:-1)+ops.length)%ops.length; ops.forEach((o,i)=>o.classList.toggle("act",i===sel)); inp.setAttribute("aria-activedescendant",ops[sel].id||"");}
+    else if(e.key==="Enter"&&sel>=0){e.preventDefault(); location.hash=ops[sel].getAttribute("href"); cerrar(); inp.blur();}
+    else if(e.key==="Escape") cerrar(); });
   caja.addEventListener("mousedown",e=>e.preventDefault());
   caja.addEventListener("click",()=>{cerrar();inp.blur()});
   inp.addEventListener("blur",()=>setTimeout(cerrar,120));
-  f.addEventListener("submit",e=>{e.preventDefault();const v=inp.value.trim();if(v){location.hash="#/buscar/"+encodeURIComponent(v);cerrar();inp.blur()}});
+  f.addEventListener("submit",e=>{e.preventDefault(); const v=inp.value.trim(); if(v){location.hash="#/buscar/"+encodeURIComponent(v); cerrar(); inp.blur();}});
 });
 
-/* ===== Piezas ===== */
-const icoCamion=`<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>`;
-const icoTienda=`<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l1.5-5h15L21 9M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0zM5 13v8h14v-8M10 21v-5h4v5"/></svg>`;
-const icoEtiqueta=`<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg>`;
-const icoEstrella=`<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>`;
-const icoCheck=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 4.5 4.5L19 7"/></svg>`;
-const icoCandado=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`;
-const icoInfo=`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>`;
-const flecha=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
-
+/* Piezas */
 function tarjeta(x){
-  return `<a class="tarjeta" href="#/producto/${x.id}">
-    ${x.tara?`<span class="chip-tara">OUTLET · 1 UD.</span>`:""}
-    ${x.a?`<span class="dto">-${pct(x)}%</span>`:""}
-    <div class="foto">${foto(x)}</div>
-    <div class="info"><div class="nom">${esc(x.n)}</div>
-    ${x.tara?`<div class="tara-txt">Tara: ${esc(x.tara)}</div>`:""}
-    <div class="precio">${x.desde?`<span style="font-size:12px;color:var(--suave)">desde</span>`:""}<span class="p">${eur(x.p)}</span>${x.a?`<span class="antes">${eur(x.a)}</span>`:""}</div></div></a>`;
+  return `<a class="prod" href="#/producto/${x.id}">
+    <span class="prod-foto">${img(x.f,x.n,'width="400" height="400"')}</span>
+    <span class="prod-info"><span class="prod-nom">${esc(x.n)}</span>
+    ${x.tara?`<span class="pegatina"><b>TARA · UNIDAD ÚNICA</b>${esc(x.tara)}</span>`:""}
+    <span class="prod-precio">${x.desde?`<span class="desde">desde</span>`:""}<b>${eur(x.p)}</b>${x.a?`<s>${eur(x.a)}</s><span class="dto">-${pct(x)} %</span>`:""}</span></span></a>`;
 }
-const miga = (...ps)=>`<nav class="miga" aria-label="Estás en"><a href="#/">Inicio</a>${ps.map(p=>` › ${p}`).join("")}</nav>`;
-const porId = id=>P.find(p=>p.id===id);
+const miga=(...ps)=>`<nav class="miga" aria-label="Estás en"><a href="#/">Inicio</a>${ps.map(p=>`<span aria-hidden="true">/</span>${p}`).join("")}</nav>`;
+const aro=(m)=>`<svg class="aro" viewBox="0 0 80 80" style="left:${m[0]}%;top:${m[1]}%" aria-hidden="true"><circle cx="40" cy="40" r="36"/></svg>`;
+function bloqueVisita(){
+  return `<div class="visita"><img src="fachada.jpg" alt="Fachada de Electro House Outlet en la calle Obispo Rocamora de Orihuela, con el rótulo naranja y el escaparate" loading="lazy" width="589" height="900"><div class="visita-tx"><h2>Ven a verla en persona</h2>
+   <ul class="datos-tienda"><li><i class="ph ph-map-pin i" aria-hidden="true"></i><span>C/ Obispo Rocamora, 32<br>03300 Orihuela (Alicante)</span></li>
+   <li><i class="ph ph-phone i" aria-hidden="true"></i><a href="tel:+34865535940">865 53 59 40</a></li>
+   <li><i class="ph ph-truck i" aria-hidden="true"></i><span>Recogida en tienda o envío a domicilio</span></li></ul>
+   <p class="nota-google">4,1 sobre 5 en Google, con 36 opiniones.</p>
+   <div class="acc"><a class="btn btn-tinta" href="https://www.google.com/maps/search/?api=1&query=Electro+House+Obispo+Rocamora+32+Orihuela" target="_blank" rel="noopener"><i class="ph ph-navigation-arrow i" aria-hidden="true"></i>Cómo llegar</a><a class="btn btn-linea" href="tel:+34865535940">Llamar</a></div></div></div>`;
+}
 
-/* ===== Páginas ===== */
+/* Páginas */
 function inicio(){
-  const ofertas = P.filter(x=>x.tara).sort((a,b)=>pct(b)-pct(a)).slice(0,8);
-  app.innerHTML = `
-  <section class="hero" aria-label="Destacados">
-    <div class="slides" id="slides">
-      <div class="slide">
-        <div class="h-txt"><span class="ceja">Outlet · Nuevos de exposición</span><h1>Ofertas<br>para tu hogar</h1><p>Electrodomésticos nuevos de las mejores marcas, con taras estéticas de exposición, a precio de outlet.</p><a class="btn btn-blanco" href="#/outlet">Ver ofertas ${flecha}</a></div>
-        <div class="escaparate" aria-hidden="false">
-          <a class="pz pz-frigo" href="#/producto/frigorifico-combi-no-frost" aria-label="Frigorífico combi, 499 €">${img("hero-frigorifico-combi","Frigorífico combi")}</a>
-          <a class="pz pz-lava" href="#/producto/lavavajillas-60-13" aria-label="Lavavajillas 60 cm, 329 €">${img("hero-lavavajillas","Lavavajillas de acero inoxidable")}</a>
-          <a class="pz pz-frei" href="#/producto/freidora-aire-5-5l" aria-label="Freidora de aire, 79 €">${img("hero-freidora-1","Freidora de aire")}</a>
-          <a class="etq etq-frigo" href="#/producto/frigorifico-combi-no-frost"><b>-29%</b>499 €</a>
-          <a class="etq etq-lava" href="#/producto/lavavajillas-60-13"><b>-28%</b>329 €</a>
-          <a class="etq etq-frei" href="#/producto/freidora-aire-5-5l">79 €</a>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="h-txt"><span class="ceja">Diseño e instalación</span><h2>Cocinas<br>a medida</h2><p>Diseño, asesoramiento e instalación. Pide tu presupuesto sin compromiso.</p><a class="btn btn-blanco" href="#/cocinas">Pide presupuesto ${flecha}</a></div>
-        <div class="escaparate foto">${img("cocina-1","Cocina a medida con isla")}</div>
-      </div>
-      <div class="slide">
-        <div class="h-txt"><span class="ceja">Madera · Abatibles</span><h2>Canapés<br>desde 199 €</h2><p>Comodidad y mucho espacio para guardar.</p><a class="btn btn-blanco" href="#/canapes">Ver canapés ${flecha}</a></div>
-        <div class="escaparate foto">${img("canape-ambiente","Canapé abatible abierto en un dormitorio")}</div>
-      </div>
+  const outlet=P.filter(x=>x.tara).sort((a,b)=>pct(b)-pct(a));
+  const demo=porId("frigorifico-combi-no-frost");
+  app.innerHTML=`
+  <section class="hero" id="hero" aria-label="Electro House Outlet">
+    <div class="hero-rot"><div class="cont">
+      <h1><span>Outlet de</span><span>electrodomésticos</span></h1>
+      <p>Nuevos, de las mejores marcas, con una tara estética de exposición. Te la enseñamos en foto antes de comprar.</p>
+    </div></div>
+    <div class="escaparate">
+      <a class="pz pz-1" href="#/producto/frigorifico-combi-no-frost" aria-label="Frigorífico combi, 499 euros">${img("hero-frigorifico-combi","Frigorífico combi de acero",'fetchpriority="high" loading="eager"')}</a>
+      <a class="pz pz-2" href="#/producto/lavavajillas-60-13" aria-label="Lavavajillas, 329 euros">${img("hero-lavavajillas","Lavavajillas de acero",'loading="eager"')}</a>
+      <a class="pz pz-3" href="#/producto/freidora-aire-5-5l" aria-label="Freidora de aire, 79 euros">${img("hero-freidora-1","Freidora de aire negra",'loading="eager"')}</a>
+      <a class="etq etq-1" href="#/producto/frigorifico-combi-no-frost" tabindex="-1" aria-hidden="true"><em>Outlet</em><b>499 €</b><s>699 €</s></a>
+      <a class="etq etq-2" href="#/producto/lavavajillas-60-13" tabindex="-1" aria-hidden="true"><em>Outlet</em><b>329 €</b><s>459 €</s></a>
+      <a class="etq etq-3" href="#/producto/freidora-aire-5-5l" tabindex="-1" aria-hidden="true"><b>79 €</b></a>
+      <div class="escaparate-pie"><a class="btn btn-tinta" href="#/outlet">Ver el outlet <i class="ph-bold ph-arrow-right i" aria-hidden="true"></i></a><span class="escaparate-nota">Cada aparato de outlet es una sola unidad</span></div>
     </div>
-    <div class="puntos" id="puntos"><button class="on" aria-label="Ofertas"></button><button aria-label="Cocinas"></button><button aria-label="Canapés"></button></div>
   </section>
-  <div class="ventajas">
-    <div>${icoEtiqueta}Precio de outlet</div>
-    <div>${icoEstrella}Nuevos, de exposición</div>
-    <div>${icoTienda}Recogida en tienda</div>
-    <div>${icoCamion}Envío a domicilio</div>
-  </div>
-  <section class="sec">
-    <div class="sec-tit"><h2>Ofertas destacadas</h2><a href="#/outlet">Ver todas →</a></div>
-    <p class="sub">Unidades únicas de exposición: cuando se venden, desaparecen.</p>
-    <div class="fila-scroll">${ofertas.map(tarjeta).join("")}</div>
+
+  <section class="sec"><div class="cont">
+    <div class="sec-cab"><h2>Unidades únicas</h2><a href="#/outlet">Todo el outlet</a></div>
+    <div class="riel">${outlet.map(tarjeta).join("")}</div>
+  </div></section>
+
+  <section class="sec tara"><div class="cont tara-grid">
+    <div class="tara-demo"><div class="marco">${img(demo.f,"Frigorífico combi con la tara marcada con un círculo")}${aro(demo.marca)}</div><span class="pegatina"><b>TARA</b>${esc(demo.tara)}</span></div>
+    <div><h2>Qué es la tara</h2>
+      <p class="sec-entrada">Aparatos nuevos que han estado en exposición o han llegado con un detalle por fuera. Funcionan como el primer día.</p>
+      <ul class="tara-lista">
+        <li><i class="ph ph-camera i" aria-hidden="true"></i><div><b>La ves en foto</b><span>Cada ficha marca dónde está y qué es.</span></div></li>
+        <li><i class="ph ph-seal-check i" aria-hidden="true"></i><div><b>Es un aparato nuevo</b><span>Con los 3 años de garantía legal de un producto nuevo.</span></div></li>
+        <li><i class="ph ph-lock-key i" aria-hidden="true"></i><div><b>No se cobra hasta confirmarla</b><span>Al pagar, el dinero queda retenido hasta que comprobamos que la unidad sigue aquí.</span></div></li>
+      </ul></div>
+  </div></section>
+
+  <section class="sec"><div class="cont">
+    <div class="sec-cab"><h2>Busca por tipo</h2></div>
+    <div class="cats">${["lavado","frio","coccion","pequeno","clima"].map((k,i)=>`<a class="cat${i===0?" cat-grande":""}" href="#/categoria/${k}"><span class="ft">${img(CATS[k].f,"")}</span><span class="tx"><h3>${CATS[k].n}</h3><p>${CATS[k].d}</p></span></a>`).join("")}</div>
+  </div></section>
+
+  <section class="cocinas" aria-label="Cocinas a medida">${img("cocina-2","Cocina a medida blanca con madera y columna de hornos",'class="bg"')}
+    <div class="cont" style="width:100%;padding:0"><div class="cocinas-panel"><h2>Cocinas a medida</h2><p>Te la diseñamos con las medidas de tu cocina, te aconsejamos los electrodomésticos y la montamos.</p><a class="btn btn-blanco" href="#/cocinas">Pedir presupuesto</a></div></div>
   </section>
-  <section class="banda-cocina">
-    <div class="ilu">${img("cocina-1","Cocina a medida")}</div>
-    <div class="txt"><h2>Cocinas a medida</h2><p>Diseño, asesoramiento e instalación con garantía.</p><a class="btn btn-nar" href="#/cocinas">Pide tu presupuesto ${flecha}</a></div>
-  </section>
-  <section class="banda-canape">
-    <div class="desde"><small>Desde</small><b>199 €</b></div>
-    <div><h2>Canapés</h2><p>Comodidad, capacidad y el mejor precio.</p><a class="btn btn-nar" href="#/canapes">Ver canapés ${flecha}</a></div>
-    <div class="canape-foto">${img("canape-ambiente","Canapé abatible de madera en un dormitorio")}</div>
-  </section>
-  <section class="sec">
-    <div class="sec-tit"><h2>Por categoría</h2></div>
-    <div class="fila-scroll">${Object.entries(CATS).filter(([k])=>k!=="canapes").map(([k,c])=>{const x=P.find(p=>p.c===k);return `<a class="tarjeta" href="#/categoria/${k}"><div class="foto">${foto(x)}</div><div class="info"><div class="nom">${c.n}</div><div class="tara-txt">${c.d}</div></div></a>`}).join("")}</div>
-  </section>
-  ${visita()}`;
-  const sl=$("#slides"), pts=[...document.querySelectorAll("#puntos button")];
-  sl.addEventListener("scroll",()=>{const i=Math.round(sl.scrollLeft/sl.clientWidth);pts.forEach((b,j)=>b.classList.toggle("on",i===j))},{passive:true});
-  pts.forEach((b,i)=>b.addEventListener("click",()=>sl.scrollTo({left:i*sl.clientWidth,behavior:"smooth"})));
+
+  <section class="sec"><div class="cont canape">
+    <div class="canape-precio"><small>DESDE</small>199 €</div>
+    <div><h2>Canapés de madera</h2><p>Abatibles, con todo el hueco de la cama para guardar. Dinos la medida y te damos el precio.</p><a class="btn btn-tinta" href="#/canapes">Elegir medida</a></div>
+    <div class="canape-foto">${img("canape-ambiente","Canapé abatible de madera abierto en un dormitorio")}</div>
+  </div></section>
+
+  <section class="sec" style="padding-top:8px"><div class="cont">${bloqueVisita()}</div></section>`;
 }
-function visita(){
-  return `<section class="visita">
-    <img src="fachada.jpg" alt="Fachada de la tienda Electro House Outlet en la calle Obispo Rocamora de Orihuela" loading="lazy" width="589" height="900">
-    <div class="txt"><h2>Ven a ver la tara en persona</h2>
-      <ul>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>C/ Obispo Rocamora, 32<br>03300 Orihuela (Alicante)</span></li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>865 53 59 40</span></li>
-      </ul>
-      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-nar" href="https://www.google.com/maps/search/?api=1&query=Electro+House+Obispo+Rocamora+32+Orihuela" target="_blank" rel="noopener">Cómo llegar</a><a class="btn btn-linea" href="tel:+34865535940">Llamar</a></div>
-    </div></section>`;
-}
-function listado(titulo, lista, opts={}){
-  const st = {cat:"todas", orden:"rel"};
-  const cats = [...new Set(lista.map(x=>x.c))];
-  function pinta(){
-    let l = lista.filter(x=>st.cat==="todas"||x.c===st.cat);
-    if(st.orden==="asc") l=[...l].sort((a,b)=>a.p-b.p);
-    if(st.orden==="desc") l=[...l].sort((a,b)=>b.p-a.p);
-    if(st.orden==="dto") l=[...l].sort((a,b)=>pct(b)-pct(a));
-    $("#rej").innerHTML = l.length? l.map(tarjeta).join("") : `<div class="vacio">No hay productos aquí ahora mismo.</div>`;
-    $("#num").textContent = l.length+(l.length===1?" producto":" productos");
-    document.querySelectorAll("#filtros button").forEach(b=>b.classList.toggle("on",b.dataset.c===st.cat));
-  }
-  app.innerHTML = `${miga(esc(titulo))}<h1 class="tit">${esc(titulo)}</h1>${opts.intro||""}
-   ${cats.length>1?`<div class="filtros" id="filtros"><button data-c="todas">Todas</button>${cats.map(c=>`<button data-c="${c}">${CATS[c].n}</button>`).join("")}</div>`:`<div id="filtros"></div>`}
-   <div class="barra-orden"><span id="num"></span><label>Ordenar <select id="orden"><option value="rel">Destacados</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option>${lista.some(x=>x.a)?`<option value="dto">Mayor descuento</option>`:""}</select></label></div>
-   <div class="rejilla" id="rej"></div>`;
-  document.querySelectorAll("#filtros button").forEach(b=>b.addEventListener("click",()=>{st.cat=b.dataset.c;pinta()}));
-  $("#orden").addEventListener("change",e=>{st.orden=e.target.value;pinta()});
-  pinta();
-}
-function outlet(){
-  listado("Outlet tara", P.filter(x=>x.tara), {intro:`<div class="aviso-outlet">${icoInfo}<div><b>Electrodomésticos nuevos con una tara estética</b> de exposición: un roce, un golpecito o la caja dañada. Funcionan como nuevos y en cada ficha te enseñamos exactamente qué tienen. Cada uno es una <b>unidad única</b>.</div></div>`});
+function listado(titulo,lista,intro=""){
+  const st={cat:"todas",orden:"rel"}; const cats=[...new Set(lista.map(x=>x.c))];
+  app.innerHTML=`<div class="pag"><div class="cont">${miga(esc(titulo))}<h1 class="tit">${esc(titulo)}</h1>${intro}
+    ${cats.length>1?`<div class="filtros" role="group" aria-label="Filtrar por tipo"><button class="chip" data-c="todas" aria-pressed="true">Todo</button>${cats.map(c=>`<button class="chip" data-c="${c}" aria-pressed="false">${CATS[c].n}</button>`).join("")}</div>`:`<div style="height:18px"></div>`}
+    <div class="barra"><span id="num"></span><label>Ordenar<select id="orden"><option value="rel">Destacados</option><option value="asc">Más baratos</option><option value="desc">Más caros</option>${lista.some(x=>x.a)?`<option value="dto">Más descuento</option>`:""}</select></label></div>
+    <div class="rejilla" id="rej"></div></div></div>`;
+  const pinta=()=>{ let l=lista.filter(x=>st.cat==="todas"||x.c===st.cat);
+    if(st.orden==="asc") l=[...l].sort((a,b)=>a.p-b.p); if(st.orden==="desc") l=[...l].sort((a,b)=>b.p-a.p); if(st.orden==="dto") l=[...l].sort((a,b)=>pct(b)-pct(a));
+    $("#rej").innerHTML=l.map(tarjeta).join(""); $("#num").textContent=l.length+(l.length===1?" producto":" productos");
+    document.querySelectorAll(".filtros .chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.c===st.cat)); };
+  document.querySelectorAll(".filtros .chip").forEach(b=>b.addEventListener("click",()=>{st.cat=b.dataset.c;pinta()}));
+  $("#orden").addEventListener("change",e=>{st.orden=e.target.value;pinta()}); pinta();
 }
 function producto(id){
-  const x = porId(id); if(!x){ app.innerHTML = `${miga("No encontrado")}<div class="vacio">Este producto ya no está disponible.<br><br><a class="btn btn-nar" href="#/outlet">Ver el outlet</a></div>`; return; }
-  const enCarro = carrito.some(l=>l.id===x.id);
-  const rel = P.filter(p=>p.c===x.c && p.id!==x.id).slice(0,4);
-  const vistaTara = x.tara? `<div class="zoom">${foto(x)}<span class="aro" style="left:${x.marca[0]}%;top:${x.marca[1]}%"></span></div>`:"";
-  app.innerHTML = `${miga(`<a href="#/categoria/${x.c}">${CATS[x.c].n}</a>`, esc(x.n))}
+  const x=porId(id);
+  if(!x){ app.innerHTML=`<div class="pag"><div class="cont">${miga("No disponible")}<div class="vacio"><h1 class="tit">Ya no está</h1><p>Este aparato se ha vendido o ya no existe.</p><a class="btn btn-tinta" href="#/outlet">Ver el outlet</a></div></div></div>`; return; }
+  const enCarro=carrito.some(l=>l.id===x.id); const rel=P.filter(p=>p.c===x.c&&p.id!==x.id).slice(0,4);
+  app.innerHTML=`<div class="pag"><div class="cont">${miga(`<a href="#/categoria/${x.c}">${CATS[x.c].n}</a>`,esc(x.n))}
   <div class="ficha">
-    <div class="galeria">
-      <div class="grande" id="grande">${foto(x)}<span class="etiqueta-foto">Foto de muestra</span></div>
-      ${x.tara?`<div class="miniaturas"><button class="on" data-f="0" aria-label="Foto del producto">${foto(x)}</button><button data-f="1" aria-label="Foto de la tara">${foto(x)}<span class="mini-aro"></span></button></div>`:""}
-    </div>
+    <div><div class="visor" id="visor" data-vista="producto"><div class="marco">${img(x.f,x.n,'width="800" height="800" loading="eager"')}${x.tara?aro(x.marca):""}</div><span class="visor-pie" id="visor-pie">Foto de muestra</span></div>
+      ${x.tara?`<div class="seg" role="group" aria-label="Qué ver"><button aria-pressed="true" data-v="producto">El aparato</button><button aria-pressed="false" data-v="tara">Ver la tara</button></div>`:""}</div>
     <div>
-      <h1>${esc(x.n)}</h1>
-      <div class="ref">Ref. ${x.id.toUpperCase()} · ${CATS[x.c].n}</div>
-      <div class="precio" style="margin-top:12px">${x.desde?`<span style="color:var(--suave)">desde</span>`:""}<span class="p">${eur(x.p)}</span>${x.a?`<span class="antes">${eur(x.a)}</span>`:""}</div>
-      ${x.a?`<span class="ahorro">Te ahorras ${eur(x.a-x.p)} (-${pct(x)}%)</span>`:""}
-      ${x.tara?`<div class="caja-tara"><h3>${icoInfo}Qué tara tiene</h3><p>${esc(x.tara)}</p><div class="unidad">● Unidad única en tienda</div></div>`:""}
+      <h1>${esc(x.n)}</h1><div class="ref">Ref. ${x.id.toUpperCase()} · ${CATS[x.c].n}</div>
+      <div class="prod-precio">${x.desde?`<span class="desde">desde</span>`:""}<b>${eur(x.p)}</b>${x.a?`<s>${eur(x.a)}</s><span class="dto">-${pct(x)} %</span>`:""}</div>
+      ${x.a?`<span class="ahorro">Te ahorras ${eur(x.a-x.p)}</span>`:""}
+      ${x.tara?`<div class="pegatina"><b>TARA · UNIDAD ÚNICA</b>${esc(x.tara)}</div>`:""}
       <div class="acciones">
-        ${x.desde?`<a class="btn btn-nar" href="#/canapes">Elegir medida y pedir precio</a>`:`<button class="btn btn-nar" id="comprar">${enCarro?"Ya está en tu carrito · Ver carrito":"Añadir al carrito"}</button>`}
-        <button class="btn btn-wa" id="preguntar"><svg width="20" height="20" viewBox="0 0 32 32" fill="#fff"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3z"/></svg>${x.tara?"¿Sigue disponible? Pregúntanos":"Pregúntanos por WhatsApp"}</button>
+        ${x.desde?`<a class="btn btn-tinta" href="#/canapes">Elegir medida</a>`:`<button class="btn btn-tinta" id="comprar">${enCarro?"Está en tu carrito":"Añadir al carrito"}</button>`}
+        <button class="btn btn-wa" id="preguntar"><i class="ph-fill ph-whatsapp-logo i" aria-hidden="true"></i>${x.tara?"¿Sigue disponible?":"Preguntar por WhatsApp"}</button>
       </div>
-      ${x.tara?`<div class="nota-cobro">${icoCandado}<span>Al pagar, el importe queda <b>retenido, no cobrado</b>. Te confirmamos que la unidad sigue aquí y solo entonces se cobra. Si ya se vendió, se anula y no pagas nada.</span></div>`:""}
-      <div class="ventajas-ficha">
-        <div>${icoCheck}<span>Producto nuevo: 3 años de garantía legal</span></div>
-        <div>${icoCheck}<span>Recogida en tienda o envío a domicilio</span></div>
-      </div>
-      <ul class="datos">
+      ${x.tara?`<p class="retiene"><i class="ph-fill ph-lock-key i" aria-hidden="true"></i><span>Al pagar, el dinero queda <b>retenido, no cobrado</b>. Comprobamos que la unidad sigue aquí y solo entonces se cobra. Si ya se vendió, se anula.</span></p>`:""}
+      <ul class="hechos">
         <li><span>Estado</span><span>${x.tara?"Nuevo, con tara estética":"Nuevo"}</span></li>
-        <li><span>Categoría</span><span>${CATS[x.c].n}</span></li>
+        <li><span>Garantía</span><span>3 años (producto nuevo)</span></li>
+        <li><span>Entrega</span><span>En tienda o a domicilio</span></li>
         <li><span>Medidas y ficha técnica</span><span>Con el catálogo</span></li>
       </ul>
     </div>
   </div>
-  ${rel.length?`<section class="sec"><div class="sec-tit"><h2>También te puede interesar</h2></div><div class="fila-scroll">${rel.map(tarjeta).join("")}</div></section>`:""}`;
-  if(x.tara){
-    const g=$("#grande"), bs=document.querySelectorAll(".miniaturas button");
-    bs.forEach(b=>b.addEventListener("click",()=>{bs.forEach(o=>o.classList.toggle("on",o===b));
-      g.innerHTML = (b.dataset.f==="1"? vistaTara : foto(x)) + `<span class="etiqueta-foto">${b.dataset.f==="1"?"Aquí está la tara":"Foto de muestra"}</span>`;}));
-  }
-  const bc=$("#comprar"); if(bc) bc.addEventListener("click",()=>{ if(carrito.some(l=>l.id===x.id)){location.hash="#/carrito";return} carrito.push({id:x.id,q:1}); guardar(); bc.textContent="Ya está en tu carrito · Ver carrito"; toast("Añadido al carrito"); });
-  $("#preguntar").addEventListener("click",()=>toast("Abriría WhatsApp con: «¿Sigue disponible "+x.n+"?»"));
+  ${rel.length?`<section class="sec" style="padding-bottom:0"><div class="sec-cab"><h2>Del mismo tipo</h2></div><div class="riel">${rel.map(tarjeta).join("")}</div></section>`:""}
+  </div></div>`;
+  if(x.tara){ const v=$("#visor"), bs=document.querySelectorAll(".seg button");
+    bs.forEach(b=>b.addEventListener("click",()=>{ bs.forEach(o=>o.setAttribute("aria-pressed",o===b)); v.dataset.vista=b.dataset.v; $("#visor-pie").textContent=b.dataset.v==="tara"?"Aquí está la tara":"Foto de muestra"; })); }
+  const bc=$("#comprar"); if(bc) bc.addEventListener("click",()=>{ if(carrito.some(l=>l.id===x.id)){location.hash="#/carrito";return} carrito.push({id:x.id,q:1}); guardar(); bc.textContent="Está en tu carrito"; toast("Añadido al carrito"); });
+  $("#preguntar").addEventListener("click",()=>toast("Abriría WhatsApp: «¿Sigue disponible "+x.n+"?»"));
 }
-function resultados(qRaw){
-  const {res} = buscar(qRaw);
-  const sug = quizas(qRaw);
-  const ejemplos = ["freidora de aire","lavadora","frigorífico","microondas","canapé"];
-  app.innerHTML = `${miga("Buscar")}<h1 class="tit">«${esc(qRaw)}»</h1>
-    <p class="sub" style="margin:2px 0 14px">${res.length? res.length+(res.length===1?" resultado":" resultados") : "No hemos encontrado nada con esa búsqueda."}</p>
-    ${res.length?`<div class="rejilla">${res.map(tarjeta).join("")}</div>`:`${sug.length?`<p>¿Quizá buscabas <a style="color:var(--naranja-osc);font-weight:700" href="#/buscar/${encodeURIComponent(sug[0])}">${esc(sug[0])}</a>?</p>`:""}<p>Prueba con:</p><div class="sugeridas">${ejemplos.map(s=>`<a href="#/buscar/${encodeURIComponent(s)}">${s}</a>`).join("")}</div>`}`;
-  document.querySelectorAll("[data-busca] input").forEach(i=>i.value=qRaw);
+function resultados(q){
+  const {res}=buscar(q), s=quizas(q);
+  app.innerHTML=`<div class="pag"><div class="cont">${miga("Buscar")}<h1 class="tit">«${esc(q)}»</h1>
+   <p class="sec-entrada" style="margin-bottom:16px">${res.length?res.length+(res.length===1?" aparato":" aparatos"):"No hay nada con esa búsqueda."}</p>
+   ${res.length?`<div class="rejilla">${res.map(tarjeta).join("")}</div>`:`<div class="vacio">${s.length?`<p>¿Querías decir <a style="color:var(--precio);font-weight:700" href="#/buscar/${encodeURIComponent(s[0])}">${esc(s[0])}</a>?</p>`:""}<div class="sugeridas">${["freidora de aire","lavadora","frigorífico","microondas","canapé"].map(t=>`<a class="chip" style="display:inline-flex;align-items:center;text-decoration:none" href="#/buscar/${encodeURIComponent(t)}">${t}</a>`).join("")}</div></div>`}
+  </div></div>`;
+  document.querySelectorAll("[data-busca] input").forEach(i=>i.value=q);
 }
+function formulario(id,ok){ const f=$(id); f.addEventListener("submit",e=>{ e.preventDefault(); let bien=true;
+  f.querySelectorAll("[required]").forEach(i=>{ const er=i.parentElement.querySelector(".error"); const mal=!i.checkValidity(); if(er) er.hidden=!mal; i.setAttribute("aria-invalid",mal); if(mal) bien=false; });
+  if(!bien){ f.querySelector('[aria-invalid="true"]').focus(); return; } ok(); }); }
+const hecho=(t,p)=>{ app.innerHTML=`<div class="hecho"><i class="ph-fill ph-check-circle i" aria-hidden="true"></i><h1>${t}</h1><p>${p}</p><a class="btn btn-tinta" href="#/">Volver al inicio</a></div>`; scrollTo(0,0); };
 function cocinas(){
-  app.innerHTML = `${miga("Cocinas a medida")}
-  <section class="banda-cocina" style="margin-top:8px"><div class="ilu">${img("cocina-2","Cocina a medida")}</div><div class="txt"><h1 style="font-size:28px;margin:0 0 6px">Cocinas a medida</h1><p>Te la diseñamos según tu espacio, te asesoramos con los electrodomésticos y la instalamos.</p></div></section>
-  <section class="sec"><div class="sec-tit"><h2>Pide tu presupuesto</h2></div>
-  <p class="sub">Mándanos las medidas y unas fotos de tu cocina y te llamamos.</p>
-  <form class="forma" id="fcocina">
-    <label>Nombre<input name="n" required autocomplete="name"></label>
-    <label>Teléfono<input name="t" type="tel" required autocomplete="tel" inputmode="tel"></label>
-    <label>Medidas aproximadas (opcional)<input name="m" placeholder="Por ejemplo: pared de 3,20 m"></label>
-    <label>Fotos de tu cocina (opcional)<input type="file" accept="image/*" multiple></label>
-    <label>Cuéntanos qué buscas<textarea name="c" rows="3"></textarea></label>
-    <button class="btn btn-nar" style="justify-content:center">Pedir presupuesto</button>
-  </form></section>`;
-  $("#fcocina").addEventListener("submit",e=>{e.preventDefault();if(!e.target.checkValidity()){e.target.reportValidity();return}
-    app.innerHTML=`<div class="ok-pedido"><div class="circ">${icoCheck}</div><h1 class="tit">¡Recibido!</h1><p>Te llamamos para hablar de tu cocina. <br><small style="color:var(--suave)">(En la maqueta no se envía nada.)</small></p><a class="btn btn-nar" href="#/">Volver al inicio</a></div>`;window.scrollTo(0,0)});
+  app.innerHTML=`<section class="cocinas" style="min-height:min(70svh,560px)">${img("cocina-1","Cocina a medida con isla y taburetes",'class="bg" loading="eager"')}<div class="cont" style="width:100%;padding:0"><div class="cocinas-panel"><h1>Cocinas a medida</h1><p>Te la diseñamos con tus medidas, te aconsejamos los electrodomésticos y la montamos.</p></div></div></section>
+  <div class="pag"><div class="cont"><h2 style="font-size:clamp(34px,7vw,50px);margin-top:16px">Pide tu presupuesto</h2><p class="sec-entrada">Mándanos las medidas y unas fotos de tu cocina y te llamamos.</p>
+  <form class="forma" id="fcocina" novalidate>
+    <label>Nombre<input name="n" required autocomplete="name"><span class="error" hidden>Escribe tu nombre.</span></label>
+    <label>Teléfono<input name="t" type="tel" required autocomplete="tel" inputmode="tel"><span class="error" hidden>Pon un teléfono para llamarte.</span></label>
+    <label>Medidas aproximadas<span class="ayuda">Por ejemplo: pared de 3,20 m y ventana a la derecha</span><input name="m"></label>
+    <label>Fotos de tu cocina<span class="ayuda">Opcional</span><input type="file" accept="image/*" multiple></label>
+    <label>Qué buscas<textarea name="c" rows="3"></textarea></label>
+    <button class="btn btn-tinta">Pedir presupuesto</button>
+  </form></div></div>`;
+  formulario("#fcocina",()=>hecho("Recibido","Te llamamos para hablar de tu cocina. En la maqueta no se envía nada."));
 }
 function canapes(){
-  const medidas=["90 × 190","105 × 190","135 × 190","150 × 190","160 × 200"];
-  app.innerHTML = `${miga("Canapés")}
-  <section class="banda-canape" style="margin-top:8px"><div class="desde"><small>Desde</small><b>199 €</b></div><div><h1 style="font-size:28px;margin:0 0 4px;color:#7A1F12">Canapés de madera</h1><p>Abatibles, con mucho espacio para guardar. Elige la medida y te damos el precio.</p></div><div class="canape-foto">${img("canape-ambiente","Canapé abatible de madera en un dormitorio")}</div></section>
-  <section class="sec"><div class="sec-tit"><h2>Pide el precio de tu medida</h2></div>
-  <form class="forma" id="fcanape">
-    <div class="opciones">${medidas.map((m,i)=>`<label><input type="radio" name="m" value="${m}" ${i===2?"checked":""}>${m}</label>`).join("")}</div>
-    <label>Nombre<input name="n" required autocomplete="name"></label>
-    <label>Teléfono<input name="t" type="tel" required autocomplete="tel" inputmode="tel"></label>
-    <button class="btn btn-nar" style="justify-content:center">Pedir precio</button>
-  </form><p class="sub" style="margin-top:10px">Medidas de muestra: se ajustan con el catálogo de la tienda.</p></section>`;
-  $("#fcanape").addEventListener("submit",e=>{e.preventDefault();if(!e.target.checkValidity()){e.target.reportValidity();return}
-    app.innerHTML=`<div class="ok-pedido"><div class="circ">${icoCheck}</div><h1 class="tit">¡Recibido!</h1><p>Te llamamos con el precio de tu canapé. <br><small style="color:var(--suave)">(En la maqueta no se envía nada.)</small></p><a class="btn btn-nar" href="#/">Volver al inicio</a></div>`;window.scrollTo(0,0)});
+  const med=["90 × 190","105 × 190","135 × 190","150 × 190","160 × 200"];
+  app.innerHTML=`<div class="pag"><div class="cont">${miga("Canapés")}
+  <div class="canape" style="margin-top:8px"><div class="canape-precio"><small>DESDE</small>199 €</div><div><h1 style="font-size:clamp(36px,8vw,56px)">Canapés de madera</h1><p>Abatibles, con todo el hueco de la cama para guardar. Elige la medida y te damos el precio.</p></div><div class="canape-foto">${img("canape-ambiente","Canapé abatible de madera abierto",'loading="eager"')}</div></div>
+  <form class="forma" id="fcanape" novalidate style="margin-top:28px">
+    <div class="grupo-t">Medida en centímetros<span class="ayuda">Medidas de muestra hasta tener su catálogo</span><div class="opciones">${med.map((m,i)=>`<label><input type="radio" name="m" value="${m}" ${i===2?"checked":""}>${m}</label>`).join("")}</div></div>
+    <label>Nombre<input name="n" required autocomplete="name"><span class="error" hidden>Escribe tu nombre.</span></label>
+    <label>Teléfono<input name="t" type="tel" required autocomplete="tel" inputmode="tel"><span class="error" hidden>Pon un teléfono para darte el precio.</span></label>
+    <button class="btn btn-tinta">Pedir precio</button>
+  </form></div></div>`;
+  formulario("#fcanape",()=>hecho("Recibido","Te llamamos con el precio de tu canapé. En la maqueta no se envía nada."));
 }
 function verCarrito(){
-  const ls = carrito.map(l=>({...l,x:porId(l.id)})).filter(l=>l.x);
-  if(!ls.length){ app.innerHTML = `${miga("Carrito")}<h1 class="tit">Tu carrito</h1><div class="vacio">Todavía no has añadido nada.<br><br><a class="btn btn-nar" href="#/outlet">Ver el outlet</a></div>`; return; }
-  const total = ls.reduce((s,l)=>s+l.x.p*l.q,0);
-  const hayTara = ls.some(l=>l.x.tara);
-  app.innerHTML = `${miga("Carrito")}<h1 class="tit">Tu carrito</h1>
-  <div class="lineas">${ls.map(l=>`<div class="linea"><a class="mini" href="#/producto/${l.x.id}">${foto(l.x)}</a><div><div class="n">${esc(l.x.n)}</div>${l.x.tara?`<div class="t">Outlet · unidad única</div>`:""}<button class="quitar" data-q="${l.x.id}">Quitar</button></div><div class="der"><b>${eur(l.x.p*l.q)}</b>${l.x.tara?`<span style="font-size:12px;color:var(--suave)">1 ud.</span>`:`<div class="cant"><button data-m="${l.x.id}" aria-label="Uno menos">−</button><span>${l.q}</span><button data-p="${l.x.id}" aria-label="Uno más">+</button></div>`}</div></div>`).join("")}</div>
-  <div class="resumen"><div class="f"><span>Productos</span><span>${eur(total)}</span></div><div class="f"><span>Entrega</span><span>Se elige en el siguiente paso</span></div><div class="f total"><span>Total</span><span>${eur(total)}</span></div></div>
-  ${hayTara?`<div class="nota-cobro" style="margin-top:12px">${icoCandado}<span>Llevas artículos de outlet: el importe se <b>retiene</b> y solo se cobra cuando te confirmemos que la unidad sigue aquí.</span></div>`:""}
-  <div class="acciones"><a class="btn btn-nar" href="#/pedido">Tramitar pedido ${flecha}</a><a class="btn btn-linea" href="#/outlet">Seguir comprando</a></div>`;
+  const ls=carrito.map(l=>({...l,x:porId(l.id)})).filter(l=>l.x);
+  if(!ls.length){ app.innerHTML=`<div class="pag"><div class="cont">${miga("Carrito")}<div class="vacio"><h1 class="tit">Carrito vacío</h1><p>Empieza por el outlet: son unidades únicas.</p><a class="btn btn-tinta" href="#/outlet">Ver el outlet</a></div></div></div>`; return; }
+  const total=ls.reduce((s,l)=>s+l.x.p*l.q,0), tara=ls.some(l=>l.x.tara);
+  app.innerHTML=`<div class="pag"><div class="cont" style="max-width:820px">${miga("Carrito")}<h1 class="tit">Tu carrito</h1>
+   <div class="lineas">${ls.map(l=>`<div class="linea"><a class="ft" href="#/producto/${l.x.id}">${img(l.x.f,l.x.n)}</a><div><div class="n">${esc(l.x.n)}</div>${l.x.tara?`<div class="t">Outlet · unidad única</div>`:""}<button class="quitar" data-q="${l.x.id}">Quitar</button></div><div class="der"><b>${eur(l.x.p*l.q)}</b>${l.x.tara?"":`<div class="cant"><button data-m="${l.x.id}" aria-label="Uno menos">−</button><span>${l.q}</span><button data-p="${l.x.id}" aria-label="Uno más">+</button></div>`}</div></div>`).join("")}</div>
+   <div class="resumen"><div class="f"><span>Productos</span><span>${eur(total)}</span></div><div class="f"><span>Entrega</span><span>En el siguiente paso</span></div><div class="f total"><span>Total</span><span>${eur(total)}</span></div></div>
+   ${tara?`<p class="retiene" style="margin-top:14px"><i class="ph-fill ph-lock-key i" aria-hidden="true"></i><span>Llevas outlet: el importe se retiene y solo se cobra cuando confirmemos la unidad.</span></p>`:""}
+   <div class="acciones"><a class="btn btn-tinta" href="#/pedido">Tramitar pedido</a><a class="btn btn-linea" href="#/outlet">Seguir mirando</a></div></div></div>`;
   app.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{carrito=carrito.filter(l=>l.id!==b.dataset.q);guardar();verCarrito()});
   app.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{carrito.find(l=>l.id===b.dataset.p).q++;guardar();verCarrito()});
   app.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{const l=carrito.find(l=>l.id===b.dataset.m);l.q--;if(l.q<1)carrito=carrito.filter(o=>o!==l);guardar();verCarrito()});
 }
 function pedido(){
-  const ls = carrito.map(l=>({...l,x:porId(l.id)})).filter(l=>l.x);
-  if(!ls.length){ location.hash="#/carrito"; return; }
-  const total = ls.reduce((s,l)=>s+l.x.p*l.q,0);
-  const hayTara = ls.some(l=>l.x.tara);
-  app.innerHTML = `${miga(`<a href="#/carrito">Carrito</a>`,"Pedido")}<h1 class="tit">Tus datos</h1>
-  <form class="forma" id="fped">
-    <label>Nombre y apellidos<input name="n" required autocomplete="name"></label>
-    <label>Teléfono<input name="t" type="tel" required autocomplete="tel" inputmode="tel"></label>
-    <label>Email<input name="e" type="email" required autocomplete="email"></label>
-    <div><div style="font-size:13px;font-weight:600;margin-bottom:6px">Entrega</div><div class="opciones"><label><input type="radio" name="ent" value="tienda" checked>Recoger en tienda</label><label><input type="radio" name="ent" value="casa">Envío a casa</label></div></div>
-    <label id="dir" hidden>Dirección<input name="d" autocomplete="street-address"></label>
-    <div><div style="font-size:13px;font-weight:600;margin-bottom:6px">Pago</div><div class="opciones"><label><input type="radio" name="pago" value="tarjeta" checked>Tarjeta</label><label><input type="radio" name="pago" value="bizum">Bizum</label></div></div>
-    <div class="resumen" style="margin-top:4px"><div class="f total" style="border:0;padding:0"><span>Total</span><span>${eur(total)}</span></div></div>
-    ${hayTara?`<div class="nota-cobro">${icoCandado}<span>Los artículos de outlet se <b>retienen</b>: te avisamos en cuanto confirmemos la unidad y solo entonces se cobra.</span></div>`:""}
-    <button class="btn btn-nar" style="justify-content:center">${hayTara?"Pagar (se retiene hasta confirmar)":"Pagar "+eur(total)}</button>
-    <p class="sub" style="margin:0;text-align:center">Pago simulado: en la maqueta no se cobra nada.</p>
-  </form>`;
+  const ls=carrito.map(l=>({...l,x:porId(l.id)})).filter(l=>l.x); if(!ls.length){location.hash="#/carrito";return}
+  const total=ls.reduce((s,l)=>s+l.x.p*l.q,0), tara=ls.some(l=>l.x.tara);
+  app.innerHTML=`<div class="pag"><div class="cont" style="max-width:820px">${miga(`<a href="#/carrito">Carrito</a>`,"Pedido")}<h1 class="tit">Tus datos</h1>
+  <form class="forma" id="fped" novalidate>
+    <label>Nombre y apellidos<input name="n" required autocomplete="name"><span class="error" hidden>Escribe tu nombre.</span></label>
+    <label>Teléfono<input name="t" type="tel" required autocomplete="tel" inputmode="tel"><span class="error" hidden>Lo necesitamos para la entrega.</span></label>
+    <label>Email<input name="e" type="email" required autocomplete="email" spellcheck="false"><span class="error" hidden>Revisa el email.</span></label>
+    <div class="grupo-t">Entrega<div class="opciones"><label><input type="radio" name="ent" value="tienda" checked>En la tienda</label><label><input type="radio" name="ent" value="casa">A domicilio</label></div></div>
+    <label id="dir" hidden>Dirección<input name="d" autocomplete="street-address"><span class="error" hidden>Escribe la dirección.</span></label>
+    <div class="grupo-t">Pago<div class="opciones"><label><input type="radio" name="pago" value="tarjeta" checked>Tarjeta</label><label><input type="radio" name="pago" value="bizum">Bizum</label></div></div>
+    <div class="resumen"><div class="f total" style="border:0;padding:0"><span>Total</span><span>${eur(total)}</span></div></div>
+    ${tara?`<p class="retiene"><i class="ph-fill ph-lock-key i" aria-hidden="true"></i><span>El outlet se retiene: te avisamos al confirmar la unidad y entonces se cobra.</span></p>`:""}
+    <button class="btn btn-tinta">${tara?"Pagar y retener":"Pagar "+eur(total)}</button>
+    <p class="ayuda" style="margin:0;text-align:center;color:var(--suave)">Pago simulado: en la maqueta no se cobra nada.</p>
+  </form></div></div>`;
   const f=$("#fped");
-  f.querySelectorAll("[name=ent]").forEach(r=>r.addEventListener("change",()=>{$("#dir").hidden=f.ent.value!=="casa";f.d.required=f.ent.value==="casa"}));
-  f.addEventListener("submit",e=>{e.preventDefault();if(!f.checkValidity()){f.reportValidity();return}
-    carrito=[];guardar();
-    app.innerHTML=`<div class="ok-pedido"><div class="circ">${icoCheck}</div><h1 class="tit">¡Pedido recibido!</h1>
-    <p>${hayTara?"Estamos comprobando que tu artículo de outlet sigue en tienda. <b>Te avisamos en breve</b> y solo entonces se cobra.":"Te hemos enviado la confirmación por email."}</p>
-    <p class="sub">(Pedido simulado de la maqueta.)</p><a class="btn btn-nar" href="#/">Volver al inicio</a></div>`;window.scrollTo(0,0)});
+  f.querySelectorAll("[name=ent]").forEach(r=>r.addEventListener("change",()=>{ const casa=f.ent.value==="casa"; $("#dir").hidden=!casa; f.d.required=casa; }));
+  formulario("#fped",()=>{ carrito=[]; guardar(); hecho("Pedido recibido",tara?"Estamos comprobando que tu aparato de outlet sigue en la tienda. Te avisamos enseguida y solo entonces se cobra. (Pedido simulado.)":"Te mandamos la confirmación por email. (Pedido simulado.)"); });
 }
-function contacto(){ app.innerHTML = `${miga("Contacto")}<h1 class="tit">Contacto</h1>${visita()}`; }
+function tienda(){ app.innerHTML=`<div class="pag"><div class="cont">${miga("La tienda")}<h1 class="tit" style="margin-bottom:18px">La tienda</h1>${bloqueVisita()}</div></div>`; }
 
-/* ===== Rutas (atrás y adelante funcionan) ===== */
+/* Botones flotantes: ocultos mientras se ve el hero */
+let obs=null;
+function vigilarHero(){ const fl=$("#flotan"), h=$("#hero"); if(obs){obs.disconnect();obs=null;}
+  if(!h){ fl.classList.remove("fuera"); return; }
+  fl.classList.add("fuera");
+  obs=new IntersectionObserver(([e])=>fl.classList.toggle("fuera",e.intersectionRatio>.4),{threshold:[0,.2,.4,.6,1]}); obs.observe(h); }
+$("#b-wa").addEventListener("click",()=>toast("Aquí irá el WhatsApp de la tienda"));
+const RESP={
+ "¿Dónde estáis?":"En la calle Obispo Rocamora, 32, en Orihuela. Teléfono 865 53 59 40.",
+ "¿Qué es la tara?":"Son aparatos nuevos que han estado en exposición o tienen un detalle por fuera: un roce, un golpecito o la caja dañada. En cada ficha te enseñamos dónde está.",
+ "¿Cuándo se cobra?":"Al pagar un aparato de outlet, el dinero queda retenido. Comprobamos que la unidad sigue en la tienda y solo entonces se cobra.",
+ "¿Lo lleváis a casa?":"Sí: puedes recogerlo en la tienda o pedir que te lo llevemos a domicilio."
+};
+const asis=$("#asis"), cuerpo=$("#asis-cuerpo"), bAsis=$("#b-asis");
+$("#preguntas").innerHTML=Object.keys(RESP).map(q=>`<button>${q}</button>`).join("");
+$("#preguntas").addEventListener("click",e=>{ const b=e.target.closest("button"); if(!b) return; const q=b.textContent;
+  $("#preguntas").insertAdjacentHTML("beforebegin",`<div class="msg msg-tu">${esc(q)}</div><div class="msg msg-el">${esc(RESP[q])}</div>`); cuerpo.scrollTop=cuerpo.scrollHeight; });
+function abrirAsis(on){ asis.classList.toggle("on",on); asis.setAttribute("aria-hidden",!on); bAsis.setAttribute("aria-expanded",on); if(on) $("#cerrar-asis").focus(); else bAsis.focus(); }
+bAsis.addEventListener("click",()=>abrirAsis(true));
+$("#cerrar-asis").addEventListener("click",()=>abrirAsis(false));
+addEventListener("keydown",e=>{ if(e.key==="Escape"&&asis.classList.contains("on")) abrirAsis(false); });
+
+/* Rutas: cada página con su dirección; atrás y adelante funcionan */
 function ruta(){
-  const h = decodeURIComponent(location.hash.replace(/^#\/?/,"")); const r=h.split("/")[0], arg=h.split("/").slice(1).join("/");
-  let nav = r||"inicio";
-  if(!r) inicio();
-  else if(r==="outlet") outlet();
-  else if(r==="electrodomesticos") listado("Electrodomésticos", P.filter(x=>x.c!=="canapes"));
-  else if(r==="categoria" && CATS[arg]) { if(arg==="canapes"){canapes();nav="canapes"} else {listado(CATS[arg].n, P.filter(x=>x.c===arg)); nav="electrodomesticos";} }
-  else if(r==="producto") { producto(arg); const x=porId(arg); nav = x? (x.tara?"outlet":(x.c==="canapes"?"canapes":"electrodomesticos")) : ""; }
-  else if(r==="buscar") { resultados(arg); nav=""; }
+  const h=decodeURIComponent(location.hash.replace(/^#\/?/,"")), r=h.split("/")[0], arg=h.split("/").slice(1).join("/");
+  let nav=r;
+  if(!r){ inicio(); nav=""; }
+  else if(r==="outlet") listado("Outlet",P.filter(x=>x.tara),`<div class="aviso"><i class="ph ph-info i" aria-hidden="true"></i><span><b>Aparatos nuevos con una tara estética</b> de exposición: un roce, un golpecito o la caja dañada. Cada uno es una unidad única y en su ficha ves la tara en foto.</span></div>`);
+  else if(r==="electrodomesticos") listado("Electrodomésticos",P.filter(x=>x.c!=="canapes"));
+  else if(r==="categoria"&&CATS[arg]){ if(arg==="canapes"){canapes();nav="canapes";} else {listado(CATS[arg].n,P.filter(x=>x.c===arg)); nav="electrodomesticos";} }
+  else if(r==="producto"){ producto(arg); const x=porId(arg); nav=x?(x.tara?"outlet":x.c==="canapes"?"canapes":"electrodomesticos"):""; }
+  else if(r==="buscar"){ resultados(arg); nav=""; }
   else if(r==="cocinas") cocinas();
   else if(r==="canapes") canapes();
-  else if(r==="carrito") { verCarrito(); nav=""; }
-  else if(r==="pedido") { pedido(); nav=""; }
-  else if(r==="contacto") contacto();
-  else inicio();
-  document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.r===nav));
+  else if(r==="carrito"){ verCarrito(); nav=""; }
+  else if(r==="pedido"){ pedido(); nav=""; }
+  else if(r==="tienda") tienda();
+  else { app.innerHTML=`<div class="pag"><div class="cont">${miga("No existe")}<div class="vacio"><h1 class="tit">Esta página no existe</h1><p>Puede que el enlace esté mal escrito. Busca tu aparato arriba o mira el outlet.</p><a class="btn btn-tinta" href="#/outlet">Ver el outlet</a></div></div></div>`; nav=""; }
+  document.querySelectorAll(".nav a").forEach(a=>{ if(a.dataset.r===nav) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
   if(r!=="buscar") document.querySelectorAll("[data-busca] input").forEach(i=>i.value="");
   document.querySelectorAll(".sugs.on").forEach(c=>c.classList.remove("on"));
-  if(document.activeElement && document.activeElement.matches("[data-busca] input")) document.activeElement.blur();
-  window.scrollTo(0,0);
+  if(document.activeElement&&document.activeElement.matches("[data-busca] input")) document.activeElement.blur();
+  vigilarHero();
+  scrollTo(0,0);
 }
 addEventListener("hashchange",ruta);
-guardar(); ruta();
+medirCab(); guardar(); ruta();
+if(document.fonts) document.fonts.ready.then(medirCab);
 </script>
 
 <div style="background:#101010;color:#9a9a9a;font:13px/1.5 system-ui,sans-serif;padding:14px 20px;text-align:center;border-top:1px solid #2f2f2f">
