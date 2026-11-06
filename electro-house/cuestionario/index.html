@@ -124,11 +124,11 @@ const BLOQUES = [
  { id:"cobro", titulo:"El cobro online", intro:"Por fuera la web es igual en todos los casos; cambia quién cobra y qué se paga cada mes:",
    explica:[
     ["1 · Software de tiendas de terceros","Cuota mensual y un porcentaje de cada venta. Es la más barata de hacer."],
-    ["2A · Todo propio, con el TPV virtual de vuestro banco","Sin cuota de plataforma y la comisión de vuestro banco, normalmente la más baja. Cuesta más hacerla."],
+    ["2A · Todo propio, con el TPV virtual de vuestro banco","El TPV virtual es el «datáfono» para cobrar por internet; se pide al banco. Sin cuota de plataforma y la comisión de vuestro banco, normalmente la más baja. Cuesta más hacerla."],
     ["2B · Todo propio, con Stripe","Sin cuota mensual y una comisión pequeña por venta, sin trámites con el banco. Cuesta más hacerla."]],
    preguntas:[
     {id:"cobro_opcion", t:"¿Qué opción preferís?", tipo:"uno", ops:["1 · Software de tiendas de terceros","2A · Propia, con nuestro banco","2B · Propia, con Stripe","Aconsejadnos"]},
-    {id:"cobro_tpv", t:"¿Tenéis TPV virtual en el banco (para cobrar por internet)?", tipo:"uno", ops:["Sí","No, pero lo pediríamos","No lo sabemos"], nota:true, notaPh:"¿Con qué banco trabajáis? (opcional)"}
+    {id:"cobro_tpv", t:"¿Tenéis TPV virtual en vuestro banco?", tipo:"uno", ops:["Sí, ya lo tenemos","No, pero lo pediríamos","No lo sabemos"], ayuda:"El TPV virtual es como el datáfono de la tienda, pero para cobrar por internet: el cliente paga con su tarjeta en la web y el dinero os llega a vuestra cuenta, igual que con el datáfono. Si no lo tenéis, se pide en vuestro banco, como se pidió el datáfono.", nota:true, notaPh:"¿Con qué banco trabajáis? (opcional)"}
    ]},
  { id:"tienda", titulo:"Productos y envío", preguntas:[
     {id:"nuevos_cuantos", t:"¿Cuántos electrodomésticos nuevos (no de tara) queréis en la web?", tipo:"uno", ops:["Menos de 50","Entre 50 y 200","Más de 200"]},
