@@ -222,6 +222,47 @@ h1.tit{font-size:26px;margin:4px 0 4px;letter-spacing:-.01em}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 .sugeridas{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .sugeridas a{border:1px solid var(--linea);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+
+/* Fotos */
+.tarjeta .foto{padding:0;background:#fff;overflow:hidden}
+.tarjeta .foto{padding:8%}
+.tarjeta .foto img{width:100%;height:100%;object-fit:contain}
+.galeria .grande{background:#fff;border:1px solid var(--linea)}
+.galeria .grande img{width:86%;height:86%;object-fit:contain}
+.galeria .grande .zoom img{width:100%;height:100%}
+.galeria .grande .zoom{position:relative;width:86%;height:86%}
+.aro{position:absolute;width:64px;height:64px;margin:-32px 0 0 -32px;border:3px solid var(--naranja);border-radius:50%;box-shadow:0 0 0 4px rgba(242,107,29,.3),0 0 0 999px rgba(0,0,0,.18)}
+.miniaturas button{padding:0;overflow:hidden;position:relative}
+.miniaturas button{background:#fff;border-color:var(--linea)}
+.miniaturas button img{width:100%;height:100%;object-fit:contain;padding:4px}
+.mini-aro{position:absolute;inset:20px;border:2px solid var(--naranja);border-radius:50%}
+.linea .mini{padding:4px;overflow:hidden;background:#fff;border:1px solid var(--linea)}.linea .mini img{width:100%;height:100%;object-fit:contain}
+.banda-cocina .ilu{min-height:220px}.banda-cocina .ilu img{width:100%;height:100%;object-fit:cover}
+.canape-foto{justify-self:center;width:100%;max-width:420px;border-radius:14px;overflow:hidden;margin-top:14px}
+.canape-foto img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.collage{position:relative;height:250px;max-width:420px;width:100%;justify-self:center}
+.collage img{position:absolute;object-fit:contain;background:#fff;padding:10px;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.collage .c1{left:0;top:0;width:44%;height:100%}
+.collage .c2{left:38%;top:14%;width:40%;height:62%;z-index:2}
+.collage .c3{right:0;bottom:0;width:34%;height:46%;z-index:3}
+.foto-slide{border-radius:14px;overflow:hidden;border:4px solid #fff;box-shadow:0 10px 24px rgba(0,0,0,.18);max-width:440px;width:100%;justify-self:center}
+.foto-slide img{width:100%;aspect-ratio:4/3;object-fit:cover}
+@media(min-width:760px){.collage{height:290px}}
+@media(max-width:759px){.collage{height:200px}.foto-slide img{aspect-ratio:16/9}.slide{gap:16px}}
+/* Buscador: resultados al escribir */
+.busca{position:relative}
+.sugs{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--linea);border-radius:14px;box-shadow:0 12px 32px rgba(16,24,40,.16);z-index:50;overflow:hidden}
+.sugs.on{display:block}
+.sug{display:flex;gap:12px;align-items:center;padding:8px 12px}
+.sug img{width:48px;height:48px;border-radius:8px;object-fit:contain;flex:none;background:#fff;border:1px solid var(--linea);padding:3px}
+.sug .sn{display:block;font-weight:600;font-size:14px;line-height:1.3}
+.sug .sp{display:block;font-size:13px;color:var(--suave)}
+.sug .sp b{color:var(--naranja-osc)}
+.sug:hover,.sug.act,.sug-todos.act{background:var(--fondo)}
+.sug-todos{display:block;padding:11px 12px;border-top:1px solid var(--linea);font-weight:700;color:var(--naranja-osc);font-size:14px}
+.sug-vacio{padding:14px;font-size:14px;color:var(--suave)}
+.sug-vacio a{color:var(--naranja-osc);font-weight:700}
+mark{background:#FFE2CC;color:inherit;border-radius:3px;padding:0 1px}
 :focus-visible{outline:2px solid var(--naranja);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -272,34 +313,9 @@ h1.tit{font-size:26px;margin:4px 0 4px;letter-spacing:-.01em}
 <button class="wa" id="wa" aria-label="Escríbenos por WhatsApp"><svg width="30" height="30" viewBox="0 0 32 32" fill="#fff"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.8 1.2 3.2 1.4 3.4 2.4 3.6 5.8 5c2.1.9 3 1 4 .8.7-.1 1.9-.8 2.2-1.5s.3-1.3.2-1.5-.3-.2-.6-.4z"/></svg></button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/minisearch@6.3.0/dist/umd/index.min.js"></script>
 <script>
-/* ===== Ilustraciones de muestra (se sustituyen por las fotos reales del catálogo) ===== */
-const G = (id,a,b)=>`<linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>`;
-const sombra = (cx,w)=>`<ellipse cx="${cx}" cy="192" rx="${w}" ry="5" fill="#000" opacity=".10"/>`;
-const DIB = {
- lavadora:(v='a')=>`<svg viewBox="0 0 200 200"><defs>${G('l'+v,'#ffffff','#e3e6ea')}${G('c'+v,'#9fb6c9','#3d5568')}</defs>${sombra(100,62)}<rect x="40" y="18" width="120" height="172" rx="10" fill="url(#l${v})" stroke="#cdd2d8"/><rect x="40" y="18" width="120" height="30" rx="10" fill="#f3f4f6" stroke="#cdd2d8"/><rect x="50" y="27" width="34" height="11" rx="3" fill="#2b2f36"/><circle cx="140" cy="33" r="8" fill="#e9ecef" stroke="#b9c0c8"/><circle cx="100" cy="114" r="46" fill="#dfe3e8" stroke="#bfc6ce" stroke-width="3"/><circle cx="100" cy="114" r="36" fill="url(#c${v})"/><path d="M78 100a28 28 0 0 1 30-14" stroke="#fff" stroke-width="5" fill="none" opacity=".45" stroke-linecap="round"/></svg>`,
- secadora:(v='s')=>`<svg viewBox="0 0 200 200"><defs>${G('l'+v,'#ffffff','#e3e6ea')}${G('c'+v,'#e8edf2','#9aa7b3')}</defs>${sombra(100,62)}<rect x="40" y="18" width="120" height="172" rx="10" fill="url(#l${v})" stroke="#cdd2d8"/><rect x="40" y="18" width="120" height="30" rx="10" fill="#f3f4f6" stroke="#cdd2d8"/><rect x="50" y="27" width="50" height="11" rx="3" fill="#2b2f36"/><circle cx="140" cy="33" r="8" fill="#e9ecef" stroke="#b9c0c8"/><circle cx="100" cy="114" r="46" fill="#dfe3e8" stroke="#bfc6ce" stroke-width="3"/><circle cx="100" cy="114" r="36" fill="url(#c${v})"/><circle cx="100" cy="114" r="22" fill="none" stroke="#fff" stroke-width="2" opacity=".6"/></svg>`,
- frigorifico:(v='f')=>`<svg viewBox="0 0 200 200"><defs>${G('f'+v,'#eef0f3','#b9c0c8')}</defs>${sombra(100,50)}<rect x="56" y="4" width="88" height="188" rx="8" fill="url(#f${v})" stroke="#a9b1ba"/><line x1="56" y1="70" x2="144" y2="70" stroke="#9aa3ad" stroke-width="2"/><rect x="62" y="20" width="5" height="40" rx="2.5" fill="#8b949e"/><rect x="62" y="82" width="5" height="62" rx="2.5" fill="#8b949e"/><rect x="112" y="16" width="22" height="12" rx="2" fill="#2b2f36"/><path d="M80 10l20 170" stroke="#fff" stroke-width="10" opacity=".18"/></svg>`,
- arcon:(v='k')=>`<svg viewBox="0 0 200 200"><defs>${G('k'+v,'#ffffff','#e1e4e8')}</defs>${sombra(100,82)}<rect x="18" y="78" width="164" height="112" rx="8" fill="url(#k${v})" stroke="#cdd2d8"/><rect x="14" y="66" width="172" height="22" rx="6" fill="#f6f7f9" stroke="#cdd2d8"/><rect x="80" y="88" width="40" height="8" rx="3" fill="#b9c0c8"/><g fill="#d4d8dd"><rect x="150" y="160" width="26" height="3"/><rect x="150" y="166" width="26" height="3"/><rect x="150" y="172" width="26" height="3"/></g></svg>`,
- microondas:(v='m')=>`<svg viewBox="0 0 200 200"><defs>${G('m'+v,'#f4f5f7','#c9ced4')}${G('w'+v,'#3a4048','#14171b')}</defs>${sombra(100,82)}<rect x="18" y="58" width="164" height="104" rx="8" fill="url(#m${v})" stroke="#aab2bb"/><rect x="28" y="68" width="108" height="84" rx="5" fill="url(#w${v})"/><path d="M40 78h40" stroke="#fff" stroke-width="4" opacity=".18" stroke-linecap="round"/><rect x="144" y="70" width="28" height="12" rx="2" fill="#2b2f36"/><circle cx="158" cy="104" r="9" fill="#e5e8ec" stroke="#a9b1ba"/><circle cx="158" cy="130" r="9" fill="#e5e8ec" stroke="#a9b1ba"/></svg>`,
- horno:(v='h')=>`<svg viewBox="0 0 200 200"><defs>${G('h'+v,'#eceef1','#b5bcc4')}${G('v'+v,'#2e343b','#0f1114')}</defs>${sombra(100,72)}<rect x="28" y="22" width="144" height="166" rx="7" fill="url(#h${v})" stroke="#a3abb4"/><rect x="28" y="22" width="144" height="30" rx="7" fill="#22262b"/><circle cx="48" cy="37" r="7" fill="#c9ced4"/><circle cx="152" cy="37" r="7" fill="#c9ced4"/><rect x="82" y="31" width="36" height="12" rx="2" fill="#0b0d10" stroke="#3a4048"/><rect x="44" y="76" width="112" height="96" rx="5" fill="url(#v${v})"/><rect x="44" y="60" width="112" height="7" rx="3.5" fill="#8b949e"/><path d="M56 88h50" stroke="#fff" stroke-width="5" opacity=".14" stroke-linecap="round"/></svg>`,
- lavavajillas:(v='d')=>`<svg viewBox="0 0 200 200"><defs>${G('d'+v,'#eef0f3','#b9c0c8')}</defs>${sombra(100,58)}<rect x="44" y="18" width="112" height="172" rx="7" fill="url(#d${v})" stroke="#a9b1ba"/><rect x="44" y="18" width="112" height="22" rx="7" fill="#2b2f36"/><g fill="#9aa3ad"><circle cx="60" cy="29" r="3"/><circle cx="72" cy="29" r="3"/><circle cx="84" cy="29" r="3"/></g><rect x="70" y="50" width="60" height="7" rx="3.5" fill="#8b949e"/><path d="M70 70l20 110" stroke="#fff" stroke-width="10" opacity=".16"/></svg>`,
- freidora:(v='a')=>`<svg viewBox="0 0 200 200"><defs>${G('a'+v,'#3b4047','#121417')}</defs>${sombra(100,52)}<rect x="52" y="34" width="96" height="152" rx="26" fill="url(#a${v})"/><rect x="74" y="50" width="52" height="26" rx="6" fill="#0a0b0d" stroke="#2f343a"/><text x="100" y="68" font-size="13" text-anchor="middle" fill="#ff8a3d" font-family="monospace" font-weight="700">180°</text><rect x="58" y="96" width="84" height="80" rx="16" fill="#1d2025" stroke="#2f343a"/><rect x="84" y="112" width="32" height="40" rx="8" fill="#c8a27a"/><path d="M60 60c0-18 12-24 40-24" stroke="#fff" stroke-width="4" opacity=".12" fill="none"/></svg>`,
- freidoraDoble:(v='b')=>`<svg viewBox="0 0 200 200"><defs>${G('b'+v,'#3b4047','#121417')}</defs>${sombra(100,78)}<rect x="22" y="44" width="156" height="142" rx="22" fill="url(#b${v})"/><rect x="74" y="54" width="52" height="20" rx="5" fill="#0a0b0d"/><text x="100" y="68" font-size="11" text-anchor="middle" fill="#ff8a3d" font-family="monospace" font-weight="700">2 x 4L</text><rect x="30" y="86" width="66" height="90" rx="12" fill="#1d2025" stroke="#2f343a"/><rect x="104" y="86" width="66" height="90" rx="12" fill="#1d2025" stroke="#2f343a"/><rect x="52" y="100" width="22" height="34" rx="6" fill="#c8a27a"/><rect x="126" y="100" width="22" height="34" rx="6" fill="#c8a27a"/></svg>`,
- cafetera:(v='c')=>`<svg viewBox="0 0 200 200"><defs>${G('c'+v,'#3b4047','#121417')}</defs>${sombra(100,58)}<rect x="48" y="22" width="104" height="166" rx="10" fill="url(#c${v})"/><rect x="62" y="36" width="76" height="34" rx="5" fill="#0a0b0d" stroke="#2f343a"/><rect x="72" y="46" width="22" height="14" rx="2" fill="#4aa3ff" opacity=".7"/><rect x="104" y="46" width="24" height="14" rx="2" fill="#ffffff" opacity=".25"/><rect x="62" y="82" width="76" height="80" rx="4" fill="#1b1e22"/><rect x="88" y="84" width="24" height="14" rx="3" fill="#8b949e"/><rect x="84" y="128" width="32" height="30" rx="4" fill="#f2f2f2"/><rect x="62" y="166" width="76" height="8" rx="2" fill="#8b949e"/></svg>`,
- placa:(v='p')=>`<svg viewBox="0 0 200 200"><defs>${G('p'+v,'#30353c','#0b0c0e')}</defs>${sombra(100,88)}<path d="M30 92h140l16 70H14z" fill="url(#p${v})" stroke="#4a5058"/><g fill="none" stroke="#6b737d" stroke-width="2"><ellipse cx="64" cy="112" rx="24" ry="9"/><ellipse cx="136" cy="112" rx="22" ry="8"/><ellipse cx="100" cy="142" rx="30" ry="11"/></g><g fill="#ff7b3a" opacity=".8"><rect x="80" y="154" width="40" height="3" rx="1.5"/></g></svg>`,
- campana:(v='n')=>`<svg viewBox="0 0 200 200"><defs>${G('n'+v,'#f0f2f4','#aeb6bf')}</defs><rect x="84" y="6" width="32" height="84" fill="url(#n${v})" stroke="#9aa3ad"/><path d="M84 90h32l60 52H24z" fill="url(#n${v})" stroke="#9aa3ad"/><rect x="24" y="142" width="152" height="14" rx="3" fill="#cfd4da" stroke="#9aa3ad"/><g fill="#2b2f36"><circle cx="70" cy="149" r="2.5"/><circle cx="80" cy="149" r="2.5"/><circle cx="90" cy="149" r="2.5"/></g></svg>`,
- aire:(v='r')=>`<svg viewBox="0 0 200 200"><defs>${G('r'+v,'#ffffff','#dfe3e8')}</defs>${sombra(100,46)}<rect x="60" y="12" width="80" height="176" rx="16" fill="url(#r${v})" stroke="#cdd2d8"/><rect x="70" y="26" width="60" height="18" rx="4" fill="#2b2f36"/><text x="100" y="39" font-size="10" text-anchor="middle" fill="#7fd1ff" font-family="monospace">24°</text><g stroke="#c4cad1" stroke-width="3" stroke-linecap="round"><path d="M74 60h52"/><path d="M74 70h52"/><path d="M74 80h52"/><path d="M74 90h52"/></g><rect x="74" y="150" width="52" height="24" rx="5" fill="#eef0f3" stroke="#cdd2d8"/></svg>`,
- canape:(v='q')=>`<svg viewBox="0 0 220 200"><defs>${G('q'+v,'#efe6dc','#c9b8a6')}${G('t'+v,'#b98a5c','#8a5e36')}</defs><ellipse cx="110" cy="186" rx="96" ry="6" fill="#000" opacity=".10"/><path d="M14 120l92-30 100 26-92 34z" fill="#e8ddd0"/><path d="M14 120v50l100 16v-36z" fill="url(#q${v})"/><path d="M114 150v36l92-34v-36z" fill="#bfae9b"/><path d="M14 120l92-30 100 26" fill="none" stroke="#a89582"/><path d="M24 116l84-28 0-58-84 28z" fill="url(#t${v})" stroke="#7a5230"/><path d="M108 88l88 22 0-58-88-22z" fill="#a8774a" stroke="#7a5230" opacity=".0"/><g stroke="#7a5230" stroke-width="3"><path d="M40 112l18-34"/><path d="M92 96l14-38"/></g></svg>`,
- cocina:()=>`<svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMax meet"><rect x="0" y="0" width="400" height="220" fill="#ECE5DA"/><rect x="0" y="150" width="400" height="70" fill="#d9cfc1"/><g><rect x="30" y="20" width="220" height="62" fill="#f7f4ef" stroke="#d3cabd"/><line x1="103" y1="20" x2="103" y2="82" stroke="#d3cabd"/><line x1="176" y1="20" x2="176" y2="82" stroke="#d3cabd"/><rect x="270" y="20" width="70" height="180" fill="#3a3f45"/><rect x="278" y="60" width="54" height="40" fill="#15181b"/><rect x="278" y="110" width="54" height="40" fill="#15181b"/><rect x="30" y="118" width="220" height="10" fill="#b48a62"/><rect x="30" y="128" width="220" height="72" fill="#f7f4ef" stroke="#d3cabd"/><line x1="103" y1="128" x2="103" y2="200" stroke="#d3cabd"/><line x1="176" y1="128" x2="176" y2="200" stroke="#d3cabd"/><rect x="60" y="100" width="40" height="18" fill="#cfd4da"/><rect x="190" y="106" width="34" height="12" rx="2" fill="#2b2f36"/><rect x="350" y="40" width="40" height="70" fill="#cfe3f0" stroke="#d3cabd"/><path d="M362 112c0-14 16-14 16 0" fill="#7fae6e"/></g></svg>`
-};
-const HERO = `<div style="display:flex;align-items:flex-end;gap:0;width:100%;max-width:440px">
-  <div style="width:30%;margin-right:-4%">${DIB.frigorifico('h1')}</div>
-  <div style="width:20%;margin-right:-4%;position:relative;z-index:2">${DIB.freidora('h2')}</div>
-  <div style="width:30%;margin-right:-3%">${DIB.lavadora('h3')}</div>
-  <div style="width:28%">${DIB.horno('h4')}</div></div>`;
-
-/* ===== Catálogo de muestra ===== */
+/* ===== Catálogo de muestra (fotos de producto de muestra; se sustituyen por las de la tienda) ===== */
 const CATS = {
   lavado:{n:"Lavado", d:"Lavadoras, secadoras y lavavajillas"},
   frio:{n:"Frío", d:"Frigoríficos y congeladores"},
@@ -309,24 +325,23 @@ const CATS = {
   canapes:{n:"Canapés", d:"Canapés abatibles de madera"}
 };
 const P = [
- {id:"lavadora-9kg-a3", n:"Lavadora 9 kg A+++ carga frontal", c:"lavado", d:"lavadora", p:349, a:499, tara:"Rozadura en el lateral izquierdo. Una vez instalada no se ve.", marca:[38,92], tags:"lavadora lavar ropa"},
- {id:"frigorifico-combi-no-frost", n:"Frigorífico combi No Frost 186 cm", c:"frio", d:"frigorifico", p:499, a:699, tara:"Pequeño golpe en la puerta inferior, en la parte baja.", marca:[60,80], tags:"frigorifico nevera combi"},
- {id:"microondas-grill-25l", n:"Microondas con grill 25 L", c:"coccion", d:"microondas", p:69, a:99, tara:"Arañazo leve en la parte de arriba.", marca:[40,30], tags:"microondas micro grill"},
- {id:"horno-pirolitico", n:"Horno multifunción pirolítico", c:"coccion", d:"horno", p:279, a:399, tara:"Solo la caja dañada: el aparato está perfecto.", marca:[50,20], tags:"horno pirolitico"},
- {id:"lavavajillas-60-13", n:"Lavavajillas 60 cm, 13 servicios", c:"lavado", d:"lavavajillas", p:329, a:459, tara:"Marca en el panel frontal, junto al asa.", marca:[50,30], tags:"lavavajillas friegaplatos"},
- {id:"congelador-arcon-200l", n:"Congelador arcón 200 L", c:"frio", d:"arcon", p:219, a:299, tara:"Abolladura pequeña en la parte de atrás.", marca:[80,70], tags:"congelador arcon"},
- {id:"secadora-bomba-calor-8kg", n:"Secadora bomba de calor 8 kg", c:"lavado", d:"secadora", p:389, a:549, tara:"Rozadura en la tapa de arriba.", marca:[55,14], tags:"secadora secar ropa"},
- {id:"aire-portatil-12000", n:"Aire acondicionado portátil 3.000 frigorías", c:"clima", d:"aire", p:259, a:349, tara:"Caja abierta, sin estrenar.", marca:[50,50], tags:"aire acondicionado portatil climatizador"},
- {id:"freidora-aire-5-5l", n:"Freidora de aire 5,5 L", c:"pequeno", d:"freidora", p:79, tags:"freidora de aire air fryer airfryer freidora sin aceite"},
- {id:"freidora-aire-doble-8l", n:"Freidora de aire doble cesta 8 L", c:"pequeno", d:"freidoraDoble", p:119, tags:"freidora de aire air fryer airfryer doble freidora sin aceite"},
- {id:"cafetera-superautomatica", n:"Cafetera superautomática", c:"pequeno", d:"cafetera", p:229, a:299, tags:"cafetera cafe expreso"},
- {id:"placa-induccion-3", n:"Placa de inducción 3 zonas", c:"coccion", d:"placa", p:249, tags:"placa induccion vitroceramica fuegos"},
- {id:"campana-decorativa-60", n:"Campana decorativa 60 cm", c:"coccion", d:"campana", p:149, tags:"campana extractor humos"},
- {id:"microondas-20l", n:"Microondas 20 L", c:"coccion", d:"microondas", p:79, tags:"microondas micro"},
- {id:"lavadora-8kg", n:"Lavadora 8 kg A+++", c:"lavado", d:"lavadora", p:399, tags:"lavadora lavar ropa"},
- {id:"canape-madera", n:"Canapé abatible de madera", c:"canapes", d:"canape", p:199, desde:true, tags:"canape abatible cama somier madera"}
+ {id:"lavadora-9kg-a3", n:"Lavadora 9 kg A+++ carga frontal", c:"lavado", f:"lavadora-1", p:349, a:499, tara:"Rozadura en el lateral izquierdo. Una vez instalada no se ve.", marca:[22,55], syn:"lavar ropa"},
+ {id:"frigorifico-combi-no-frost", n:"Frigorífico combi No Frost 186 cm", c:"frio", f:"frigorifico-combi", p:499, a:699, tara:"Pequeño golpe en la puerta de abajo.", marca:[52,72], syn:"nevera frigo refrigerador combi"},
+ {id:"microondas-grill-25l", n:"Microondas con grill 25 L", c:"coccion", f:"microondas-1", p:69, a:99, tara:"Arañazo leve en la parte de arriba.", marca:[45,30], syn:"micro grill"},
+ {id:"horno-doble", n:"Horno doble multifunción", c:"coccion", f:"horno", p:279, a:399, tara:"Solo la caja dañada: el aparato está perfecto.", marca:[50,45], syn:"horno pirolitico"},
+ {id:"lavavajillas-60-13", n:"Lavavajillas 60 cm, 13 servicios", c:"lavado", f:"lavavajillas", p:329, a:459, tara:"Marca en el panel frontal, junto al asa.", marca:[50,25], syn:"friegaplatos lavaplatos"},
+ {id:"frigorifico-4-puertas", n:"Frigorífico 4 puertas", c:"frio", f:"frigorifico-4p", p:899, a:1199, tara:"Abolladura pequeña en el lateral derecho.", marca:[62,60], syn:"nevera frigo refrigerador americano"},
+ {id:"secadora-8kg", n:"Secadora 8 kg", c:"lavado", f:"secadora", p:389, a:549, tara:"Rozadura en la tapa de arriba.", marca:[50,22], syn:"secar ropa"},
+ {id:"aire-portatil", n:"Aire acondicionado portátil", c:"clima", f:"aire", p:259, a:349, tara:"Caja abierta, sin estrenar.", marca:[50,50], syn:"climatizador frio aire acondicionado"},
+ {id:"freidora-aire-5-5l", n:"Freidora de aire 5,5 L", c:"pequeno", f:"freidora-1", p:79, syn:"airfryer air fryer freidora aire sin aceite"},
+ {id:"freidora-aire-4l", n:"Freidora de aire 4 L", c:"pequeno", f:"freidora-2", p:59, syn:"airfryer air fryer freidora aire sin aceite"},
+ {id:"cafetera-superautomatica", n:"Cafetera superautomática", c:"pequeno", f:"cafetera", p:229, a:299, syn:"cafe expreso espresso"},
+ {id:"placa-induccion-3", n:"Placa de inducción 3 zonas", c:"coccion", f:"placa", p:249, syn:"induccion vitro vitroceramica fuegos"},
+ {id:"campana-decorativa-60", n:"Campana extractora 60 cm", c:"coccion", f:"campana", p:149, syn:"extractor humos"},
+ {id:"microondas-20l", n:"Microondas 20 L", c:"coccion", f:"microondas-2", p:79, syn:"micro"},
+ {id:"lavadora-8kg", n:"Lavadora 8 kg A+++", c:"lavado", f:"lavadora-2", p:399, syn:"lavar ropa"},
+ {id:"canape-madera", n:"Canapé abatible de madera", c:"canapes", f:"canape", p:199, desde:true, syn:"canape somier cama abatible"}
 ];
-const SIN = {"air fryer":"freidora de aire","airfryer":"freidora de aire","freidora sin aceite":"freidora de aire","nevera":"frigorifico","frigo":"frigorifico","friegaplatos":"lavavajillas","vitro":"placa","vitroceramica":"placa","micro":"microondas","climatizador":"aire acondicionado","somier":"canape","cama":"canape"};
 
 /* ===== Utilidades ===== */
 const $ = s=>document.querySelector(s);
@@ -334,44 +349,86 @@ const app = $("#app");
 const eur = n=>n.toLocaleString("es-ES")+" €";
 const pct = x=>x.a?Math.round((1-x.p/x.a)*100):0;
 const esc = s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const norm = s=>String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9ñ ]/g," ").replace(/\s+/g," ").trim();
-const dib = (x,v)=>DIB[x.d](v||x.id.replace(/[^a-z0-9]/g,""));
+const norm = s=>String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9ñ]+/g," ").trim();
+const EXT = {secadora:"png"};
+const img = (f,alt,cls="")=>`<img class="${cls}" src="fotos/${f}.${EXT[f]||"jpg"}" alt="${esc(alt)}" loading="lazy" decoding="async">`;
+const foto = x=>img(x.f, x.n);
 let carrito = [];
 try{carrito = JSON.parse(localStorage.getItem("eh-carrito")||"[]")}catch(e){}
 const guardar = ()=>{try{localStorage.setItem("eh-carrito",JSON.stringify(carrito))}catch(e){} $("#globo").textContent = carrito.reduce((s,l)=>s+l.q,0)};
 function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove("on"),2600)}
 $("#wa").addEventListener("click",()=>toast("Aquí irá el WhatsApp de la tienda"));
 
-/* ===== Buscador que entiende faltas ===== */
-function lev(a,b){if(a===b)return 0;const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let v=Array(n+1).fill(0).map((_,i)=>i);for(let i=1;i<=m;i++){let prev=v[0];v[0]=i;for(let j=1;j<=n;j++){const t=v[j];v[j]=Math.min(v[j]+1,v[j-1]+1,prev+(a[i-1]===b[j-1]?0:1));prev=t}}return v[n]}
-function parecido(q,w){if(w.startsWith(q)||q.startsWith(w)&&w.length>3)return 1;const d=lev(q,w);const s=1-d/Math.max(q.length,w.length);return s}
-function buscar(qRaw){
-  let q = norm(qRaw); if(!q) return {res:[],q};
-  for(const [k,v] of Object.entries(SIN)){ if(q.includes(k)) q = q.replace(k,v); }
-  const qTok = q.split(" ").filter(t=>t.length>1 && !["de","la","el","para","con","sin"].includes(t));
-  const qJunto = q.replace(/ /g,"");
-  const res = [];
-  for(const x of P){
-    const texto = norm(x.n+" "+x.tags+" "+CATS[x.c].n);
-    const toks = [...new Set(texto.split(" "))];
-    let total=0, ok=true;
-    for(const t of qTok){
-      let mejor=0; for(const w of toks){ const s=parecido(t,w); if(s>mejor) mejor=s; }
-      // palabras pegadas o mal escritas: "airfrayer", "aifrayer"
-      for(const tag of x.tags.split(" ")){ const s=parecido(t,norm(tag)); if(s>mejor) mejor=s; }
-      if(mejor<0.62){ ok=false; break; } total+=mejor;
-    }
-    if(!ok){ // frase entera pegada, p. ej. "freidoradeaire"
-      const tj = norm(x.tags).split(" ");
-      const frase = norm(x.n).replace(/ /g,"");
-      if(parecido(qJunto,frase)>0.7 || tj.some(t=>parecido(qJunto,t)>0.72)){ ok=true; total=0.8; }
-    }
-    if(ok && qTok.length) res.push({x,s:total/qTok.length});
-  }
-  res.sort((a,b)=>b.s-a.s);
-  return {res:res.map(r=>r.x), q};
+/* ===== Buscador (como el de una tienda online: tolerancia a faltas, sinónimos, plurales y resultados al escribir) =====
+   - Sin acentos ni mayúsculas, y singular/plural iguales («lavadoras» = «lavadora»).
+   - Faltas según lo larga que sea la palabra: hasta 3 letras ninguna, de 4 a 7 una, de 8 en adelante dos
+     («nebera» → nevera, «aifrayer» → airfryer). Es la regla de Algolia, Meilisearch y Typesense.
+   - Busca mientras escribes («frei» ya encuentra las freidoras).
+   - Sinónimos por producto (air fryer, freidora sin aceite, nevera, friegaplatos, vitro…).
+   - Primero intenta que salgan todas las palabras; si no hay nada, vale con alguna. */
+const VACIAS = new Set(["de","la","el","los","las","para","con","sin","y","a","en","un","una","del"]);
+const raiz = t=>{ t=norm(t); if(!t||VACIAS.has(t)) return null; if(t.length>4 && t.endsWith("es") && !/(ses|ces)$/.test(t)) t=t.slice(0,-2); else if(t.length>3 && t.endsWith("s") && !t.endsWith("ss")) t=t.slice(0,-1); return t; };
+const faltas = term => term.length<4 ? 0 : term.length<8 ? 1 : 2;
+let IDX = null, VOCAB = null;
+function lev(a,b){if(a===b)return 0;const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let v=Array.from({length:n+1},(_,i)=>i);for(let i=1;i<=m;i++){let p=v[0];v[0]=i;for(let j=1;j<=n;j++){const t=v[j];v[j]=Math.min(v[j]+1,v[j-1]+1,p+(a[i-1]===b[j-1]?0:1));p=t}}return v[n]}
+function vocab(){ if(VOCAB) return VOCAB; const s=new Set(); for(const x of P) for(const w of (x.n+" "+CATS[x.c].n+" "+(x.syn||"")).split(/\s+/)){ const r=raiz(w); if(r) s.add(r); } return VOCAB=[...s]; }
+/* Cada palabra se convierte en las palabras del catálogo que se le parecen: igual, con faltas permitidas, que empiezan por ella
+   o, en la última palabra (la que se está escribiendo), cuyo principio se le parece («aifray» → airfryer). */
+function expandir(q){
+  const toks=q.split(/\s+/).map(raiz).filter(Boolean);
+  return toks.map((t,i)=>{ const k=faltas(t), ult=i===toks.length-1;
+    return vocab().filter(w=> w===t || (k && lev(t,w)<=k) || (t.length>2 && w.startsWith(t)) || (ult && k && t.length>=4 && w.length>t.length && Math.min(lev(t,w.slice(0,t.length)),lev(t,w.slice(0,t.length+1)))<=(t.length>=6?2:k))); });
 }
-document.querySelectorAll("[data-busca]").forEach(f=>f.addEventListener("submit",e=>{e.preventDefault();const v=f.q.value.trim();if(v){location.hash="#/buscar/"+encodeURIComponent(v);f.q.blur()}}));
+function indice(){
+  if(IDX || !window.MiniSearch) return IDX;
+  IDX = new MiniSearch({
+    fields:["n","cat","syn"], storeFields:["id"],
+    processTerm: t => t.split(/\s+/).map(raiz).filter(Boolean),
+    searchOptions:{ boost:{n:3, syn:2, cat:1}, prefix:t=>t.length>2, fuzzy:faltas, maxFuzzy:2 }
+  });
+  IDX.addAll(P.map(x=>({id:x.id, n:x.n, cat:CATS[x.c].n, syn:x.syn||""})));
+  return IDX;
+}
+function buscar(q){
+  const ix = indice(); if(!ix || !norm(q)) return {res:[], terms:[]};
+  const grupos = expandir(q), op = {prefix:false, fuzzy:false};
+  const consulta = cmb => ({combineWith:cmb, queries: grupos.filter(g=>g.length).map(g=>({combineWith:"OR", queries:g}))});
+  if(!grupos.some(g=>g.length)) return {res:[], terms:[]};
+  let r = grupos.every(g=>g.length) ? ix.search(consulta("AND"), op) : [];
+  if(!r.length) r = ix.search(consulta("OR"), op);
+  if(r.length){ const top=r[0].score; r=r.filter(o=>o.score>=top*0.3); }
+  return {res:r.map(o=>P.find(p=>p.id===o.id)), terms:[...new Set(r.flatMap(o=>o.terms))]};
+}
+function quizas(q){ const ix=indice(); if(!ix) return []; return ix.autoSuggest(q,{fuzzy:0.35,prefix:true}).slice(0,3).map(s=>s.suggestion); }
+function resalta(texto, terms){
+  return texto.split(/(\s+)/).map(w=>{ const r=raiz(w); return r && terms.some(t=>r===t || r.startsWith(t) || t.startsWith(r)&&r.length>3) ? `<mark>${esc(w)}</mark>` : esc(w); }).join("");
+}
+/* Resultados al escribir */
+document.querySelectorAll("[data-busca]").forEach(f=>{
+  const inp=f.q; const caja=document.createElement("div"); caja.className="sugs"; caja.setAttribute("role","listbox"); caja.id="sugs-"+Math.random().toString(36).slice(2,7); f.appendChild(caja);
+  inp.setAttribute("role","combobox"); inp.setAttribute("aria-autocomplete","list"); inp.setAttribute("aria-controls",caja.id); inp.setAttribute("aria-expanded","false");
+  let sel=-1, t;
+  const cerrar=()=>{caja.classList.remove("on");inp.setAttribute("aria-expanded","false");sel=-1};
+  const pinta=()=>{
+    const q=inp.value.trim(); if(q.length<2){cerrar();return}
+    const {res,terms}=buscar(q);
+    if(!res.length){ const s=quizas(q); caja.innerHTML=`<div class="sug-vacio">Sin resultados${s.length?` · ¿Quizá buscabas <a href="#/buscar/${encodeURIComponent(s[0])}">${esc(s[0])}</a>?`:""}</div>`; }
+    else caja.innerHTML = res.slice(0,5).map((x,i)=>`<a class="sug" role="option" id="${caja.id}-${i}" href="#/producto/${x.id}">${foto(x)}<span><span class="sn">${resalta(x.n,terms)}</span><span class="sp">${x.desde?"desde ":""}${eur(x.p)}${x.tara?` · <b>Outlet</b>`:""}</span></span></a>`).join("") + `<a class="sug-todos" href="#/buscar/${encodeURIComponent(q)}">Ver los ${res.length} resultados →</a>`;
+    caja.classList.add("on"); inp.setAttribute("aria-expanded","true"); sel=-1;
+  };
+  inp.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(pinta,90)});
+  inp.addEventListener("focus",()=>{ if(inp.value.trim().length>1) pinta(); });
+  inp.addEventListener("keydown",e=>{
+    const ops=[...caja.querySelectorAll("a")]; if(!caja.classList.contains("on")||!ops.length) return;
+    if(e.key==="ArrowDown"||e.key==="ArrowUp"){ e.preventDefault(); sel=(sel+(e.key==="ArrowDown"?1:-1)+ops.length)%ops.length; ops.forEach((o,i)=>o.classList.toggle("act",i===sel)); inp.setAttribute("aria-activedescendant",ops[sel].id||""); }
+    else if(e.key==="Enter" && sel>=0){ e.preventDefault(); location.hash=ops[sel].getAttribute("href"); cerrar(); inp.blur(); }
+    else if(e.key==="Escape") cerrar();
+  });
+  caja.addEventListener("mousedown",e=>e.preventDefault());
+  caja.addEventListener("click",()=>{cerrar();inp.blur()});
+  inp.addEventListener("blur",()=>setTimeout(cerrar,120));
+  f.addEventListener("submit",e=>{e.preventDefault();const v=inp.value.trim();if(v){location.hash="#/buscar/"+encodeURIComponent(v);cerrar();inp.blur()}});
+});
 
 /* ===== Piezas ===== */
 const icoCamion=`<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>`;
@@ -387,12 +444,13 @@ function tarjeta(x){
   return `<a class="tarjeta" href="#/producto/${x.id}">
     ${x.tara?`<span class="chip-tara">OUTLET · 1 UD.</span>`:""}
     ${x.a?`<span class="dto">-${pct(x)}%</span>`:""}
-    <div class="foto">${dib(x,"t"+x.id.replace(/[^a-z0-9]/g,""))}</div>
+    <div class="foto">${foto(x)}</div>
     <div class="info"><div class="nom">${esc(x.n)}</div>
     ${x.tara?`<div class="tara-txt">Tara: ${esc(x.tara)}</div>`:""}
     <div class="precio">${x.desde?`<span style="font-size:12px;color:var(--suave)">desde</span>`:""}<span class="p">${eur(x.p)}</span>${x.a?`<span class="antes">${eur(x.a)}</span>`:""}</div></div></a>`;
 }
 const miga = (...ps)=>`<nav class="miga" aria-label="Estás en"><a href="#/">Inicio</a>${ps.map(p=>` › ${p}`).join("")}</nav>`;
+const porId = id=>P.find(p=>p.id===id);
 
 /* ===== Páginas ===== */
 function inicio(){
@@ -401,9 +459,10 @@ function inicio(){
   <section class="hero" aria-label="Destacados">
     <div class="pct" aria-hidden="true">%</div>
     <div class="slides" id="slides">
-      <div class="slide"><div><h1>Ofertas<br>para tu hogar</h1><p>Electrodomésticos nuevos de las mejores marcas, con taras estéticas de exposición, a precio de outlet.</p><a class="btn btn-blanco" href="#/outlet">Ver ofertas ${flecha}</a></div><div class="ilu">${HERO}</div></div>
-      <div class="slide"><div><h2>Cocinas<br>a medida</h2><p>Diseño, asesoramiento e instalación. Pide tu presupuesto sin compromiso.</p><a class="btn btn-blanco" href="#/cocinas">Pide presupuesto ${flecha}</a></div><div class="ilu" style="max-width:420px;border-radius:14px;overflow:hidden">${DIB.cocina()}</div></div>
-      <div class="slide"><div><h2>Canapés<br>desde 199 €</h2><p>Canapés abatibles de madera: comodidad y mucho espacio para guardar.</p><a class="btn btn-blanco" href="#/canapes">Ver canapés ${flecha}</a></div><div class="ilu" style="max-width:360px">${DIB.canape('hc')}</div></div>
+      <div class="slide"><div><h1>Ofertas<br>para tu hogar</h1><p>Electrodomésticos nuevos de las mejores marcas, con taras estéticas de exposición, a precio de outlet.</p><a class="btn btn-blanco" href="#/outlet">Ver ofertas ${flecha}</a></div>
+        <div class="collage">${img("frigorifico-combi","Frigorífico combi","c1")}${img("lavadora-1","Lavadora","c2")}${img("freidora-1","Freidora de aire","c3")}</div></div>
+      <div class="slide"><div><h2>Cocinas<br>a medida</h2><p>Diseño, asesoramiento e instalación. Pide tu presupuesto sin compromiso.</p><a class="btn btn-blanco" href="#/cocinas">Pide presupuesto ${flecha}</a></div><div class="foto-slide">${img("cocina-1","Cocina moderna")}</div></div>
+      <div class="slide"><div><h2>Canapés<br>desde 199 €</h2><p>Canapés abatibles de madera: comodidad y mucho espacio para guardar.</p><a class="btn btn-blanco" href="#/canapes">Ver canapés ${flecha}</a></div><div class="foto-slide">${img("canape-ambiente","Canapé abatible abierto en un dormitorio")}</div></div>
     </div>
     <div class="puntos" id="puntos"><button class="on" aria-label="Ofertas"></button><button aria-label="Cocinas"></button><button aria-label="Canapés"></button></div>
   </section>
@@ -419,17 +478,17 @@ function inicio(){
     <div class="fila-scroll">${ofertas.map(tarjeta).join("")}</div>
   </section>
   <section class="banda-cocina">
-    <div class="ilu">${DIB.cocina()}</div>
+    <div class="ilu">${img("cocina-1","Cocina a medida")}</div>
     <div class="txt"><h2>Cocinas a medida</h2><p>Diseño, asesoramiento e instalación con garantía.</p><a class="btn btn-nar" href="#/cocinas">Pide tu presupuesto ${flecha}</a></div>
   </section>
   <section class="banda-canape">
     <div class="desde"><small>Desde</small><b>199 €</b></div>
     <div><h2>Canapés</h2><p>Comodidad, capacidad y el mejor precio.</p><a class="btn btn-nar" href="#/canapes">Ver canapés ${flecha}</a></div>
-    <div style="max-width:380px;justify-self:center;width:100%">${DIB.canape('bc')}</div>
+    <div class="canape-foto">${img("canape-ambiente","Canapé abatible de madera en un dormitorio")}</div>
   </section>
   <section class="sec">
     <div class="sec-tit"><h2>Por categoría</h2></div>
-    <div class="fila-scroll">${Object.entries(CATS).filter(([k])=>k!=="canapes").map(([k,c])=>{const x=P.find(p=>p.c===k);return `<a class="tarjeta" href="#/categoria/${k}"><div class="foto">${dib(x,"cat"+k)}</div><div class="info"><div class="nom">${c.n}</div><div class="tara-txt">${c.d}</div></div></a>`}).join("")}</div>
+    <div class="fila-scroll">${Object.entries(CATS).filter(([k])=>k!=="canapes").map(([k,c])=>{const x=P.find(p=>p.c===k);return `<a class="tarjeta" href="#/categoria/${k}"><div class="foto">${foto(x)}</div><div class="info"><div class="nom">${c.n}</div><div class="tara-txt">${c.d}</div></div></a>`}).join("")}</div>
   </section>
   ${visita()}`;
   const sl=$("#slides"), pts=[...document.querySelectorAll("#puntos button")];
@@ -448,7 +507,7 @@ function visita(){
     </div></section>`;
 }
 function listado(titulo, lista, opts={}){
-  const st = {cat:opts.cat||"todas", orden:"rel"};
+  const st = {cat:"todas", orden:"rel"};
   const cats = [...new Set(lista.map(x=>x.c))];
   function pinta(){
     let l = lista.filter(x=>st.cat==="todas"||x.c===st.cat);
@@ -471,15 +530,15 @@ function outlet(){
   listado("Outlet tara", P.filter(x=>x.tara), {intro:`<div class="aviso-outlet">${icoInfo}<div><b>Electrodomésticos nuevos con una tara estética</b> de exposición: un roce, un golpecito o la caja dañada. Funcionan como nuevos y en cada ficha te enseñamos exactamente qué tienen. Cada uno es una <b>unidad única</b>.</div></div>`});
 }
 function producto(id){
-  const x = P.find(p=>p.id===id); if(!x){ app.innerHTML = `${miga("No encontrado")}<div class="vacio">Este producto ya no está disponible.<br><br><a class="btn btn-nar" href="#/outlet">Ver el outlet</a></div>`; return; }
+  const x = porId(id); if(!x){ app.innerHTML = `${miga("No encontrado")}<div class="vacio">Este producto ya no está disponible.<br><br><a class="btn btn-nar" href="#/outlet">Ver el outlet</a></div>`; return; }
   const enCarro = carrito.some(l=>l.id===x.id);
   const rel = P.filter(p=>p.c===x.c && p.id!==x.id).slice(0,4);
-  const foto2 = x.tara? `<div class="zoom">${dib(x,"z"+x.id.replace(/[^a-z0-9]/g,""))}<span style="position:absolute;left:${x.marca[0]}%;top:${x.marca[1]}%;width:46px;height:46px;margin:-23px 0 0 -23px;border:3px solid var(--naranja);border-radius:50%;box-shadow:0 0 0 4px rgba(242,107,29,.25)"></span></div>`:"";
+  const vistaTara = x.tara? `<div class="zoom">${foto(x)}<span class="aro" style="left:${x.marca[0]}%;top:${x.marca[1]}%"></span></div>`:"";
   app.innerHTML = `${miga(`<a href="#/categoria/${x.c}">${CATS[x.c].n}</a>`, esc(x.n))}
   <div class="ficha">
     <div class="galeria">
-      <div class="grande" id="grande">${dib(x,"g"+x.id.replace(/[^a-z0-9]/g,""))}<span class="etiqueta-foto">Ilustración de muestra</span></div>
-      ${x.tara?`<div class="miniaturas"><button class="on" data-f="0" aria-label="Foto del producto">${dib(x,"m1"+x.id.replace(/[^a-z0-9]/g,""))}</button><button data-f="1" aria-label="Foto de la tara">${dib(x,"m2"+x.id.replace(/[^a-z0-9]/g,""))}</button></div>`:""}
+      <div class="grande" id="grande">${foto(x)}<span class="etiqueta-foto">Foto de muestra</span></div>
+      ${x.tara?`<div class="miniaturas"><button class="on" data-f="0" aria-label="Foto del producto">${foto(x)}</button><button data-f="1" aria-label="Foto de la tara">${foto(x)}<span class="mini-aro"></span></button></div>`:""}
     </div>
     <div>
       <h1>${esc(x.n)}</h1>
@@ -507,22 +566,23 @@ function producto(id){
   if(x.tara){
     const g=$("#grande"), bs=document.querySelectorAll(".miniaturas button");
     bs.forEach(b=>b.addEventListener("click",()=>{bs.forEach(o=>o.classList.toggle("on",o===b));
-      g.innerHTML = (b.dataset.f==="1"? foto2 : dib(x,"g"+x.id.replace(/[^a-z0-9]/g,""))) + `<span class="etiqueta-foto">${b.dataset.f==="1"?"Aquí está la tara":"Ilustración de muestra"}</span>`;}));
+      g.innerHTML = (b.dataset.f==="1"? vistaTara : foto(x)) + `<span class="etiqueta-foto">${b.dataset.f==="1"?"Aquí está la tara":"Foto de muestra"}</span>`;}));
   }
   const bc=$("#comprar"); if(bc) bc.addEventListener("click",()=>{ if(carrito.some(l=>l.id===x.id)){location.hash="#/carrito";return} carrito.push({id:x.id,q:1}); guardar(); bc.textContent="Ya está en tu carrito · Ver carrito"; toast("Añadido al carrito"); });
   $("#preguntar").addEventListener("click",()=>toast("Abriría WhatsApp con: «¿Sigue disponible "+x.n+"?»"));
 }
 function resultados(qRaw){
   const {res} = buscar(qRaw);
-  const sug = ["freidora de aire","lavadora","frigorífico","microondas","canapé"];
+  const sug = quizas(qRaw);
+  const ejemplos = ["freidora de aire","lavadora","frigorífico","microondas","canapé"];
   app.innerHTML = `${miga("Buscar")}<h1 class="tit">«${esc(qRaw)}»</h1>
     <p class="sub" style="margin:2px 0 14px">${res.length? res.length+(res.length===1?" resultado":" resultados") : "No hemos encontrado nada con esa búsqueda."}</p>
-    ${res.length?`<div class="rejilla">${res.map(tarjeta).join("")}</div>`:`<p>Prueba con:</p><div class="sugeridas">${sug.map(s=>`<a href="#/buscar/${encodeURIComponent(s)}">${s}</a>`).join("")}</div>`}`;
+    ${res.length?`<div class="rejilla">${res.map(tarjeta).join("")}</div>`:`${sug.length?`<p>¿Quizá buscabas <a style="color:var(--naranja-osc);font-weight:700" href="#/buscar/${encodeURIComponent(sug[0])}">${esc(sug[0])}</a>?</p>`:""}<p>Prueba con:</p><div class="sugeridas">${ejemplos.map(s=>`<a href="#/buscar/${encodeURIComponent(s)}">${s}</a>`).join("")}</div>`}`;
   document.querySelectorAll("[data-busca] input").forEach(i=>i.value=qRaw);
 }
 function cocinas(){
   app.innerHTML = `${miga("Cocinas a medida")}
-  <section class="banda-cocina" style="margin-top:8px"><div class="ilu">${DIB.cocina()}</div><div class="txt"><h1 style="font-size:28px;margin:0 0 6px">Cocinas a medida</h1><p>Te la diseñamos según tu espacio, te asesoramos con los electrodomésticos y la instalamos.</p></div></section>
+  <section class="banda-cocina" style="margin-top:8px"><div class="ilu">${img("cocina-2","Cocina a medida")}</div><div class="txt"><h1 style="font-size:28px;margin:0 0 6px">Cocinas a medida</h1><p>Te la diseñamos según tu espacio, te asesoramos con los electrodomésticos y la instalamos.</p></div></section>
   <section class="sec"><div class="sec-tit"><h2>Pide tu presupuesto</h2></div>
   <p class="sub">Mándanos las medidas y unas fotos de tu cocina y te llamamos.</p>
   <form class="forma" id="fcocina">
@@ -539,7 +599,7 @@ function cocinas(){
 function canapes(){
   const medidas=["90 × 190","105 × 190","135 × 190","150 × 190","160 × 200"];
   app.innerHTML = `${miga("Canapés")}
-  <section class="banda-canape" style="margin-top:8px"><div class="desde"><small>Desde</small><b>199 €</b></div><div><h1 style="font-size:28px;margin:0 0 4px;color:#7A1F12">Canapés de madera</h1><p>Abatibles, con mucho espacio para guardar. Elige la medida y te damos el precio.</p></div><div style="max-width:380px;justify-self:center;width:100%">${DIB.canape('pc')}</div></section>
+  <section class="banda-canape" style="margin-top:8px"><div class="desde"><small>Desde</small><b>199 €</b></div><div><h1 style="font-size:28px;margin:0 0 4px;color:#7A1F12">Canapés de madera</h1><p>Abatibles, con mucho espacio para guardar. Elige la medida y te damos el precio.</p></div><div class="canape-foto">${img("canape-ambiente","Canapé abatible de madera en un dormitorio")}</div></section>
   <section class="sec"><div class="sec-tit"><h2>Pide el precio de tu medida</h2></div>
   <form class="forma" id="fcanape">
     <div class="opciones">${medidas.map((m,i)=>`<label><input type="radio" name="m" value="${m}" ${i===2?"checked":""}>${m}</label>`).join("")}</div>
@@ -551,12 +611,12 @@ function canapes(){
     app.innerHTML=`<div class="ok-pedido"><div class="circ">${icoCheck}</div><h1 class="tit">¡Recibido!</h1><p>Te llamamos con el precio de tu canapé. <br><small style="color:var(--suave)">(En la maqueta no se envía nada.)</small></p><a class="btn btn-nar" href="#/">Volver al inicio</a></div>`;window.scrollTo(0,0)});
 }
 function verCarrito(){
-  const ls = carrito.map(l=>({...l,x:P.find(p=>p.id===l.id)})).filter(l=>l.x);
+  const ls = carrito.map(l=>({...l,x:porId(l.id)})).filter(l=>l.x);
   if(!ls.length){ app.innerHTML = `${miga("Carrito")}<h1 class="tit">Tu carrito</h1><div class="vacio">Todavía no has añadido nada.<br><br><a class="btn btn-nar" href="#/outlet">Ver el outlet</a></div>`; return; }
   const total = ls.reduce((s,l)=>s+l.x.p*l.q,0);
   const hayTara = ls.some(l=>l.x.tara);
   app.innerHTML = `${miga("Carrito")}<h1 class="tit">Tu carrito</h1>
-  <div class="lineas">${ls.map(l=>`<div class="linea"><a class="mini" href="#/producto/${l.x.id}">${dib(l.x,"c"+l.x.id.replace(/[^a-z0-9]/g,""))}</a><div><div class="n">${esc(l.x.n)}</div>${l.x.tara?`<div class="t">Outlet · unidad única</div>`:""}<button class="quitar" data-q="${l.x.id}">Quitar</button></div><div class="der"><b>${eur(l.x.p*l.q)}</b>${l.x.tara?`<span style="font-size:12px;color:var(--suave)">1 ud.</span>`:`<div class="cant"><button data-m="${l.x.id}" aria-label="Uno menos">−</button><span>${l.q}</span><button data-p="${l.x.id}" aria-label="Uno más">+</button></div>`}</div></div>`).join("")}</div>
+  <div class="lineas">${ls.map(l=>`<div class="linea"><a class="mini" href="#/producto/${l.x.id}">${foto(l.x)}</a><div><div class="n">${esc(l.x.n)}</div>${l.x.tara?`<div class="t">Outlet · unidad única</div>`:""}<button class="quitar" data-q="${l.x.id}">Quitar</button></div><div class="der"><b>${eur(l.x.p*l.q)}</b>${l.x.tara?`<span style="font-size:12px;color:var(--suave)">1 ud.</span>`:`<div class="cant"><button data-m="${l.x.id}" aria-label="Uno menos">−</button><span>${l.q}</span><button data-p="${l.x.id}" aria-label="Uno más">+</button></div>`}</div></div>`).join("")}</div>
   <div class="resumen"><div class="f"><span>Productos</span><span>${eur(total)}</span></div><div class="f"><span>Entrega</span><span>Se elige en el siguiente paso</span></div><div class="f total"><span>Total</span><span>${eur(total)}</span></div></div>
   ${hayTara?`<div class="nota-cobro" style="margin-top:12px">${icoCandado}<span>Llevas artículos de outlet: el importe se <b>retiene</b> y solo se cobra cuando te confirmemos que la unidad sigue aquí.</span></div>`:""}
   <div class="acciones"><a class="btn btn-nar" href="#/pedido">Tramitar pedido ${flecha}</a><a class="btn btn-linea" href="#/outlet">Seguir comprando</a></div>`;
@@ -565,7 +625,7 @@ function verCarrito(){
   app.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{const l=carrito.find(l=>l.id===b.dataset.m);l.q--;if(l.q<1)carrito=carrito.filter(o=>o!==l);guardar();verCarrito()});
 }
 function pedido(){
-  const ls = carrito.map(l=>({...l,x:P.find(p=>p.id===l.id)})).filter(l=>l.x);
+  const ls = carrito.map(l=>({...l,x:porId(l.id)})).filter(l=>l.x);
   if(!ls.length){ location.hash="#/carrito"; return; }
   const total = ls.reduce((s,l)=>s+l.x.p*l.q,0);
   const hayTara = ls.some(l=>l.x.tara);
@@ -590,19 +650,17 @@ function pedido(){
     <p>${hayTara?"Estamos comprobando que tu artículo de outlet sigue en tienda. <b>Te avisamos en breve</b> y solo entonces se cobra.":"Te hemos enviado la confirmación por email."}</p>
     <p class="sub">(Pedido simulado de la maqueta.)</p><a class="btn btn-nar" href="#/">Volver al inicio</a></div>`;window.scrollTo(0,0)});
 }
-function contacto(){
-  app.innerHTML = `${miga("Contacto")}<h1 class="tit">Contacto</h1>${visita()}`;
-}
+function contacto(){ app.innerHTML = `${miga("Contacto")}<h1 class="tit">Contacto</h1>${visita()}`; }
 
 /* ===== Rutas (atrás y adelante funcionan) ===== */
 function ruta(){
-  const h = decodeURIComponent(location.hash.replace(/^#\/?/,"")); const [r,arg] = [h.split("/")[0], h.split("/").slice(1).join("/")];
+  const h = decodeURIComponent(location.hash.replace(/^#\/?/,"")); const r=h.split("/")[0], arg=h.split("/").slice(1).join("/");
   let nav = r||"inicio";
   if(!r) inicio();
   else if(r==="outlet") outlet();
   else if(r==="electrodomesticos") listado("Electrodomésticos", P.filter(x=>x.c!=="canapes"));
   else if(r==="categoria" && CATS[arg]) { if(arg==="canapes"){canapes();nav="canapes"} else {listado(CATS[arg].n, P.filter(x=>x.c===arg)); nav="electrodomesticos";} }
-  else if(r==="producto") { producto(arg); const x=P.find(p=>p.id===arg); nav = x? (x.tara?"outlet":(x.c==="canapes"?"canapes":"electrodomesticos")) : ""; }
+  else if(r==="producto") { producto(arg); const x=porId(arg); nav = x? (x.tara?"outlet":(x.c==="canapes"?"canapes":"electrodomesticos")) : ""; }
   else if(r==="buscar") { resultados(arg); nav=""; }
   else if(r==="cocinas") cocinas();
   else if(r==="canapes") canapes();
@@ -612,6 +670,8 @@ function ruta(){
   else inicio();
   document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.r===nav));
   if(r!=="buscar") document.querySelectorAll("[data-busca] input").forEach(i=>i.value="");
+  document.querySelectorAll(".sugs.on").forEach(c=>c.classList.remove("on"));
+  if(document.activeElement && document.activeElement.matches("[data-busca] input")) document.activeElement.blur();
   window.scrollTo(0,0);
 }
 addEventListener("hashchange",ruta);
