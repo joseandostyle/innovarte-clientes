@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#ffffff">
+<title>Cuestionario Electro House</title>
+<meta property="og:title" content="Electro House · Cuestionario para vuestra tienda online">
+<meta property="og:description" content="Unas preguntas para hacer la web a vuestra medida. Se rellena en unos minutos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --surface:#F1F4F8; --border:#DCE2EA; --text:#141619; --muted:#5B6573;
+  --accent:#3B6DAF; --accent-deep:#2A5592; --accent-soft:#E8EFF8; --ok:#1F7A4D; --err:#B3261E;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px calc(120px + env(safe-area-inset-bottom))}
+header.top{padding:28px 0 8px}
+.marca{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(26px,6.5vw,38px);line-height:1.12;letter-spacing:-.02em;margin:8px 0 12px;font-weight:800}
+.intro{color:var(--muted);margin:0 0 6px}
+.avisos{list-style:none;padding:0;margin:18px 0 6px;display:grid;gap:8px}
+.avisos li{background:var(--surface);border-radius:10px;padding:10px 14px;font-size:15px}
+.avisos b{color:var(--text)}
+.indice{display:flex;gap:8px;overflow-x:auto;padding:14px 0 4px;margin:0 -16px;padding-left:16px;padding-right:16px;scrollbar-width:none}
+.indice::-webkit-scrollbar{display:none}
+.indice a{flex:none;font-size:14px;font-weight:600;color:var(--accent-deep);text-decoration:none;border:1px solid var(--border);border-radius:8px;padding:6px 12px;white-space:nowrap}
+section.bloque{margin-top:40px}
+section.bloque>h2{font-size:22px;letter-spacing:-.01em;margin:0 0 4px;scroll-margin-top:70px}
+.bloque-intro{color:var(--muted);margin:0 0 14px}
+.explica{display:grid;gap:10px;margin:14px 0 18px}
+.explica div{border-left:3px solid var(--accent);background:var(--surface);padding:10px 14px;border-radius:0 10px 10px 0;font-size:15px}
+.explica strong{display:block;margin-bottom:2px}
+.explica .rec{font-size:12px;font-weight:700;color:var(--ok);text-transform:uppercase;letter-spacing:.06em;margin-left:6px}
+fieldset.preg{border:0;margin:0;padding:22px 0 18px;min-width:0;background:linear-gradient(var(--border),var(--border)) top left/100% 1px no-repeat}
+fieldset.preg legend{padding:0;font-weight:700;font-size:17px;line-height:1.35;display:flex;gap:10px}
+legend .n{flex:none;min-width:28px;color:var(--accent);font-variant-numeric:tabular-nums}
+.ayuda{color:var(--muted);font-size:14px;margin:6px 0 0 38px}
+.opciones{display:grid;gap:8px;margin:12px 0 0 38px}
+.opt{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--border);border-radius:10px;padding:12px 14px;cursor:pointer;min-height:48px;transition:border-color .15s,background-color .15s}
+.opt input{margin:2px 0 0;width:20px;height:20px;accent-color:var(--accent);flex:none}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.opt:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+.opt span{flex:1}
+.campo{margin:10px 0 0 38px}
+.campo label{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+input[type=text],input[type=tel],textarea{width:100%;font:inherit;font-size:16px;color:var(--text);background:#fff;border:1px solid var(--border);border-radius:10px;padding:11px 13px}
+textarea{min-height:84px;resize:vertical}
+input[type=text]:focus,input[type=tel]:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.multi{font-size:13px;color:var(--muted);font-weight:500}
+.req{color:var(--err)}
+.final{margin-top:40px;border-top:1px solid var(--border);padding-top:24px}
+.btn{appearance:none;border:0;border-radius:10px;background:var(--accent);color:#fff;font:inherit;font-weight:700;font-size:17px;padding:15px 22px;min-height:52px;width:100%;cursor:pointer}
+.btn:hover{background:var(--accent-deep)}
+.btn:disabled{opacity:.6;cursor:default}
+.btn.sec{background:#fff;color:var(--text);border:1px solid var(--border)}
+.confirma{display:none;background:var(--surface);border-radius:12px;padding:18px;margin-top:14px}
+.confirma.on{display:block}
+.confirma p{margin:0 0 14px}
+.fila{display:grid;gap:10px}
+@media(min-width:560px){.fila{grid-template-columns:1fr 1fr}}
+.estado{margin-top:14px;font-weight:600}
+.estado.err{color:var(--err)}
+.progreso{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--border);padding:10px 16px calc(10px + env(safe-area-inset-bottom));font-size:14px;color:var(--muted);z-index:5}
+.progreso .in{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.barra{flex:1;height:6px;border-radius:3px;background:var(--surface);overflow:hidden}
+.barra i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
+.progreso a{color:var(--accent-deep);font-weight:700;text-decoration:none;white-space:nowrap}
+.hecho{padding:60px 0 20px}
+.hecho .ok{width:56px;height:56px;border-radius:50%;background:#E6F3EC;color:var(--ok);display:grid;place-items:center;font-size:30px;font-weight:800}
+.resumen{margin-top:26px;border-top:1px solid var(--border)}
+.resumen div{padding:12px 0;border-bottom:1px solid var(--border)}
+.resumen b{display:block;font-size:14px;color:var(--muted);font-weight:600}
+.oculto{position:absolute;left:-9999px}
+footer{color:var(--muted);font-size:14px;margin-top:36px}
+footer a{color:var(--accent-deep)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <header class="top">
+    <div class="marca">Innovarte · para Electro House</div>
+    <h1>Vuestra tienda online, a vuestra medida</h1>
+    <p class="intro">Con estas respuestas haremos la web tal y como trabajáis. Están todas en esta página: podéis leerlas primero y contestar después, sin prisa.</p>
+    <ul class="avisos">
+      <li><b>Lo que vais marcando se guarda en este móvil u ordenador</b>, así que podéis dejarlo a medias y seguir luego.</li>
+      <li><b>Solo hay que rellenar vuestro nombre.</b> Lo demás, lo que sepáis; si dudáis, marcad «aconsejadnos».</li>
+      <li><b>Se envía una sola vez.</b> Al terminar, pulsad «Enviar respuestas» abajo del todo y nos llegan directamente.</li>
+    </ul>
+    <nav class="indice" id="indice" aria-label="Apartados"></nav>
+  </header>
+
+  <form id="form" novalidate></form>
+
+  <footer>¿Alguna duda? Jose · <a href="https://wa.me/34634452534">WhatsApp 634 45 25 34</a> · <a href="mailto:innovarte.sl@gmail.com">innovarte.sl@gmail.com</a></footer>
+</div>
+
+<div class="progreso" id="progreso"><div class="in"><span id="cuenta">0 de 0</span><div class="barra"><i id="barra"></i></div><a href="#enviar">Ir a enviar ↓</a></div></div>
+
+<script>
+// Clave pública de Web3Forms (sirve solo para recibir el formulario en el correo de Innovarte).
+const WEB3FORMS_KEY = "PENDIENTE_CLAVE_WEB3FORMS";
+const CLAVE_LOCAL = "eh-cuestionario-2026-11";
+const ENVIADO = CLAVE_LOCAL + "-enviado";
+
+const BLOQUES = [
+ { id:"tara", titulo:"Los artículos de tara", intro:"Cada artículo de tara es una sola unidad. La idea es que nunca se venda dos veces (una en la tienda y otra en la web). Hay cuatro formas de hacerlo:",
+   explica:[
+    ["A · Solo por WhatsApp","En la web no se puede pagar: el cliente pregunta «¿sigue disponible?» por WhatsApp con el mensaje ya escrito."],
+    ["B · Se paga, pero se cobra cuando confirmáis","El dinero del cliente queda retenido, no cobrado. Os llega un aviso; si la unidad sigue ahí, se cobra con un toque. Si no, se anula y no se le cobra nada.",true],
+    ["C · Compra directa","Se compra como cualquier producto. Lo que vendáis en la tienda lo marcáis como vendido en el móvil para que desaparezca de la web."],
+    ["D · Reserva y se paga en la tienda","El cliente lo aparta 24 o 48 horas y lo paga al venir a verlo."]],
+   preguntas:[
+    {id:"tara_forma", t:"¿Cómo preferís vender los artículos de tara en la web?", tipo:"multi", ops:["A · Solo por WhatsApp","B · Se paga y se cobra cuando confirmamos","C · Compra directa y la marcamos vendida","D · Reserva en la web y se paga en la tienda","No lo tenemos claro: aconsejadnos"], nota:true, ayuda:"Se pueden combinar (por ejemplo B y el botón de WhatsApp a la vez)."},
+    {id:"tara_confirma", t:"Si alguien paga un artículo de tara en la web, ¿en cuánto tiempo podéis confirmar que sigue ahí?", tipo:"uno", ops:["En menos de 1 hora","En el mismo día","En 24 horas","Más de 24 horas"]},
+    {id:"tara_finde", t:"¿Y los fines de semana?", tipo:"uno", ops:["También confirmamos sábado y domingo","Solo el sábado","Hasta el lunes no"]},
+    {id:"tara_vendido", t:"Cuando vendáis un artículo de tara en la tienda, ¿cómo preferís marcarlo como vendido en la web?", tipo:"uno", ops:["Buscándolo en el panel por su nombre o su foto y pulsando «vendido»","Con una pegatina con código en cada artículo, que se escanea con el móvil","Lo que sea más fácil: aconsejadnos"]},
+    {id:"tara_quien", t:"¿Quién se encargaría de subir los artículos a la web y de marcarlos como vendidos?", tipo:"texto", ph:"Nombre o puesto"},
+    {id:"tara_desde", t:"¿Desde dónde los subiríais?", tipo:"multi", ops:["Desde el móvil","Desde el ordenador"]},
+    {id:"tara_cuantos", t:"¿Cuántos artículos de tara tenéis a la vez, más o menos?", tipo:"uno", ops:["Menos de 20","Entre 20 y 50","Entre 50 y 100","Más de 100"]},
+    {id:"tara_rotacion", t:"¿Cuántos entran y salen a la semana?", tipo:"uno", ops:["Menos de 5","Entre 5 y 15","Entre 15 y 30","Más de 30"]},
+    {id:"tara_reserva", t:"¿Dejáis reservar un artículo para que el cliente venga a verlo?", tipo:"uno", ops:["Sí, sin señal","Sí, con una señal","No"], nota:true},
+    {id:"tara_garantia", t:"¿Qué garantía tienen los artículos de tara?", tipo:"uno", ops:["La misma que los nuevos, la de la marca","La damos nosotros","Depende del artículo"], nota:true, ayuda:"Si el aparato es nuevo, la garantía legal es de 3 años."}
+   ]},
+ { id:"cobro", titulo:"El cobro online", intro:"Por fuera la web es la misma en todos los casos. Lo que cambia es quién cobra los pagos y qué se paga cada mes:",
+   explica:[
+    ["1 · Software de tiendas de terceros","Cuota mensual y un porcentaje de cada venta. Es la más barata de hacer."],
+    ["2A · Todo propio, con el TPV virtual de vuestro banco","Sin cuota de plataforma; la comisión que tengáis con el banco, normalmente la más baja. Admite Bizum si el banco lo activa. Cuesta más hacerla."],
+    ["2B · Todo propio, con Stripe","Sin cuota mensual y una comisión pequeña por venta. Alta rápida y sin trámites con el banco. Cuesta más hacerla."]],
+   preguntas:[
+    {id:"cobro_opcion", t:"¿Qué opción preferís?", tipo:"uno", ops:["1 · Software de tiendas de terceros","2A · Propia, con nuestro banco","2B · Propia, con Stripe","Aconsejadnos"], nota:true},
+    {id:"cobro_banco", t:"¿Con qué banco trabajáis?", tipo:"texto", ph:"Nombre del banco"},
+    {id:"cobro_tpv", t:"¿Tenéis TPV virtual (para cobrar por internet)?", tipo:"uno", ops:["Sí, ya lo tenemos","No, pero lo pediríamos","No, y preferimos no pedirlo","No lo sabemos"]},
+    {id:"cobro_bizum", t:"¿Queréis que se pueda pagar con Bizum?", tipo:"uno", ops:["Sí","No","Nos da igual"]},
+    {id:"cobro_volumen", t:"¿Cuánto pensáis vender online al mes, más o menos?", tipo:"uno", ops:["Menos de 1.000 €","Entre 1.000 y 3.000 €","Entre 3.000 y 10.000 €","Más de 10.000 €","Ni idea todavía"]},
+    {id:"cobro_tienda", t:"¿Cómo os pagan hoy en la tienda?", tipo:"multi", ops:["Datáfono del banco","Efectivo","Bizum","Transferencia","Financiación"]},
+    {id:"cobro_efectivo", t:"¿Qué parte de las ventas de la tienda se paga en efectivo?", tipo:"uno", ops:["Poca","Más o menos la mitad","La mayoría"]}
+   ]},
+ { id:"nuevos", titulo:"Electrodomésticos nuevos de catálogo", preguntas:[
+    {id:"nuevos_cuantos", t:"¿Cuántos productos nuevos queréis tener en la web?", tipo:"uno", ops:["Menos de 50","Entre 50 y 200","Entre 200 y 500","Más de 500"]},
+    {id:"nuevos_stock", t:"¿Los tenéis en la tienda o se piden al proveedor?", tipo:"uno", ops:["En la tienda","Se piden al proveedor","De las dos formas"]},
+    {id:"nuevos_archivo", t:"¿Vuestro proveedor os da un archivo con los productos, fotos y fichas técnicas?", tipo:"uno", ops:["Sí, un Excel o similar","Sí, desde su web","No","No lo sabemos"], nota:true, notaPh:"¿Qué proveedor?", ayuda:"Nos ahorraría meter los productos uno a uno."},
+    {id:"nuevos_precios", t:"¿Cada cuánto cambian los precios?", tipo:"uno", ops:["Casi nunca","Cada mes, más o menos","Cada semana"]}
+   ]},
+ { id:"envio", titulo:"Envío, montaje y devoluciones", preguntas:[
+    {id:"envio_zonas", t:"¿A qué zonas llegáis?", tipo:"multi", ops:["Orihuela","Vega Baja","Resto de la provincia de Alicante","Región de Murcia","Toda España"], nota:true},
+    {id:"envio_transporte", t:"¿Con qué transporte?", tipo:"uno", ops:["Propio","Agencia de transporte","Los dos"]},
+    {id:"envio_coste", t:"¿Cuánto cuesta el envío para el cliente?", tipo:"uno", ops:["Gratis","Según la zona","Gratis a partir de cierto importe"], nota:true, notaPh:"Detalles (zonas, importes…)"},
+    {id:"envio_instalacion", t:"¿Instaláis el aparato?", tipo:"uno", ops:["Sí, incluido","Sí, se cobra aparte","No"], nota:true},
+    {id:"envio_retirada", t:"¿Os lleváis el aparato viejo?", tipo:"uno", ops:["Sí, gratis","Sí, cobrándolo","No"], ayuda:"Al vender uno nuevo, la tienda está obligada a recoger el viejo equivalente; hay que contarlo en la web."},
+    {id:"envio_recogida", t:"¿Se puede recoger la compra en la tienda?", tipo:"uno", ops:["Sí","No"]},
+    {id:"envio_devolucion", t:"Comprando online, el cliente tiene 14 días para devolver. Si devuelven un frigorífico, ¿quién paga la recogida?", tipo:"uno", ops:["Nosotros","El cliente","No lo hemos pensado: aconsejadnos"]},
+    {id:"envio_financiacion", t:"¿Ofrecéis financiación?", tipo:"uno", ops:["Sí, y queremos que salga en la web","Sí, pero mejor que no salga en la web","No"], nota:true, notaPh:"¿Con qué entidad?"}
+   ]},
+ { id:"cocinas", titulo:"Cocinas a medida y canapés", preguntas:[
+    {id:"cocinas_web", t:"Cocinas: ¿qué queréis que pueda hacer la gente en la web?", tipo:"multi", ops:["Pedir presupuesto","Pedir cita en la tienda","Mandar medidas y fotos de su cocina","Ver cocinas que habéis montado","Escribiros por WhatsApp"]},
+    {id:"cocinas_fotos", t:"¿Tenéis fotos de cocinas que hayáis montado (de clientes reales)?", tipo:"uno", ops:["Sí, bastantes","Alguna","No"], ayuda:"Son lo que más vende."},
+    {id:"canapes_venta", t:"Canapés: ¿se compran online o solo con presupuesto?", tipo:"uno", ops:["Se compran online","Solo presupuesto","Las dos cosas"]},
+    {id:"canapes_detalle", t:"Contadnos de los canapés: medidas, colores, plazo de entrega y si se montan", tipo:"area"}
+   ]},
+ { id:"practico", titulo:"Lo práctico", preguntas:[
+    {id:"pr_dominio", t:"¿Tenéis dominio (la dirección de la web) y correo propio?", tipo:"uno", ops:["Sí, los dos","Solo el dominio","Ninguno","No lo sabemos"], nota:true, notaPh:"¿Cuál es vuestra web o vuestro correo ahora?"},
+    {id:"pr_whatsapp", t:"WhatsApp de la tienda: ¿qué número y quién contesta?", tipo:"texto", ph:"Número y persona"},
+    {id:"pr_plazo", t:"¿Para cuándo os gustaría tenerla?", tipo:"uno", ops:["Para Black Friday","Para Navidad","En los primeros meses de 2027","Sin prisa, mejor bien hecha"]},
+    {id:"pr_redes", t:"¿Qué redes usáis?", tipo:"multi", ops:["Instagram","Facebook","TikTok","Ninguna"]},
+    {id:"pr_publicidad", t:"¿Hacéis publicidad en internet?", tipo:"uno", ops:["Sí","No","Nos gustaría empezar"]},
+    {id:"pr_ejemplos", t:"¿Qué tiendas o webs os gustan como ejemplo, y por qué?", tipo:"area"},
+    {id:"pr_logo", t:"El logo nuevo, ¿para cuándo estará?", tipo:"uno", ops:["Ya está listo","En unas semanas","Sin fecha todavía"]},
+    {id:"pr_otros", t:"¿Algo más que queráis contarnos?", tipo:"area"}
+   ]}
+];
+
+const form = document.getElementById("form");
+let estado = {};
+try { estado = JSON.parse(localStorage.getItem(CLAVE_LOCAL) || "{}"); } catch(e) {}
+function guardar(){ try { localStorage.setItem(CLAVE_LOCAL, JSON.stringify(estado)); } catch(e) {} }
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+const TODAS = BLOQUES.flatMap(b => b.preguntas);
+
+function pintar(){
+  let n = 0, html = "";
+  html += `<section class="bloque" id="datos"><h2>Quién lo rellena</h2>
+    <div class="fila" style="margin-top:12px">
+      <div class="campo" style="margin:0"><label for="nombre">Nombre <span class="req">*</span></label><input type="text" id="nombre" name="nombre" autocomplete="name" required></div>
+      <div class="campo" style="margin:0"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel"></div>
+    </div></section>`;
+  for (const b of BLOQUES){
+    html += `<section class="bloque" id="${b.id}"><h2>${esc(b.titulo)}</h2>`;
+    if (b.intro) html += `<p class="bloque-intro">${esc(b.intro)}</p>`;
+    if (b.explica) html += `<div class="explica">` + b.explica.map(([t,d,r]) => `<div><strong>${esc(t)}${r?'<span class="rec">Recomendada</span>':''}</strong>${esc(d)}</div>`).join("") + `</div>`;
+    for (const p of b.preguntas){
+      n++;
+      html += `<fieldset class="preg" data-id="${p.id}"><legend><span class="n">${n}</span><span>${esc(p.t)}${p.tipo==="multi"?' <span class="multi">(podéis marcar varias)</span>':''}</span></legend>`;
+      if (p.ayuda) html += `<p class="ayuda">${esc(p.ayuda)}</p>`;
+      if (p.tipo==="uno" || p.tipo==="multi"){
+        html += `<div class="opciones">` + p.ops.map((o,i) => `<label class="opt"><input type="${p.tipo==="uno"?"radio":"checkbox"}" name="${p.id}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join("") + `</div>`;
+        if (p.nota) html += `<div class="campo"><label for="${p.id}_nota">${esc(p.notaPh||"Comentario (opcional)")}</label><input type="text" id="${p.id}_nota" name="${p.id}_nota"></div>`;
+      } else if (p.tipo==="texto"){
+        html += `<div class="campo"><input type="text" name="${p.id}" aria-label="${esc(p.t)}" placeholder="${esc(p.ph||"")}"></div>`;
+      } else {
+        html += `<div class="campo"><textarea name="${p.id}" aria-label="${esc(p.t)}"></textarea></div>`;
+      }
+      html += `</fieldset>`;
+    }
+    html += `</section>`;
+  }
+  html += `<div class="final" id="enviar">
+    <h2 style="margin:0 0 6px;font-size:22px">¿Listo?</h2>
+    <p class="bloque-intro">Podéis subir y repasar todo antes de enviarlo. Solo se puede enviar una vez.</p>
+    <input type="checkbox" name="botcheck" class="oculto" tabindex="-1" autocomplete="off">
+    <button type="button" class="btn" id="btnEnviar">Enviar respuestas</button>
+    <div class="confirma" id="confirma" role="region" aria-live="polite">
+      <p><b>¿Lo enviamos ya?</b> Después no se podrán cambiar las respuestas desde aquí (siempre podéis contarnos algo más por WhatsApp).</p>
+      <div class="fila"><button type="button" class="btn sec" id="btnRepasar">Repasar antes</button><button type="button" class="btn" id="btnSi">Sí, enviar</button></div>
+    </div>
+    <div class="estado" id="estadoEnvio" aria-live="polite"></div>
+  </div>`;
+  form.innerHTML = html;
+  document.getElementById("indice").innerHTML = BLOQUES.map(b => `<a href="#${b.id}">${esc(b.titulo)}</a>`).join("");
+  restaurar();
+  contar();
+}
+
+function restaurar(){
+  for (const el of form.elements){
+    if (!el.name || el.name==="botcheck") continue;
+    const v = estado[el.name];
+    if (v === undefined) continue;
+    if (el.type==="radio") el.checked = v === el.value;
+    else if (el.type==="checkbox") el.checked = Array.isArray(v) && v.includes(el.value);
+    else el.value = v;
+  }
+}
+
+function leer(){
+  const d = {};
+  for (const el of form.elements){
+    if (!el.name || el.name==="botcheck") continue;
+    if (el.type==="radio"){ if (el.checked) d[el.name] = el.value; }
+    else if (el.type==="checkbox"){ if (el.checked) (d[el.name] ||= []).push(el.value); }
+    else if (el.value.trim()) d[el.name] = el.value.trim();
+  }
+  return d;
+}
+
+function contar(){
+  const d = leer();
+  const hechas = TODAS.filter(p => d[p.id] !== undefined).length;
+  document.getElementById("cuenta").textContent = `${hechas} de ${TODAS.length} contestadas`;
+  document.getElementById("barra").style.width = (100*hechas/TODAS.length) + "%";
+}
+
+form.addEventListener("input", () => { estado = leer(); guardar(); contar(); });
+form.addEventListener("change", () => { estado = leer(); guardar(); contar(); });
+form.addEventListener("submit", e => e.preventDefault());
+
+function textoRespuestas(d){
+  const lin = [];
+  lin.push(`Nombre: ${d.nombre||"-"}`, `Teléfono: ${d.telefono||"-"}`, "");
+  let n = 0;
+  for (const b of BLOQUES){
+    lin.push(`== ${b.titulo.toUpperCase()} ==`);
+    for (const p of b.preguntas){
+      n++;
+      const v = d[p.id];
+      lin.push(`${n}. ${p.t}`, `   → ${v===undefined ? "(sin contestar)" : Array.isArray(v) ? v.join(" · ") : v}`);
+      if (d[p.id+"_nota"]) lin.push(`   Nota: ${d[p.id+"_nota"]}`);
+    }
+    lin.push("");
+  }
+  return lin.join("\n");
+}
+
+function pintarHecho(d, fecha){
+  const app = document.getElementById("app");
+  document.getElementById("progreso").remove();
+  let res = "";
+  if (d){
+    res = `<div class="resumen">` + TODAS.filter(p => d[p.id]!==undefined).map(p => {
+      const v = d[p.id];
+      return `<div><b>${esc(p.t)}</b>${esc(Array.isArray(v)?v.join(" · "):v)}${d[p.id+"_nota"]?`<br><span style="color:var(--muted)">${esc(d[p.id+"_nota"])}</span>`:""}</div>`;
+    }).join("") + `</div>`;
+  }
+  app.innerHTML = `<div class="hecho"><div class="ok" aria-hidden="true">✓</div>
+    <h1>¡Recibido, gracias!</h1>
+    <p class="intro">Vuestras respuestas ya nos han llegado${fecha?` (enviadas el ${esc(fecha)})`:""}. Os escribimos en cuanto las hayamos visto.</p>
+    <p class="intro">Si queréis añadir o cambiar algo, escribid a Jose por <a href="https://wa.me/34634452534" style="color:var(--accent-deep)">WhatsApp (634 45 25 34)</a>.</p>
+    ${res}</div>
+    <footer>Innovarte · <a href="mailto:innovarte.sl@gmail.com">innovarte.sl@gmail.com</a></footer>`;
+  window.scrollTo(0,0);
+}
+
+// Ya enviado en este dispositivo: no se puede volver a enviar
+let yaEnviado = null;
+try { yaEnviado = JSON.parse(localStorage.getItem(ENVIADO) || "null"); } catch(e) {}
+if (yaEnviado) { pintarHecho(yaEnviado.respuestas, yaEnviado.fecha); }
+else {
+  pintar();
+  const est = document.getElementById("estadoEnvio");
+  const conf = document.getElementById("confirma");
+  document.getElementById("btnEnviar").addEventListener("click", () => {
+    est.textContent = ""; est.className = "estado";
+    const nombre = document.getElementById("nombre");
+    if (!nombre.value.trim()){
+      est.textContent = "Falta vuestro nombre (arriba del todo).";
+      est.className = "estado err";
+      nombre.focus({preventScroll:true});
+      nombre.scrollIntoView({behavior:"smooth", block:"center"});
+      return;
+    }
+    conf.classList.add("on");
+    conf.scrollIntoView({behavior:"smooth", block:"nearest"});
+  });
+  document.getElementById("btnRepasar").addEventListener("click", () => { conf.classList.remove("on"); window.scrollTo({top:0, behavior:"smooth"}); });
+  document.getElementById("btnSi").addEventListener("click", async (ev) => {
+    const btn = ev.currentTarget;
+    if (form.botcheck.checked) return;
+    btn.disabled = true; btn.textContent = "Enviando…";
+    const d = leer();
+    const texto = textoRespuestas(d);
+    try {
+      const r = await fetch("https://api.web3forms.com/submit", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: "Electro House · respuestas del cuestionario (" + (d.nombre||"") + ")",
+          from_name: "Cuestionario Electro House",
+          botcheck: false,
+          respuestas: texto
+        })
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || !j.success) throw new Error(j.message || ("Error " + r.status));
+      const fecha = new Date().toLocaleString("es-ES", {dateStyle:"long", timeStyle:"short"});
+      try { localStorage.setItem(ENVIADO, JSON.stringify({fecha, respuestas:d})); } catch(e) {}
+      pintarHecho(d, fecha);
+    } catch(err){
+      btn.disabled = false; btn.textContent = "Sí, enviar";
+      est.className = "estado err";
+      const wa = "https://wa.me/34634452534?text=" + encodeURIComponent("Respuestas del cuestionario de Electro House\n\n" + texto);
+      est.innerHTML = `No se ha podido enviar (puede ser la conexión). Probad otra vez en un momento o <a href="${wa}" style="color:var(--accent-deep)">mandádnoslas por WhatsApp</a>; no se pierde nada de lo marcado.`;
+    }
+  });
+}
+</script>
+</body>
+</html>
