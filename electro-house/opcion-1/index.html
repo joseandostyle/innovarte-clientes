@@ -6,15 +6,14 @@
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>Outlet de electrodomésticos en Orihuela · Electro House</title>
 <meta name="description" content="Electrodomésticos nuevos de las mejores marcas con taras estéticas de exposición, cocinas a medida y canapés. Tienda en la calle Obispo Rocamora de Orihuela.">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#CC4A08">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#A83C06">
-<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Outlet de electrodomésticos en Orihuela · Electro House">
 <meta property="og:description" content="Nuevos, con taras estéticas de exposición. Te enseñamos la tara en foto antes de comprar.">
 <meta property="og:image" content="fachada.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23CC4A08'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='900' font-size='15' fill='white' text-anchor='middle'%3EEH%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F26B1D'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='900' font-size='15' fill='white' text-anchor='middle'%3EEH%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,7 +28,7 @@
 </script>
 <style>
 :root{
-  --rotulo:#CC4A08;
+  --rotulo:#F26B1D;
   --rotulo-claro:#F26B1D;
   --fondo:#F4F5F6;
   --papel:#FFFFFF;
@@ -37,7 +36,7 @@
   --suave:#565D67;
   --linea:#D9DCE1;
   --suelo:#E7E9EC;
-  --precio:#B8420A;
+  --precio:#D9560C;
   --pegatina:#FFEADB;
   --pegatina-borde:#F1B287;
   --pegatina-tinta:#5B2A0B;
@@ -48,14 +47,6 @@
   --salida:cubic-bezier(.23,1,.32,1);
   --rapido:140ms;
   color-scheme:light;
-}
-@media (prefers-color-scheme:dark){
-  :root{
-    --rotulo:#A83C06; --rotulo-claro:#E8641C;
-    --fondo:#121416; --papel:#1A1D20; --tinta:#EDEFF2; --suave:#A6ADB6; --linea:#2D3137; --suelo:#202327;
-    --precio:#FF9459; --pegatina:#3A2416; --pegatina-borde:#6E3C1C; --pegatina-tinta:#FFDCC6; --ok:#4CC27F; --wa:#1F8C4E;
-    color-scheme:dark;
-  }
 }
 *{box-sizing:border-box}
 html{overflow-x:clip;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--cab) + 12px)}
@@ -88,24 +79,26 @@ h1,h2,h3{font-family:"Barlow Condensed",Barlow,sans-serif;font-weight:800;text-t
 }
 
 /* Cabecera: el rótulo */
-.rotulo{position:sticky;top:0;z-index:30;background:var(--rotulo);color:#fff;padding-top:env(safe-area-inset-top)}
+.rotulo{position:sticky;top:0;z-index:30;background:#fff;color:var(--tinta);padding-top:env(safe-area-inset-top);border-bottom:1px solid var(--linea)}
 .rot-fila{display:flex;align-items:center;gap:14px;height:58px}
-.marca{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;flex:none}
+.marca{display:flex;align-items:center;text-decoration:none;flex:none}
+.marca img{height:38px;width:auto}
+@media(min-width:1000px){.marca img{height:44px}}
 .marca-sello{width:36px;height:36px;display:grid;place-items:center;border:2px solid #fff;font:800 16px/1 "Barlow Condensed",sans-serif}
 .marca-nombre{font:800 24px/.9 "Barlow Condensed",sans-serif;letter-spacing:.01em}
 .marca-nombre small{display:block;font:700 11px/1 Barlow,sans-serif;letter-spacing:.16em;margin-top:4px;color:#FFE6D6}
 .nav{display:flex;gap:2px}
-.nav a{color:#fff;text-decoration:none;font:700 16px/1 Barlow,sans-serif;padding:11px 12px;border-radius:var(--radio);white-space:nowrap}
-.nav a[aria-current="page"]{background:rgba(0,0,0,.24)}
-@media (hover:hover) and (pointer:fine){.nav a:hover{background:rgba(0,0,0,.14)}}
-.carro{margin-left:auto;position:relative;width:46px;height:46px;display:grid;place-items:center;color:#fff;text-decoration:none;font-size:27px;border-radius:var(--radio)}
-.carro .n{position:absolute;top:2px;right:0;min-width:20px;height:20px;padding:0 5px;background:#fff;color:#17191C;font:800 12px/20px Barlow,sans-serif;text-align:center;border-radius:10px}
+.nav a{color:var(--tinta);text-decoration:none;font:700 16px/1 Barlow,sans-serif;padding:11px 12px;border-radius:var(--radio);white-space:nowrap}
+.nav a[aria-current="page"]{background:var(--pegatina);color:var(--precio)}
+@media (hover:hover) and (pointer:fine){.nav a:hover{background:var(--fondo)}}
+.carro{margin-left:auto;position:relative;width:46px;height:46px;display:grid;place-items:center;color:var(--tinta);text-decoration:none;font-size:27px;border-radius:var(--radio)}
+.carro .n{position:absolute;top:2px;right:0;min-width:20px;height:20px;padding:0 5px;background:var(--rotulo);color:#fff;font:800 12px/20px Barlow,sans-serif;text-align:center;border-radius:10px}
 .busca{position:relative}
-.busca-campo{display:flex;align-items:center;background:#fff;color:#17191C;border-radius:var(--radio);height:48px;cursor:text}
+.busca-campo{display:flex;align-items:center;background:var(--fondo);color:#17191C;border:1.5px solid var(--linea);border-radius:var(--radio);height:48px;cursor:text}
 .busca-campo .i{margin:0 2px 0 14px;font-size:22px;color:#565D67}
 .busca input{flex:1;min-width:0;height:100%;border:0;background:transparent;color:#17191C;padding:0 12px 0 8px;outline:none}
 .busca input::placeholder{color:#656C76}
-.busca-campo:focus-within{box-shadow:0 0 0 3px #17191C}
+.busca-campo:focus-within{border-color:var(--rotulo);box-shadow:0 0 0 3px var(--pegatina);background:#fff}
 .busca input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
 .rot-busca{padding:0 0 10px}
 .rot-nav{overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 6px 8px}
@@ -142,8 +135,7 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 .hero,.hero-rot .cont{grid-template-columns:minmax(0,1fr)}
 .hero h1 span{display:block}
 .hero-rot p{margin:14px 0 0;font:500 clamp(17px,4.4vw,21px)/1.4 Barlow,sans-serif;max-width:38ch;color:#FFF1E7}
-.escaparate{position:relative;background:linear-gradient(180deg,#FFFFFF 0%,#F1F3F5 100%);color:#17191C;overflow:hidden;min-height:330px;border-top:6px solid #17191C}
-@media (prefers-color-scheme:dark){.escaparate{background:linear-gradient(180deg,#F3F4F6 0%,#E3E6EA 100%)}}
+.escaparate{position:relative;background:linear-gradient(180deg,#FFFFFF 0%,#F1F3F5 100%);color:#17191C;overflow:hidden;min-height:330px;border-top:0}
 .escaparate::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;background:#E6E8EB;border-top:1px solid #D3D7DC}
 .pz{position:absolute;bottom:22%;z-index:2;display:block;text-decoration:none;transition:transform 220ms var(--salida)}
 .pz img{height:100%;width:auto;max-width:none}
@@ -154,7 +146,7 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 .pz-2{height:42%;left:33%}
 .pz-3{height:21%;left:64%}
 .etq{position:absolute;z-index:3;background:#FFEADB;color:#5B2A0B;border:1px solid #F1B287;border-radius:var(--radio);padding:6px 10px 7px;text-decoration:none;line-height:1}
-.etq b{display:block;font:800 26px/1 "Barlow Condensed",sans-serif;color:#B8420A}
+.etq b{display:block;font:800 26px/1 "Barlow Condensed",sans-serif;color:#D9560C}
 .etq s{font:600 13px/1 Barlow,sans-serif}
 .etq em{font:700 11px/1 Barlow,sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:4px}
 .etq-1{left:23%;top:10%}
@@ -211,7 +203,7 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 .prod-precio b{font:800 30px/1 "Barlow Condensed",sans-serif;color:var(--precio)}
 .prod-precio s{color:var(--suave);font-size:15px}
 .prod-precio .desde{font-size:14px;color:var(--suave);font-weight:600}
-.dto{font:800 14px/1 Barlow,sans-serif;background:#CC4A08;color:#fff;padding:4px 6px;border-radius:var(--radio)}
+.dto{font:800 14px/1 Barlow,sans-serif;background:var(--rotulo);color:#fff;padding:4px 6px;border-radius:var(--radio)}
 .unica{position:absolute;top:10px;left:10px;z-index:1;background:#17191C;color:#fff;font:700 12px/1 Barlow,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:6px 8px;border-radius:var(--radio)}
 .pegatina{display:block;background:var(--pegatina);color:var(--pegatina-tinta);border:1px solid var(--pegatina-borde);border-radius:var(--radio);padding:8px 10px;font-size:14px;line-height:1.35}
 .pegatina b{display:block;font:800 13px/1 "Barlow Condensed",sans-serif;letter-spacing:.08em;margin-bottom:4px}
@@ -246,7 +238,7 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 
 .cocinas{position:relative;color:#fff;min-height:560px;display:grid;align-items:end;overflow:hidden}
 .cocinas img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cocinas-panel{position:relative;background:#CC4A08;padding:28px 22px 30px;margin:0 16px 16px;max-width:520px}
+.cocinas-panel{position:relative;background:var(--rotulo);padding:28px 22px 30px;margin:0 16px 16px;max-width:520px}
 .cocinas-panel h2,.cocinas-panel h1{font-size:clamp(38px,9vw,64px)}
 .cocinas-panel p{margin:12px 0 22px;color:#FFF1E7}
 @media(min-width:900px){.cocinas{min-height:640px}.cocinas-panel{margin:0 0 48px 48px;padding:40px 40px 44px}}
@@ -359,7 +351,6 @@ h1.tit{font-size:clamp(42px,10vw,74px)}
 .opciones label:has(input:checked){border-color:var(--tinta);box-shadow:inset 0 0 0 1px var(--tinta)}
 .opciones input{width:20px;height:20px;accent-color:var(--rotulo);margin:0}
 .error{color:#B42318;font-size:14px;font-weight:600}
-@media (prefers-color-scheme:dark){.error{color:#FF8A80}}
 .hecho{padding:44px 16px;text-align:center;max-width:560px;margin:0 auto}
 .hecho .i{font-size:56px;color:var(--ok)}
 .hecho h1{font-size:50px;margin:12px 0}
@@ -371,7 +362,7 @@ h1.tit{font-size:clamp(42px,10vw,74px)}
 .flotan.fuera{opacity:0;transform:translateY(12px);pointer-events:none}
 .flotan button{width:56px;height:56px;border:0;border-radius:var(--radio);display:grid;place-items:center;font-size:28px;color:#fff;box-shadow:0 8px 20px rgba(20,22,26,.25);transition:transform var(--rapido) var(--salida)}
 .flotan button:active{transform:scale(.94)}
-.f-asis{background:#CC4A08}
+.f-asis{background:var(--rotulo)}
 .f-wa{background:var(--wa)}
 .asis{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--papel);color:var(--tinta);border-top:4px solid var(--rotulo);max-height:78svh;display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom);transform:translateY(105%);visibility:hidden;transition:transform 260ms var(--salida),visibility 0s 260ms;box-shadow:0 -12px 40px rgba(20,22,26,.25)}
 .asis.on{transform:none;visibility:visible;transition:transform 260ms var(--salida)}
@@ -401,7 +392,7 @@ h1.tit{font-size:clamp(42px,10vw,74px)}
 <header class="rotulo" id="rotulo">
   <div class="cont">
     <div class="rot-fila">
-      <a class="marca" href="#/" aria-label="Electro House, inicio"><span class="marca-sello" aria-hidden="true">EH</span><span class="marca-nombre" translate="no">ELECTRO HOUSE<small>OUTLET · ORIHUELA</small></span></a>
+      <a class="marca" href="#/" aria-label="Electro House, inicio"><img src="logo-electro-house.png" alt="Electro House" width="433" height="86" translate="no"></a>
       <nav class="nav" aria-label="Secciones">
         <a href="#/outlet" data-r="outlet">Outlet</a>
         <a href="#/electrodomesticos" data-r="electrodomesticos">Electrodomésticos</a>
