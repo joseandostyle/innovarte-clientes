@@ -40,7 +40,7 @@ header.cab{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px so
 .busca button{position:absolute;right:4px;top:4px;width:34px;height:34px;border:0;border-radius:50%;background:transparent;display:grid;place-items:center}
 .iconos{display:flex;gap:4px;margin-left:auto}
 .ico{width:42px;height:42px;border:0;background:transparent;border-radius:10px;display:grid;place-items:center;position:relative}
-.ico:hover{background:var(--fondo)}
+@media (hover:hover) and (pointer:fine){.ico:hover{background:var(--fondo)}}
 .globo{position:absolute;top:4px;right:3px;min-width:18px;height:18px;border-radius:9px;background:var(--naranja);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 4px}
 .busca-movil{display:none;padding:0 0 10px}
 .nav{display:flex;gap:6px;overflow-x:auto;padding:8px 0 10px;scrollbar-width:none}
@@ -66,7 +66,7 @@ header.cab{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px so
 .btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:10px;font-weight:700;padding:12px 18px;min-height:46px;font-size:15px}
 .btn-blanco{background:#fff;color:var(--naranja-osc)}
 .btn-nar{background:var(--naranja);color:#fff}
-.btn-nar:hover{background:var(--naranja-osc)}
+@media (hover:hover) and (pointer:fine){.btn-nar:hover{background:var(--naranja-osc)}}
 .btn-neg{background:var(--negro);color:#fff}
 .btn-linea{background:#fff;border:1.5px solid var(--linea);color:var(--texto)}
 .btn-wa{background:#1FAF55;color:#fff}
@@ -258,11 +258,11 @@ h1.tit{font-size:26px;margin:4px 0 4px;letter-spacing:-.01em}
 .h-txt::after{content:"";position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;border-radius:50%;border:34px solid rgba(255,255,255,.08)}
 .h-txt>*{position:relative;z-index:1}
 .ceja{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:rgba(22,24,27,.22);border-radius:6px;padding:6px 10px;margin-bottom:14px}
-.h-txt h1,.h-txt h2{font-size:clamp(34px,9vw,56px);line-height:.98;font-style:italic;font-weight:800;margin:0;letter-spacing:-.02em}
+.h-txt h1,.h-txt h2{font-size:clamp(34px,9vw,56px);line-height:1.06;padding-bottom:4px;font-style:italic;font-weight:800;margin:0;letter-spacing:-.02em}
 .h-txt p{margin:12px 0 18px;font-size:15px;max-width:32ch;opacity:.95}
 .escaparate{position:relative;height:250px;overflow:hidden;background:linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 68%,#F3F4F6 68%,#F3F4F6 100%)}
 .escaparate::before{content:"";position:absolute;left:0;right:0;top:68%;height:1px;background:#E6E8EC}
-.escaparate.foto img{width:100%;height:100%;object-fit:cover}
+.escaparate.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .pz{position:absolute;bottom:20%;display:block;transition:transform .25s cubic-bezier(.2,.8,.2,1);-webkit-tap-highlight-color:transparent;outline-offset:6px}
 .pz img{display:block;height:100%;width:auto}
 .pz::after{content:"";position:absolute;left:2%;right:2%;bottom:-6px;height:12px;background:radial-gradient(closest-side,rgba(16,24,40,.22),transparent);z-index:-1}
@@ -282,7 +282,7 @@ h1.tit{font-size:26px;margin:4px 0 4px;letter-spacing:-.01em}
 @media(min-width:760px){
   .slide{grid-template-columns:1fr 1.1fr;min-height:400px!important}
   .h-txt{padding:48px 44px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-  .escaparate{height:auto;min-height:400px}
+  .escaparate{height:400px;min-height:0}
   .pz-frigo{height:70%;left:16%}.pz-lava{height:44%;left:42%}.pz-frei{height:22%;left:73%}
   .etq-frigo{left:30%;top:12%}.etq-lava{left:62%;top:26%}.etq-frei{left:84%;top:46%}
   .puntos{left:47.6%;right:0}
@@ -296,7 +296,8 @@ h1.tit{font-size:26px;margin:4px 0 4px;letter-spacing:-.01em}
 .sug .sn{display:block;font-weight:600;font-size:14px;line-height:1.3}
 .sug .sp{display:block;font-size:13px;color:var(--suave)}
 .sug .sp b{color:var(--naranja-osc)}
-.sug:hover,.sug.act,.sug-todos.act{background:var(--fondo)}
+.sug.act,.sug-todos.act{background:var(--fondo)}
+@media (hover:hover) and (pointer:fine){.sug:hover{background:var(--fondo)}}
 .sug-todos{display:block;padding:11px 12px;border-top:1px solid var(--linea);font-weight:700;color:var(--naranja-osc);font-size:14px}
 .sug-vacio{padding:14px;font-size:14px;color:var(--suave)}
 .sug-vacio a{color:var(--naranja-osc);font-weight:700}
@@ -336,9 +337,20 @@ mark{background:#FFE2CC;color:inherit;border-radius:3px;padding:0 1px}
 .ficha .pegatina{margin:16px 0;font-size:15px;padding:12px 14px}
 .ficha .pegatina b{font-size:12px}
 @media(max-width:760px){.logo-img{height:34px}}
+/* Mejoras invisibles traídas de la opción 4 (08/11/2026) */
+img{height:auto}
+.saltar{position:absolute;left:12px;top:-60px;z-index:100;background:var(--negro);color:#fff;padding:12px 16px;font-weight:700;border-radius:10px}
+.saltar:focus{top:12px}
+button,a,[role="button"]{touch-action:manipulation}
+.btn,.filtros button,.seg button{-webkit-user-select:none;user-select:none}
+.btn{transition:transform 140ms cubic-bezier(.23,1,.32,1),background-color 140ms ease}
+.btn:active,.filtros button:active,.ico:active{transform:scale(.97)}
+.tarjeta:active{transform:scale(.99)}
+.precio .p,.etq,.sug .sp,.linea .der b,.resumen{font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
+<a class="saltar" href="#app">Saltar al contenido</a>
 <div class="demo"><b>Maqueta de demostración</b> · productos, fotos y precios de muestra</div>
 <header class="cab">
   <div class="cont">
@@ -422,7 +434,7 @@ const pct = x=>x.a?Math.round((1-x.p/x.a)*100):0;
 const esc = s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const norm = s=>String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9ñ]+/g," ").trim();
 const EXT = {secadora:"png","hero-frigorifico-combi":"png","hero-lavavajillas":"png","hero-freidora-1":"png"};
-const img = (f,alt,cls="")=>`<img class="${cls}" src="fotos/${f}.${EXT[f]||"jpg"}" alt="${esc(alt)}" loading="lazy" decoding="async">`;
+const img = (f,alt,cls="")=>`<img class="${cls}" src="fotos/${f}.${EXT[f]||"jpg"}" alt="${esc(alt)}" loading="lazy" decoding="async" width="600" height="600">`;
 const foto = x=>img(x.f, x.n);
 let carrito = [];
 try{carrito = JSON.parse(localStorage.getItem("eh-carrito")||"[]")}catch(e){}
@@ -532,9 +544,9 @@ function inicio(){
       <div class="slide">
         <div class="h-txt"><span class="ceja">Outlet · Nuevos de exposición</span><h1>Ofertas<br>para tu hogar</h1><p>Electrodomésticos nuevos de las mejores marcas, con taras estéticas de exposición, a precio de outlet.</p><a class="btn btn-blanco" href="#/outlet">Ver ofertas ${flecha}</a></div>
         <div class="escaparate" aria-hidden="false">
-          <a class="pz pz-frigo" href="#/producto/frigorifico-combi-no-frost" aria-label="Frigorífico combi, 499 €">${img("hero-frigorifico-combi","Frigorífico combi")}</a>
-          <a class="pz pz-lava" href="#/producto/lavavajillas-60-13" aria-label="Lavavajillas 60 cm, 329 €">${img("hero-lavavajillas","Lavavajillas de acero inoxidable")}</a>
-          <a class="pz pz-frei" href="#/producto/freidora-aire-5-5l" aria-label="Freidora de aire, 79 €">${img("hero-freidora-1","Freidora de aire")}</a>
+          <a class="pz pz-frigo" href="#/producto/frigorifico-combi-no-frost" aria-label="Frigorífico combi, 499 €">${img("hero-frigorifico-combi","Frigorífico combi").replace('loading="lazy"','loading="eager"')}</a>
+          <a class="pz pz-lava" href="#/producto/lavavajillas-60-13" aria-label="Lavavajillas 60 cm, 329 €">${img("hero-lavavajillas","Lavavajillas de acero inoxidable").replace('loading="lazy"','loading="eager"')}</a>
+          <a class="pz pz-frei" href="#/producto/freidora-aire-5-5l" aria-label="Freidora de aire, 79 €">${img("hero-freidora-1","Freidora de aire").replace('loading="lazy"','loading="eager"')}</a>
           <a class="etq etq-frigo" href="#/producto/frigorifico-combi-no-frost"><b>-29%</b>499 €</a>
           <a class="etq etq-lava" href="#/producto/lavavajillas-60-13"><b>-28%</b>329 €</a>
           <a class="etq etq-frei" href="#/producto/freidora-aire-5-5l">79 €</a>
@@ -542,11 +554,11 @@ function inicio(){
       </div>
       <div class="slide">
         <div class="h-txt"><span class="ceja">Diseño e instalación</span><h2>Cocinas<br>a medida</h2><p>Diseño, asesoramiento e instalación. Pide tu presupuesto sin compromiso.</p><a class="btn btn-blanco" href="#/cocinas">Pide presupuesto ${flecha}</a></div>
-        <div class="escaparate foto">${img("cocina-1","Cocina a medida con isla")}</div>
+        <div class="escaparate foto">${img("cocina-1","Cocina a medida con isla").replace('loading="lazy"','loading="eager"')}</div>
       </div>
       <div class="slide">
         <div class="h-txt"><span class="ceja">Madera · Abatibles</span><h2>Canapés<br>desde 199 €</h2><p>Comodidad y mucho espacio para guardar.</p><a class="btn btn-blanco" href="#/canapes">Ver canapés ${flecha}</a></div>
-        <div class="escaparate foto">${img("canape-ambiente","Canapé abatible abierto en un dormitorio")}</div>
+        <div class="escaparate foto">${img("canape-ambiente","Canapé abatible abierto en un dormitorio").replace('loading="lazy"','loading="eager"')}</div>
       </div>
     </div>
     <div class="puntos" id="puntos"><button class="on" aria-label="Ofertas"></button><button aria-label="Cocinas"></button><button aria-label="Canapés"></button></div>
@@ -687,7 +699,7 @@ function cocinas(){
     <button class="btn btn-nar" style="justify-content:center">Pedir presupuesto</button>
   </form></section>`;
   $("#fcocina").addEventListener("submit",e=>{e.preventDefault();if(!e.target.checkValidity()){e.target.reportValidity();return}
-    app.innerHTML=`<div class="ok-pedido"><div class="circ">${icoCheck}</div><h1 class="tit">¡Recibido!</h1><p>Te llamamos para hablar de tu cocina. <br><small style="color:var(--suave)">(En la maqueta no se envía nada.)</small></p><a class="btn btn-nar" href="#/">Volver al inicio</a></div>`;window.scrollTo(0,0)});
+    app.innerHTML=`<div class="ok-pedido"><div class="circ">${icoCheck}</div><h1 class="tit">Recibido</h1><p>Te llamamos para hablar de tu cocina. <br><small style="color:var(--suave)">(En la maqueta no se envía nada.)</small></p><a class="btn btn-nar" href="#/">Volver al inicio</a></div>`;window.scrollTo(0,0)});
 }
 function canapes(){
   const medidas=["90 × 190","105 × 190","135 × 190","150 × 190","160 × 200"];
@@ -701,7 +713,7 @@ function canapes(){
     <button class="btn btn-nar" style="justify-content:center">Pedir precio</button>
   </form><p class="sub" style="margin-top:10px">Medidas de muestra: se ajustan con el catálogo de la tienda.</p></section>`;
   $("#fcanape").addEventListener("submit",e=>{e.preventDefault();if(!e.target.checkValidity()){e.target.reportValidity();return}
-    app.innerHTML=`<div class="ok-pedido"><div class="circ">${icoCheck}</div><h1 class="tit">¡Recibido!</h1><p>Te llamamos con el precio de tu canapé. <br><small style="color:var(--suave)">(En la maqueta no se envía nada.)</small></p><a class="btn btn-nar" href="#/">Volver al inicio</a></div>`;window.scrollTo(0,0)});
+    app.innerHTML=`<div class="ok-pedido"><div class="circ">${icoCheck}</div><h1 class="tit">Recibido</h1><p>Te llamamos con el precio de tu canapé. <br><small style="color:var(--suave)">(En la maqueta no se envía nada.)</small></p><a class="btn btn-nar" href="#/">Volver al inicio</a></div>`;window.scrollTo(0,0)});
 }
 function verCarrito(){
   const ls = carrito.map(l=>({...l,x:porId(l.id)})).filter(l=>l.x);
@@ -739,7 +751,7 @@ function pedido(){
   f.querySelectorAll("[name=ent]").forEach(r=>r.addEventListener("change",()=>{$("#dir").hidden=f.ent.value!=="casa";f.d.required=f.ent.value==="casa"}));
   f.addEventListener("submit",e=>{e.preventDefault();if(!f.checkValidity()){f.reportValidity();return}
     carrito=[];guardar();
-    app.innerHTML=`<div class="ok-pedido"><div class="circ">${icoCheck}</div><h1 class="tit">¡Pedido recibido!</h1>
+    app.innerHTML=`<div class="ok-pedido"><div class="circ">${icoCheck}</div><h1 class="tit">Pedido recibido</h1>
     <p>${hayTara?"Estamos comprobando que tu artículo de outlet sigue en tienda. <b>Te avisamos en breve</b> y solo entonces se cobra.":"Te hemos enviado la confirmación por email."}</p>
     <p class="sub">(Pedido simulado de la maqueta.)</p><a class="btn btn-nar" href="#/">Volver al inicio</a></div>`;window.scrollTo(0,0)});
 }
