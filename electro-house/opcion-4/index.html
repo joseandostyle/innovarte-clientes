@@ -265,7 +265,7 @@ h1.tit{font-size:26px;margin:4px 0 4px;letter-spacing:-.01em}
 .h-txt p{margin:12px 0 18px;font-size:15px;max-width:32ch;opacity:.95}
 .escaparate{position:relative;height:250px;overflow:hidden;background:linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 68%,#F3F4F6 68%,#F3F4F6 100%)}
 .escaparate::before{content:"";position:absolute;left:0;right:0;top:68%;height:1px;background:#E6E8EC}
-.escaparate.foto img{width:100%;height:100%;object-fit:cover}
+.escaparate.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .pz{position:absolute;bottom:20%;display:block;transition:transform .25s cubic-bezier(.2,.8,.2,1);-webkit-tap-highlight-color:transparent;outline-offset:6px}
 .pz img{display:block;height:100%;width:auto}
 .pz::after{content:"";position:absolute;left:2%;right:2%;bottom:-6px;height:12px;background:radial-gradient(closest-side,rgba(16,24,40,.22),transparent);z-index:-1}
@@ -273,7 +273,7 @@ h1.tit{font-size:26px;margin:4px 0 4px;letter-spacing:-.01em}
 .pz-frigo{height:72%;left:12%}
 .pz-lava{height:50%;left:38%}
 .pz-frei{height:23%;left:69%}
-.etq{position:absolute;display:flex;flex-direction:column;align-items:center;background:#fff;border:1px solid #E6E8EC;border-radius:8px;padding:5px 9px 6px;font-weight:800;font-size:15px;color:#D93A12;line-height:1.1;box-shadow:0 6px 16px rgba(16,24,40,.10);z-index:3}
+.etq{position:absolute;display:flex;flex-direction:column;align-items:center;background:#fff;border:1px solid #E6E8EC;border-radius:8px;padding:5px 9px 6px;font-weight:800;font-size:15px;color:var(--naranja-osc);line-height:1.1;box-shadow:0 6px 16px rgba(16,24,40,.10);z-index:3}
 .etq b{font-size:11px;color:#fff;background:var(--naranja);border-radius:4px;padding:1px 5px;margin-bottom:3px}
 .etq::before{content:"";position:absolute;left:50%;top:-14px;height:14px;border-left:1.5px dashed #C9CED6}
 .etq-frigo{left:27%;top:12%}
@@ -285,7 +285,7 @@ h1.tit{font-size:26px;margin:4px 0 4px;letter-spacing:-.01em}
 @media(min-width:760px){
   .slide{grid-template-columns:1fr 1.1fr;min-height:400px!important}
   .h-txt{padding:48px 44px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-  .escaparate{height:auto;min-height:400px}
+  .escaparate{height:clamp(440px,42vw,600px);min-height:0}
   .pz-frigo{height:70%;left:16%}.pz-lava{height:44%;left:42%}.pz-frei{height:22%;left:73%}
   .etq-frigo{left:30%;top:12%}.etq-lava{left:62%;top:26%}.etq-frei{left:84%;top:46%}
   .puntos{left:47.6%;right:0}
@@ -563,9 +563,9 @@ function inicio(){
       <div class="slide">
         <div class="h-txt"><h1>Ofertas<br>para tu hogar</h1><p>Electrodomésticos nuevos de las mejores marcas, con taras estéticas de exposición, a precio de outlet.</p><a class="btn btn-blanco" href="#/outlet">Ver el outlet ${flecha}</a></div>
         <div class="escaparate" aria-hidden="false">
-          <a class="pz pz-frigo" href="#/producto/frigorifico-combi-no-frost" aria-label="Frigorífico combi, 499 €">${img("hero-frigorifico-combi","Frigorífico combi")}</a>
-          <a class="pz pz-lava" href="#/producto/lavavajillas-60-13" aria-label="Lavavajillas 60 cm, 329 €">${img("hero-lavavajillas","Lavavajillas de acero inoxidable")}</a>
-          <a class="pz pz-frei" href="#/producto/freidora-aire-5-5l" aria-label="Freidora de aire, 79 €">${img("hero-freidora-1","Freidora de aire")}</a>
+          <a class="pz pz-frigo" href="#/producto/frigorifico-combi-no-frost" aria-label="Frigorífico combi, 499 €">${img("hero-frigorifico-combi","Frigorífico combi").replace('loading="lazy"','loading="eager"')}</a>
+          <a class="pz pz-lava" href="#/producto/lavavajillas-60-13" aria-label="Lavavajillas 60 cm, 329 €">${img("hero-lavavajillas","Lavavajillas de acero inoxidable").replace('loading="lazy"','loading="eager"')}</a>
+          <a class="pz pz-frei" href="#/producto/freidora-aire-5-5l" aria-label="Freidora de aire, 79 €">${img("hero-freidora-1","Freidora de aire").replace('loading="lazy"','loading="eager"')}</a>
           <a class="etq etq-frigo" href="#/producto/frigorifico-combi-no-frost"><b>-29%</b>499 €</a>
           <a class="etq etq-lava" href="#/producto/lavavajillas-60-13"><b>-28%</b>329 €</a>
           <a class="etq etq-frei" href="#/producto/freidora-aire-5-5l">79 €</a>
@@ -573,11 +573,11 @@ function inicio(){
       </div>
       <div class="slide">
         <div class="h-txt"><h2>Cocinas<br>a medida</h2><p>Diseño, asesoramiento e instalación. Pide tu presupuesto sin compromiso.</p><a class="btn btn-blanco" href="#/cocinas">Pide presupuesto ${flecha}</a></div>
-        <div class="escaparate foto">${img("cocina-1","Cocina a medida con isla")}</div>
+        <div class="escaparate foto">${img("cocina-1","Cocina a medida con isla").replace('loading="lazy"','loading="eager"')}</div>
       </div>
       <div class="slide">
         <div class="h-txt"><h2>Canapés<br>desde 199 €</h2><p>Comodidad y mucho espacio para guardar.</p><a class="btn btn-blanco" href="#/canapes">Ver canapés ${flecha}</a></div>
-        <div class="escaparate foto">${img("canape-ambiente","Canapé abatible abierto en un dormitorio")}</div>
+        <div class="escaparate foto">${img("canape-ambiente","Canapé abatible abierto en un dormitorio").replace('loading="lazy"','loading="eager"')}</div>
       </div>
     </div>
     <div class="puntos" id="puntos"><button class="on" aria-label="Ofertas"></button><button aria-label="Cocinas"></button><button aria-label="Canapés"></button></div>
