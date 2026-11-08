@@ -716,7 +716,7 @@ function verAlEntrar(el,fn){ if(!el) return; if(!("IntersectionObserver" in wind
 /* Piezas */
 function etiqueta(x){
   return `<a class="etq${x.tara?"":" etq-nuevo"}" href="#/producto/${x.id}">
-    <span class="etq-foto"><span class="etq-ojal"></span>${img(x.f,x.n,'width="400" height="400"')}</span>
+    <span class="etq-foto">${img(x.f,x.n,'width="400" height="400"')}</span>
     <span class="etq-cuerpo"><span class="etq-nom">${esc(x.n)}</span>
     ${x.tara?`<span class="peg"><b>TARA · UNIDAD ÚNICA</b><span>${esc(x.tara)}</span></span>`:`<span class="peg"><b>NUEVO</b></span>`}
     <span class="etq-precio num">${x.desde?`<span class="desde">desde</span>`:""}<b>${eur(x.p)}</b>${x.a?`<s>${eur(x.a)}</s><span class="dto">-${pct(x)} %</span>`:""}</span></span></a>`;

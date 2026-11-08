@@ -579,13 +579,18 @@ function inicio(){
       <ul class="tara-lista">
         <li><i class="ph ph-camera i" aria-hidden="true"></i><div><b>La ves en foto</b><span>Cada ficha marca dónde está y qué es.</span></div></li>
         <li><i class="ph ph-seal-check i" aria-hidden="true"></i><div><b>Es un aparato nuevo</b><span>Con los 3 años de garantía legal de un producto nuevo.</span></div></li>
-        <li><i class="ph ph-lock-key i" aria-hidden="true"></i><div><b>No se cobra hasta confirmarla</b><span>Al pagar, el dinero queda retenido hasta que comprobamos que la unidad sigue aquí.</span></div></li>
       </ul></div>
   </div></section>
 
   <section class="sec"><div class="cont">
     <div class="sec-cab"><h2>Busca por tipo</h2></div>
     <div class="cats">${["lavado","frio","coccion","pequeno","clima"].map((k,i)=>`<a class="cat${i===0?" cat-grande":""}" href="#/categoria/${k}"><span class="ft">${img(CATS[k].f,"")}</span><span class="tx"><h3>${CATS[k].n}</h3><p>${CATS[k].d}</p></span></a>`).join("")}</div>
+  </div></section>
+
+  <section class="sec" style="padding-top:8px"><div class="cont">
+    <div class="sec-cab" style="display:block"><h2>Nuevos de catálogo</h2><p class="sec-entrada">Aparatos totalmente nuevos, sin tara.</p></div>
+    <div class="riel">${P.filter(x=>!x.tara&&x.c!=="canapes").sort((a,b)=>(b.id==="lavadora-8kg")-(a.id==="lavadora-8kg")).map(tarjeta).join("")}</div>
+    <p style="margin:18px 0 0"><a href="#/electrodomesticos" style="font-weight:700;color:var(--precio);text-decoration:none">Todos los electrodomésticos</a></p>
   </div></section>
 
   <section class="cocinas" aria-label="Cocinas a medida">${img("cocina-2","Cocina a medida blanca con madera y columna de hornos",'class="bg"')}
