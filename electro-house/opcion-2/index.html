@@ -200,6 +200,12 @@ mark{background:#FBD9B4;color:inherit;padding:0 1px}
 .etq-precio .desde{font-size:14px;color:var(--claro-2);font-weight:600}
 .dto{display:inline-block;font:900 italic 15px/1 "Exo 2",sans-serif;background:var(--naranja);color:var(--negro);padding:5px 7px;transform:skewX(var(--incl))}
 .etq-precio .dto{margin-left:auto}
+.etq-nuevo{background:#fff;color:var(--negro);box-shadow:inset 0 0 0 1px var(--linea)}
+.etq-nuevo .etq-foto{border-bottom:1px solid var(--linea)}
+.etq-nuevo .peg b{background:var(--negro);color:#fff}
+.etq-nuevo .etq-precio b{color:var(--negro)}
+.etq-nuevo .etq-precio s{color:var(--suave)}
+.etq-nuevo .etq-precio .desde{color:var(--suave)}
 @media (hover:hover) and (pointer:fine){.etq:hover .etq-foto img{transform:scale(1.04)}.etq:hover{box-shadow:0 0 0 2px var(--naranja)}}
 
 /* Portada: el escáner */
@@ -274,14 +280,12 @@ mark{background:#FBD9B4;color:inherit;padding:0 1px}
 
 /* Perchero de unidades únicas */
 .perchero{margin-top:28px;position:relative}
-.riel{display:grid;grid-auto-flow:column;grid-auto-columns:min(72%,270px);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;margin:0 -16px;padding:0 16px 30px;background:linear-gradient(var(--negro),var(--negro)) 0 0/100% 7px no-repeat;background-attachment:local}
+.riel{display:grid;grid-auto-flow:column;grid-auto-columns:min(72%,270px);gap:30px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;margin:0 -16px;padding:8px 16px 34px}
 .riel::-webkit-scrollbar{display:none}
-.colg{position:relative;scroll-snap-align:start;padding-top:34px;transform-origin:50% 0;transform:rotate(calc(var(--r,0deg) + var(--sw,0deg)))}
-.colg::before{content:"";position:absolute;left:50%;top:0;width:2px;height:48px;margin-left:-1px;background:var(--negro);z-index:2}
-.colg::after{content:"";position:absolute;left:50%;top:-3px;width:14px;height:12px;margin-left:-7px;border:2.5px solid var(--negro);border-bottom:0;border-radius:8px 8px 0 0}
+.colg{position:relative;scroll-snap-align:start;transform-origin:50% 0;transform:rotate(calc(var(--r,0deg) + var(--sw,0deg)))}
 .riel-flechas{display:none}
 @media(min-width:900px){
-  .riel{grid-auto-columns:calc((100% - 54px)/4);margin:0;padding:0 0 30px}
+  .riel{grid-auto-columns:calc((100% - 96px)/4);gap:32px;margin:0;padding:8px 0 34px}
   .riel-flechas{display:flex;gap:16px}
 }
 .flecha{width:54px;height:46px}
@@ -304,7 +308,7 @@ mark{background:#FBD9B4;color:inherit;padding:0 1px}
 @media(min-width:900px){
   .tara-grid{grid-template-columns:1fr 1fr;gap:64px;align-items:center}
   .tara-panel{padding:28px}
-  .pasos li:nth-child(2){margin-left:32px}.pasos li:nth-child(3){margin-left:64px}
+  .pasos li:nth-child(2){margin-left:40px}
 }
 
 /* Canapés: la etiqueta grande */
@@ -559,7 +563,7 @@ a.chip{display:inline-flex;align-items:center;text-decoration:none}
   <div class="atajos" id="atajos"></div>
 </div>
 <div class="capa capa-menu" id="capa-menu" role="dialog" aria-modal="true" aria-label="Menú">
-  <div class="capa-cab"><img src="simbolo-eh.png" alt="" width="69" height="86" style="height:44px;width:auto"><button class="ib" data-cierra aria-label="Cerrar"><i class="ph ph-x" aria-hidden="true"></i></button></div>
+  <div class="capa-cab"><img src="simbolo-eh.png" alt="" width="69" height="86" style="height:44px;width:auto;filter:brightness(0);opacity:.84"><button class="ib" data-cierra aria-label="Cerrar"><i class="ph ph-x" aria-hidden="true"></i></button></div>
   <nav aria-label="Secciones (móvil)"><ul class="menu-lista">
     <li><a class="nav-m" href="#/outlet" data-r="outlet">Outlet</a></li>
     <li><a class="nav-m" href="#/electrodomesticos" data-r="electrodomesticos">Electrodomésticos</a></li>
@@ -711,14 +715,14 @@ function verAlEntrar(el,fn){ if(!el) return; if(!("IntersectionObserver" in wind
 
 /* Piezas */
 function etiqueta(x){
-  return `<a class="etq" href="#/producto/${x.id}">
+  return `<a class="etq${x.tara?"":" etq-nuevo"}" href="#/producto/${x.id}">
     <span class="etq-foto"><span class="etq-ojal"></span>${img(x.f,x.n,'width="400" height="400"')}</span>
     <span class="etq-cuerpo"><span class="etq-nom">${esc(x.n)}</span>
-    ${x.tara?`<span class="peg"><b>TARA · UNIDAD ÚNICA</b><span>${esc(x.tara)}</span></span>`:""}
+    ${x.tara?`<span class="peg"><b>TARA · UNIDAD ÚNICA</b><span>${esc(x.tara)}</span></span>`:`<span class="peg"><b>NUEVO</b></span>`}
     <span class="etq-precio num">${x.desde?`<span class="desde">desde</span>`:""}<b>${eur(x.p)}</b>${x.a?`<s>${eur(x.a)}</s><span class="dto">-${pct(x)} %</span>`:""}</span></span></a>`;
 }
 const cabPag=(titulo,migas,texto="")=>`<div class="cab-pag"><div class="cont"><nav class="miga" aria-label="Estás en"><a href="#/">Inicio</a>${migas.map(p=>`<span aria-hidden="true">/</span>${p}`).join("")}</nav><h1>${titulo}</h1>${texto?`<p>${texto}</p>`:""}</div></div>`;
-const RIEL_R=[-1.4,.9,-.6,1.3,-1.1,.5,-1.5,1];
+const RIEL_R=[-.6,.4,-.3,.6,-.5,.3,-.6,.5];
 function bloqueVisita(){
   return `<div class="visita"><div class="tarjeta"><h2>Ven a verla en persona</h2><p class="dir">Obispo Rocamora, 32</p><p style="margin:0;color:#D5CEC4">03300 Orihuela (Alicante)</p>
    <ul class="datos"><li><i class="ph ph-phone i" aria-hidden="true"></i><a href="tel:+34865535940">865 53 59 40</a></li>
@@ -742,6 +746,8 @@ function pintaEscena(primera){
 }
 function inicio(){
   const outlet=P.filter(x=>x.tara).sort((a,b)=>pct(b)-pct(a));
+  const ORDEN_CAT=["lavadora-8kg","placa-induccion-3","cafetera-superautomatica","freidora-aire-5-5l","campana-60","microondas-20l","freidora-aire-4l"];
+  const catalogo=ORDEN_CAT.map(porId).filter(Boolean);
   const demo=porId("frigorifico-combi-no-frost");
   const marcas=["Bosch","LG","Balay","AEG","Candy","Electrolux","Fagor","Grundig","Edesa","Hoover","Braun","Aristón","Junkers"];
   app.innerHTML=`
@@ -770,7 +776,6 @@ function inicio(){
       <ul class="pasos">
         <li><span class="marca-p"><i class="ph-bold ph-scan" aria-hidden="true"></i></span><div><b>La ves en foto</b><span>Cada ficha marca dónde está y qué es.</span></div></li>
         <li><span class="marca-p"><i class="ph-bold ph-seal-check" aria-hidden="true"></i></span><div><b>Es un aparato nuevo</b><span>Con los 3 años de garantía legal de un producto nuevo.</span></div></li>
-        <li><span class="marca-p"><i class="ph-bold ph-lock-key" aria-hidden="true"></i></span><div><b>No se cobra hasta confirmarla</b><span>Al pagar, el dinero queda retenido hasta que comprobamos que la unidad sigue aquí.</span></div></li>
       </ul></div>
   </div></section>
 
@@ -781,10 +786,16 @@ function inicio(){
   </div></section>
 
   <section class="sec" style="background:#fff"><div class="cont">
-    <h2>¿Qué se te ha roto?</h2>
+    <h2>¿Qué necesitas?</h2>
     <p class="sec-entrada">Toca el aparato y te enseñamos los que tenemos, de outlet y nuevos.</p>
     <div class="pictos">${PICTOS.map(p=>`<a class="picto" href="#/buscar/${encodeURIComponent(p.q)}"><svg viewBox="0 0 64 64" aria-hidden="true">${p.s}</svg><span>${p.n}</span></a>`).join("")}</div>
-    <a class="btn-txt todos" href="#/electrodomesticos">Todos los electrodomésticos <i class="ph-bold ph-arrow-right i" aria-hidden="true"></i></a>
+  </div></section>
+
+  <section class="sec"><div class="cont">
+    <div class="sec-cab"><div><h2>Nuevos de catálogo</h2><p class="sec-entrada">Aparatos totalmente nuevos, sin tara.</p></div>
+      <div class="riel-flechas"><button class="btn btn-linea flecha" data-dir="-1" aria-label="Anteriores"><i class="ph-bold ph-arrow-left i" aria-hidden="true"></i></button><button class="btn btn-linea flecha" data-dir="1" aria-label="Siguientes"><i class="ph-bold ph-arrow-right i" aria-hidden="true"></i></button></div></div>
+    <div class="perchero"><div class="riel">${catalogo.map((x,i)=>`<div class="colg" style="--r:${RIEL_R[(i+3)%RIEL_R.length]}deg">${etiqueta(x)}</div>`).join("")}</div></div>
+    <a class="btn-txt" href="#/electrodomesticos">Todos los electrodomésticos <i class="ph-bold ph-arrow-right i" aria-hidden="true"></i></a>
   </div></section>
 
   <section class="cocinas" aria-label="Cocinas a medida"><div class="cont cocinas-grid">
@@ -798,19 +809,19 @@ function inicio(){
     if(pz&&!quieto()){ pz.classList.add("sale"); $("#colgante").style.opacity="0"; setTimeout(()=>pintaEscena(false),200);} else pintaEscena(false); });
   verAlEntrar($("#scan-tara"),()=>escanear($("#scan-tara")));
   verAlEntrar($("#etq-canape"),()=>{ if(!quieto()) $("#etq-canape").classList.add("mece"); });
-  perchero();
+  document.querySelectorAll(".riel").forEach(perchero);
 }
 
 /* El perchero: las etiquetas se balancean al arrastrar el riel */
-function perchero(){
-  const r=$("#riel"); if(!r) return; const cs=[...r.querySelectorAll(".colg")];
-  document.querySelectorAll(".riel-flechas .flecha").forEach(b=>b.addEventListener("click",()=>r.scrollBy({left:+b.dataset.dir*r.clientWidth*.75,behavior:quieto()?"auto":"smooth"})));
+function perchero(r){
+  if(!r) return; const cs=[...r.querySelectorAll(".colg")];
+  r.closest(".sec").querySelectorAll(".riel-flechas .flecha").forEach(b=>b.addEventListener("click",()=>r.scrollBy({left:+b.dataset.dir*r.clientWidth*.75,behavior:quieto()?"auto":"smooth"})));
   if(quieto()) return;
   let ult=r.scrollLeft, tiempo=performance.now(), ang=0, obj=0, raf=0;
   const paso=()=>{ ang+= (obj-ang)*.18; obj*=.86; cs.forEach(c=>c.style.setProperty("--sw",ang.toFixed(2)+"deg"));
     if(Math.abs(ang)>.05||Math.abs(obj)>.05) raf=requestAnimationFrame(paso); else { raf=0; cs.forEach(c=>c.style.setProperty("--sw","0deg")); } };
   r.addEventListener("scroll",()=>{ const t=performance.now(), v=(r.scrollLeft-ult)/Math.max(16,t-tiempo); ult=r.scrollLeft; tiempo=t;
-    obj=Math.max(-6,Math.min(6,-v*5)); if(!raf) raf=requestAnimationFrame(paso); },{passive:true});
+    obj=Math.max(-3,Math.min(3,-v*3)); if(!raf) raf=requestAnimationFrame(paso); },{passive:true});
 }
 
 function listado(titulo,lista,intro=""){
