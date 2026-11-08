@@ -7,6 +7,7 @@
 <meta name="theme-color" content="#F26B1D">
 <title>Electro House · Outlet de electrodomésticos en Orihuela</title>
 <meta name="description" content="Electrodomésticos nuevos de las mejores marcas con taras estéticas de exposición, cocinas a medida y canapés. Tienda en Orihuela.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23F26B1D%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-family=%27Arial%27 font-weight=%27900%27 font-size=%2715%27 fill=%27white%27 text-anchor=%27middle%27%3EEH%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
@@ -303,6 +304,37 @@ mark{background:#FFE2CC;color:inherit;border-radius:3px;padding:0 1px}
 :focus-visible{outline:2px solid var(--naranja);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .logo-img{height:38px;width:auto;display:block}
+/* Tara, como en la opción 1 */
+.pegatina{display:block;background:#FFEADB;color:#5B2A0B;border:1px solid #F1B287;border-radius:8px;padding:8px 10px;font-size:13px;line-height:1.35}
+.pegatina b{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;margin-bottom:3px}
+.tarjeta .pegatina{margin-top:2px}
+.aro-svg{position:absolute;width:76px;height:76px;margin:-38px 0 0 -38px;pointer-events:none;overflow:visible}
+.aro-svg circle{fill:none;stroke:#F26B1D;stroke-width:4;stroke-dasharray:227;stroke-dashoffset:227;transform:rotate(-90deg);transform-origin:50% 50%}
+.tara-demo .aro-svg circle{stroke-dashoffset:0}
+.visor[data-vista="tara"] .aro-svg circle{animation:traza 520ms cubic-bezier(.23,1,.32,1) 60ms forwards}
+.visor[data-vista="producto"] .aro-svg{display:none}
+@keyframes traza{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.visor[data-vista="tara"] .aro-svg circle{animation:none;stroke-dashoffset:0}}
+.tara-sec{display:grid;gap:24px;margin-top:30px;background:#fff;border:1px solid var(--linea);border-radius:18px;padding:18px}
+.tara-demo{position:relative;background:#fff;border:1px solid var(--linea);border-radius:14px;aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden}
+.tara-demo .marco,.visor .marco{position:relative;width:80%;height:80%}
+.tara-demo .marco img,.visor .marco img{width:100%;height:100%;object-fit:contain}
+.tara-demo .pegatina{position:absolute;left:12px;bottom:12px;max-width:74%}
+.tara-sec h2{font-size:24px;margin:0 0 6px;letter-spacing:-.01em}
+.tara-sec .sub{margin:0 0 8px}
+.tara-lista{list-style:none;padding:0;margin:8px 0 0}
+.tara-lista li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--linea)}
+.tara-lista .ic{width:40px;height:40px;border-radius:10px;background:var(--naranja-claro);color:var(--naranja-osc);display:grid;place-items:center}
+.tara-lista b{display:block;font-size:15px}
+.tara-lista span{color:var(--suave);font-size:14px}
+@media(min-width:860px){.tara-sec{grid-template-columns:1fr 1fr;gap:40px;padding:28px;align-items:center}.tara-sec h2{font-size:30px}}
+.visor{position:relative;background:#fff;border:1px solid var(--linea);border-radius:18px;aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;background:var(--fondo);padding:5px;border-radius:12px}
+.seg button{min-height:46px;border:0;border-radius:9px;background:transparent;font-weight:700;font-size:15px;transition:background-color 140ms ease,color 140ms ease}
+.seg button[aria-pressed="true"]{background:var(--naranja);color:#fff}
+@media (hover:hover) and (pointer:fine){.seg button:hover:not([aria-pressed="true"]){background:#fff}}
+.ficha .pegatina{margin:16px 0;font-size:15px;padding:12px 14px}
+.ficha .pegatina b{font-size:12px}
 @media(max-width:760px){.logo-img{height:34px}}
 </style>
 </head>
@@ -481,15 +513,15 @@ const flecha=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke
 
 function tarjeta(x){
   return `<a class="tarjeta" href="#/producto/${x.id}">
-    ${x.tara?`<span class="chip-tara">OUTLET · 1 UD.</span>`:""}
     ${x.a?`<span class="dto">-${pct(x)}%</span>`:""}
     <div class="foto">${foto(x)}</div>
     <div class="info"><div class="nom">${esc(x.n)}</div>
-    ${x.tara?`<div class="tara-txt">Tara: ${esc(x.tara)}</div>`:""}
+    ${x.tara?`<span class="pegatina"><b>TARA · UNIDAD ÚNICA</b>${esc(x.tara)}</span>`:""}
     <div class="precio">${x.desde?`<span style="font-size:12px;color:var(--suave)">desde</span>`:""}<span class="p">${eur(x.p)}</span>${x.a?`<span class="antes">${eur(x.a)}</span>`:""}</div></div></a>`;
 }
 const miga = (...ps)=>`<nav class="miga" aria-label="Estás en"><a href="#/">Inicio</a>${ps.map(p=>` › ${p}`).join("")}</nav>`;
 const porId = id=>P.find(p=>p.id===id);
+const aroSvg = m=>`<svg class="aro-svg" viewBox="0 0 80 80" style="left:${m[0]}%;top:${m[1]}%" aria-hidden="true"><circle cx="40" cy="40" r="36"/></svg>`;
 
 /* ===== Páginas ===== */
 function inicio(){
@@ -530,6 +562,16 @@ function inicio(){
     <p class="sub">Unidades únicas de exposición: cuando se venden, desaparecen.</p>
     <div class="fila-scroll">${ofertas.map(tarjeta).join("")}</div>
   </section>
+  ${(()=>{const d=porId("frigorifico-combi-no-frost"); return `<section class="tara-sec">
+    <div class="tara-demo"><div class="marco">${foto(d)}${aroSvg(d.marca)}</div><span class="pegatina"><b>TARA</b>${esc(d.tara)}</span></div>
+    <div><h2>Qué es la tara</h2>
+      <p class="sub">Aparatos nuevos que han estado en exposición o han llegado con un detalle por fuera. Funcionan como el primer día.</p>
+      <ul class="tara-lista">
+        <li><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span><div><b>La ves en foto</b><span>Cada ficha marca dónde está y qué es.</span></div></li>
+        <li><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.2 1.8 2.8-.3.9 2.7 2.5 1.3-.6 2.8 1.2 2.6-2.3 1.7-.3 2.8-2.8.5L14 21l-2-1.5L10 21l-1.6-2.3-2.8-.5-.3-2.8-2.3-1.7 1.2-2.6-.6-2.8 2.5-1.3.9-2.7 2.8.3z"/><path d="m8.8 12 2.2 2.2 4.2-4.4"/></svg></span><div><b>Es un aparato nuevo</b><span>Con los 3 años de garantía legal de un producto nuevo.</span></div></li>
+        <li><span class="ic">${icoCandado}</span><div><b>No se cobra hasta confirmarla</b><span>Al pagar, el dinero queda retenido hasta que comprobamos que la unidad sigue aquí.</span></div></li>
+      </ul></div>
+  </section>`;})()}
   <section class="banda-cocina">
     <div class="ilu">${img("cocina-1","Cocina a medida")}</div>
     <div class="txt"><h2>Cocinas a medida</h2><p>Diseño, asesoramiento e instalación con garantía.</p><a class="btn btn-nar" href="#/cocinas">Pide tu presupuesto ${flecha}</a></div>
@@ -586,19 +628,18 @@ function producto(id){
   const x = porId(id); if(!x){ app.innerHTML = `${miga("No encontrado")}<div class="vacio">Este producto ya no está disponible.<br><br><a class="btn btn-nar" href="#/outlet">Ver el outlet</a></div>`; return; }
   const enCarro = carrito.some(l=>l.id===x.id);
   const rel = P.filter(p=>p.c===x.c && p.id!==x.id).slice(0,4);
-  const vistaTara = x.tara? `<div class="zoom">${foto(x)}<span class="aro" style="left:${x.marca[0]}%;top:${x.marca[1]}%"></span></div>`:"";
   app.innerHTML = `${miga(`<a href="#/categoria/${x.c}">${CATS[x.c].n}</a>`, esc(x.n))}
   <div class="ficha">
     <div class="galeria">
-      <div class="grande" id="grande">${foto(x)}<span class="etiqueta-foto">Foto de muestra</span></div>
-      ${x.tara?`<div class="miniaturas"><button class="on" data-f="0" aria-label="Foto del producto">${foto(x)}</button><button data-f="1" aria-label="Foto de la tara">${foto(x)}<span class="mini-aro"></span></button></div>`:""}
+      <div class="visor" id="visor" data-vista="producto"><div class="marco">${foto(x)}${x.tara?aroSvg(x.marca):""}</div><span class="etiqueta-foto" id="visor-pie">Foto de muestra</span></div>
+      ${x.tara?`<div class="seg" role="group" aria-label="Qué ver"><button aria-pressed="true" data-v="producto">El aparato</button><button aria-pressed="false" data-v="tara">Ver la tara</button></div>`:""}
     </div>
     <div>
       <h1>${esc(x.n)}</h1>
       <div class="ref">Ref. ${x.id.toUpperCase()} · ${CATS[x.c].n}</div>
       <div class="precio" style="margin-top:12px">${x.desde?`<span style="color:var(--suave)">desde</span>`:""}<span class="p">${eur(x.p)}</span>${x.a?`<span class="antes">${eur(x.a)}</span>`:""}</div>
       ${x.a?`<span class="ahorro">Te ahorras ${eur(x.a-x.p)} (-${pct(x)}%)</span>`:""}
-      ${x.tara?`<div class="caja-tara"><h3>${icoInfo}Qué tara tiene</h3><p>${esc(x.tara)}</p><div class="unidad">● Unidad única en tienda</div></div>`:""}
+      ${x.tara?`<div class="pegatina"><b>TARA · UNIDAD ÚNICA</b>${esc(x.tara)}</div>`:""}
       <div class="acciones">
         ${x.desde?`<a class="btn btn-nar" href="#/canapes">Elegir medida y pedir precio</a>`:`<button class="btn btn-nar" id="comprar">${enCarro?"Ya está en tu carrito · Ver carrito":"Añadir al carrito"}</button>`}
         <button class="btn btn-wa" id="preguntar"><svg width="20" height="20" viewBox="0 0 32 32" fill="#fff"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3z"/></svg>${x.tara?"¿Sigue disponible? Pregúntanos":"Pregúntanos por WhatsApp"}</button>
@@ -617,9 +658,8 @@ function producto(id){
   </div>
   ${rel.length?`<section class="sec"><div class="sec-tit"><h2>También te puede interesar</h2></div><div class="fila-scroll">${rel.map(tarjeta).join("")}</div></section>`:""}`;
   if(x.tara){
-    const g=$("#grande"), bs=document.querySelectorAll(".miniaturas button");
-    bs.forEach(b=>b.addEventListener("click",()=>{bs.forEach(o=>o.classList.toggle("on",o===b));
-      g.innerHTML = (b.dataset.f==="1"? vistaTara : foto(x)) + `<span class="etiqueta-foto">${b.dataset.f==="1"?"Aquí está la tara":"Foto de muestra"}</span>`;}));
+    const v=$("#visor"), bs=document.querySelectorAll(".seg button");
+    bs.forEach(b=>b.addEventListener("click",()=>{ bs.forEach(o=>o.setAttribute("aria-pressed",o===b)); v.dataset.vista=b.dataset.v; $("#visor-pie").textContent=b.dataset.v==="tara"?"Aquí está la tara":"Foto de muestra"; }));
   }
   const bc=$("#comprar"); if(bc) bc.addEventListener("click",()=>{ if(carrito.some(l=>l.id===x.id)){location.hash="#/carrito";return} carrito.push({id:x.id,q:1}); guardar(); bc.textContent="Ya está en tu carrito · Ver carrito"; toast("Añadido al carrito"); });
   $("#preguntar").addEventListener("click",()=>toast("Abriría WhatsApp con: «¿Sigue disponible "+x.n+"?»"));
