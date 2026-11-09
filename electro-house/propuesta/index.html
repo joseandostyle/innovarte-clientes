@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+<meta charset="utf-8">
+<title>Electro House · Propuesta de diseño de la web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@page{size:297mm 210mm;margin:0}
+:root{--carbon:#141619;--pizarra:#5B6573;--perla:#DCE2EA;--nube:#F1F4F8;--azul:#3B6DAF;--nar:#F26B1D;--nar2:#EE8B26;--negro:#2F2A24}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:var(--carbon);font:400 10.5pt/1.45 Figtree,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pag{width:297mm;height:210mm;padding:13mm 16mm 12mm;position:relative;overflow:hidden;page-break-after:always;display:flex;flex-direction:column}
+.pag:last-child{page-break-after:auto}
+.cinta{display:flex;justify-content:space-between;font:600 8pt/1 Figtree,sans-serif;color:var(--pizarra);letter-spacing:.02em;margin-bottom:7mm}
+.cinta b{color:var(--carbon)}
+h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;margin:0;letter-spacing:-.015em;line-height:1.02}
+h2{font-size:27pt;margin-bottom:3mm}
+h3{font-size:13pt;letter-spacing:-.005em}
+p{margin:0}
+.entrada{font-size:11.5pt;color:var(--pizarra);max-width:190mm}
+.n{display:inline-grid;place-items:center;min-width:9mm;height:9mm;padding:0 2mm;border-radius:2.2mm;background:var(--carbon);color:#fff;font:800 12pt/1 "Bricolage Grotesque",sans-serif}
+.n.peq{min-width:6.5mm;height:6.5mm;font-size:9pt;border-radius:1.6mm;padding:0 1.4mm}
+.pantalla{border:1px solid var(--perla);border-radius:2.5mm;overflow:hidden;background:#fff}
+.pantalla img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.movil{border:2.2mm solid var(--carbon);border-radius:6mm;overflow:hidden;background:var(--carbon);aspect-ratio:393/659}
+.movil img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:3.6mm}
+a{color:var(--azul);text-decoration:none}
+.enlace{font:600 9pt/1.3 Figtree,sans-serif;color:var(--azul)}
+.pie-pag{margin-top:auto;display:flex;justify-content:space-between;font-size:8pt;color:var(--pizarra);padding-top:4mm}
+
+/* Portada */
+.portada{background:var(--carbon);color:#fff;padding:16mm 18mm}
+.portada .marca{font:600 9pt/1 Figtree,sans-serif;letter-spacing:.08em;color:#A9B3C1}
+.portada h1{font-size:37pt;line-height:1;margin:9mm 0 5mm;max-width:112mm}
+.portada h1 span{color:#8FB2E0}
+.portada .entrada{color:#C9D1DC;max-width:108mm;font-size:12pt}
+.portada .moviles{position:absolute;right:16mm;top:22mm;display:grid;grid-template-columns:repeat(4,31mm);gap:4.5mm;align-items:start}
+.portada .moviles figure{margin:0}
+.portada .moviles .movil{border-color:#2B2F35}
+.portada .moviles figcaption{margin-top:3mm;display:flex;gap:2mm;align-items:center;font:600 8.5pt/1.2 Figtree,sans-serif;color:#C9D1DC}
+.portada .moviles .n{background:#fff;color:var(--carbon)}
+.portada .moviles figure:nth-child(2){margin-top:12mm}.portada .moviles figure:nth-child(4){margin-top:12mm}
+.portada .firma{position:absolute;left:18mm;bottom:15mm;font-size:9.5pt;color:#C9D1DC;line-height:1.6}
+.portada .firma b{color:#fff;font-weight:700}
+
+/* Página 2 */
+.comun{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin:5mm 0 8mm}
+.comun div{background:var(--nube);border-radius:2.5mm;padding:3.5mm 4mm;font-size:9.5pt;line-height:1.35}
+.comun b{display:block;font-weight:700;margin-bottom:.8mm;font-size:10pt}
+.cuatro{display:grid;grid-template-columns:repeat(4,1fr);gap:5mm}
+.cuatro article{border-top:1.2mm solid var(--carbon);padding-top:4mm}
+.cuatro .muestra{height:42mm;margin:3.5mm 0 3mm}
+.cuatro h3{margin:3mm 0 1.5mm}
+.cuatro p{font-size:9.5pt;color:#2C3138}
+
+/* Página por opción */
+.opcion{display:grid;grid-template-columns:1fr 64mm;gap:9mm;flex:1;min-height:0}
+.opcion .izq{display:flex;flex-direction:column;min-height:0}
+.opcion .izq .pantalla{flex:1;min-height:0}
+.opcion .der{display:flex;flex-direction:column;gap:4mm}
+.opcion .der .movil{width:46mm}
+.tit-op{display:flex;align-items:center;gap:4mm;margin-bottom:2mm}
+.tit-op h2{margin:0}
+.bajada{font-size:11.5pt;color:var(--pizarra);margin:0 0 5mm;max-width:200mm}
+.puntos{list-style:none;padding:0;margin:4mm 0 0;display:grid;grid-template-columns:1fr 1fr;gap:3mm 7mm}
+.puntos li{font-size:9.6pt;line-height:1.4;padding-left:4.5mm;position:relative}
+.puntos li::before{content:"";position:absolute;left:0;top:1.9mm;width:2mm;height:2mm;border-radius:.5mm;background:var(--azul)}
+.ficha-op{font-size:9pt;line-height:1.45;color:#2C3138;border-top:1px solid var(--perla);padding-top:3mm}
+.ficha-op dt{font-weight:700;color:var(--carbon);margin-top:2mm}
+.ficha-op dt:first-child{margin-top:0}
+.ficha-op dd{margin:0}
+.chips{display:flex;gap:1.5mm;margin-top:1.2mm}
+.chips i{width:6mm;height:6mm;border-radius:1.4mm;border:1px solid rgba(0,0,0,.12)}
+
+/* 3 frente a 3b */
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin-top:3mm}
+.versus figure{margin:0}
+.versus .pantalla{height:52mm}
+.versus figcaption{display:flex;align-items:center;gap:2mm;margin-top:2mm;font-weight:600;font-size:9.5pt}
+.tabla{width:100%;border-collapse:collapse;margin-top:5mm;font-size:9.4pt}
+.tabla th{text-align:left;font:700 8.5pt/1.2 Figtree,sans-serif;color:var(--pizarra);padding:0 3mm 2mm 0;border-bottom:1.2px solid var(--carbon)}
+.tabla td{padding:2.3mm 3mm 2.3mm 0;border-bottom:1px solid var(--perla);vertical-align:top;line-height:1.35}
+.tabla td:first-child{font-weight:700;width:38mm}
+
+/* Comparativas */
+.fila4{display:grid;grid-template-columns:repeat(4,1fr);gap:7mm;margin-top:3mm;flex:1;min-height:0}
+.fila4 figure{margin:0;display:flex;flex-direction:column}
+.fila4 .movil{width:54mm;margin:0 auto}
+.fila4 figcaption{margin-top:3.5mm;font-size:9.2pt;line-height:1.4}
+.fila4 figcaption .cab{display:flex;align-items:center;gap:2mm;font-weight:700;margin-bottom:1mm;font-size:10pt}
+
+.mapa{display:grid;grid-template-columns:repeat(3,1fr);gap:7mm;margin-top:4mm}
+.mapa h3{display:flex;align-items:center;gap:2mm;font-size:11.5pt;margin-bottom:3mm}
+.mapa ol{list-style:none;margin:0;padding:0;display:grid;gap:1.4mm}
+.mapa li{display:flex;align-items:center;gap:2.5mm;padding:2.2mm 3mm;border-radius:1.8mm;background:var(--nube);font-size:9.2pt;font-weight:500}
+.mapa li small{margin-left:auto;color:var(--pizarra);font-size:7.8pt;font-weight:500;text-align:right}
+.mapa li.t{background:#FDE7D7}
+.mapa li.h{background:var(--carbon);color:#fff}.mapa li.h small{color:#B9C2CF}
+.mapa .cabecera{font-size:8.8pt;color:#2C3138;margin-top:3mm;line-height:1.4}
+.leyenda{display:flex;gap:5mm;font-size:8.2pt;color:var(--pizarra);margin-top:auto;padding-top:3mm}
+.leyenda span{display:inline-flex;align-items:center;gap:1.5mm}
+.leyenda i{width:3.5mm;height:3.5mm;border-radius:.8mm;display:inline-block}
+
+.tara3{display:grid;grid-template-columns:repeat(3,1fr);gap:8mm;margin-top:3mm}
+.tara3 figure{margin:0}
+.tarjeta-img{height:104mm;display:flex;align-items:center;justify-content:center;background:var(--nube);border-radius:2.5mm;padding:3mm;overflow:hidden}
+.tarjeta-img img{max-height:98mm;max-width:100%;width:auto;height:auto;display:block}
+.tara3 figcaption{margin-top:3mm;font-size:9.2pt;line-height:1.4}
+.tara3 figcaption .cab{display:flex;align-items:center;gap:2mm;font-weight:700;margin-bottom:1mm;font-size:10pt}
+.tara3 .pantalla{height:30mm;margin-top:3mm}
+
+.rej2{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:5mm 8mm;margin-top:3mm;flex:1;min-height:0}
+.rej2 figcaption{min-height:9.5mm}
+.rej2 figure{margin:0;display:flex;flex-direction:column;min-height:0}
+.rej2 .pantalla{flex:1;min-height:0}
+.rej2 figcaption{margin-top:2.2mm;font-size:9.2pt;line-height:1.38}
+.rej2 figcaption .cab{display:inline-flex;align-items:center;gap:2mm;font-weight:700;margin-right:1.5mm}
+.rej2.sin-recorte{flex:none;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;align-items:start;gap:7mm 8mm}
+.rej2.sin-recorte .pantalla{flex:none;height:auto;width:100%;background:#fff}
+.rej2.sin-recorte .pantalla img{width:100%;height:auto;object-fit:initial}
+.rej2.sin-recorte .marco-coc{height:60mm;display:flex;align-items:center;background:var(--nube);border-radius:2.5mm;padding:0 3mm}
+.comun-linea{font-size:9.3pt;color:var(--pizarra);margin-top:3mm}
+
+.resumen{width:100%;border-collapse:separate;border-spacing:0;margin-top:3mm;font-size:9.2pt}
+.resumen th{font:800 11pt/1 "Bricolage Grotesque",sans-serif;text-align:left;padding:0 3mm 2.5mm}
+.resumen th:first-child{width:30mm}
+.resumen td{padding:2.6mm 3mm;border-bottom:1px solid var(--perla);vertical-align:top;line-height:1.38}
+.resumen td:first-child{font-weight:700;color:var(--pizarra);padding-left:0}
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;margin-top:6mm}
+.pasos div{background:var(--nube);border-radius:2.5mm;padding:4mm 4.5mm}
+.pasos b{display:block;font:800 11pt/1.15 "Bricolage Grotesque",sans-serif;margin-bottom:1.5mm}
+.pasos p{font-size:9.2pt;line-height:1.4}
+.enlaces{display:grid;grid-template-columns:repeat(2,auto);justify-content:start;gap:2.5mm 14mm;margin-top:8mm;font-size:10pt}
+.enlaces a b{color:var(--carbon);margin-right:2mm}
+</style>
+</head>
+<body>
+
+<!-- 1 · Portada -->
+<section class="pag portada">
+  <div class="marca">INNOVARTE AGENCY · PROPUESTA DE DISEÑO</div>
+  <h1>Cuatro diseños para la web de <span>Electro House</span></h1>
+  <p class="entrada">Las cuatro hacen lo mismo: vender el outlet y los nuevos, enseñar la tara en foto y cobrar online. Lo que cambia es cómo se ven. Mirad cuál os representa mejor.</p>
+  <div class="moviles">
+    <figure><div class="movil"><img src="capturas/op1-hero-m.png" alt=""></div><figcaption><span class="n peq">1</span>El rótulo y el escaparate</figcaption></figure>
+    <figure><div class="movil"><img src="capturas/op2-hero-m.png" alt=""></div><figcaption><span class="n peq">2</span>La tara se escanea</figcaption></figure>
+    <figure><div class="movil"><img src="capturas/op3-hero-m.png" alt=""></div><figcaption><span class="n peq">3</span>Tienda clásica</figcaption></figure>
+    <figure><div class="movil"><img src="capturas/op3b-hero-m.png" alt=""></div><figcaption><span class="n peq">3b</span>Tienda clásica, pulida</figcaption></figure>
+  </div>
+  <div class="firma"><b>Jose · Innovarte Agency</b><br>634 45 25 34 · innovarte.sl@gmail.com<br>Noviembre de 2026</div>
+</section>
+
+<!-- 2 · Lo común y las cuatro de un vistazo -->
+<section class="pag">
+  <div class="cinta"><span><b>Electro House</b> · Propuesta de diseño</span><span>2</span></div>
+  <h2>Lo que tienen las cuatro</h2>
+  <p class="entrada">Elijáis la que elijáis, la web funciona igual. Esto viene en todas:</p>
+  <div class="comun">
+    <div><b>Primero el móvil</b>Pensadas para quien busca desde el teléfono.</div>
+    <div><b>Buscador que entiende faltas</b>«nebera» encuentra frigoríficos; «aifrayer», freidoras de aire.</div>
+    <div><b>Outlet y nuevos, separados</b>Los de tara y los de catálogo, cada uno en su sitio.</div>
+    <div><b>La tara en foto</b>Cada aparato de outlet marca dónde está el defecto.</div>
+    <div><b>Una ficha por aparato</b>Con su propia dirección, para enviarla por WhatsApp.</div>
+    <div><b>Unidades únicas</b>Cada aparato de tara es una sola unidad y desaparece de la web al venderse.</div>
+    <div><b>Cocinas y canapés</b>Presupuesto de cocina a medida y canapés desde 199 €.</div>
+    <div><b>WhatsApp a mano</b>«¿Sigue disponible?» con un toque desde cada ficha.</div>
+  </div>
+  <h3 style="font-size:15pt;margin-bottom:4mm">Las cuatro de un vistazo</h3>
+  <div class="cuatro">
+    <article><span class="n">1</span><div class="pantalla muestra"><img src="capturas/op1-hero-d.png" alt=""></div><h3>El rótulo y el escaparate</h3><p>La web como vuestra fachada: la banda naranja del rótulo y los aparatos de pie en el escaparate, con su precio.</p></article>
+    <article><span class="n">2</span><div class="pantalla muestra"><img src="capturas/op2-hero-d.png" alt=""></div><h3>La tara se escanea</h3><p>Con la imagen nueva de vuestros diseñadores: negro y naranja, letra en cursiva y un visor que encuentra la tara.</p></article>
+    <article><span class="n">3</span><div class="pantalla muestra"><img src="capturas/op3-hero-d.png" alt=""></div><h3>Tienda clásica</h3><p>Una tienda online de las de siempre, con carrusel, ventajas y ofertas. La más cercana a la idea que nos enseñasteis.</p></article>
+    <article><span class="n">3b</span><div class="pantalla muestra"><img src="capturas/op3b-hero-d.png" alt=""></div><h3>Tienda clásica, pulida</h3><p>La misma que la 3, con los detalles afinados para que se vea más limpia. En la página 6 veis en qué cambia.</p></article>
+  </div>
+  <div class="pie-pag"><span>Productos, fotos y precios son de muestra hasta tener vuestro catálogo.</span><span>Innovarte Agency</span></div>
+</section>
+
+<!-- 3 · Opción 1 -->
+<section class="pag">
+  <div class="cinta"><span><b>Electro House</b> · Propuesta de diseño</span><span>3</span></div>
+  <div class="tit-op"><span class="n">1</span><h2>El rótulo y el escaparate</h2></div>
+  <p class="bajada">La web se parece a vuestra tienda de la calle Obispo Rocamora: arriba el rótulo naranja, debajo el escaparate.</p>
+  <div class="opcion">
+    <div class="izq"><div class="pantalla"><img src="capturas/op1-hero-d.png" alt="Portada de la opción 1 en ordenador"></div>
+      <ul class="puntos">
+        <li>Banda naranja con letra alta y estrecha, como las letras de vuestro rótulo.</li>
+        <li>Frigorífico, lavavajillas y freidora de pie en el escaparate, cada uno con su pegatina de precio.</li>
+        <li>Todo recto y limpio: blanco, gris y vuestro naranja. Sin adornos.</li>
+        <li>Sensación: tienda de barrio de toda la vida, seria y directa.</li>
+      </ul></div>
+    <div class="der"><div class="movil"><img src="capturas/op1-hero-m.png" alt="Opción 1 en el móvil"></div>
+      <dl class="ficha-op"><dt>Letra</dt><dd>Barlow condensada en mayúsculas</dd><dt>Colores</dt><dd>Naranja de la fachada, blanco y grafito<div class="chips"><i style="background:#F26B1D"></i><i style="background:#fff"></i><i style="background:#17191C"></i></div></dd><dt>Verla</dt><dd><a class="enlace" href="https://clientes.innovarteweb.com/electro-house/opcion-1/">clientes.innovarteweb.com/<br>electro-house/opcion-1/</a></dd></dl></div>
+  </div>
+</section>
+
+<!-- 4 · Opción 2 -->
+<section class="pag">
+  <div class="cinta"><span><b>Electro House</b> · Propuesta de diseño</span><span>4</span></div>
+  <div class="tit-op"><span class="n">2</span><h2>La tara se escanea</h2></div>
+  <p class="bajada">Hecha con el manual de identidad nuevo: sus colores, su letra en cursiva y sus franjas en diagonal. La más llamativa de las cuatro.</p>
+  <div class="opcion">
+    <div class="izq"><div class="pantalla"><img src="capturas/op2-hero-d.png" alt="Portada de la opción 2 en ordenador"></div>
+      <ul class="puntos">
+        <li>Al entrar, una línea recorre el frigorífico, un visor se cierra sobre la tara y cae la etiqueta del precio.</li>
+        <li>«Ver otra tara» repite el escaneo con el lavavajillas.</li>
+        <li>Las marcas de vuestro escaparate cruzan la portada en una franja naranja.</li>
+        <li>Sensación: marca con personalidad; se estrena la imagen nueva.</li>
+      </ul></div>
+    <div class="der"><div class="movil"><img src="capturas/op2-hero-m.png" alt="Opción 2 en el móvil"></div>
+      <dl class="ficha-op"><dt>Letra</dt><dd>Exo 2 en cursiva y Open Sans, las del manual</dd><dt>Colores</dt><dd>Naranja Electro, negro House y blanco<div class="chips"><i style="background:#EE8B26"></i><i style="background:#2F2A24"></i><i style="background:#fff"></i></div></dd><dt>Verla</dt><dd><a class="enlace" href="https://clientes.innovarteweb.com/electro-house/opcion-2/">clientes.innovarteweb.com/<br>electro-house/opcion-2/</a></dd></dl></div>
+  </div>
+</section>
+
+<!-- 5 · Opción 3 -->
+<section class="pag">
+  <div class="cinta"><span><b>Electro House</b> · Propuesta de diseño</span><span>5</span></div>
+  <div class="tit-op"><span class="n">3</span><h2>Tienda clásica</h2></div>
+  <p class="bajada">Una tienda online como las que todo el mundo conoce. Parte de la idea que nos enseñasteis.</p>
+  <div class="opcion">
+    <div class="izq"><div class="pantalla"><img src="capturas/op3-hero-d.png" alt="Portada de la opción 3 en ordenador"></div>
+      <ul class="puntos">
+        <li>Carrusel arriba con tres anuncios: ofertas, cocinas a medida y canapés.</li>
+        <li>Barra de ventajas: precio de outlet, nuevos de exposición, recogida en tienda y envío.</li>
+        <li>Esquinas redondeadas, degradado naranja y el descuento en la esquina de cada tarjeta.</li>
+        <li>Sensación: familiar y fácil para cualquiera, como las tiendas grandes.</li>
+      </ul></div>
+    <div class="der"><div class="movil"><img src="capturas/op3-hero-m.png" alt="Opción 3 en el móvil"></div>
+      <dl class="ficha-op"><dt>Letra</dt><dd>Montserrat, con titulares en cursiva gruesa</dd><dt>Colores</dt><dd>Naranja, blanco y gris oscuro<div class="chips"><i style="background:#F26B1D"></i><i style="background:#fff"></i><i style="background:#2A2D35"></i></div></dd><dt>Verla</dt><dd><a class="enlace" href="https://clientes.innovarteweb.com/electro-house/opcion-3/">clientes.innovarteweb.com/<br>electro-house/opcion-3/</a></dd></dl></div>
+  </div>
+</section>
+
+<!-- 6 · 3 frente a 3b -->
+<section class="pag">
+  <div class="cinta"><span><b>Electro House</b> · Propuesta de diseño</span><span>6</span></div>
+  <div class="tit-op"><span class="n">3b</span><h2>La 3, más afinada</h2></div>
+  <p class="bajada">La 3b es muy parecida a la 3: misma estructura, mismas secciones y mismos textos. Cambian detalles que la hacen más limpia. Si os gusta la 3, esto os ayuda a elegir entre las dos.</p>
+  <div class="versus">
+    <figure><div class="pantalla"><img src="capturas/op3-hero-d.png" alt=""></div><figcaption><span class="n peq">3</span>Con etiqueta sobre el titular y botón «Ver ofertas»</figcaption></figure>
+    <figure><div class="pantalla"><img src="capturas/op3b-hero-d.png" alt=""></div><figcaption><span class="n peq">3b</span>Titular solo y botón «Ver el outlet»</figcaption></figure>
+  </div>
+  <table class="tabla">
+    <thead><tr><th>Detalle</th><th>Opción 3</th><th>Opción 3b</th></tr></thead>
+    <tbody>
+      <tr><td>Carrusel</td><td>Una etiqueta pequeña encima de cada titular («Outlet · Nuevos de exposición»)</td><td>Sin etiqueta: el titular habla solo</td></tr>
+      <tr><td>Botones al outlet</td><td>«Ver ofertas», «Ver todas»…</td><td>«Ver el outlet» siempre, el mismo texto en toda la web</td></tr>
+      <tr><td>Iconos</td><td>En naranja</td><td>En gris oscuro: el naranja queda solo para precios y botones</td></tr>
+      <tr><td>Banda de cocinas</td><td>Fondo oscuro junto a la foto</td><td>Fondo blanco junto a la foto</td></tr>
+      <tr><td>Categorías</td><td>Fila de tarjetas que se desliza</td><td>Cuadrícula con una casilla grande</td></tr>
+      <tr><td>Acabado</td><td>Sombras más marcadas</td><td>Sin sombras de relleno y el mismo redondeo de esquinas en todo</td></tr>
+    </tbody>
+  </table>
+  <div class="pie-pag"><span>La 3b se ve en <a href="https://clientes.innovarteweb.com/electro-house/opcion-3b/">clientes.innovarteweb.com/electro-house/opcion-3b/</a></span><span>Innovarte Agency</span></div>
+</section>
+
+<!-- 7 · El hero -->
+<section class="pag">
+  <div class="cinta"><span><b>Electro House</b> · Propuesta de diseño</span><span>7</span></div>
+  <h2>Lo primero que se ve</h2>
+  <p class="entrada">La primera pantalla del móvil, tal cual la verá un cliente al entrar.</p>
+  <div class="fila4">
+    <figure><div class="movil"><img src="capturas/op1-hero-m.png" alt=""></div><figcaption><span class="cab"><span class="n peq">1</span>El rótulo</span>«Outlet de electrodomésticos» en la banda naranja y tres aparatos de pie con su precio. Botón «Ver el outlet».</figcaption></figure>
+    <figure><div class="movil"><img src="capturas/op2-hero-m.png" alt=""></div><figcaption><span class="cab"><span class="n peq">2</span>El escáner</span>«Outlet de marcas» sobre negro. El visor encuentra la tara y cae el precio. Botones «Ver el outlet» y «Ver otra tara».</figcaption></figure>
+    <figure><div class="movil"><img src="capturas/op3-hero-m.png" alt=""></div><figcaption><span class="cab"><span class="n peq">3</span>El carrusel</span>Tres diapositivas: ofertas, cocinas y canapés, con una etiqueta encima del titular. Botón «Ver ofertas».</figcaption></figure>
+    <figure><div class="movil"><img src="capturas/op3b-hero-m.png" alt=""></div><figcaption><span class="cab"><span class="n peq">3b</span>El carrusel, limpio</span>Las mismas tres diapositivas, sin etiqueta y con «Ver el outlet».</figcaption></figure>
+  </div>
+</section>
+
+<!-- 8 · La página principal -->
+<section class="pag">
+  <div class="cinta"><span><b>Electro House</b> · Propuesta de diseño</span><span>8</span></div>
+  <h2>La página principal, de arriba abajo</h2>
+  <p class="entrada">El orden de las secciones en cada opción. Todas acaban invitando a venir a la tienda.</p>
+  <div class="mapa">
+    <div><h3><span class="n peq">1</span>El rótulo y el escaparate</h3><ol>
+      <li class="h">Rótulo y escaparate</li><li class="t">Unidades únicas <small>carril de outlet</small></li><li class="t">Qué es la tara</li><li>Busca por tipo <small>cuadrícula</small></li><li>Nuevos de catálogo</li><li>Cocinas a medida <small>foto con panel naranja</small></li><li>Canapés <small>«199 €» gigante</small></li><li>Ven a verla en persona</li></ol>
+      <p class="cabecera"><b>Cabecera:</b> blanca, con buscador y menú en línea.</p></div>
+    <div><h3><span class="n peq">2</span>La tara se escanea</h3><ol>
+      <li class="h">El escáner de tara</li><li class="t">Unidades únicas <small>etiquetas negras</small></li><li class="t">Qué es la tara <small>con el visor</small></li><li>Canapés <small>etiqueta colgada</small></li><li>¿Qué necesitas? <small>dibujos de aparatos</small></li><li>Nuevos de catálogo <small>etiquetas blancas</small></li><li>Cocinas a medida <small>todo en naranja</small></li><li>Tarjeta de visita de la tienda</li></ol>
+      <p class="cabecera"><b>Cabecera:</b> negra con raya naranja; en el móvil, menú y buscador a pantalla completa.</p></div>
+    <div><h3><span class="n peq">3</span>Tienda clásica <span style="font-weight:600;font-size:9pt;color:var(--pizarra)">(y 3b)</span></h3><ol>
+      <li class="h">Carrusel de tres anuncios</li><li>Barra de ventajas</li><li class="t">Ofertas destacadas</li><li class="t">Qué es la tara</li><li>Cocinas a medida <small>banda con foto</small></li><li>Canapés <small>«Desde 199 €»</small></li><li>Por categoría</li><li>Nuevos de catálogo</li><li>Ven a ver la tara en persona</li></ol>
+      <p class="cabecera"><b>Cabecera:</b> blanca, con buscador grande y menú en pestañas.</p></div>
+  </div>
+  <div class="leyenda"><span><i style="background:var(--carbon)"></i>Primera pantalla</span><span><i style="background:#FDE7D7"></i>Outlet y tara</span><span><i style="background:var(--nube);border:1px solid var(--perla)"></i>Resto de secciones</span></div>
+</section>
+
+<!-- 9 · Los artículos con tara -->
+<section class="pag">
+  <div class="cinta"><span><b>Electro House</b> · Propuesta de diseño</span><span>9</span></div>
+  <h2>Cómo se enseña la tara</h2>
+  <p class="entrada">En las cuatro, cada aparato de outlet lleva su aviso «TARA · UNIDAD ÚNICA» con lo que tiene, y en su página «Ver la tara» la marca sobre la foto. Cambia cómo se dibuja.</p>
+  <div class="tara3">
+    <figure><div class="tarjeta-img"><img src="capturas/op1-tarjeta.png" alt=""></div><figcaption><span class="cab"><span class="n peq">1</span>Pegatina y círculo</span>Tarjeta blanca y recta, pegatina naranja clara y el descuento en una cajita. Un círculo naranja marca la tara en la foto.</figcaption></figure>
+    <figure><div class="tarjeta-img" style="background:#F3F2EF"><img src="capturas/op2-tarjeta.png" alt=""></div><figcaption><span class="cab"><span class="n peq">2</span>Etiqueta de outlet y visor</span>Tarjeta negra como la etiqueta del manual, con la cinta naranja inclinada. Cuatro esquinas se cierran sobre la tara. Los nuevos van en blanco.</figcaption></figure>
+    <figure><div class="tarjeta-img"><img src="capturas/op3-tarjeta.png" alt=""></div><figcaption><span class="cab"><span class="n peq">3</span><span class="n peq">3b</span>Tarjeta redondeada</span>Esquinas suaves, el descuento en una pastilla naranja arriba y la pegatina redondeada. Un círculo naranja marca la tara.</figcaption></figure>
+  </div>
+</section>
+
+<!-- 10 · Cocinas a medida -->
+<section class="pag">
+  <div class="cinta"><span><b>Electro House</b> · Propuesta de diseño</span><span>10</span></div>
+  <h2>Cocinas a medida</h2>
+  <p class="entrada" style="margin-bottom:2mm">Así aparece la sección de cocinas en la página principal de cada opción.</p>
+  <div class="rej2 sin-recorte">
+    <figure><div class="marco-coc"><div class="pantalla"><img src="capturas/op1-cocinas.png" alt=""></div></div><figcaption><span class="cab"><span class="n peq">1</span></span>La cocina a todo lo ancho con un panel naranja encima y el botón «Pedir presupuesto».</figcaption></figure>
+    <figure><div class="marco-coc"><div class="pantalla"><img src="capturas/op2-cocinas.png" alt=""></div></div><figcaption><span class="cab"><span class="n peq">2</span></span>Sección entera en naranja, letra grande en cursiva y la foto cortada en diagonal.</figcaption></figure>
+    <figure><div class="marco-coc"><div class="pantalla"><img src="capturas/op3-cocinas.png" alt="" style="margin-top:-2mm"></div></div><figcaption><span class="cab"><span class="n peq">3</span></span>Banda con la foto a la izquierda y el texto sobre fondo oscuro.</figcaption></figure>
+    <figure><div class="marco-coc"><div class="pantalla"><img src="capturas/op3b-cocinas.png" alt="" style="margin-top:-2mm"></div></div><figcaption><span class="cab"><span class="n peq">3b</span></span>La misma banda, con el texto sobre fondo blanco.</figcaption></figure>
+  </div>
+  <p class="comun-linea">En las cuatro, la página de cocinas tiene su formulario: nombre, teléfono, medidas aproximadas y fotos de la cocina del cliente.</p>
+</section>
+
+<!-- 11 · Página de cada producto -->
+<section class="pag">
+  <div class="cinta"><span><b>Electro House</b> · Propuesta de diseño</span><span>11</span></div>
+  <h2>La página de cada aparato</h2>
+  <div class="rej2">
+    <figure><div class="pantalla"><img src="capturas/op1-ficha.png" alt=""></div><figcaption><span class="cab"><span class="n peq">1</span></span>Título alto en mayúsculas, precio grande en naranja y botones rectos en negro y verde. «Ver la tara» dibuja un círculo sobre el golpe.</figcaption></figure>
+    <figure><div class="pantalla"><img src="capturas/op2-ficha.png" alt=""></div><figcaption><span class="cab"><span class="n peq">2</span></span>Banda negra arriba y botones inclinados. «Ver la tara» pasa el escáner y cierra el visor sobre el golpe. Datos en cuatro recuadros.</figcaption></figure>
+    <figure><div class="pantalla"><img src="capturas/op3-ficha.png" alt=""></div><figcaption><span class="cab"><span class="n peq">3</span></span>Título normal, «Añadir al carrito» en naranja y redondeado, y ventajas con marcas naranjas. «Ver la tara» con círculo.</figcaption></figure>
+    <figure><div class="pantalla"><img src="capturas/op3b-ficha.png" alt=""></div><figcaption><span class="cab"><span class="n peq">3b</span></span>Igual que la 3, con las marcas de la lista en gris oscuro.</figcaption></figure>
+  </div>
+  <p class="comun-linea">En las cuatro: botón «¿Sigue disponible?» por WhatsApp, precio con el ahorro y los datos de estado, garantía y entrega.</p>
+</section>
+
+<!-- 12 · Resumen y siguiente paso -->
+<section class="pag">
+  <div class="cinta"><span><b>Electro House</b> · Propuesta de diseño</span><span>12</span></div>
+  <h2>En resumen</h2>
+  <table class="resumen">
+    <thead><tr><th></th><th><span class="n peq">1</span> El rótulo</th><th><span class="n peq">2</span> El escáner</th><th><span class="n peq">3</span> Clásica</th><th><span class="n peq">3b</span> Clásica pulida</th></tr></thead>
+    <tbody>
+      <tr><td>Sensación</td><td>Tienda de barrio, seria y directa</td><td>Llamativa, con personalidad</td><td>Familiar, como las tiendas grandes</td><td>Familiar y más limpia</td></tr>
+      <tr><td>Imagen</td><td>La de vuestra fachada actual</td><td>La del rebranding nuevo</td><td>Tienda online conocida, en vuestro naranja</td><td>Igual que la 3, más ordenada</td></tr>
+      <tr><td>Lo más especial</td><td>El escaparate con los aparatos de pie</td><td>El escáner que encuentra la tara</td><td>El carrusel con tres anuncios</td><td>El carrusel, sin etiquetas</td></tr>
+      <tr><td>Encaja si…</td><td>queréis que la web se parezca a la tienda que ya conocen</td><td>queréis estrenar la imagen nueva y destacar</td><td>preferís algo que cualquiera sepa usar a la primera</td><td>os gusta la 3, pero la queréis más cuidada</td></tr>
+    </tbody>
+  </table>
+  <div class="pasos">
+    <div><b>1. Miradlas en el móvil</b><p>Abrid los cuatro enlaces y tocad como un cliente: buscad, entrad en un aparato y pulsad «Ver la tara».</p></div>
+    <div><b>2. Decidnos cuál</b><p>Elegid una. Si os gusta un detalle de otra, se puede llevar a la elegida.</p></div>
+    <div><b>3. La montamos con lo vuestro</b><p>Con vuestro catálogo, fotos y precios reales, terminamos la web elegida.</p></div>
+  </div>
+  <div class="enlaces">
+    <a href="https://clientes.innovarteweb.com/electro-house/opcion-1/"><b>Opción 1</b>clientes.innovarteweb.com/electro-house/opcion-1/</a>
+    <a href="https://clientes.innovarteweb.com/electro-house/opcion-2/"><b>Opción 2</b>clientes.innovarteweb.com/electro-house/opcion-2/</a>
+    <a href="https://clientes.innovarteweb.com/electro-house/opcion-3/"><b>Opción 3</b>clientes.innovarteweb.com/electro-house/opcion-3/</a>
+    <a href="https://clientes.innovarteweb.com/electro-house/opcion-3b/"><b>Opción 3b</b>clientes.innovarteweb.com/electro-house/opcion-3b/</a>
+  </div>
+  <div class="pie-pag"><span>Todas en clientes.innovarteweb.com/electro-house/</span><span><b>Jose · Innovarte Agency</b> · 634 45 25 34 · innovarte.sl@gmail.com</span></div>
+</section>
+
+</body>
+</html>
