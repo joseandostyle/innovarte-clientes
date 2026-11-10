@@ -159,13 +159,15 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 .scan[data-estado="buscando"] .scan-barre{opacity:1;animation:barre 900ms var(--mueve) forwards}
 .scan[data-estado="encontrada"] .scan-barre{opacity:0;transform:translateY(var(--y));transition:opacity 240ms ease}
 @keyframes barre{0%{transform:translateY(0)}74%{transform:translateY(calc(var(--y) + 6%))}100%{transform:translateY(var(--y))}}
-.visor{position:absolute;z-index:3;left:var(--x);top:var(--y);width:var(--vs,48px);aspect-ratio:1;translate:-50% -50%;pointer-events:none;opacity:0;scale:1.7;transition:opacity 160ms ease,scale 320ms var(--salida)}
+.scan{position:relative;display:block}
+.visor{position:absolute;z-index:3;left:var(--x);top:var(--y);width:max(14px,var(--vs,22%));aspect-ratio:1;translate:-50% -50%;pointer-events:none;opacity:0;scale:1.7;transition:opacity 160ms ease,scale 320ms var(--salida)}
 .visor i{position:absolute;width:30%;height:30%;border:0 solid var(--rotulo)}
-.visor i:nth-child(1){left:0;top:0;border-width:3px 0 0 3px}
-.visor i:nth-child(2){right:0;top:0;border-width:3px 3px 0 0}
-.visor i:nth-child(3){left:0;bottom:0;border-width:0 0 3px 3px}
-.visor i:nth-child(4){right:0;bottom:0;border-width:0 3px 3px 0}
+.visor i:nth-child(1){left:0;top:0;border-width:var(--bv,3px) 0 0 var(--bv,3px)}
+.visor i:nth-child(2){right:0;top:0;border-width:var(--bv,3px) var(--bv,3px) 0 0}
+.visor i:nth-child(3){left:0;bottom:0;border-width:0 0 var(--bv,3px) var(--bv,3px)}
+.visor i:nth-child(4){right:0;bottom:0;border-width:0 var(--bv,3px) var(--bv,3px) 0}
 .scan[data-estado="encontrada"] .visor{opacity:1;scale:1}
+#escaparate .visor{--bv:2px}
 #escaparate .pieza.activa:not(.actual) .scan[data-estado="encontrada"] .visor{opacity:.45}
 /* Etiqueta colgada */
 .colgante{position:absolute;z-index:4;top:0;left:var(--cx,40%);width:96px;transform-origin:50% 0;color:#fff;text-decoration:none;opacity:0;pointer-events:none}
@@ -195,7 +197,7 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 @supports (animation-timeline:scroll()){@media (prefers-reduced-motion:no-preference){.marcas-pista{animation:desliza linear both;animation-timeline:scroll(root);animation-range:0 110svh}}}
 @keyframes desliza{to{transform:translateX(-35%)}}
 @media(max-width:899px){
-  .colgante{width:62px}.colgante b{font-size:19px;margin:3px 0 1px}.colgante .tg{padding:13px 4px 6px}.colgante .tg::before{top:4px;width:7px;height:7px;margin-left:-3.5px}.colgante em{font-size:8px;letter-spacing:.08em}.colgante s{font-size:10px}.colgante .dto{font-size:11px;padding:2px 4px;margin-top:3px}
+  .colgante{width:48px}.colgante b{font-size:15px;margin:2px 0 1px}.colgante .tg{padding:10px 2px 4px;box-shadow:0 6px 12px rgba(20,22,26,.2)}.colgante .tg::before{top:3px;width:5px;height:5px;margin-left:-2.5px;box-shadow:inset 0 0 0 1px #9AA1AA}.colgante em{font-size:6.5px;letter-spacing:.06em}.colgante s{font-size:8.5px}.colgante .dto{font-size:9px;padding:1px 3px;margin-top:2px}
   .pz-1{--h:80%;left:4%}.pz-2{--h:54%;left:38%}.pz-3{--h:27%;left:73%}
   .barra-envios{font-size:13px;padding-block:5px}
   .rot-fila{height:50px}
@@ -210,8 +212,8 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 }
 @media(max-width:899px){
   .acc-fila{gap:8px;flex-wrap:nowrap}
-  .acc-fila .btn{min-height:46px;padding:0 13px;font-size:15px;gap:6px}
-  .acc-fila .enlace{font-size:14px;padding:0 2px;gap:4px}
+  .acc-fila{display:grid;grid-template-columns:1fr 1fr}
+  .acc-fila .btn{min-height:46px;padding:0 10px;font-size:15px;gap:6px}
   .ventajas div{font-size:12px}
   .acc-fila{padding:8px 0 6px}
   .ventajas div{padding:7px 3px 8px;font-size:12px}
@@ -613,36 +615,9 @@ dialog::backdrop{background:rgba(23,25,28,.55)}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/minisearch@6.3.0/dist/umd/index.min.js"></script>
+<script src="catalogo-muestra.js"></script>
 <script>
-/* Catálogo de muestra: productos, precios, taras, clases energéticas, medidas y fichas técnicas
-   son de muestra; con el catálogo real salen de la ficha oficial del fabricante (EPREL). */
-const CATS={
-  lavado:{n:"Lavado",d:"Lavadoras, secadoras y lavavajillas",f:"lavadora-1"},
-  frio:{n:"Frío",d:"Frigoríficos y combis",f:"frigorifico-combi"},
-  coccion:{n:"Cocción",d:"Hornos, placas, campanas y microondas",f:"horno"},
-  pequeno:{n:"Pequeño electrodoméstico",d:"Freidoras de aire y cafeteras",f:"freidora-1"},
-  clima:{n:"Climatización",d:"Aire acondicionado portátil",f:"aire"},
-  canapes:{n:"Canapés",d:"Canapés abatibles de madera",f:"canape"}
-};
-const P=[
- {id:"lavadora-9kg",n:"Lavadora 9 kg carga frontal",c:"lavado",f:"lavadora-1",p:349,a:499,e:"A",med:[85,60,55],tara:"Rozadura en el lateral izquierdo. Instalada no se ve.",marca:[22,50],desc:"Lavadora de carga frontal de 9 kg con motor inverter, 15 programas, lavado rápido e inicio diferido.",tec:[["Capacidad","9 kg"],["Centrifugado","1.400 rpm"],["Clase energética","A"],["Programas","15"],["Motor","Inverter"],["Inicio diferido","Sí"]],syn:"lavar ropa"},
- {id:"frigorifico-combi-no-frost",n:"Frigorífico combi No Frost 186 cm",c:"frio",f:"frigorifico-combi",p:499,a:699,e:"D",med:[186,60,66],tara:"Pequeño golpe en la puerta de abajo.",marca:[50,72],desc:"Combi No Frost de 186 cm en acero, con cajón de frescos y luz LED.",tec:[["Capacidad total","308 l"],["No Frost","Sí"],["Clase energética","D"],["Puertas","2"],["Color","Acero"],["Luz interior","LED"]],syn:"nevera frigo refrigerador combi"},
- {id:"microondas-grill-25l",n:"Microondas con grill 25 L",c:"coccion",f:"microondas-1",p:69,a:99,med:[39,59,32],tara:"Arañazo leve en la parte de arriba.",marca:[50,30],desc:"Microondas integrable de 25 litros con grill y descongelación automática.",tec:[["Capacidad","25 l"],["Potencia","900 W"],["Grill","Sí"],["Instalación","Integrable"]],syn:"micro grill"},
- {id:"horno-multifuncion",n:"Horno multifunción",c:"coccion",f:"horno",p:279,a:399,e:"A",med:[60,60,55],tara:"Solo la caja dañada: el aparato está perfecto.",marca:[50,30],desc:"Horno multifunción integrable con aire caliente y limpieza fácil.",tec:[["Capacidad","71 l"],["Clase energética","A"],["Funciones","8"],["Instalación","Integrable"]],syn:"horno pirolitico"},
- {id:"lavavajillas-60-13",n:"Lavavajillas 60 cm, 13 servicios",c:"lavado",f:"lavavajillas",p:329,a:459,e:"E",med:[85,60,60],tara:"Marca en el panel frontal, junto al asa.",marca:[50,20],desc:"Lavavajillas de libre instalación de 60 cm para 13 servicios, con inicio diferido.",tec:[["Servicios","13"],["Clase energética","E"],["Programas","6"],["Ancho","60 cm"]],syn:"friegaplatos lavaplatos"},
- {id:"frigorifico-4-puertas",n:"Frigorífico 4 puertas",c:"frio",f:"frigorifico-4p",p:899,a:1199,e:"E",med:[182,84,70],tara:"Abolladura pequeña en el lateral.",marca:[38,60],desc:"Frigorífico de cuatro puertas No Frost con zona de temperatura variable.",tec:[["Capacidad total","540 l"],["No Frost","Sí"],["Clase energética","E"],["Puertas","4"]],syn:"nevera frigo refrigerador americano"},
- {id:"secadora-8kg",n:"Secadora 8 kg",c:"lavado",f:"secadora",p:389,a:549,e:"B",med:[85,60,60],tara:"Rozadura en la tapa de arriba.",marca:[50,18],desc:"Secadora de 8 kg con bomba de calor y sensor de humedad.",tec:[["Capacidad","8 kg"],["Tecnología","Bomba de calor"],["Clase energética","B"]],syn:"secar ropa"},
- {id:"aire-portatil",n:"Aire acondicionado portátil",c:"clima",f:"aire",p:259,a:349,e:"A",med:[70,35,35],tara:"Caja abierta, sin estrenar.",marca:[50,50],desc:"Aire acondicionado portátil con deshumidificador y mando a distancia.",tec:[["Potencia frío","2.250 frigorías"],["Clase energética","A"],["Deshumidificador","Sí"]],syn:"climatizador frio aire acondicionado"},
- {id:"freidora-aire-5-5l",n:"Freidora de aire 5,5 L",c:"pequeno",f:"freidora-1",p:79,a:109,tara:"Caja abierta, sin estrenar.",marca:[50,45],med:[33,29,36],desc:"Freidora de aire de 5,5 litros con programas automáticos.",tec:[["Capacidad","5,5 l"],["Programas","7"]],syn:"airfryer air fryer freidora aire sin aceite"},
- {id:"freidora-aire-4l",n:"Freidora de aire 4 L",c:"pequeno",f:"freidora-2",p:59,med:[30,27,33],desc:"Freidora de aire de 4 litros con cesta antiadherente.",tec:[["Capacidad","4 l"]],syn:"airfryer air fryer freidora aire sin aceite"},
- {id:"cafetera-superautomatica",n:"Cafetera superautomática",c:"pequeno",f:"cafetera",p:229,a:299,med:[35,24,43],desc:"Cafetera superautomática con molinillo y vaporizador.",tec:[["Molinillo","Integrado"],["Vaporizador","Sí"]],syn:"cafe expreso espresso"},
- {id:"placa-induccion-3",n:"Placa de inducción 3 zonas",c:"coccion",f:"placa",p:249,med:[6,59,52],desc:"Placa de inducción de 3 zonas con control táctil.",tec:[["Zonas","3"],["Control","Táctil"],["Ancho","60 cm"]],syn:"induccion vitro vitroceramica fuegos"},
- {id:"campana-60",n:"Campana extractora 60 cm",c:"coccion",f:"campana",p:149,e:"C",med:[64,60,50],desc:"Campana decorativa de pared de 60 cm con luz LED.",tec:[["Ancho","60 cm"],["Clase energética","C"],["Luz","LED"]],syn:"extractor humos"},
- {id:"microondas-20l",n:"Microondas 20 L",c:"coccion",f:"microondas-2",p:79,med:[26,45,34],desc:"Microondas de 20 litros con 5 niveles de potencia.",tec:[["Capacidad","20 l"],["Potencia","700 W"]],syn:"micro"},
- {id:"lavadora-8kg",n:"Lavadora 8 kg",c:"lavado",f:"lavadora-2",p:399,e:"A",med:[85,60,57],desc:"Lavadora de 8 kg con motor inverter y programa rápido.",tec:[["Capacidad","8 kg"],["Centrifugado","1.200 rpm"],["Clase energética","A"]],syn:"lavar ropa"},
- {id:"canape-madera",n:"Canapé abatible de madera",c:"canapes",f:"canape",p:199,desde:true,syn:"canape somier cama abatible"}
-];
-const EXT={secadora:"png","hero-frigorifico-combi":"png","hero-lavavajillas":"png","hero-freidora-1":"png"};
+aplicarPanel(P);
 const EE={A:"#00A651",B:"#50B848",C:"#BFD730",D:"#FFF200",E:"#FDB913",F:"#F37021",G:"#ED1C24"};
 const EE_OSC=new Set(["C","D","E"]);
 const MARCAS=["Balay","AEG","Candy","LG","Bosch","Electrolux","Fagor","Hoover","Grundig","Edesa","Aristón","Junkers","Braun"];
@@ -653,7 +628,6 @@ const eur=n=>n.toLocaleString("es-ES")+" €";
 const pct=x=>x.a?Math.round((1-x.p/x.a)*100):0;
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const norm=s=>String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9ñ]+/g," ").trim();
-const src=f=>`fotos/${f}.${EXT[f]||"jpg"}`;
 const img=(f,alt,extra="")=>`<img src="${src(f)}" alt="${esc(alt)}" ${/loading=/.test(extra)?"":'loading="lazy"'} decoding="async" ${/width=/.test(extra)?"":'width="600" height="600"'} ${extra}>`;
 const porId=id=>P.find(p=>p.id===id);
 const quieto=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -754,11 +728,12 @@ function bloqueVisita(){
 }
 
 /* Portada: el escaparate con su escáner */
-const ESCENA=[
- {id:"frigorifico-combi-no-frost",f:"hero-frigorifico-combi",w:252,h:700,x:50,y:75,cls:"pz-1",lado:"der"},
- {id:"lavavajillas-60-13",f:"hero-lavavajillas",w:360,h:530,x:56,y:19,cls:"pz-2",lado:"der"},
- {id:"freidora-aire-5-5l",f:"hero-freidora-1",w:714,h:700,x:52,y:42,cls:"pz-3",lado:"arriba"}
+let ESCENA=[
+ {id:"frigorifico-combi-no-frost",f:"hero-frigorifico-combi",w:252,h:700,x:50,y:75,vs:30,cls:"pz-1",lado:"der"},
+ {id:"lavavajillas-60-13",f:"hero-lavavajillas",w:360,h:530,x:56,y:19,vs:20,cls:"pz-2",lado:"der"},
+ {id:"freidora-aire-5-5l",f:"hero-freidora-1",w:714,h:700,x:52,y:42,vs:22,cls:"pz-3",lado:"arriba"}
 ];
+ESCENA=ESCENA.filter(e=>{ const x=porId(e.id); return x&&x.tara; });
 let escenaI=0, turnoEscena=0;
 function colocarEtiquetas(){
   const es=$("#escaparate"); if(!es) return; const e=es.getBoundingClientRect(), mov=e.width<900;
@@ -795,8 +770,8 @@ function mostrarEscena(i){
 }
 function inicio(){
   const outlet=P.filter(x=>x.tara).sort((a,b)=>pct(b)-pct(a));
-  const catalogo=["lavadora-8kg","placa-induccion-3","cafetera-superautomatica","campana-60","microondas-20l","freidora-aire-4l"].map(porId);
-  const demo=porId("frigorifico-combi-no-frost");
+  const catalogo=["lavadora-8kg","placa-induccion-3","cafetera-superautomatica","campana-60","microondas-20l","freidora-aire-4l"].map(porId).filter(Boolean).concat(P.filter(x=>x.nuevo&&!x.tara));
+  const demo=porId("frigorifico-combi-no-frost")||P.find(x=>x.tara&&x.marca);
   app.innerHTML=`
   <section class="hero" id="hero" aria-label="Electro House Outlet">
     <div class="hero-rot"><div class="cont">
@@ -805,12 +780,12 @@ function inicio(){
       <p>Nuevos, de las mejores marcas, con una tara estética de exposición. Te la enseñamos en foto antes de comprar.</p></div>
     </div></div>
     <div class="escaparate" id="escaparate">
-      ${ESCENA.map((e,j)=>{ const x=porId(e.id); return `<div class="pieza ${e.cls}"><a class="ir" href="#/producto/${x.id}" aria-label="${esc(x.n)}, ${x.p} euros">${e.x!=null?`<span class="scan" data-estado="idle" style="--x:${e.x}%;--y:${e.y}%"><img src="${src(e.f)}" alt="${esc(x.n)}" width="${e.w}" height="${e.h}" ${j===0?'fetchpriority="high"':""}>${capasEscaner()}</span>`:`<img src="${src(e.f)}" alt="${esc(x.n)}" width="${e.w}" height="${e.h}">`}</a><a class="peg-precio" href="#/producto/${x.id}" tabindex="-1" aria-hidden="true">${eur(x.p)}</a></div>`; }).join("")}
+      ${ESCENA.map((e,j)=>{ const x=porId(e.id); return `<div class="pieza ${e.cls}"><a class="ir" href="#/producto/${x.id}" aria-label="${esc(x.n)}, ${x.p} euros">${e.x!=null?`<span class="scan" data-estado="idle" style="--x:${e.x}%;--y:${e.y}%;--vs:${e.vs}%"><img src="${src(e.f)}" alt="${esc(x.n)}" width="${e.w}" height="${e.h}" ${j===0?'fetchpriority="high"':""}>${capasEscaner()}</span>`:`<img src="${src(e.f)}" alt="${esc(x.n)}" width="${e.w}" height="${e.h}">`}</a><a class="peg-precio" href="#/producto/${x.id}" tabindex="-1" aria-hidden="true">${eur(x.p)}</a></div>`; }).join("")}
       ${ESCENA.map(e=>{ const x=porId(e.id); return `<a class="colgante" href="#/producto/${x.id}" tabindex="-1" aria-hidden="true"><span class="tg"><em>OUTLET</em><b>${eur(x.p)}</b><s>${eur(x.a)}</s><br><span class="dto">-${pct(x)} %</span></span></a>`; }).join("")}
     </div>
     <div class="aviso-tara" id="aviso-tara" aria-live="polite"><div class="cont"><b>TARA</b><span></span></div></div>
     <div class="hero-acc"><div class="cont acc-in">
-      <div class="acc-fila"><a class="btn btn-tinta" href="#/outlet">Ver el outlet <i class="ph-bold ph-arrow-right i" aria-hidden="true"></i></a><a class="enlace" href="#/cocinas">Cocinas a medida</a></div>
+      <div class="acc-fila"><a class="btn btn-tinta" href="#/outlet">Ver el outlet <i class="ph-bold ph-arrow-right i" aria-hidden="true"></i></a><a class="btn btn-linea" href="#/cocinas">Cocinas a medida</a></div>
       ${VENTAJAS}
     </div></div>
     <div class="marcas" role="img" aria-label="Marcas: ${MARCAS.join(", ")}"><div class="marcas-pista" aria-hidden="true">${MARCAS.concat(MARCAS).map(m=>`<span>${m}</span>`).join("")}</div></div>
@@ -829,7 +804,7 @@ function inicio(){
   </section>
 
   <section class="sec tara"><div class="cont tara-grid">
-    <div class="tara-demo"><div class="scan" id="scan-tara" data-estado="idle" style="--x:${demo.marca[0]}%;--y:${demo.marca[1]}%;--vs:64px">${img(demo.f,"Frigorífico combi: el visor marca su tara en la puerta de abajo")}${capasEscaner()}</div><span class="pegatina"><b>TARA</b>${esc(demo.tara)}</span></div>
+    <div class="tara-demo"><div class="scan" id="scan-tara" data-estado="idle" style="--x:${demo.marca[0]}%;--y:${demo.marca[1]}%;--vs:${demo.marca[2]||22}%">${img(demo.f,"Frigorífico combi: el visor marca su tara en la puerta de abajo")}${capasEscaner()}</div><span class="pegatina"><b>TARA</b>${esc(demo.tara)}</span></div>
     <div><h2 style="font-size:clamp(36px,8vw,58px)">Qué es la tara</h2>
       <p class="sec-entrada">Aparatos nuevos que han estado en exposición o han llegado con un detalle por fuera. Funcionan como el primer día.</p>
       <ul class="tara-lista">
@@ -915,7 +890,7 @@ function producto(id){
   const enCarro=carrito.some(l=>l.id===x.id); const rel=P.filter(p=>p.c===x.c&&p.id!==x.id).slice(0,4);
   app.innerHTML=`<div class="pag"><div class="cont">${miga(`<a href="#/categoria/${x.c}">${CATS[x.c].n}</a>`,esc(x.n))}
   <div class="ficha">
-    <div><div class="visor-caja" id="visor" data-vista="aparato"><div class="scan" id="scan-ficha" data-estado="idle" style="--x:${x.marca?x.marca[0]:50}%;--y:${x.marca?x.marca[1]:50}%;--vs:70px">${img(x.f,x.n,'width="800" height="800" loading="eager"')}${x.tara?capasEscaner():""}</div>
+    <div><div class="visor-caja" id="visor" data-vista="aparato"><div class="scan" id="scan-ficha" data-estado="idle" style="--x:${x.marca?x.marca[0]:50}%;--y:${x.marca?x.marca[1]:50}%;--vs:${x.marca&&x.marca[2]||22}%">${img(x.f,x.n,'width="800" height="800" loading="eager"')}${x.tara?capasEscaner():""}</div>
         <div class="video-hueco"><div><i class="ph-fill ph-play-circle" aria-hidden="true"></i>Aquí irá el vídeo corto de la tara, grabado en la tienda.</div></div>
         <span class="visor-pie" id="visor-pie">Foto de muestra</span></div>
       ${x.tara?`<div class="seg" role="group" aria-label="Qué ver"><button aria-pressed="true" data-v="aparato">El aparato</button><button aria-pressed="false" data-v="tara">Ver la tara</button></div>
