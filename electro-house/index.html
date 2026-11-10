@@ -166,6 +166,7 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 .visor i:nth-child(3){left:0;bottom:0;border-width:0 0 3px 3px}
 .visor i:nth-child(4){right:0;bottom:0;border-width:0 3px 3px 0}
 .scan[data-estado="encontrada"] .visor{opacity:1;scale:1}
+#escaparate .pieza.activa:not(.actual) .scan[data-estado="encontrada"] .visor{opacity:.45}
 /* Etiqueta colgada */
 .colgante{position:absolute;z-index:4;top:0;left:var(--cx,40%);width:96px;transform-origin:50% 0;color:#fff;text-decoration:none;opacity:0;pointer-events:none}
 .colgante::before{content:"";display:block;width:2px;height:var(--cuerda,40px);margin:0 auto;background:#9AA1AA}
@@ -194,7 +195,8 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 @supports (animation-timeline:scroll()){@media (prefers-reduced-motion:no-preference){.marcas-pista{animation:desliza linear both;animation-timeline:scroll(root);animation-range:0 110svh}}}
 @keyframes desliza{to{transform:translateX(-35%)}}
 @media(max-width:899px){
-  .colgante{width:80px}.colgante b{font-size:25px}.colgante .tg{padding:16px 6px 7px}.colgante em{font-size:10px}.colgante s{font-size:12px}
+  .colgante{width:62px}.colgante b{font-size:19px;margin:3px 0 1px}.colgante .tg{padding:13px 4px 6px}.colgante .tg::before{top:4px;width:7px;height:7px;margin-left:-3.5px}.colgante em{font-size:8px;letter-spacing:.08em}.colgante s{font-size:10px}.colgante .dto{font-size:11px;padding:2px 4px;margin-top:3px}
+  .pz-1{--h:80%;left:4%}.pz-2{--h:54%;left:38%}.pz-3{--h:27%;left:73%}
   .barra-envios{font-size:13px;padding-block:5px}
   .rot-fila{height:50px}
 }
@@ -222,9 +224,9 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
   .hero-rot .der{padding-bottom:6px}
   .sello{margin-top:0}
   .hero-rot p{font-size:19px;margin-top:12px}
-  .pz-1{--h:80%;left:26%}.pz-2{--h:54%;left:44%}.pz-3{--h:26%;left:61%}
+  .pz-1{--h:80%;left:20%}.pz-2{--h:54%;left:41%}.pz-3{--h:26%;left:67%}
   .peg-precio{font-size:24px;padding:5px 9px}
-  .colgante{width:126px}.colgante b{font-size:40px}.colgante .tg{padding:22px 10px 12px}
+  .colgante{width:112px}.colgante b{font-size:34px}.colgante .tg{padding:20px 8px 10px}
   .acc-in{display:flex;align-items:center;justify-content:space-between;gap:24px}
   .acc-fila{padding:14px 0;flex-wrap:nowrap}
   .ventajas{border-top:0}
@@ -281,6 +283,11 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 .mide{display:flex;align-items:center;gap:10px;background:var(--tinta);color:#fff;padding:10px 12px;margin:0 0 18px;font:600 16px/1.25 Barlow,sans-serif}
 .mide .i{color:var(--rotulo);font-size:26px;line-height:1}
 .cocinas-acc{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:899px){
+  .cocinas{display:block;min-height:0!important;background:var(--rotulo)}
+  .cocinas img.bg{position:static;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+  .cocinas-panel{margin:0;max-width:none;padding:22px 16px 26px}
+}
 @media(min-width:900px){.cocinas{min-height:620px}.cocinas-panel{margin:0 0 48px 48px;padding:38px 40px 42px}}
 
 /* Qué es la tara */
@@ -626,7 +633,7 @@ const P=[
  {id:"frigorifico-4-puertas",n:"Frigorífico 4 puertas",c:"frio",f:"frigorifico-4p",p:899,a:1199,e:"E",med:[182,84,70],tara:"Abolladura pequeña en el lateral.",marca:[38,60],desc:"Frigorífico de cuatro puertas No Frost con zona de temperatura variable.",tec:[["Capacidad total","540 l"],["No Frost","Sí"],["Clase energética","E"],["Puertas","4"]],syn:"nevera frigo refrigerador americano"},
  {id:"secadora-8kg",n:"Secadora 8 kg",c:"lavado",f:"secadora",p:389,a:549,e:"B",med:[85,60,60],tara:"Rozadura en la tapa de arriba.",marca:[50,18],desc:"Secadora de 8 kg con bomba de calor y sensor de humedad.",tec:[["Capacidad","8 kg"],["Tecnología","Bomba de calor"],["Clase energética","B"]],syn:"secar ropa"},
  {id:"aire-portatil",n:"Aire acondicionado portátil",c:"clima",f:"aire",p:259,a:349,e:"A",med:[70,35,35],tara:"Caja abierta, sin estrenar.",marca:[50,50],desc:"Aire acondicionado portátil con deshumidificador y mando a distancia.",tec:[["Potencia frío","2.250 frigorías"],["Clase energética","A"],["Deshumidificador","Sí"]],syn:"climatizador frio aire acondicionado"},
- {id:"freidora-aire-5-5l",n:"Freidora de aire 5,5 L",c:"pequeno",f:"freidora-1",p:79,med:[33,29,36],desc:"Freidora de aire de 5,5 litros con programas automáticos.",tec:[["Capacidad","5,5 l"],["Programas","7"]],syn:"airfryer air fryer freidora aire sin aceite"},
+ {id:"freidora-aire-5-5l",n:"Freidora de aire 5,5 L",c:"pequeno",f:"freidora-1",p:79,a:109,tara:"Caja abierta, sin estrenar.",marca:[50,45],med:[33,29,36],desc:"Freidora de aire de 5,5 litros con programas automáticos.",tec:[["Capacidad","5,5 l"],["Programas","7"]],syn:"airfryer air fryer freidora aire sin aceite"},
  {id:"freidora-aire-4l",n:"Freidora de aire 4 L",c:"pequeno",f:"freidora-2",p:59,med:[30,27,33],desc:"Freidora de aire de 4 litros con cesta antiadherente.",tec:[["Capacidad","4 l"]],syn:"airfryer air fryer freidora aire sin aceite"},
  {id:"cafetera-superautomatica",n:"Cafetera superautomática",c:"pequeno",f:"cafetera",p:229,a:299,med:[35,24,43],desc:"Cafetera superautomática con molinillo y vaporizador.",tec:[["Molinillo","Integrado"],["Vaporizador","Sí"]],syn:"cafe expreso espresso"},
  {id:"placa-induccion-3",n:"Placa de inducción 3 zonas",c:"coccion",f:"placa",p:249,med:[6,59,52],desc:"Placa de inducción de 3 zonas con control táctil.",tec:[["Zonas","3"],["Control","Táctil"],["Ancho","60 cm"]],syn:"induccion vitro vitroceramica fuegos"},
@@ -748,38 +755,47 @@ function bloqueVisita(){
 
 /* Portada: el escaparate con su escáner */
 const ESCENA=[
- {id:"frigorifico-combi-no-frost",f:"hero-frigorifico-combi",w:252,h:700,x:50,y:75,cls:"pz-1"},
- {id:"lavavajillas-60-13",f:"hero-lavavajillas",w:360,h:530,x:56,y:19,cls:"pz-2",lado:"izq"},
- {id:"freidora-aire-5-5l",f:"hero-freidora-1",w:714,h:700,cls:"pz-3"}
+ {id:"frigorifico-combi-no-frost",f:"hero-frigorifico-combi",w:252,h:700,x:50,y:75,cls:"pz-1",lado:"der"},
+ {id:"lavavajillas-60-13",f:"hero-lavavajillas",w:360,h:530,x:56,y:19,cls:"pz-2",lado:"der"},
+ {id:"freidora-aire-5-5l",f:"hero-freidora-1",w:714,h:700,x:52,y:42,cls:"pz-3",lado:"arriba"}
 ];
-const ESCANEABLES=[0,1];
 let escenaI=0, turnoEscena=0;
-function colocarEtiqueta(){
-  const cg=$("#colgante"), es=$("#escaparate"); if(!cg||!es) return;
-  const pz=es.querySelectorAll(".pieza")[ESCANEABLES[escenaI]]; if(!pz) return;
-  const r=pz.getBoundingClientRect(), e=es.getBoundingClientRect(), w=cg.offsetWidth||100;
-  const mov=e.width<900, lado=ESCENA[ESCANEABLES[escenaI]].lado; let left=lado==="izq"?r.left-e.left-w+(mov?r.width*.12:-10):r.left-e.left+(mov?r.width*.72:r.width+10); left=Math.max(8,Math.min(left,e.width-w-8));
-  const cuerda=Math.max(12,r.top-e.top+r.height*.04);
-  cg.style.setProperty("--cx",left+"px"); cg.style.setProperty("--cuerda",cuerda+"px");
+function colocarEtiquetas(){
+  const es=$("#escaparate"); if(!es) return; const e=es.getBoundingClientRect(), mov=e.width<900;
+  const pzs=es.querySelectorAll(".pieza");
+  es.querySelectorAll(".colgante").forEach((cg,j)=>{ const pz=pzs[j]; if(!pz) return;
+    const r=pz.getBoundingClientRect(), w=cg.offsetWidth||80, h=(cg.querySelector(".tg")||cg).offsetHeight||90, lado=ESCENA[j].lado;
+    let left, cuerda;
+    if(lado==="arriba"){ left=r.left-e.left+r.width/2-w/2; cuerda=Math.max(8,r.top-e.top-h-(mov?4:10)); }
+    else { left=r.left-e.left+(mov?r.width*.62:r.width+12); cuerda=Math.max(10,r.top-e.top+r.height*(j===0?.04:-.02)); }
+    left=Math.max(4,Math.min(left,e.width-w-4));
+    cg.style.setProperty("--cx",left+"px"); cg.style.setProperty("--cuerda",cuerda+"px"); });
 }
+const colocarEtiqueta=colocarEtiquetas;
+function contarTara(i){ const x=porId(ESCENA[i].id), av=$("#aviso-tara"); if(!av) return;
+  av.classList.remove("on"); void av.offsetWidth; av.querySelector("span").textContent=x.tara; av.classList.add("on");
+  document.querySelectorAll("#escaparate .pieza").forEach((p,j)=>p.classList.toggle("actual",j===i)); }
+function caeEtiqueta(i,turno,despues){
+  const pz=document.querySelectorAll("#escaparate .pieza")[i], cg=document.querySelectorAll("#escaparate .colgante")[i];
+  escanear(pz.querySelector(".scan"),()=>{ if(turno!==turnoEscena) return;
+    colocarEtiquetas(); pz.classList.add("activa"); void cg.offsetWidth; cg.classList.add("cae");
+    setTimeout(()=>{ if(turno!==turnoEscena) return; contarTara(i); despues&&despues(); }, quieto()?0:560); });
+}
+function secuencia(){
+  const turno=++turnoEscena;
+  const sig=i=>{ if(i>=ESCENA.length){ if(!quieto()) rotarTara(turno); return; } escenaI=i; caeEtiqueta(i,turno,()=>setTimeout(()=>sig(i+1),quieto()?0:150)); };
+  sig(0);
+}
+function rotarTara(turno){ let i=ESCENA.length-1; clearInterval(rotarTara.t);
+  rotarTara.t=setInterval(()=>{ if(turno!==turnoEscena||!$("#aviso-tara")){ clearInterval(rotarTara.t); return; } i=(i+1)%ESCENA.length; contarTara(i); },4200); }
 function mostrarEscena(i){
-  escenaI=i; const turno=++turnoEscena;
-  const e=ESCENA[ESCANEABLES[i]], x=porId(e.id), cg=$("#colgante"), av=$("#aviso-tara");
-  document.querySelectorAll("#escaparate .pieza").forEach((p,j)=>{ const s=p.querySelector(".scan"); p.classList.toggle("activa",j===ESCANEABLES[i]); if(s&&j!==ESCANEABLES[i]){clearTimeout(s._t1); s.dataset.estado="idle";} });
-  cg.classList.remove("cae"); av.classList.remove("on");
-  cg.href="#/producto/"+x.id;
-  cg.querySelector(".tg").innerHTML=`<em>OUTLET</em><b>${eur(x.p)}</b><s>${eur(x.a)}</s><br><span class="dto">-${pct(x)} %</span>`;
-  av.querySelector("span").textContent=x.tara;
-  colocarEtiqueta();
-  escanear(document.querySelectorAll("#escaparate .pieza")[ESCANEABLES[i]].querySelector(".scan"),()=>{
-    if(turno!==turnoEscena) return;
-    colocarEtiqueta(); void cg.offsetWidth; cg.classList.add("cae");
-    setTimeout(()=>{ if(turno===turnoEscena) av.classList.add("on"); }, quieto()?0:700);
-  });
+  escenaI=i; const turno=++turnoEscena, pz=document.querySelectorAll("#escaparate .pieza")[i], cg=document.querySelectorAll("#escaparate .colgante")[i];
+  if(!cg.classList.contains("cae")){ caeEtiqueta(i,turno); return; }
+  escanear(pz.querySelector(".scan"),()=>{ if(turno===turnoEscena) contarTara(i); });
 }
 function inicio(){
   const outlet=P.filter(x=>x.tara).sort((a,b)=>pct(b)-pct(a));
-  const catalogo=["lavadora-8kg","placa-induccion-3","cafetera-superautomatica","freidora-aire-5-5l","campana-60","microondas-20l","freidora-aire-4l"].map(porId);
+  const catalogo=["lavadora-8kg","placa-induccion-3","cafetera-superautomatica","campana-60","microondas-20l","freidora-aire-4l"].map(porId);
   const demo=porId("frigorifico-combi-no-frost");
   app.innerHTML=`
   <section class="hero" id="hero" aria-label="Electro House Outlet">
@@ -790,11 +806,11 @@ function inicio(){
     </div></div>
     <div class="escaparate" id="escaparate">
       ${ESCENA.map((e,j)=>{ const x=porId(e.id); return `<div class="pieza ${e.cls}"><a class="ir" href="#/producto/${x.id}" aria-label="${esc(x.n)}, ${x.p} euros">${e.x!=null?`<span class="scan" data-estado="idle" style="--x:${e.x}%;--y:${e.y}%"><img src="${src(e.f)}" alt="${esc(x.n)}" width="${e.w}" height="${e.h}" ${j===0?'fetchpriority="high"':""}>${capasEscaner()}</span>`:`<img src="${src(e.f)}" alt="${esc(x.n)}" width="${e.w}" height="${e.h}">`}</a><a class="peg-precio" href="#/producto/${x.id}" tabindex="-1" aria-hidden="true">${eur(x.p)}</a></div>`; }).join("")}
-      <a class="colgante" id="colgante" href="#/" tabindex="-1" aria-hidden="true"><span class="tg"></span></a>
+      ${ESCENA.map(e=>{ const x=porId(e.id); return `<a class="colgante" href="#/producto/${x.id}" tabindex="-1" aria-hidden="true"><span class="tg"><em>OUTLET</em><b>${eur(x.p)}</b><s>${eur(x.a)}</s><br><span class="dto">-${pct(x)} %</span></span></a>`; }).join("")}
     </div>
     <div class="aviso-tara" id="aviso-tara" aria-live="polite"><div class="cont"><b>TARA</b><span></span></div></div>
     <div class="hero-acc"><div class="cont acc-in">
-      <div class="acc-fila"><a class="btn btn-tinta" href="#/outlet">Ver el outlet <i class="ph-bold ph-arrow-right i" aria-hidden="true"></i></a><button class="enlace" id="otra" type="button"><i class="ph-bold ph-scan" aria-hidden="true"></i>Ver otra tara</button><a class="enlace" href="#/cocinas">Cocinas a medida</a></div>
+      <div class="acc-fila"><a class="btn btn-tinta" href="#/outlet">Ver el outlet <i class="ph-bold ph-arrow-right i" aria-hidden="true"></i></a><a class="enlace" href="#/cocinas">Cocinas a medida</a></div>
       ${VENTAJAS}
     </div></div>
     <div class="marcas" role="img" aria-label="Marcas: ${MARCAS.join(", ")}"><div class="marcas-pista" aria-hidden="true">${MARCAS.concat(MARCAS).map(m=>`<span>${m}</span>`).join("")}</div></div>
@@ -843,9 +859,9 @@ function inicio(){
   <section class="sec"><div class="cont">${bloqueVisita()}</div></section>`;
   ESCENA.forEach((e,j)=>{ const im=document.querySelectorAll("#escaparate .pieza img")[j]; im&&im.addEventListener("load",colocarEtiqueta,{once:true}); });
   const im0=document.querySelector("#escaparate .pieza img");
-  const arranca=()=>setTimeout(()=>mostrarEscena(0),quieto()?0:420);
+  const arranca=()=>setTimeout(()=>{ colocarEtiquetas(); secuencia(); },quieto()?0:420);
   if(im0.complete) arranca(); else im0.addEventListener("load",arranca,{once:true});
-  $("#otra").addEventListener("click",()=>mostrarEscena((escenaI+1)%ESCANEABLES.length));
+  
   alEntrar($("#scan-tara"),()=>escanear($("#scan-tara")));
 }
 function bloqueDescanso(){
@@ -861,15 +877,15 @@ function bloqueEnvio(enPortada){
     <div>${enPortada?`<h2>Te lo llevamos</h2>`:`<h1 class="tit">Envíos</h1>`}
       <p class="sec-entrada">Pídelo hoy y lo tienes en 24/48 h. Llevamos a toda la provincia de Alicante y a la Región de Murcia.</p>
       <div class="zonas">
-        <div class="zona"><b>Orihuela y Vega Baja</b><span>24/48 h<br><span class="pendiente">precio por confirmar</span></span></div>
-        <div class="zona"><b>Resto de Alicante</b><span>24/48 h<br><span class="pendiente">precio por confirmar</span></span></div>
-        <div class="zona"><b>Región de Murcia</b><span>24/48 h<br><span class="pendiente">precio por confirmar</span></span></div>
+        <div class="zona"><b>Orihuela y Vega Baja</b><span>24/48 h<br><span class="pendiente">Consúltanos el precio</span></span></div>
+        <div class="zona"><b>Resto de Alicante</b><span>24/48 h<br><span class="pendiente">Consúltanos el precio</span></span></div>
+        <div class="zona"><b>Región de Murcia</b><span>24/48 h<br><span class="pendiente">Consúltanos el precio</span></span></div>
       </div>${enPortada?`<a class="btn btn-naranja" href="#/envios">Ver las condiciones de envío</a>`:""}</div>
     <div class="servicios">
       <div class="serv"><i class="ph ph-ruler i" aria-hidden="true"></i><div><b>Medimos gratis</b><span>Vamos a tu casa y tomamos las medidas.</span></div></div>
       <div class="serv"><i class="ph ph-stairs i" aria-hidden="true"></i><div><b>Te lo subimos gratis</b><span>Hasta tu cocina, aunque no haya ascensor.</span></div></div>
       <div class="serv"><i class="ph ph-wrench i" aria-hidden="true"></i><div><b>Instalación gratis</b><span>Lo dejamos conectado y funcionando.</span></div></div>
-      <div class="serv"><i class="ph ph-recycle i" aria-hidden="true"></i><div><b>Retirada del viejo</b><span>Nos llevamos tu aparato viejo. <span class="pendiente">Precio por confirmar.</span></span></div></div>
+      <div class="serv"><i class="ph ph-recycle i" aria-hidden="true"></i><div><b>Retirada del viejo</b><span>Nos llevamos tu aparato viejo. <span class="pendiente">Consúltanos el precio.</span></span></div></div>
     </div>
   </div></section>`;
 }
@@ -1035,7 +1051,7 @@ function pedido(){
     <label>Email<input name="e" type="email" required autocomplete="email" spellcheck="false"><span class="error" hidden>Revisa el email.</span></label>
     <div class="grupo-t">Entrega<div class="opciones"><label><input type="radio" name="ent" value="casa" checked>A domicilio</label><label><input type="radio" name="ent" value="tienda">Recoger en tienda</label></div></div>
     <label id="dir">Dirección<span class="ayuda">Provincia de Alicante o Región de Murcia</span><input name="d" autocomplete="street-address" required><span class="error" hidden>Escribe la dirección.</span></label>
-    <div class="grupo-t" id="retirada-g"><label style="display:flex;gap:10px;align-items:center;font-weight:600"><input type="checkbox" name="ret" style="width:20px;height:20px;accent-color:var(--rotulo)">Retirar mi aparato viejo <span class="pendiente" style="font-weight:500">(precio por confirmar)</span></label></div>
+    <div class="grupo-t" id="retirada-g"><label style="display:flex;gap:10px;align-items:center;font-weight:600"><input type="checkbox" name="ret" style="width:20px;height:20px;accent-color:var(--rotulo)">Retirar mi aparato viejo <span class="pendiente" style="font-weight:500">(consúltanos el precio)</span></label></div>
     <div class="grupo-t">Pago<div class="opciones"><label><input type="radio" name="pago" value="tarjeta" checked>Tarjeta</label><label><input type="radio" name="pago" value="bizum">Bizum</label><label style="grid-column:span 2"><input type="radio" name="pago" value="tienda">Pagar en la tienda</label></div></div>
     <div class="resumen"><div class="f"><span>Subida e instalación</span><span>Gratis</span></div><div class="f total"><span>Total</span><span>${eur(total)}</span></div></div>
     ${tara?`<p class="retiene" id="aviso-ret"><i class="ph-fill ph-lock-key i" aria-hidden="true"></i><span>El outlet se retiene: te avisamos al confirmar la unidad y entonces se cobra.</span></p>`:""}
