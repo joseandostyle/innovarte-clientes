@@ -143,14 +143,17 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 .hero-rot p{margin:10px 0 0;font:500 16px/1.4 Barlow,sans-serif;max-width:46ch;color:#FFF1E7}
 .escaparate{position:relative;flex:1;min-height:200px;background:linear-gradient(180deg,#FFFFFF 0%,#F1F3F5 100%);overflow:hidden}
 .escaparate::after{content:"";position:absolute;left:0;right:0;bottom:0;height:24%;background:#E6E8EB;border-top:1px solid #D3D7DC}
-.pieza{position:absolute;bottom:13%;z-index:2;height:var(--h)}
+.estante{position:absolute;left:0;right:0;top:0;bottom:13%;display:flex;align-items:flex-end;justify-content:space-evenly;padding:0 6px;--tw:52px;--gap:6px}
+.pieza{position:relative;z-index:2;height:var(--h);margin-right:calc(var(--tw) + var(--gap));flex:none}
 .pieza .scan{position:relative;display:block;height:100%}
 .pieza img{height:100%;width:auto;max-width:none}
+.pieza.foto{z-index:auto}
+.pieza.foto img{aspect-ratio:1;object-fit:contain;mix-blend-mode:multiply}
+.pieza.foto a.ir::after{display:none}
 .pieza a.ir{display:block;height:100%;position:relative}
 .pieza a.ir::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:13px;background:radial-gradient(closest-side,rgba(20,22,26,.26),transparent);z-index:-1}
-.pz-1{--h:84%;left:6%}.pz-2{--h:56%;left:39%}.pz-3{--h:29%;left:72%}
 .peg-precio{position:absolute;z-index:3;top:4%;right:-34%;background:var(--pegatina);color:var(--precio);border:1px solid var(--pegatina-borde);padding:4px 7px;font:800 19px/1 "Barlow Condensed",sans-serif;text-decoration:none;transition:opacity 200ms ease,transform 200ms var(--salida);white-space:nowrap}
-.pz-3 .peg-precio{top:-38%;right:-6%}
+.peg-precio{right:auto;left:calc(100% + var(--gap));top:8%}
 .pieza.activa .peg-precio{opacity:0;transform:scale(.9);pointer-events:none}
 /* El escáner */
 .scan-barre{position:absolute;inset:0;pointer-events:none;opacity:0;z-index:2}
@@ -170,7 +173,7 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 #escaparate .visor{--bv:2px}
 #escaparate .pieza.activa:not(.actual) .scan[data-estado="encontrada"] .visor{opacity:.45}
 /* Etiqueta colgada */
-.colgante{position:absolute;z-index:4;top:0;left:var(--cx,40%);width:96px;transform-origin:50% 0;color:#fff;text-decoration:none;opacity:0;pointer-events:none}
+.colgante{position:absolute;z-index:4;top:0;left:var(--cx,40%);width:var(--tw,52px);transform-origin:50% 0;color:#fff;text-decoration:none;opacity:0;pointer-events:none}
 .colgante::before{content:"";display:block;width:2px;height:var(--cuerda,40px);margin:0 auto;background:#9AA1AA}
 .colgante .tg{position:relative;display:block;background:var(--rotulo);padding:18px 8px 9px;text-align:center;box-shadow:0 10px 20px rgba(20,22,26,.22)}
 .colgante .tg::before{content:"";position:absolute;top:6px;left:50%;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px #9AA1AA}
@@ -197,8 +200,7 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 @supports (animation-timeline:scroll()){@media (prefers-reduced-motion:no-preference){.marcas-pista{animation:desliza linear both;animation-timeline:scroll(root);animation-range:0 110svh}}}
 @keyframes desliza{to{transform:translateX(-35%)}}
 @media(max-width:899px){
-  .colgante{width:48px}.colgante b{font-size:15px;margin:2px 0 1px}.colgante .tg{padding:10px 2px 4px;box-shadow:0 6px 12px rgba(20,22,26,.2)}.colgante .tg::before{top:3px;width:5px;height:5px;margin-left:-2.5px;box-shadow:inset 0 0 0 1px #9AA1AA}.colgante em{font-size:6.5px;letter-spacing:.06em}.colgante s{font-size:8.5px}.colgante .dto{font-size:9px;padding:1px 3px;margin-top:2px}
-  .pz-1{--h:80%;left:4%}.pz-2{--h:54%;left:38%}.pz-3{--h:27%;left:73%}
+  .colgante{width:var(--tw)}.colgante b{font-size:16px;margin:2px 0 1px}.colgante .tg{padding:11px 2px 5px;box-shadow:0 6px 12px rgba(20,22,26,.2)}.colgante .tg::before{top:3px;width:6px;height:6px;margin-left:-3px;box-shadow:inset 0 0 0 1px #9AA1AA}.colgante em{font-size:8px;letter-spacing:.04em}.colgante s{font-size:10px}.colgante .dto{font-size:10px;padding:1px 3px;margin-top:2px}
   .barra-envios{font-size:13px;padding-block:5px}
   .rot-fila{height:50px}
 }
@@ -226,9 +228,9 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
   .hero-rot .der{padding-bottom:6px}
   .sello{margin-top:0}
   .hero-rot p{font-size:19px;margin-top:12px}
-  .pz-1{--h:80%;left:20%}.pz-2{--h:54%;left:41%}.pz-3{--h:26%;left:67%}
+  .estante{--tw:106px;--gap:14px;max-width:1100px;margin:0 auto;padding:0 24px}
   .peg-precio{font-size:24px;padding:5px 9px}
-  .colgante{width:112px}.colgante b{font-size:34px}.colgante .tg{padding:20px 8px 10px}
+  .colgante{width:var(--tw)}.colgante b{font-size:30px}.colgante .tg{padding:18px 6px 9px}
   .acc-in{display:flex;align-items:center;justify-content:space-between;gap:24px}
   .acc-fila{padding:14px 0;flex-wrap:nowrap}
   .ventajas{border-top:0}
@@ -556,7 +558,7 @@ dialog::backdrop{background:rgba(23,25,28,.55)}
 </head>
 <body>
 <a class="saltar" href="#app">Saltar al contenido</a>
-<div class="barra-envios" id="barra"><i class="ph ph-truck i" aria-hidden="true"></i>Envíos a toda la provincia de Alicante y Murcia</div>
+<div class="barra-envios" id="barra"><i class="ph ph-truck i" aria-hidden="true"></i><span id="barra-t">Envíos a toda la provincia de Alicante y Murcia</span></div>
 <header class="rotulo" id="rotulo">
   <div class="cont">
     <div class="rot-fila">
@@ -588,7 +590,7 @@ dialog::backdrop{background:rgba(23,25,28,.55)}
   <div class="cont">
     <div class="pie-grid">
       <div><img src="logo-electro-house.png" alt="Electro House" width="433" height="86" loading="lazy" translate="no"><p style="margin-top:12px">Electrodomésticos nuevos de las mejores marcas con taras estéticas de exposición.</p></div>
-      <div><p>C/ Obispo Rocamora, 32<br>03300 Orihuela (Alicante)</p><p style="margin-top:8px"><a href="tel:+34865535940">865 53 59 40</a></p></div>
+      <div id="pie-datos"><p>C/ Obispo Rocamora, 32<br>03300 Orihuela (Alicante)</p><p style="margin-top:8px"><a href="tel:+34865535940">865 53 59 40</a></p></div>
       <ul><li><a href="#/outlet">Outlet</a></li><li><a href="#/cocinas">Cocinas a medida</a></li><li><a href="#/muebles-y-descanso">Muebles y descanso</a></li><li><a href="#/envios">Envíos</a></li><li><a href="#/tienda">La tienda</a></li></ul>
       <ul><li>Aviso legal</li><li>Privacidad</li><li>Condiciones de compra</li></ul>
     </div>
@@ -618,9 +620,11 @@ dialog::backdrop{background:rgba(23,25,28,.55)}
 <script src="catalogo-muestra.js"></script>
 <script>
 aplicarPanel(P);
+const W=webConfig(), T=W.tienda, TEL=telLink(T.telefono);
+const pide=v=>v?esc(v):`<span class="pendiente">Consúltanos el precio</span>`;
 const EE={A:"#00A651",B:"#50B848",C:"#BFD730",D:"#FFF200",E:"#FDB913",F:"#F37021",G:"#ED1C24"};
 const EE_OSC=new Set(["C","D","E"]);
-const MARCAS=["Balay","AEG","Candy","LG","Bosch","Electrolux","Fagor","Hoover","Grundig","Edesa","Aristón","Junkers","Braun"];
+const MARCAS=String(W.marcas||"").split(",").map(m=>m.trim()).filter(Boolean);
 
 const $=s=>document.querySelector(s);
 const app=$("#app");
@@ -636,6 +640,8 @@ const ee=(c,mini)=>c?`<${mini?"span":"button"} class="ee${mini?" ee-mini":""}${E
 let carrito=[]; try{carrito=JSON.parse(localStorage.getItem("eh-v2-carrito")||"[]")}catch(e){}
 function guardar(){ try{localStorage.setItem("eh-v2-carrito",JSON.stringify(carrito))}catch(e){} $("#n-carro").textContent=carrito.reduce((s,l)=>s+l.q,0); }
 function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove("on"),2800)}
+if(W.barra) $("#barra-t").textContent=W.barra; else $("#barra").hidden=true;
+$("#pie-datos").innerHTML=`<p>${esc(T.direccion)}<br>${esc(T.cp)}</p>${TEL?`<p style="margin-top:8px"><a href="tel:${TEL}">${esc(T.telefono)}</a></p>`:""}`;
 function medirCab(){ const r=document.documentElement.style; r.setProperty("--cab",$("#rotulo").offsetHeight+"px"); r.setProperty("--barra",$("#barra").offsetHeight+"px"); }
 addEventListener("resize",()=>{medirCab(); colocarEtiqueta();},{passive:true});
 
@@ -651,8 +657,9 @@ function verEtiqueta(c){
   <a class="btn btn-linea" style="margin-top:14px" href="https://eprel.ec.europa.eu/" target="_blank" rel="noopener">Qué es EPREL</a>`);
 }
 function verFinanciacion(){
-  ventana("Financiación",`<p style="margin:0 0 10px"><b>Hasta 24 meses sin intereses.</b></p><p class="pendiente" style="margin:0">Condiciones pendientes de la tienda: entidad que financia, importe mínimo y requisitos.</p>`);
+  ventana("Financiación",`<p style="margin:0 0 10px"><b>Hasta 24 meses sin intereses.</b></p>${W.financiacion?`<p style="margin:0">${esc(W.financiacion).replace(/\n/g,"<br>")}</p>`:`<p class="pendiente" style="margin:0">Pregúntanos las condiciones en la tienda o por WhatsApp.</p>`}`);
 }
+
 document.addEventListener("click",e=>{ const b=e.target.closest("[data-ee]"); if(b){e.preventDefault(); verEtiqueta(b.dataset.ee);} const f=e.target.closest("[data-fin]"); if(f) verFinanciacion(); });
 
 /* Buscador: faltas según la longitud, sinónimos, singular y plural, sin acentos */
@@ -716,34 +723,33 @@ function tarjeta(x){
     <span class="prod-precio">${x.desde?`<span class="desde">desde</span>`:""}<b>${eur(x.p)}</b>${x.a?`<s>${eur(x.a)}</s><span class="dto">-${pct(x)} %</span>`:""}</span></span></a>`;
 }
 const miga=(...ps)=>`<nav class="miga" aria-label="Estás en"><a href="#/">Inicio</a>${ps.map(p=>`<span aria-hidden="true">/</span>${p}`).join("")}</nav>`;
-const VENTAJAS=`<div class="ventajas"><div><i class="ph ph-ruler i" aria-hidden="true"></i>Medimos gratis</div><div><i class="ph ph-stairs i" aria-hidden="true"></i>Te lo subimos gratis</div><div><i class="ph ph-wrench i" aria-hidden="true"></i>Instalación gratis</div><div><i class="ph ph-truck i" aria-hidden="true"></i>Envío en 24/48 h</div></div>`;
+const VENTAJAS=`<div class="ventajas">${W.ventajas.map((t,i)=>t?`<div><i class="ph ph-${["ruler","stairs","wrench","truck"][i]} i" aria-hidden="true"></i>${esc(t)}</div>`:"").join("")}</div>`;
 function bloqueVisita(){
   return `<div class="visita"><img src="fachada.jpg" alt="Fachada de Electro House Outlet en la calle Obispo Rocamora de Orihuela, con el rótulo naranja y el escaparate" loading="lazy" width="1767" height="2700"><div class="visita-tx"><h2>Ven a verla en persona</h2>
-   <ul class="datos-tienda"><li><i class="ph ph-map-pin i" aria-hidden="true"></i><span>C/ Obispo Rocamora, 32<br>03300 Orihuela (Alicante)</span></li>
-   <li><i class="ph ph-phone i" aria-hidden="true"></i><a href="tel:+34865535940">865 53 59 40</a></li>
-   <li><i class="ph ph-clock i" aria-hidden="true"></i><span>Horario: <span class="pendiente">pendiente de que nos lo paséis</span></span></li></ul>
+   <ul class="datos-tienda"><li><i class="ph ph-map-pin i" aria-hidden="true"></i><span>${esc(T.direccion)}<br>${esc(T.cp)}</span></li>
+   ${TEL?`<li><i class="ph ph-phone i" aria-hidden="true"></i><a href="tel:${TEL}">${esc(T.telefono)}</a></li>`:""}
+   <li><i class="ph ph-clock i" aria-hidden="true"></i><span>${T.horario?esc(T.horario).replace(/\n/g,"<br>"):`Horario: <span class="pendiente">consúltanos</span>`}</span></li></ul>
    <div class="resenas"><b>4,1</b><div><span class="estrellas" aria-hidden="true">★★★★☆</span><small>36 opiniones en Google</small></div><a class="enlace" style="margin-left:auto" href="https://www.google.com/maps/search/?api=1&query=Electro+House+Obispo+Rocamora+32+Orihuela" target="_blank" rel="noopener">Leer las opiniones</a></div>
    <div class="mapa"><iframe title="Mapa de Electro House en Orihuela" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Electro%20House%2C%20Calle%20Obispo%20Rocamora%2032%2C%20Orihuela&z=16&output=embed"></iframe></div>
-   <div class="acc"><a class="btn btn-tinta" href="https://www.google.com/maps/search/?api=1&query=Electro+House+Obispo+Rocamora+32+Orihuela" target="_blank" rel="noopener"><i class="ph ph-navigation-arrow i" aria-hidden="true"></i>Cómo llegar</a><a class="btn btn-linea" href="tel:+34865535940">Llamar</a></div></div></div>`;
+   <div class="acc"><a class="btn btn-tinta" href="https://www.google.com/maps/search/?api=1&query=Electro+House+Obispo+Rocamora+32+Orihuela" target="_blank" rel="noopener"><i class="ph ph-navigation-arrow i" aria-hidden="true"></i>Cómo llegar</a>${TEL?`<a class="btn btn-linea" href="tel:${TEL}">Llamar</a>`:""}</div></div></div>`;
 }
 
 /* Portada: el escaparate con su escáner */
-let ESCENA=[
- {id:"frigorifico-combi-no-frost",f:"hero-frigorifico-combi",w:252,h:700,x:50,y:75,vs:30,cls:"pz-1",lado:"der"},
- {id:"lavavajillas-60-13",f:"hero-lavavajillas",w:360,h:530,x:56,y:19,vs:20,cls:"pz-2",lado:"der"},
- {id:"freidora-aire-5-5l",f:"hero-freidora-1",w:714,h:700,x:52,y:42,vs:22,cls:"pz-3",lado:"arriba"}
-];
-ESCENA=ESCENA.filter(e=>{ const x=porId(e.id); return x&&x.tara; });
+const RECORTES={"frigorifico-combi-no-frost":{f:"hero-frigorifico-combi",w:252,h:700,x:50,y:75,vs:30},"lavavajillas-60-13":{f:"hero-lavavajillas",w:360,h:530,x:56,y:19,vs:20},"freidora-aire-5-5l":{f:"hero-freidora-1",w:714,h:700,x:52,y:42,vs:22}};
+const ALTO={frio:80,lavado:54,coccion:50,clima:56,pequeno:27};
+let ESCENA=W.escaparate.map(porId).filter(x=>x&&x.tara).slice(0,3);
+if(ESCENA.length<3) ESCENA=ESCENA.concat(P.filter(x=>x.tara&&!ESCENA.includes(x)).slice(0,3-ESCENA.length));
+ESCENA=ESCENA.map((x,j)=>{ const rc=RECORTES[x.id], m=x.marca||[50,50,22], al=ALTO[x.c]||54;
+  const b={id:x.id,cls:"pz-"+(j+1),al:rc?al:Math.round(al*1.22),lado:"der"};
+  return rc?Object.assign(b,rc):Object.assign(b,{f:x.f,w:600,h:600,x:m[0],y:m[1],vs:m[2]||22,foto:true}); });
 let escenaI=0, turnoEscena=0;
 function colocarEtiquetas(){
-  const es=$("#escaparate"); if(!es) return; const e=es.getBoundingClientRect(), mov=e.width<900;
+  const es=$("#escaparate"); if(!es) return; const e=es.getBoundingClientRect(), est=es.querySelector(".estante"), gap=parseFloat(getComputedStyle(est).getPropertyValue("--gap"))||6;
   const pzs=es.querySelectorAll(".pieza");
   es.querySelectorAll(".colgante").forEach((cg,j)=>{ const pz=pzs[j]; if(!pz) return;
-    const r=pz.getBoundingClientRect(), w=cg.offsetWidth||80, h=(cg.querySelector(".tg")||cg).offsetHeight||90, lado=ESCENA[j].lado;
-    let left, cuerda;
-    if(lado==="arriba"){ left=r.left-e.left+r.width/2-w/2; cuerda=Math.max(8,r.top-e.top-h-(mov?4:10)); }
-    else { left=r.left-e.left+(mov?r.width*.62:r.width+12); cuerda=Math.max(10,r.top-e.top+r.height*(j===0?.04:-.02)); }
-    left=Math.max(4,Math.min(left,e.width-w-4));
+    const r=pz.getBoundingClientRect(), w=cg.offsetWidth||52, h=(cg.querySelector(".tg")||cg).offsetHeight||80;
+    const left=Math.min(r.right-e.left+gap,e.width-w-2);
+    const suelo=e.height*.87, cuerda=Math.max(10,Math.min(r.top-e.top+r.height*.06,suelo-h-6));
     cg.style.setProperty("--cx",left+"px"); cg.style.setProperty("--cuerda",cuerda+"px"); });
 }
 const colocarEtiqueta=colocarEtiquetas;
@@ -770,17 +776,17 @@ function mostrarEscena(i){
 }
 function inicio(){
   const outlet=P.filter(x=>x.tara).sort((a,b)=>pct(b)-pct(a));
-  const catalogo=["lavadora-8kg","placa-induccion-3","cafetera-superautomatica","campana-60","microondas-20l","freidora-aire-4l"].map(porId).filter(Boolean).concat(P.filter(x=>x.nuevo&&!x.tara));
+  const catalogo=W.destacados.map(porId).filter(x=>x&&!x.tara);
   const demo=porId("frigorifico-combi-no-frost")||P.find(x=>x.tara&&x.marca);
   app.innerHTML=`
   <section class="hero" id="hero" aria-label="Electro House Outlet">
     <div class="hero-rot"><div class="cont">
-      <h1><span>Outlet de</span><span>electrodomésticos</span></h1>
-      <div class="der"><div class="sello"><b>24/48 H</b>Pídelo hoy y lo tienes en 24/48 h</div>
-      <p>Nuevos, de las mejores marcas, con una tara estética de exposición. Te la enseñamos en foto antes de comprar.</p></div>
+      <h1>${W.titulo.filter(Boolean).map(t=>`<span>${esc(t)}</span>`).join("")}</h1>
+      <div class="der">${W.sello[0]||W.sello[1]?`<div class="sello">${W.sello[0]?`<b>${esc(W.sello[0])}</b>`:""}${esc(W.sello[1]||"")}</div>`:""}
+      ${W.subtitulo?`<p>${esc(W.subtitulo)}</p>`:""}</div>
     </div></div>
-    <div class="escaparate" id="escaparate">
-      ${ESCENA.map((e,j)=>{ const x=porId(e.id); return `<div class="pieza ${e.cls}"><a class="ir" href="#/producto/${x.id}" aria-label="${esc(x.n)}, ${x.p} euros">${e.x!=null?`<span class="scan" data-estado="idle" style="--x:${e.x}%;--y:${e.y}%;--vs:${e.vs}%"><img src="${src(e.f)}" alt="${esc(x.n)}" width="${e.w}" height="${e.h}" ${j===0?'fetchpriority="high"':""}>${capasEscaner()}</span>`:`<img src="${src(e.f)}" alt="${esc(x.n)}" width="${e.w}" height="${e.h}">`}</a><a class="peg-precio" href="#/producto/${x.id}" tabindex="-1" aria-hidden="true">${eur(x.p)}</a></div>`; }).join("")}
+    <div class="escaparate" id="escaparate"><div class="estante">
+      ${ESCENA.map((e,j)=>{ const x=porId(e.id); return `<div class="pieza ${e.cls}${e.foto?" foto":""}" style="--h:${e.al}%"><a class="ir" href="#/producto/${x.id}" aria-label="${esc(x.n)}, ${x.p} euros">${e.x!=null?`<span class="scan" data-estado="idle" style="--x:${e.x}%;--y:${e.y}%;--vs:${e.vs}%"><img src="${src(e.f)}" alt="${esc(x.n)}" width="${e.w}" height="${e.h}" ${j===0?'fetchpriority="high"':""}>${capasEscaner()}</span>`:`<img src="${src(e.f)}" alt="${esc(x.n)}" width="${e.w}" height="${e.h}">`}</a><a class="peg-precio" href="#/producto/${x.id}" tabindex="-1" aria-hidden="true">${eur(x.p)}</a></div>`; }).join("")}</div>
       ${ESCENA.map(e=>{ const x=porId(e.id); return `<a class="colgante" href="#/producto/${x.id}" tabindex="-1" aria-hidden="true"><span class="tg"><em>OUTLET</em><b>${eur(x.p)}</b><s>${eur(x.a)}</s><br><span class="dto">-${pct(x)} %</span></span></a>`; }).join("")}
     </div>
     <div class="aviso-tara" id="aviso-tara" aria-live="polite"><div class="cont"><b>TARA</b><span></span></div></div>
@@ -797,7 +803,7 @@ function inicio(){
     <a class="enlace mas" href="#/outlet">Todo el outlet <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
   </div></section>
 
-  <section class="cocinas" aria-label="Cocinas a medida">${img("cocina-2","Cocina a medida blanca con madera y columna de hornos",'class="bg" width="1000" height="667"')}
+  <section class="cocinas" aria-label="Cocinas a medida">${W.cocinas.length?`<img class="bg" src="${W.cocinas[0]}" alt="Cocina montada por Electro House" width="1000" height="667" loading="lazy">`:img("cocina-2","Cocina a medida blanca con madera y columna de hornos",'class="bg" width="1000" height="667"')}
     <div class="cont" style="width:100%;padding:0"><div class="cocinas-panel"><h2>Cocinas a medida</h2><p>Te la diseñamos con las medidas de tu cocina, te aconsejamos los electrodomésticos y la montamos.</p>
       <div class="mide"><i class="ph ph-ruler i" aria-hidden="true"></i>Vamos a tu casa y medimos sin coste</div>
       <div class="cocinas-acc"><a class="btn btn-blanco" href="#/cocinas">Pedir presupuesto</a><a class="btn btn-tinta" href="#/cocinas#montadas">Cocinas que hemos montado</a></div></div></div>
@@ -839,35 +845,34 @@ function inicio(){
   
   alEntrar($("#scan-tara"),()=>escanear($("#scan-tara")));
 }
+function canapeDesde(){ const ps=W.canapes.map(c=>parseFloat(String(c.p).replace(",","."))).filter(v=>v>0); return ps.length?Math.min(...ps).toLocaleString("es-ES"):"199"; }
 function bloqueDescanso(){
   return `<div class="descanso">
-    <a class="dz foto" href="#/muebles-y-descanso#canapes">${img("canape-ambiente","Canapé abatible de madera abierto en un dormitorio",'width="1024" height="768"')}<span class="desde">Desde 199 €</span><h3>Canapés</h3><p>Abatibles de madera, con todo el hueco para guardar.</p></a>
-    <a class="dz" href="#/muebles-y-descanso#colchones"><span class="ic"><i class="ph ph-bed" aria-hidden="true"></i></span><h3>Colchones</h3><p>Fotos con vuestro catálogo</p></a>
-    <a class="dz" href="#/muebles-y-descanso#sofas"><span class="ic"><i class="ph ph-couch" aria-hidden="true"></i></span><h3>Sofás</h3><p>Fotos con vuestro catálogo</p></a>
-    <a class="dz" href="#/muebles-y-descanso#muebles"><span class="ic"><i class="ph ph-dresser" aria-hidden="true"></i></span><h3>Muebles</h3><p>Fotos con vuestro catálogo</p></a>
+    <a class="dz foto" href="#/muebles-y-descanso#canapes">${img("canape-ambiente","Canapé abatible de madera abierto en un dormitorio",'width="1024" height="768"')}<span class="desde">Desde ${canapeDesde()} €</span><h3>Canapés</h3><p>Abatibles de madera, con todo el hueco para guardar.</p></a>
+    ${[["colchones","bed","Colchones"],["sofas","couch","Sofás"],["muebles","dresser","Muebles"]].map(([k,ic,t])=>{ const f=(W.descanso[k]||[])[0];
+      return f?`<a class="dz foto" href="#/muebles-y-descanso#${k}"><img src="${f}" alt="${t} de Electro House" width="800" height="600" loading="lazy"><h3>${t}</h3><p>Ver ${t.toLowerCase()}</p></a>`
+      :`<a class="dz" href="#/muebles-y-descanso#${k}"><span class="ic"><i class="ph ph-${ic}" aria-hidden="true"></i></span><h3>${t}</h3><p>Fotos con vuestro catálogo</p></a>`; }).join("")}
   </div>`;
 }
 function bloqueEnvio(enPortada){
+  const E=W.envios, V=W.ventajas;
   return `<section class="sec envio"><div class="cont envio-grid">
     <div>${enPortada?`<h2>Te lo llevamos</h2>`:`<h1 class="tit">Envíos</h1>`}
-      <p class="sec-entrada">Pídelo hoy y lo tienes en 24/48 h. Llevamos a toda la provincia de Alicante y a la Región de Murcia.</p>
-      <div class="zonas">
-        <div class="zona"><b>Orihuela y Vega Baja</b><span>24/48 h<br><span class="pendiente">Consúltanos el precio</span></span></div>
-        <div class="zona"><b>Resto de Alicante</b><span>24/48 h<br><span class="pendiente">Consúltanos el precio</span></span></div>
-        <div class="zona"><b>Región de Murcia</b><span>24/48 h<br><span class="pendiente">Consúltanos el precio</span></span></div>
-      </div>${enPortada?`<a class="btn btn-naranja" href="#/envios">Ver las condiciones de envío</a>`:""}</div>
+      <p class="sec-entrada">${esc(W.sello[1]||"")}. ${esc(W.barra||"")}.</p>
+      <div class="zonas">${E.zonas.filter(z=>z.n).map(z=>`<div class="zona"><b>${esc(z.n)}</b><span>${esc(z.plazo||"")}<br>${z.precio?esc(z.precio):`<span class="pendiente">Consúltanos el precio</span>`}</span></div>`).join("")}</div>
+      ${enPortada?`<a class="btn btn-naranja" href="#/envios">Ver las condiciones de envío</a>`:""}</div>
     <div class="servicios">
-      <div class="serv"><i class="ph ph-ruler i" aria-hidden="true"></i><div><b>Medimos gratis</b><span>Vamos a tu casa y tomamos las medidas.</span></div></div>
-      <div class="serv"><i class="ph ph-stairs i" aria-hidden="true"></i><div><b>Te lo subimos gratis</b><span>Hasta tu cocina, aunque no haya ascensor.</span></div></div>
-      <div class="serv"><i class="ph ph-wrench i" aria-hidden="true"></i><div><b>Instalación gratis</b><span>Lo dejamos conectado y funcionando.</span></div></div>
-      <div class="serv"><i class="ph ph-recycle i" aria-hidden="true"></i><div><b>Retirada del viejo</b><span>Nos llevamos tu aparato viejo. <span class="pendiente">Consúltanos el precio.</span></span></div></div>
+      ${V[0]?`<div class="serv"><i class="ph ph-ruler i" aria-hidden="true"></i><div><b>${esc(V[0])}</b><span>Vamos a tu casa y tomamos las medidas.</span></div></div>`:""}
+      ${V[1]?`<div class="serv"><i class="ph ph-stairs i" aria-hidden="true"></i><div><b>${esc(V[1])}</b><span>Hasta tu cocina, aunque no haya ascensor.</span></div></div>`:""}
+      ${V[2]?`<div class="serv"><i class="ph ph-wrench i" aria-hidden="true"></i><div><b>${esc(V[2])}</b><span>Lo dejamos conectado y funcionando.</span></div></div>`:""}
+      <div class="serv"><i class="ph ph-recycle i" aria-hidden="true"></i><div><b>Retirada del viejo</b><span>Nos llevamos tu aparato viejo. ${E.retirada?esc(E.retirada):`<span class="pendiente">Consúltanos el precio.</span>`}</span></div></div>
     </div>
   </div></section>`;
 }
 function listado(titulo,lista,{outlet=false}={}){
   const st={cat:"todas",orden:"rel",al:"",an:"",fo:""}; const cats=[...new Set(lista.map(x=>x.c))];
   app.innerHTML=`<div class="pag"><div class="cont">${miga(esc(titulo))}<h1 class="tit">${esc(titulo)}</h1>
-    ${outlet?`<div class="banda-48"><b>24/48 H</b><span>Pídelo hoy y lo tienes en 24/48 h<small>En Orihuela, Vega Baja, resto de Alicante y Región de Murcia. <span style="text-decoration:underline">Hora límite del pedido por confirmar con la tienda.</span></small></span></div>
+    ${outlet?`<div class="banda-48"><b>24/48 H</b><span>Pídelo hoy y lo tienes en 24/48 h<small>En Orihuela, Vega Baja, resto de Alicante y Región de Murcia. ${W.envios.horaLimite?esc(W.envios.horaLimite):"Pregúntanos la hora límite del pedido."}</small></span></div>
     <p class="sec-entrada">Aparatos nuevos con una tara estética de exposición: un roce, un golpecito o la caja dañada. Cada uno es una unidad única y en su ficha ves la tara en foto.</p>`:""}
     ${cats.length>1?`<div class="filtros" role="group" aria-label="Filtrar por tipo"><button class="chip" data-c="todas" aria-pressed="true">Todo</button>${cats.map(c=>`<button class="chip" data-c="${c}" aria-pressed="false">${CATS[c].n}</button>`).join("")}</div>`:`<div style="height:16px"></div>`}
     <details class="medidas-filtro"><summary><i class="ph ph-ruler i" aria-hidden="true"></i>Filtrar por medidas: ¿cuánto hueco tienes?</summary>
@@ -945,7 +950,7 @@ function reservar(id){
     <label>Nombre<input name="n" required autocomplete="name"><span class="error" hidden>Escribe tu nombre.</span></label>
     <label>Teléfono<input name="t" type="tel" required autocomplete="tel" inputmode="tel"><span class="error" hidden>Pon un teléfono para confirmarte la reserva.</span></label>
     <button class="btn btn-tinta">Reservar</button></form></div></div>`;
-  formulario("#fres",()=>hecho("Reserva recibida","Te llamamos para confirmarte que está apartado y cuándo puedes pasar a recogerlo. En la maqueta no se envía nada."));
+  formulario("#fres",()=>{ const f=$("#fres"); anotar("reserva",{nombre:f.n.value.trim(),tel:f.t.value.trim(),lineas:[{id:x.id,n:x.n,p:x.p,q:1,tara:!!x.tara}],total:x.p,pago:"En tienda"}); hecho("Reserva recibida","Te llamamos para confirmarte que está apartado y cuándo puedes pasar a recogerlo. (En la maqueta llega al panel de este navegador.)"); });
 }
 function resultados(q){
   const {res}=buscar(q), s=quizas(q);
@@ -960,11 +965,11 @@ function formulario(id,ok){ const f=$(id); f.addEventListener("submit",e=>{ e.pr
   if(!bien){ f.querySelector('[aria-invalid="true"]').focus(); return; } ok(); }); }
 const hecho=(t,p)=>{ app.innerHTML=`<div class="hecho"><i class="ph-fill ph-check-circle i" aria-hidden="true"></i><h1>${t}</h1><p>${p}</p><a class="btn btn-tinta" href="#/">Volver al inicio</a></div>`; scrollTo(0,0); };
 function cocinas(){
-  app.innerHTML=`<section class="cocinas" style="min-height:min(72svh,560px)">${img("cocina-1","Cocina a medida con isla y taburetes",'class="bg" loading="eager" width="1000" height="667"')}<div class="cont" style="width:100%;padding:0"><div class="cocinas-panel"><h1>Cocinas a medida</h1><p>Te la diseñamos con tus medidas, te aconsejamos los electrodomésticos y la montamos.</p><div class="mide" style="margin-bottom:0"><i class="ph ph-ruler i" aria-hidden="true"></i>Vamos a tu casa y medimos sin coste</div></div></div></section>
+  app.innerHTML=`<section class="cocinas" style="min-height:min(72svh,560px)">${W.cocinas.length?`<img class="bg" src="${W.cocinas[0]}" alt="Cocina montada por Electro House" width="1000" height="667">`:img("cocina-1","Cocina a medida con isla y taburetes",'class="bg" loading="eager" width="1000" height="667"')}<div class="cont" style="width:100%;padding:0"><div class="cocinas-panel"><h1>Cocinas a medida</h1><p>Te la diseñamos con tus medidas, te aconsejamos los electrodomésticos y la montamos.</p><div class="mide" style="margin-bottom:0"><i class="ph ph-ruler i" aria-hidden="true"></i>Vamos a tu casa y medimos sin coste</div></div></div></section>
   <div class="pag"><div class="cont">
-  <section class="apartado" id="montadas" style="border-top:0"><h2>Cocinas que hemos montado</h2><p class="sec-entrada">Aquí irán las fotos de vuestras cocinas. Las de abajo son de muestra.</p>
+  <section class="apartado" id="montadas" style="border-top:0"><h2>Cocinas que hemos montado</h2>${W.cocinas.length?`<div class="galeria">${W.cocinas.map((f,i)=>`<figure><img src="${f}" alt="Cocina montada por Electro House ${i+1}" width="1000" height="750" loading="lazy"></figure>`).join("")}</div>`:`<p class="sec-entrada">Aquí irán las fotos de vuestras cocinas, que se suben desde el panel. Las de abajo son de muestra.</p>
     <div class="galeria"><figure>${img("cocina-1","Cocina de muestra con isla",'width="1000" height="667"')}</figure><figure>${img("cocina-2","Cocina de muestra blanca con madera",'width="1000" height="667"')}</figure>
-    <figure class="hueco"><span><i class="ph ph-images" aria-hidden="true"></i>Vuestra cocina 3</span></figure><figure class="hueco"><span><i class="ph ph-images" aria-hidden="true"></i>Vuestra cocina 4</span></figure><figure class="hueco"><span><i class="ph ph-images" aria-hidden="true"></i>Vuestra cocina 5</span></figure><figure class="hueco"><span><i class="ph ph-images" aria-hidden="true"></i>Vuestra cocina 6</span></figure></div></section>
+    <figure class="hueco"><span><i class="ph ph-images" aria-hidden="true"></i>Vuestra cocina 3</span></figure><figure class="hueco"><span><i class="ph ph-images" aria-hidden="true"></i>Vuestra cocina 4</span></figure></div>`}</section>
   <section class="apartado"><h2>Pide tu presupuesto</h2><p class="sec-entrada">Mándanos las medidas y unas fotos de tu cocina, o pide que vayamos a medir.</p>
   <form class="forma" id="fcocina" novalidate>
     <label>Nombre<input name="n" required autocomplete="name"><span class="error" hidden>Escribe tu nombre.</span></label>
@@ -975,21 +980,20 @@ function cocinas(){
     <label>Qué buscas<textarea name="c" rows="3"></textarea></label>
     <div class="acc" style="margin-top:0"><button class="btn btn-tinta">Pedir presupuesto</button><button class="btn btn-wa" type="button" id="coc-wa"><i class="ph-fill ph-whatsapp-logo i" aria-hidden="true"></i>Escribir por WhatsApp</button></div>
   </form></section></div></div>`;
-  formulario("#fcocina",()=>hecho("Recibido","Te llamamos para hablar de tu cocina. En la maqueta no se envía nada."));
+  formulario("#fcocina",()=>{ const f=$("#fcocina"); anotar("cocina",{nombre:f.n.value.trim(),tel:f.t.value.trim(),como:f.como.value==="medir"?"Quiere que vayamos a medir":"Manda las medidas",medidas:f.m.value.trim(),texto:f.c.value.trim()}); hecho("Recibido","Te llamamos para hablar de tu cocina. (En la maqueta llega al panel de este navegador.)"); });
   $("#coc-wa").addEventListener("click",()=>abrirWhatsApp("Hola, quiero información sobre una cocina a medida"));
   if(location.hash.endsWith("#montadas")) setTimeout(()=>$("#montadas").scrollIntoView(),50);
 }
 function descanso(){
-  const med=["90 × 190","105 × 190","135 × 190","150 × 190","160 × 200"];
-  const ap=(id,ic,t,p)=>`<section class="apartado" id="${id}"><h2>${t}</h2><p class="sec-entrada">${p}</p><div class="galeria"><figure class="hueco"><span><i class="ph ph-${ic}" aria-hidden="true"></i>Fotos con vuestro catálogo</span></figure><figure class="hueco"><span><i class="ph ph-${ic}" aria-hidden="true"></i>Fotos con vuestro catálogo</span></figure></div><div class="acc"><button class="btn btn-wa" type="button" data-wa="Hola, quiero información sobre ${t.toLowerCase()}"><i class="ph-fill ph-whatsapp-logo i" aria-hidden="true"></i>Preguntar por WhatsApp</button><a class="btn btn-linea" href="#/tienda">Verlos en la tienda</a></div></section>`;
+  const ap=(id,ic,t,p)=>`<section class="apartado" id="${id}"><h2>${t}</h2><p class="sec-entrada">${p}</p><div class="galeria">${(W.descanso[id]||[]).length?W.descanso[id].map((f,i)=>`<figure><img src="${f}" alt="${t} ${i+1}" width="800" height="600" loading="lazy"></figure>`).join(""):`<figure class="hueco"><span><i class="ph ph-${ic}" aria-hidden="true"></i>Fotos con vuestro catálogo</span></figure><figure class="hueco"><span><i class="ph ph-${ic}" aria-hidden="true"></i>Fotos con vuestro catálogo</span></figure>`}</div><div class="acc"><button class="btn btn-wa" type="button" data-wa="Hola, quiero información sobre ${t.toLowerCase()}"><i class="ph-fill ph-whatsapp-logo i" aria-hidden="true"></i>Preguntar por WhatsApp</button><a class="btn btn-linea" href="#/tienda">Verlos en la tienda</a></div></section>`;
   app.innerHTML=`<div class="pag"><div class="cont">${miga("Muebles y descanso")}<h1 class="tit">Muebles y descanso</h1>
   <p class="sec-entrada">Muebles, colchones, sofás y canapés. Te los llevamos a casa en Alicante y Murcia.</p>
   <div style="margin:22px 0 10px">${bloqueDescanso()}</div>
   <section class="apartado" id="canapes"><h2>Canapés de madera</h2>
     <div class="galeria" style="grid-template-columns:1fr"><figure>${img("canape-ambiente","Canapé abatible de madera abierto",'loading="eager" width="1024" height="768"')}</figure></div>
-    <p class="sec-entrada">Abatibles, con todo el hueco de la cama para guardar. <b>Desde 199 €.</b> Compra tu medida o pide presupuesto para una medida especial.</p>
+    <p class="sec-entrada">Abatibles, con todo el hueco de la cama para guardar. <b>Desde ${canapeDesde()} €.</b> Compra tu medida o pide presupuesto para una medida especial.</p>
     <form class="forma" id="fcanape" novalidate>
-      <div class="grupo-t">Medida en centímetros<span class="ayuda">Medidas y precios de muestra hasta tener vuestra lista</span><div class="opciones">${med.map((m,i)=>`<label><input type="radio" name="m" value="${m}" ${i===2?"checked":""}>${m}</label>`).join("")}</div></div>
+      <div class="grupo-t">Medida en centímetros<div class="opciones">${W.canapes.filter(c=>c.m).map((c,i)=>`<label><input type="radio" name="m" value="${esc(c.m)}" ${i===0?"checked":""}>${esc(c.m)}${c.p?` · <b>${esc(c.p)} €</b>`:""}</label>`).join("")}</div></div>
       <label>Nombre<input name="n" required autocomplete="name"><span class="error" hidden>Escribe tu nombre.</span></label>
       <label>Teléfono<input name="t" type="tel" required autocomplete="tel" inputmode="tel"><span class="error" hidden>Pon un teléfono para darte el precio.</span></label>
       <button class="btn btn-tinta">Pedir precio</button>
@@ -998,11 +1002,11 @@ function descanso(){
   ${ap("sofas","couch","Sofás","Sofás para el salón, en la tienda y con envío.")}
   ${ap("muebles","dresser","Muebles","Muebles para el dormitorio y el salón.")}
   </div></div>`;
-  formulario("#fcanape",()=>hecho("Recibido","Te llamamos con el precio de tu canapé. En la maqueta no se envía nada."));
+  formulario("#fcanape",()=>{ const f=$("#fcanape"); anotar("canape",{nombre:f.n.value.trim(),tel:f.t.value.trim(),medidas:"Canapé "+f.m.value}); hecho("Recibido","Te llamamos con el precio de tu canapé. (En la maqueta llega al panel de este navegador.)"); });
   app.querySelectorAll("[data-wa]").forEach(b=>b.addEventListener("click",()=>abrirWhatsApp(b.dataset.wa)));
   const anc=location.hash.split("#")[2]; if(anc&&$("#"+anc)) setTimeout(()=>$("#"+anc).scrollIntoView(),50);
 }
-function envios(){ app.innerHTML=`<div class="pag" style="padding:0">${bloqueEnvio(false)}</div><div class="cont"><section class="apartado" style="border:0"><h2>Condiciones</h2><p class="sec-entrada pendiente">Pendiente de la tienda: precio por zona, envío gratis a partir de un importe, hora límite para el 24/48 h y precio de retirada del aparato viejo.</p></section></div>`; }
+function envios(){ app.innerHTML=`<div class="pag" style="padding:0">${bloqueEnvio(false)}</div><div class="cont"><section class="apartado" style="border:0"><h2>Condiciones</h2><ul class="tara-lista" style="max-width:640px"><li><i class="ph ph-clock i" aria-hidden="true"></i><div><b>Hora límite del pedido</b><span>${W.envios.horaLimite?esc(W.envios.horaLimite):"Consúltanos"}</span></div></li><li><i class="ph ph-gift i" aria-hidden="true"></i><div><b>Envío gratis</b><span>${W.envios.gratisDesde?esc(W.envios.gratisDesde):"Consúltanos"}</span></div></li></ul></section></div>`; }
 function verCarrito(){
   const ls=carrito.map(l=>({...l,x:porId(l.id)})).filter(l=>l.x);
   if(!ls.length){ app.innerHTML=`<div class="pag"><div class="cont">${miga("Carrito")}<div class="vacio"><h1 class="tit">Carrito vacío</h1><p>Empieza por el outlet: son unidades únicas.</p><a class="btn btn-tinta" href="#/outlet">Ver el outlet</a></div></div></div>`; return; }
@@ -1026,7 +1030,7 @@ function pedido(){
     <label>Email<input name="e" type="email" required autocomplete="email" spellcheck="false"><span class="error" hidden>Revisa el email.</span></label>
     <div class="grupo-t">Entrega<div class="opciones"><label><input type="radio" name="ent" value="casa" checked>A domicilio</label><label><input type="radio" name="ent" value="tienda">Recoger en tienda</label></div></div>
     <label id="dir">Dirección<span class="ayuda">Provincia de Alicante o Región de Murcia</span><input name="d" autocomplete="street-address" required><span class="error" hidden>Escribe la dirección.</span></label>
-    <div class="grupo-t" id="retirada-g"><label style="display:flex;gap:10px;align-items:center;font-weight:600"><input type="checkbox" name="ret" style="width:20px;height:20px;accent-color:var(--rotulo)">Retirar mi aparato viejo <span class="pendiente" style="font-weight:500">(consúltanos el precio)</span></label></div>
+    <div class="grupo-t" id="retirada-g"><label style="display:flex;gap:10px;align-items:center;font-weight:600"><input type="checkbox" name="ret" style="width:20px;height:20px;accent-color:var(--rotulo)">Retirar mi aparato viejo <span class="pendiente" style="font-weight:500">(${W.envios.retirada?esc(W.envios.retirada):"consúltanos el precio"})</span></label></div>
     <div class="grupo-t">Pago<div class="opciones"><label><input type="radio" name="pago" value="tarjeta" checked>Tarjeta</label><label><input type="radio" name="pago" value="bizum">Bizum</label><label style="grid-column:span 2"><input type="radio" name="pago" value="tienda">Pagar en la tienda</label></div></div>
     <div class="resumen"><div class="f"><span>Subida e instalación</span><span>Gratis</span></div><div class="f total"><span>Total</span><span>${eur(total)}</span></div></div>
     ${tara?`<p class="retiene" id="aviso-ret"><i class="ph-fill ph-lock-key i" aria-hidden="true"></i><span>El outlet se retiene: te avisamos al confirmar la unidad y entonces se cobra.</span></p>`:""}
@@ -1036,7 +1040,7 @@ function pedido(){
   const f=$("#fped");
   f.querySelectorAll("[name=ent]").forEach(r=>r.addEventListener("change",()=>{ const casa=f.ent.value==="casa"; $("#dir").hidden=!casa; f.d.required=casa; $("#retirada-g").hidden=!casa; }));
   f.querySelectorAll("[name=pago]").forEach(r=>r.addEventListener("change",()=>{ const t=f.pago.value==="tienda"; $("#b-pagar").textContent=t?"Reservar y pagar en tienda":(tara?"Pagar y retener":"Pagar "+eur(total)); const a=$("#aviso-ret"); if(a) a.hidden=t; }));
-  formulario("#fped",()=>{ const t=f.pago.value==="tienda"; carrito=[]; guardar(); hecho(t?"Reserva recibida":"Pedido recibido",t?"Te llamamos para confirmarte la reserva. Lo pagas al recogerlo o al recibirlo. (Simulado.)":tara?"Estamos comprobando que tu aparato de outlet sigue en la tienda. Te avisamos enseguida y solo entonces se cobra. (Pedido simulado.)":"Te mandamos la confirmación por email. (Pedido simulado.)"); });
+  formulario("#fped",()=>{ const t=f.pago.value==="tienda"; anotar(t?"reserva":"pedido",{nombre:f.n.value.trim(),tel:f.t.value.trim(),email:f.e.value.trim(),entrega:f.ent.value==="casa"?"A domicilio: "+f.d.value.trim():"Recoge en tienda",retirada:f.ret&&f.ret.checked,pago:{tarjeta:"Tarjeta",bizum:"Bizum",tienda:"En tienda"}[f.pago.value],lineas:ls.map(l=>({id:l.x.id,n:l.x.n,p:l.x.p,q:l.q,tara:!!l.x.tara})),total}); carrito=[]; guardar(); hecho(t?"Reserva recibida":"Pedido recibido",t?"Te llamamos para confirmarte la reserva. Lo pagas al recogerlo o al recibirlo. (Simulado.)":tara?"Estamos comprobando que tu aparato de outlet sigue en la tienda. Te avisamos enseguida y solo entonces se cobra. (Pedido simulado.)":"Te mandamos la confirmación por email. (Pedido simulado.)"); });
 }
 function tienda(){ app.innerHTML=`<div class="pag"><div class="cont">${miga("La tienda")}<h1 class="tit" style="margin-bottom:18px">La tienda</h1>${bloqueVisita()}</div></div>`; }
 
@@ -1051,13 +1055,13 @@ addEventListener("scroll",()=>{ if(cto.classList.contains("abierto")) return; ct
 let obs=null;
 function vigilarHero(){ const h=$("#hero"); if(obs){obs.disconnect();obs=null;} if(!h){ enHero=false; visibleContacto(); return; }
   enHero=true; visibleContacto(); obs=new IntersectionObserver(([e])=>{enHero=e.intersectionRatio>.35; visibleContacto();},{threshold:[0,.2,.35,.6,1]}); obs.observe(h); }
-function abrirWhatsApp(t){ toast("Abriría WhatsApp de la tienda: «"+t+"»"); }
+function abrirWhatsApp(t){ toast(T.whatsapp?"Abriría WhatsApp al "+T.whatsapp+": «"+t+"»":"Abriría WhatsApp de la tienda: «"+t+"»"); }
 $("#b-wa").addEventListener("click",()=>{ abrirOpciones(false); abrirWhatsApp("Hola, tengo una pregunta"); });
 const RESP={
- "¿Qué horario tenéis?":{t:"El horario de la tienda lo pondremos aquí en cuanto nos lo paséis. Mientras, puedes escribirnos por WhatsApp.",wa:true},
+ "¿Qué horario tenéis?":T.horario?{t:"Nuestro horario: "+T.horario.replace(/\n/g,". ")+"."}:{t:"Pregúntanos el horario por WhatsApp y te contestamos enseguida.",wa:true},
  "¿Está disponible un aparato?":{t:"Los aparatos de outlet que ves en la web están disponibles: cuando se venden, desaparecen. Para confirmarlo al momento, escríbenos por WhatsApp.",wa:true},
  "¿Lleváis a casa?":{t:"Sí: a toda la provincia de Alicante y a la Región de Murcia, en 24/48 h. Te lo subimos y lo instalamos gratis."},
- "¿Dónde estáis?":{t:"En la calle Obispo Rocamora, 32, en Orihuela. Teléfono 865 53 59 40."}
+ "¿Dónde estáis?":{t:"En "+T.direccion+", "+T.cp+"."+(T.telefono?" Teléfono "+T.telefono+".":"")}
 };
 const asis=$("#asis"), cuerpo=$("#asis-cuerpo");
 function responde(q,r){ $("#preguntas").insertAdjacentHTML("beforebegin",`<div class="msg msg-tu">${esc(q)}</div><div class="msg msg-el">${esc(r.t)}${r.wa?`<br><button class="btn btn-wa" data-wa-asis><i class="ph-fill ph-whatsapp-logo i" aria-hidden="true"></i>Ir a WhatsApp</button>`:""}</div>`); cuerpo.scrollTop=cuerpo.scrollHeight; }

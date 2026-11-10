@@ -42,3 +42,35 @@ function aplicarPanel(lista){
   for(var k=lista.length-1;k>=0;k--) if(v.has(lista[k].id)) lista.splice(k,1);
   return lista;
 }
+
+/* Lo que la tienda puede cambiar desde el panel (textos, portada, datos, envíos, fotos). */
+var WEB_DEFECTO={
+  barra:"Envíos a toda la provincia de Alicante y Murcia",
+  titulo:["Outlet de","electrodomésticos"],
+  sello:["24/48 H","Pídelo hoy y lo tienes en 24/48 h"],
+  subtitulo:"Nuevos, de las mejores marcas, con una tara estética de exposición. Te la enseñamos en foto antes de comprar.",
+  ventajas:["Medimos gratis","Te lo subimos gratis","Instalación gratis","Envío en 24/48 h"],
+  marcas:"Balay, AEG, Candy, LG, Bosch, Electrolux, Fagor, Hoover, Grundig, Edesa, Aristón, Junkers, Braun",
+  escaparate:["frigorifico-combi-no-frost","lavavajillas-60-13","freidora-aire-5-5l"],
+  destacados:["lavadora-8kg","placa-induccion-3","cafetera-superautomatica","campana-60","microondas-20l","freidora-aire-4l"],
+  tienda:{telefono:"865 53 59 40",whatsapp:"",direccion:"C/ Obispo Rocamora, 32",cp:"03300 Orihuela (Alicante)",horario:""},
+  envios:{zonas:[{n:"Orihuela y Vega Baja",precio:"",plazo:"24/48 h"},{n:"Resto de Alicante",precio:"",plazo:"24/48 h"},{n:"Región de Murcia",precio:"",plazo:"24/48 h"}],retirada:"",horaLimite:"",gratisDesde:""},
+  financiacion:"",
+  cocinas:[],
+  descanso:{colchones:[],sofas:[],muebles:[]},
+  canapes:[{m:"90 × 190",p:""},{m:"105 × 190",p:""},{m:"135 × 190",p:""},{m:"150 × 190",p:""},{m:"160 × 200",p:""}]
+};
+function webConfig(){
+  var w=leerPanel().web||{}, D=WEB_DEFECTO, r=Object.assign({},D,w);
+  r.tienda=Object.assign({},D.tienda,w.tienda||{});
+  r.envios=Object.assign({},D.envios,w.envios||{});
+  r.descanso=Object.assign({},D.descanso,w.descanso||{});
+  return r;
+}
+/* Los pedidos, reservas y presupuestos de la web llegan al panel */
+function anotar(tipo,datos){
+  var d=leerPanel(); d.pedidos=d.pedidos||[];
+  d.pedidos.unshift(Object.assign({id:"P"+Date.now().toString(36).toUpperCase(),tipo:tipo,fecha:new Date().toISOString(),estado:"nuevo"},datos));
+  try{ guardarPanel(d); }catch(e){}
+}
+function telLink(t){ var n=String(t||"").replace(/\D/g,"").replace(/^34(?=\d{9}$)/,""); return n?"+34"+n:""; }
