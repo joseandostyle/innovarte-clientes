@@ -185,16 +185,49 @@ button,a,input,textarea{touch-action:manipulation}
 @media (min-width:760px){.figuras svg:nth-child(n+7){display:block}}
 .pie-legal{padding:16px var(--margen) max(16px,env(safe-area-inset-bottom));font:500 13px/1.4 var(--texto);color:var(--sobre-negro-2)}
 
-/* ---------- WhatsApp flotante ---------- */
-.wa{position:fixed;z-index:50;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--azul);color:#fff;border:1.5px solid rgba(255,255,255,.8);
+/* ---------- Botones flotantes: asistente y WhatsApp ---------- */
+.flotantes{position:fixed;z-index:50;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:10px;
   opacity:0;transform:translateY(12px) scale(.95);pointer-events:none;transition:opacity .2s var(--salida),transform .2s var(--salida)}
-.wa.visible{opacity:1;transform:none;pointer-events:auto}
-.wa:active{transform:scale(.95)}
-.wa svg{width:28px;height:28px}
+.flotantes.visible{opacity:1;transform:none;pointer-events:auto}
+.flot{width:56px;height:56px;padding:0;border-radius:50%;display:grid;place-items:center;background:var(--azul);color:#fff;border:1.5px solid rgba(255,255,255,.8);cursor:pointer;transition:transform .15s var(--salida)}
+.flot.del-chat{background:var(--blanco);color:var(--carbon);border-color:var(--carbon)}
+.flot:active{transform:scale(.95)}
+.flot svg{width:28px;height:28px}
+
+/* ---------- Asistente de chat ---------- */
+.chat{position:fixed;z-index:60;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));width:min(380px,calc(100vw - 32px));height:min(540px,calc(100svh - 32px));display:flex;flex-direction:column;
+  background:var(--blanco);color:var(--carbon);border:1.5px solid var(--carbon);border-radius:22px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45);
+  opacity:0;transform:translateY(14px) scale(.97);transform-origin:bottom right;transition:opacity .18s var(--salida),transform .18s var(--salida)}
+.chat.abierto{opacity:1;transform:none}
+.chat-cab{display:flex;align-items:center;gap:12px;padding:12px 10px 12px 16px;background:var(--negro);color:var(--sobre-negro)}
+.chat-cab img{width:30px;height:30px;object-fit:contain}
+.chat-cab div{flex:1;min-width:0}
+.chat-cab b{display:block;font:700 14px/1.2 var(--texto);letter-spacing:.06em;text-transform:uppercase}
+.chat-cab small{display:block;font:500 12.5px/1.3 var(--texto);color:var(--sobre-negro-2)}
+.chat-cab button{flex:none;width:44px;height:44px;display:grid;place-items:center;background:none;border:0;color:inherit;cursor:pointer;border-radius:50%}
+.chat-cab button svg{width:20px;height:20px}
+.chat-mensajes{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:16px;display:flex;flex-direction:column;gap:10px}
+.burbuja{max-width:86%;padding:10px 14px;border-radius:16px;font:500 15px/1.45 var(--texto);overflow-wrap:anywhere}
+.burbuja.bot{align-self:flex-start;background:#fff;border:1.5px solid #dce2ea;border-bottom-left-radius:5px}
+.burbuja.yo{align-self:flex-end;background:var(--azul);color:#fff;border-bottom-right-radius:5px}
+.burbuja a{color:var(--profundo);font-weight:600}
+.burbuja.espera{color:var(--pizarra)}
+.chat-form{display:flex;gap:8px;padding:10px;border-top:1.5px solid #dce2ea;background:#fff}
+.chat-form input{flex:1;min-width:0;height:46px;padding:0 14px;border:1.5px solid #c9d1dc;border-radius:999px;background:var(--blanco);color:var(--carbon);font:500 16px/1 var(--texto)}
+.chat-form input:focus{outline:none;border-color:var(--azul)}
+.chat-form button{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:var(--azul);color:#fff;display:grid;place-items:center;cursor:pointer;transition:transform .15s var(--salida),opacity .15s}
+.chat-form button:active{transform:scale(.95)}
+.chat-form button:disabled{opacity:.45;cursor:default}
+.chat-form button svg{width:20px;height:20px}
+
+/* ---------- Pegatina del chacal ---------- */
+.trabajos-cab{position:relative}
+.pegatina{position:absolute;z-index:2;right:max(3%,calc(50% - 560px));top:-18px;width:clamp(78px,10.5vw,158px);height:auto;border:5px solid #fff;border-radius:14px;transform:rotate(9deg);box-shadow:0 12px 26px rgba(0,0,0,.5)}
+@media (max-width:759px){.trabajos-cab{padding-top:62px}.pegatina{top:-28px;right:6%;border-width:4px;border-radius:11px}}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .wa,.boton,.boton svg{transition:none}
+  .flotantes,.flot,.chat,.boton,.boton svg{transition:none}
 }
 </style>
 </head>
@@ -283,6 +316,7 @@ button,a,input,textarea{touch-action:manipulation}
 <!-- ========== TRABAJOS ========== -->
 <section class="hoja negra trabajos" id="trabajos" data-hoja>
   <div class="trabajos-cab">
+    <img class="pegatina" src="assets/img/c2-pelo.webp" width="562" height="640" loading="lazy" decoding="async" alt="Pegatina de Chakal: el chacal con el pelo de punta">
     <h2 class="titulo" data-partir>Trabajos</h2>
     <p><strong>Dos marcas, cinco propuestas.</strong> Todas dibujadas a mano por nuestro diseñador, sin inteligencia artificial. Son propuestas de marca: los caminos que le presentamos a cada negocio.</p>
   </div>
@@ -390,9 +424,30 @@ button,a,input,textarea{touch-action:manipulation}
   <p class="pie-legal">© 2026 Innovarte Agency</p>
 </footer>
 
-<a class="wa" id="wa" href="https://wa.me/34634452534" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+<section class="chat" id="chat" hidden aria-label="Asistente de Innovarte" data-lenis-prevent>
+  <header class="chat-cab">
+    <img src="assets/isotipo-oscuro.png" width="191" height="189" alt="">
+    <div><b>Asistente de Innovarte</b><small>Asistente virtual · responde al momento</small></div>
+    <button type="button" id="chat-cerrar" aria-label="Cerrar el chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </header>
+  <div class="chat-mensajes" id="chat-mensajes" aria-live="polite">
+    <p class="burbuja bot">Hola. Soy el asistente de Innovarte. Pregúntame lo que quieras sobre lo que hacemos o cuéntame qué necesita tu negocio.</p>
+  </div>
+  <form class="chat-form" id="chat-form">
+    <label class="oculto-visual" for="chat-texto">Tu mensaje</label>
+    <input id="chat-texto" autocomplete="off" maxlength="600" placeholder="Escribe tu pregunta" enterkeyhint="send">
+    <button type="submit" aria-label="Enviar el mensaje"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </form>
+</section>
+
+<div class="flotantes" id="flotantes">
+<button class="flot del-chat" id="chat-abrir" type="button" hidden aria-label="Abrir el asistente de chat" aria-controls="chat" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12.5a7.5 7.5 0 0 1-11 6.600L4 20l1.100-4.300A7.500 7.500 0 1 1 20 12.500z"/><path d="M9 11.500h6M9 14.500h3.500"/></svg>
+</button>
+<a class="flot" id="wa" href="https://wa.me/34634452534" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+</div>
 
 <script src="assets/vendor/gsap.min.js"></script>
 <script src="assets/vendor/ScrollTrigger.min.js"></script>
@@ -426,16 +481,99 @@ var MOVER = HAY_GSAP && !QUIETO;
   });
 })();
 
-/* ---------- Botón flotante de WhatsApp: fuera de la portada y del contacto ---------- */
+/* ---------- Botones flotantes (asistente y WhatsApp): fuera de la portada y del contacto ---------- */
+var flotantes = $('#flotantes'), chatAbierto = false;
 (function(){
-  var wa = $('#wa'), tapado = { portada: true, contacto: false };
-  if (!('IntersectionObserver' in window)){ wa.classList.add('visible'); return; }
+  var tapado = { portada: true, contacto: false };
+  window.__verFlotantes = function(){ flotantes.classList.toggle('visible', !chatAbierto && !tapado.portada && !tapado.contacto); };
+  if (!('IntersectionObserver' in window)){ tapado.portada = false; window.__verFlotantes(); return; }
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){ tapado[e.target.id === 'inicio' ? 'portada' : 'contacto'] = e.isIntersecting; });
-    wa.classList.toggle('visible', !tapado.portada && !tapado.contacto);
+    window.__verFlotantes();
   }, { threshold: 0.12 });
   io.observe($('#inicio')); io.observe($('#contacto'));
 })();
+
+/* ---------- Asistente de chat ----------
+   El botón solo aparece cuando la página recibe la dirección del servidor del chat:
+   window.iniciarChatInnovarte({ url, clave }). En la web de Lovable se la da src/main.tsx. */
+window.iniciarChatInnovarte = function(cfg){
+  if (!cfg || !cfg.url || !cfg.clave) return;
+  var caja = $('#chat'), abrir = $('#chat-abrir'), cerrar = $('#chat-cerrar'), lista = $('#chat-mensajes'), form = $('#chat-form'), campo = $('#chat-texto'), enviar = $('button', form);
+  var mensajes = [], ocupado = false, cierre = null;
+  abrir.hidden = false;
+
+  function seguro(t){ return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function formato(t){ // negritas, enlaces y saltos de línea; todo lo demás, texto
+    return seguro(t)
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/^\s*[-*]\s+/gm, '· ')
+      .replace(/\n/g, '<br>');
+  }
+  function burbuja(clase, html){
+    var p = document.createElement('p'); p.className = 'burbuja ' + clase; p.innerHTML = html;
+    lista.appendChild(p); lista.scrollTop = lista.scrollHeight; return p;
+  }
+  function mostrar(si){
+    chatAbierto = si; clearTimeout(cierre);
+    abrir.setAttribute('aria-expanded', si ? 'true' : 'false');
+    window.__verFlotantes();
+    if (si){
+      caja.hidden = false;
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ caja.classList.add('abierto'); }); });
+      if (FINO) campo.focus();
+    } else {
+      caja.classList.remove('abierto');
+      cierre = setTimeout(function(){ caja.hidden = true; }, 200);
+    }
+  }
+  abrir.addEventListener('click', function(){ mostrar(true); });
+  cerrar.addEventListener('click', function(){ mostrar(false); abrir.focus(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && chatAbierto){ mostrar(false); abrir.focus(); } });
+
+  function fallo(p){
+    p.className = 'burbuja bot';
+    p.innerHTML = 'Ahora mismo no puedo contestar. Escríbenos por <a href="https://wa.me/34634452534" target="_blank" rel="noopener">WhatsApp</a> y te responde Jose.';
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var texto = campo.value.trim(); if (!texto || ocupado) return;
+    ocupado = true; enviar.disabled = true; campo.value = '';
+    mensajes.push({ role: 'user', content: texto });
+    burbuja('yo', seguro(texto));
+    var p = burbuja('bot espera', 'Escribiendo…'), acumulado = '';
+    function fin(){
+      if (acumulado) mensajes.push({ role: 'assistant', content: acumulado }); else { mensajes.pop(); fallo(p); }
+      ocupado = false; enviar.disabled = false;
+    }
+    fetch(cfg.url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + cfg.clave },
+      body: JSON.stringify({ messages: mensajes.slice(-16) })
+    }).then(function(r){
+      if (!r.ok || !r.body) throw new Error('sin respuesta');
+      var lector = r.body.getReader(), deco = new TextDecoder(), resto = '';
+      function leer(){
+        return lector.read().then(function(t){
+          if (t.done) return;
+          resto += deco.decode(t.value, { stream: true });
+          var lineas = resto.split('\n'); resto = lineas.pop();
+          lineas.forEach(function(l){
+            l = l.replace(/\r$/, ''); if (l.indexOf('data: ') !== 0) return;
+            var dato = l.slice(6).trim(); if (dato === '[DONE]') return;
+            try {
+              var trozo = JSON.parse(dato).choices[0].delta.content;
+              if (trozo){ acumulado += trozo; p.className = 'burbuja bot'; p.innerHTML = formato(acumulado); lista.scrollTop = lista.scrollHeight; }
+            } catch (err) {}
+          });
+          return leer();
+        });
+      }
+      return leer();
+    }).then(fin, fin);
+  });
+};
 
 /* ---------- Partir títulos en letras y textos en palabras ---------- */
 function partirLetras(el){
@@ -537,6 +675,10 @@ if (MOVER){
     gsap.fromTo(tira, { x: 0 }, { x: function(){ return -rango(); }, ease: 'none',
       scrollTrigger: { trigger: f, start: 'top 78%', end: function(){ return '+=' + Math.round(window.innerHeight * 0.62 + f.offsetHeight); }, scrub: 0.5, invalidateOnRefresh: true } });
   });
+
+  // Pegatina del chacal: se pega de golpe
+  gsap.from('.pegatina', { scale: 1.7, rotation: 34, opacity: 0, duration: 0.55, ease: 'back.out(1.6)',
+    scrollTrigger: { trigger: '.trabajos-cab', start: 'top 70%', once: true } });
 
   // Contacto y pie
   gsap.from('.formulario > *', { y: 28, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.08,
