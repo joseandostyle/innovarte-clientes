@@ -150,8 +150,9 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--rotulo);outline-
 .huecos{display:grid;gap:10px}
 @media(min-width:700px){.huecos{grid-template-columns:repeat(3,1fr)}}
 .hueco{border:1px solid var(--linea);padding:10px;display:grid;gap:8px;background:var(--fondo)}
-.hueco .img{aspect-ratio:1;background:#fff;display:grid;place-items:center;border:1px solid var(--linea)}
-.hueco .img img{width:86%;height:86%;object-fit:contain}
+.hueco{min-width:0}
+.hueco .img{position:relative;aspect-ratio:1;background:#fff;display:grid;place-items:center;border:1px solid var(--linea);overflow:hidden}
+.hueco .img img{position:absolute;left:7%;top:7%;width:86%;height:86%;object-fit:contain}
 .hueco b{font:800 18px/1 "Barlow Condensed",sans-serif;text-transform:uppercase}
 .orden{display:grid;gap:6px}
 .ord{display:grid;grid-template-columns:auto 48px 1fr auto;gap:10px;align-items:center;background:#fff;border:1px solid var(--linea);padding:6px 8px}
@@ -223,6 +224,22 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--rotulo);outline-
 .pasos-tara .i{color:var(--precio);font-size:20px;line-height:1.2}
 .peg{background:var(--pegatina);color:var(--pegatina-tinta);border:1px solid var(--pegatina-borde);padding:10px 12px;font-size:15px}
 .peg b{display:block;font:800 13px/1 "Barlow Condensed",sans-serif;letter-spacing:.08em;margin-bottom:4px}
+/* Quitar el fondo */
+.hueco-rec{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.lienzo.rec{background:linear-gradient(180deg,#fff 0%,#F1F3F5 100%)}
+.lienzo.rec.oscuro{background:var(--tinta)}
+.lienzo.rec.oscuro .pie-lienzo{background:#fff;color:var(--tinta)}
+.lienzo.rec canvas{position:absolute;left:50%;top:50%;translate:-50% -50%;touch-action:none;cursor:crosshair;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.lienzo.rec canvas.ancho{width:88%;height:auto}.lienzo.rec canvas.alto{height:88%;width:auto}
+.aro{position:absolute;left:0;top:0;border-radius:50%;border:1.5px solid var(--tinta);box-shadow:0 0 0 1.5px #fff;pointer-events:none;translate:-50% -50%}
+.herr{margin:8px 0 0}
+.herr button{display:flex;align-items:center;justify-content:center;gap:5px;font-size:14px}
+.herr button .i{font-size:19px}
+.mando-t{display:grid;gap:6px}
+.mando-t b{font-size:15px}.mando-t small{color:var(--suave);font-size:14px;line-height:1.35}
+.rec-acc{display:flex;gap:8px;flex-wrap:wrap}
+.rec-acc .btn[aria-pressed="true"]{background:var(--tinta);color:#fff}
+.rec-acc .btn:disabled{opacity:.4}
 .peligro{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0ms!important;animation-duration:0ms!important;animation-delay:0ms!important}}
 </style>
@@ -290,6 +307,7 @@ function inicio(){
     [E.zonas.every(z=>z.precio),"envios","truck","Precios de envío por zona"],[!!E.retirada,"envios","recycle","Precio de retirada del aparato viejo"],
     [!!E.horaLimite,"envios","clock-countdown","Hora límite para el 24/48 h"],[!!W.financiacion,"financiacion","credit-card","Condiciones de la financiación"],
     [W.cocinas.length>0,"cocinas","images","Fotos de cocinas que habéis montado"],[W.canapes.some(c=>c.p),"canapes","ruler","Precios de los canapés"],
+    [W.escaparate.map(id=>todos.find(t=>t.id===id)).filter(x=>x&&x.tara&&!v.has(x.id)).every(x=>recorteDe(x)),"portada","scissors","Quitar el fondo a los aparatos de la portada"],
     [!sinMarca.length,"productos","scan",sinMarca.length?`Marcar la tara de ${sinMarca.length} aparato${sinMarca.length>1?"s":""}`:"Taras marcadas en la foto"]];
   const n=pendientes();
   app.innerHTML=`<div class="fila-tit"><h1>Hola</h1></div><p class="entrada">Desde aquí cambiáis todo lo de la web: productos, portada, precios, fotos y datos de la tienda.</p>
@@ -382,10 +400,11 @@ function portada(){
   const orden=W.destacados.filter(id=>nuevos.some(n=>n.id===id)).concat(nuevos.map(n=>n.id).filter(id=>!W.destacados.includes(id)));
   app.innerHTML=`${GUARDADO}<div class="fila-tit"><h1>Portada</h1><a class="btn btn-linea btn-peq" href="${ENLACE_WEB}" target="_blank" rel="noopener"><i class="ph ph-arrow-square-out" aria-hidden="true"></i>Verla</a></div>
     <p class="entrada">Lo primero que ve la gente al entrar. Los cambios se guardan solos.</p>
-    <section class="bloque"><h2>El escaparate</h2><p class="ayuda">Los 3 aparatos de outlet que salen arriba, con su etiqueta y su tara. Se ven mejor con foto de frente y fondo blanco.</p>
-      <div class="huecos">${[0,1,2].map(i=>{ const id=W.escaparate[i], x=taras.find(t=>t.id===id);
-        return `<div class="hueco"><b>Aparato ${i+1}</b><div class="img">${x?`<img src="${src(x.f)}" alt="">`:`<i class="ph ph-image" style="font-size:30px;color:var(--suave)" aria-hidden="true"></i>`}</div>
+    <section class="bloque"><h2>El escaparate</h2><p class="ayuda">Los 3 aparatos de outlet que salen arriba, con su etiqueta y su tara. Quitadles el fondo para que queden sueltos en el escaparate, como en una tienda.</p>
+      <div class="huecos">${[0,1,2].map(i=>{ const id=W.escaparate[i], x=taras.find(t=>t.id===id), rec=x&&recorteDe(x), mio=x&&recorteGuardado(x);
+        return `<div class="hueco"><b>Aparato ${i+1}</b><div class="img">${x?`<img src="${src(rec?rec.f:x.f)}" alt="">`:`<i class="ph ph-image" style="font-size:30px;color:var(--suave)" aria-hidden="true"></i>`}</div>
         <label class="oculto" for="esc${i}">Aparato ${i+1}</label><select id="esc${i}" data-esc="${i}"><option value="">Elige un aparato</option>${taras.map(t=>`<option value="${t.id}" ${t.id===id?"selected":""}>${esc(t.n)} · ${eur(t.p)}</option>`).join("")}</select>
+        ${x?`<div class="hueco-rec">${rec?`<span class="chip-t verde">Sin fondo</span>`:`<span class="chip-t gris">Con el fondo de la foto</span>`}<a class="btn ${rec?"btn-linea":"btn-tinta"} btn-peq" href="#/recorte/${encodeURIComponent(x.id)}"><i class="ph ph-scissors" aria-hidden="true"></i>${mio?"Retocar el recorte":rec?"Rehacer el recorte":"Quitar el fondo"}</a></div>`:""}
         ${x&&!x.marca?`<span class="error">Falta marcar su tara</span>`:""}</div>`; }).join("")}</div></section>
     <section class="bloque"><h2>Textos de arriba</h2><div class="campos">
       <label>Barra fina de arriba<small>Se ve en toda la web. Vacía, no sale.</small><input data-k="barra" value="${esc(W.barra)}"></label>
@@ -568,15 +587,129 @@ function editar(id){
     if(guardar(d)){ pestana=st.tara?"tara":"nuevo"; location.hash="#/productos"; setTimeout(()=>aviso("Guardado. Ya se ve así en la web."),50); } });
 }
 
+/* Quitar el fondo de un aparato del escaparate: recorte automático de fondo liso + retoque a mano.
+   (En la versión real, el recorte automático lo hará el servidor; el retoque a mano es este mismo.) */
+const TOL0=30;
+const cargarImg=u=>new Promise((ok,mal)=>{ const im=new Image(); im.onload=()=>ok(im); im.onerror=mal; im.src=u; });
+const lienzoDe=(w,h)=>{ const c=document.createElement("canvas"); c.width=w; c.height=h; return c; };
+/* Cuánto se parece cada punto al fondo (el color de las esquinas) y dónde hay bordes */
+function analizar(px,w,h){
+  const k=Math.max(3,Math.round(Math.min(w,h)*.05)), n=w*h;
+  const media=(x0,y0)=>{ let r=0,g=0,b=0; for(let y=y0;y<y0+k;y++) for(let x=x0;x<x0+k;x++){ const i=(y*w+x)*4; r+=px[i]; g+=px[i+1]; b+=px[i+2]; } return [r/(k*k),g/(k*k),b/(k*k)]; };
+  const c=[media(0,0),media(w-k,0),media(0,h-k),media(w-k,h-k)];
+  const med=[0,1,2].map(ch=>{ const v=c.map(q=>q[ch]).sort((a,b)=>a-b); return (v[1]+v[2])/2; });
+  c.forEach((q,i)=>{ if(Math.abs(q[0]-med[0])+Math.abs(q[1]-med[1])+Math.abs(q[2]-med[2])>120) c[i]=med; });
+  const d=new Float32Array(n), lum=new Float32Array(n), g=new Float32Array(n);
+  for(let y=0,p=0;y<h;y++){ const v=y/(h-1); for(let x=0;x<w;x++,p++){ const u=x/(w-1), i=p*4; let s=0;
+    for(let ch=0;ch<3;ch++){ const e=px[i+ch]-((c[0][ch]*(1-u)+c[1][ch]*u)*(1-v)+(c[2][ch]*(1-u)+c[3][ch]*u)*v); s+=e*e; }
+    d[p]=Math.sqrt(s); lum[p]=.3*px[i]+.59*px[i+1]+.11*px[i+2]; } }
+  for(let y=1;y<h-1;y++) for(let x=1;x<w-1;x++){ const p=y*w+x; g[p]=Math.abs(lum[p+1]-lum[p-1])+Math.abs(lum[p+w]-lum[p-w]); }
+  return {d,g};
+}
+/* El fondo es lo que se parece a las esquinas y está unido al borde de la foto */
+function inundar(an,w,h,tol){ const {d,g}=an, n=w*h, f=new Uint8Array(n), pila=new Int32Array(n); let m=0;
+  const mete=p=>{ if(!f[p]&&(d[p]<tol*.5||(d[p]<tol&&g[p]<26))){ f[p]=1; pila[m++]=p; } };
+  for(let x=0;x<w;x++){ mete(x); mete(n-w+x); } for(let y=0;y<h;y++){ mete(y*w); mete(y*w+w-1); }
+  while(m){ const p=pila[--m], x=p%w; if(x>0) mete(p-1); if(x<w-1) mete(p+1); if(p>=w) mete(p-w); if(p<n-w) mete(p+w); }
+  return f; }
+/* Un trozo de fondo suelto: lo que se parece al punto tocado y está unido a él */
+function zonaDe(px,w,h,p0,tol){ const n=w*h, f=new Uint8Array(n), pila=new Int32Array(n), r=px[p0*4], g=px[p0*4+1], b=px[p0*4+2], t2=tol*tol; let m=0;
+  const mete=p=>{ if(f[p]) return; const i=p*4, a=px[i]-r, c=px[i+1]-g, e=px[i+2]-b; if(a*a+c*c+e*e<t2){ f[p]=1; pila[m++]=p; } };
+  mete(p0); while(m){ const p=pila[--m], x=p%w; if(x>0) mete(p-1); if(x<w-1) mete(p+1); if(p>=w) mete(p-w); if(p<n-w) mete(p+w); }
+  return f; }
+/* De «fondo sí / no» a una silueta con el borde suave y un punto metida hacia dentro */
+function silueta(f,w,h){ const o=new ImageData(w,h), q=o.data;
+  for(let y=0,p=0;y<h;y++) for(let x=0;x<w;x++,p++){ let s=0,c=0;
+    for(let j=-1;j<=1;j++){ const yy=y+j; if(yy<0||yy>=h) continue; for(let i=-1;i<=1;i++){ const xx=x+i; if(xx<0||xx>=w) continue; s+=f[yy*w+xx]; c++; } }
+    const fuera=s/c; q[p*4+3]=fuera>=.5?0:Math.round((1-fuera*2)*255); }
+  return o; }
+async function recorte(id){
+  const x=porId(id); if(!x||!x.f){ location.hash="#/portada"; return; }
+  const previo=recorteGuardado(x);
+  const TXT={b:"Pasa el dedo por lo que sobra",r:"Pasa el dedo por lo que falta",z:"Toca el trozo de fondo que sobra"};
+  app.innerHTML=`<div class="fila-tit"><h1>Quitar el fondo</h1><a class="btn btn-linea btn-peq" href="#/portada"><i class="ph ph-arrow-left" aria-hidden="true"></i>Volver</a></div>
+    <p class="entrada">${esc(x.n)}. El fondo se quita solo. Si sobra o falta algo, se arregla con el dedo.</p>
+    <section class="bloque"><div class="editor">
+      <div class="lienzo rec" id="rlienzo"><canvas id="rc" role="img" aria-label="Recorte de ${esc(x.n)}"></canvas><span class="aro" id="aro" hidden></span><span class="pie-lienzo" id="rpie">Quitando el fondo…</span></div>
+      <div class="mandos-tara">
+        <div class="mando-t"><b>Cuánto fondo quitar</b><small>Si se come parte del aparato, bájalo. Si deja fondo, súbelo.</small>
+          <div class="tam"><button type="button" id="tol-menos" aria-label="Quitar menos fondo"><i class="ph-bold ph-minus" aria-hidden="true"></i></button><input type="range" id="tol" min="6" max="90" step="2" value="${previo&&previo.tol||TOL0}" aria-label="Cuánto fondo quitar"><button type="button" id="tol-mas" aria-label="Quitar más fondo"><i class="ph-bold ph-plus" aria-hidden="true"></i></button></div>
+          <div class="tam-val"><span>Poco</span><span>Mucho</span></div></div>
+        <div class="mando-t"><b>Arreglar a mano</b>
+          <div class="pestanas herr" role="group" aria-label="Herramienta">
+            <button type="button" data-h="b" aria-pressed="true"><i class="ph ph-eraser i" aria-hidden="true"></i>Borrar</button>
+            <button type="button" data-h="r" aria-pressed="false"><i class="ph ph-paint-brush i" aria-hidden="true"></i>Recuperar</button>
+            <button type="button" data-h="z" aria-pressed="false"><i class="ph ph-magic-wand i" aria-hidden="true"></i>Quitar zona</button></div></div>
+        <div class="mando-t" id="fila-pincel"><b>Tamaño del pincel</b>
+          <div class="tam"><button type="button" id="pin-menos" aria-label="Pincel más fino"><i class="ph-bold ph-minus" aria-hidden="true"></i></button><input type="range" id="pin" min="2" max="24" step="1" value="8" aria-label="Tamaño del pincel"><button type="button" id="pin-mas" aria-label="Pincel más gordo"><i class="ph-bold ph-plus" aria-hidden="true"></i></button></div></div>
+        <div class="rec-acc"><button type="button" class="btn btn-linea btn-peq" id="deshacer" disabled><i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i>Deshacer</button><button type="button" class="btn btn-linea btn-peq" id="de-nuevo">Empezar de nuevo</button><button type="button" class="btn btn-linea btn-peq" id="oscuro" aria-pressed="false"><i class="ph ph-moon" aria-hidden="true"></i>Ver sobre oscuro</button></div>
+      </div></div></section>
+    <section class="bloque"><h2>Para que salga a la primera</h2><p class="ayuda" style="margin:0">Foto del aparato entero, de frente, delante de una pared lisa de otro color. Un aparato blanco delante de una pared blanca no se separa bien: mejor ponerle detrás un cartón o una tela oscura.</p></section>
+    ${previo?`<section class="bloque peligro"><span>Volver a la foto con su fondo</span><button type="button" class="btn btn-roja btn-peq" id="sin-rec">Quitar el recorte</button></section>`:""}
+    <div class="barra-abajo"><div class="in"><a class="btn btn-linea" href="#/portada">Cancelar</a><button type="button" class="btn btn-naranja" id="guardar-rec" disabled>Guardar recorte</button></div></div>`;
+  const aqui=location.hash;
+  let im; try{ im=await cargarImg(src(x.f)); }catch(e){ if(location.hash===aqui) $("#rpie").textContent="No se ha podido abrir la foto"; return; }
+  if(location.hash!==aqui||!$("#rc")) return;
+  const k=Math.min(1,640/Math.max(im.naturalWidth,im.naturalHeight)), w=Math.max(8,Math.round(im.naturalWidth*k)), h=Math.max(8,Math.round(im.naturalHeight*k));
+  const cv=$("#rc"), ctx=cv.getContext("2d"), lz=$("#rlienzo"), aro=$("#aro"); cv.width=w; cv.height=h; cv.classList.add(w>=h?"ancho":"alto");
+  const foto=lienzoDe(w,h), fx=foto.getContext("2d",{willReadFrequently:true}); fx.fillStyle="#fff"; fx.fillRect(0,0,w,h); fx.drawImage(im,0,0,w,h);
+  const px=fx.getImageData(0,0,w,h).data, an=analizar(px,w,h);
+  const mask=lienzoDe(w,h), mx=mask.getContext("2d",{willReadFrequently:true});
+  let tol=+$("#tol").value, trazos=previo&&previo.trazos?JSON.parse(JSON.stringify(previo.trazos)):[], modo="b", base=null, vivo=null;
+  const E=w/1000;
+  const pasada=t=>{
+    if(t.m==="z"){ const zx=Math.min(w-1,Math.max(0,Math.round(t.p[0]*E))), zy=Math.min(h-1,Math.max(0,Math.round(t.p[1]*E))), z=zonaDe(px,w,h,zy*w+zx,t.t), md=mx.getImageData(0,0,w,h), q=md.data;
+      for(let p=0;p<z.length;p++) if(z[p]) q[p*4+3]=0; mx.putImageData(md,0,0); return; }
+    mx.save(); mx.globalCompositeOperation=t.m==="b"?"destination-out":"source-over"; mx.strokeStyle=mx.fillStyle="#000"; mx.lineWidth=t.r*E*2; mx.lineCap=mx.lineJoin="round";
+    mx.beginPath(); mx.moveTo(t.p[0]*E,t.p[1]*E); if(t.p.length===2) mx.lineTo(t.p[0]*E+.01,t.p[1]*E); for(let i=2;i<t.p.length;i+=2) mx.lineTo(t.p[i]*E,t.p[i+1]*E); mx.stroke(); mx.restore(); };
+  const rehacer=auto=>{ if(auto||!base) base=silueta(inundar(an,w,h,tol),w,h); mx.putImageData(base,0,0); trazos.forEach(pasada); };
+  const pintar=()=>{ ctx.clearRect(0,0,w,h); ctx.globalCompositeOperation="source-over"; ctx.drawImage(foto,0,0); ctx.globalCompositeOperation="destination-in"; ctx.drawImage(mask,0,0);
+    if(modo==="r"){ ctx.globalCompositeOperation="destination-over"; ctx.globalAlpha=.3; ctx.drawImage(foto,0,0); ctx.globalAlpha=1; }
+    ctx.globalCompositeOperation="source-over"; $("#deshacer").disabled=!trazos.length; };
+  rehacer(true); pintar(); $("#rpie").textContent=TXT[modo]; $("#guardar-rec").disabled=false;
+
+  const radio=()=>+$("#pin").value/200*1000;
+  const pos=e=>{ const r=cv.getBoundingClientRect(); return [Math.round((e.clientX-r.left)/r.width*1000),Math.round((e.clientY-r.top)/r.width*1000)]; };
+  const mueveAro=e=>{ if(modo==="z"){ aro.hidden=true; return; } const l=lz.getBoundingClientRect(), r=cv.getBoundingClientRect(), dm=radio()*2/1000*r.width;
+    aro.hidden=false; aro.style.width=aro.style.height=dm+"px"; aro.style.left=(e.clientX-l.left)+"px"; aro.style.top=(e.clientY-l.top)+"px"; };
+  cv.addEventListener("pointerdown",e=>{ if(e.pointerType==="mouse"&&e.button!==0) return; e.preventDefault(); const p=pos(e);
+    if(modo==="z"){ const t={m:"z",p,t:Math.max(14,Math.round(tol*.8))}; trazos.push(t); pasada(t); pintar(); return; }
+    vivo={m:modo,r:Math.round(radio()),p}; pasada(vivo); pintar(); mueveAro(e); cv.setPointerCapture(e.pointerId); });
+  cv.addEventListener("pointermove",e=>{ if(e.pointerType==="mouse"||vivo) mueveAro(e); if(!vivo) return; const p=pos(e), n=vivo.p.length;
+    if(Math.abs(p[0]-vivo.p[n-2])+Math.abs(p[1]-vivo.p[n-1])<3) return;
+    pasada({m:vivo.m,r:vivo.r,p:[vivo.p[n-2],vivo.p[n-1],p[0],p[1]]}); vivo.p.push(p[0],p[1]); pintar(); });
+  const fin=e=>{ if(vivo){ trazos.push(vivo); vivo=null; pintar(); } if(e.pointerType!=="mouse") aro.hidden=true; };
+  cv.addEventListener("pointerup",fin); cv.addEventListener("pointercancel",fin); cv.addEventListener("pointerleave",()=>{ if(!vivo) aro.hidden=true; });
+  app.querySelectorAll("[data-h]").forEach(b=>b.addEventListener("click",()=>{ modo=b.dataset.h; app.querySelectorAll("[data-h]").forEach(o=>o.setAttribute("aria-pressed",o===b)); $("#fila-pincel").hidden=modo==="z"; $("#rpie").textContent=TXT[modo]; pintar(); }));
+  const ponTol=v=>{ tol=Math.max(6,Math.min(90,v)); $("#tol").value=tol; rehacer(true); pintar(); };
+  $("#tol").addEventListener("input",e=>ponTol(+e.target.value)); $("#tol-menos").addEventListener("click",()=>ponTol(tol-4)); $("#tol-mas").addEventListener("click",()=>ponTol(tol+4));
+  $("#pin-menos").addEventListener("click",()=>{ $("#pin").value=+$("#pin").value-2; }); $("#pin-mas").addEventListener("click",()=>{ $("#pin").value=+$("#pin").value+2; });
+  $("#deshacer").addEventListener("click",()=>{ trazos.pop(); rehacer(); pintar(); });
+  $("#de-nuevo").addEventListener("click",()=>{ const copia=trazos, t0=tol; trazos=[]; ponTol(TOL0); aviso("Como al principio.",()=>{ trazos=copia; ponTol(t0); }); });
+  $("#oscuro").addEventListener("click",e=>{ const on=lz.classList.toggle("oscuro"); e.currentTarget.setAttribute("aria-pressed",on); });
+  const sr=$("#sin-rec"); if(sr) sr.addEventListener("click",()=>{ const d=datos(), copia=JSON.stringify(d); delete (d.recortes||{})[x.id];
+    if(guardar(d)){ location.hash="#/portada"; setTimeout(()=>aviso("Recorte quitado: sale la foto con su fondo.",()=>{ guardarPanel(JSON.parse(copia)); portada(); }),50); } });
+  $("#guardar-rec").addEventListener("click",()=>{
+    const fin=lienzoDe(w,h), f2=fin.getContext("2d"); f2.drawImage(foto,0,0); f2.globalCompositeOperation="destination-in"; f2.drawImage(mask,0,0);
+    const q=f2.getImageData(0,0,w,h).data; let x0=w,y0=h,x1=-1,y1=-1;
+    for(let y=0,p=3;y<h;y++) for(let xx=0;xx<w;xx++,p+=4) if(q[p]>24){ if(xx<x0) x0=xx; if(xx>x1) x1=xx; if(y<y0) y0=y; if(y>y1) y1=y; }
+    if(x1<0||x1-x0<8||y1-y0<8){ aviso("No queda aparato: baja «Cuánto fondo quitar» o usa Recuperar."); return; }
+    const cw=x1-x0+1, ch=y1-y0+1, sal=lienzoDe(cw,ch); sal.getContext("2d").drawImage(fin,x0,y0,cw,ch,0,0,cw,ch);
+    let f=sal.toDataURL("image/webp",.9); if(!/^data:image\/webp/.test(f)) f=sal.toDataURL("image/png");
+    const S=Math.max(w,h), ox=(S-w)/2, oy=(S-h)/2, r2=v=>Math.round(v*100)/100;
+    const d=datos(); d.recortes=d.recortes||{}; d.recortes[x.id]={f,w:cw,h:ch,box:[r2((ox+x0)/S*100),r2((oy+y0)/S*100),r2(cw/S*100),r2(ch/S*100)],de:firmaFoto(x.f),tol,trazos};
+    if(guardar(d)){ location.hash="#/portada"; setTimeout(()=>aviso("Recorte guardado. Ya sale así en la portada."),50); } });
+}
+
 /* Rutas */
 function ruta(){ const h=location.hash.replace(/^#\/?/,"").split("?")[0], [r,arg]=h.split("/");
-  const sinNav=r==="editar"||r==="nuevo"; document.body.classList.toggle("sin-nav",sinNav);
+  const sinNav=r==="editar"||r==="nuevo"||r==="recorte";document.body.classList.toggle("sin-nav",sinNav);
   const act=r||"inicio";
   if(r==="editar") editar(decodeURIComponent(arg||"")); else if(r==="nuevo") editar(null);
-  else if(r==="productos") lista(); else if(r==="pedidos") pedidos(); else if(r==="portada") portada(); else if(r==="mas") mas();
+  else if(r==="recorte") recorte(decodeURIComponent(arg||"")); else if(r==="productos") lista(); else if(r==="pedidos") pedidos(); else if(r==="portada") portada(); else if(r==="mas") mas();
   else if(r==="tienda") tiendaDatos(); else if(r==="envios") enviosDatos(); else if(r==="financiacion") financiacionDatos();
   else if(r==="cocinas") cocinasFotos(); else if(r==="descanso") descansoFotos(); else if(r==="canapes") canapesDatos(); else inicio();
-  pintaNav(act==="editar"||act==="nuevo"?"productos":act); scrollTo(0,0); }
+  pintaNav(act==="editar"||act==="nuevo"?"productos":act==="recorte"?"portada":act); scrollTo(0,0); }
 addEventListener("hashchange",ruta); ruta();
 addEventListener("storage",e=>{ if(e.key===PANEL_CLAVE) pintaNav((location.hash.replace(/^#\/?/,"").split(/[/?]/)[0])||"inicio"); });
 </script>

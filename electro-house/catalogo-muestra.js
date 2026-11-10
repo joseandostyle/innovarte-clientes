@@ -43,6 +43,24 @@ function aplicarPanel(lista){
   return lista;
 }
 
+/* Recortes (aparato sin fondo) para el escaparate de la portada.
+   Los de muestra vienen hechos; los demás se hacen en el panel (Portada > Quitar el fondo) y se guardan en
+   recortes[id]={f,w,h,box,de}: box=[x,y,ancho,alto] del recorte en % de la caja cuadrada de la foto, y
+   de=la foto de la que salió (si la foto cambia, el recorte deja de valer). */
+var RECORTES_BASE={
+  "frigorifico-combi-no-frost":{de:"frigorifico-combi",f:"hero-frigorifico-combi",w:252,h:700,x:50,y:75,vs:30},
+  "lavavajillas-60-13":{de:"lavavajillas",f:"hero-lavavajillas",w:360,h:530,x:56,y:19,vs:20},
+  "freidora-aire-5-5l":{de:"freidora-1",f:"hero-freidora-1",w:714,h:700,x:52,y:42,vs:22}
+};
+function firmaFoto(f){ f=String(f||""); return /^data:/.test(f)?"d"+f.length+f.slice(-24):f; }
+function recorteGuardado(x){ var r=(leerPanel().recortes||{})[x.id]; return r&&r.de===firmaFoto(x.f)?r:null; }
+function recorteDe(x){
+  var r=recorteGuardado(x), m=x.marca||[50,50,22], lim=function(v){ return Math.max(3,Math.min(97,Math.round(v*10)/10)); };
+  if(r){ var b=r.box; return {f:r.f,w:r.w,h:r.h,x:lim((m[0]-b[0])/b[2]*100),y:lim((m[1]-b[1])/b[3]*100),vs:Math.min(90,Math.round((m[2]||22)/b[2]*100))}; }
+  var b0=RECORTES_BASE[x.id];
+  return b0&&b0.de===x.f?{f:b0.f,w:b0.w,h:b0.h,x:b0.x,y:b0.y,vs:b0.vs}:null;
+}
+
 /* Lo que la tienda puede cambiar desde el panel (textos, portada, datos, envíos, fotos). */
 var WEB_DEFECTO={
   barra:"Envíos a toda la provincia de Alicante y Murcia",

@@ -735,11 +735,10 @@ function bloqueVisita(){
 }
 
 /* Portada: el escaparate con su escáner */
-const RECORTES={"frigorifico-combi-no-frost":{f:"hero-frigorifico-combi",w:252,h:700,x:50,y:75,vs:30},"lavavajillas-60-13":{f:"hero-lavavajillas",w:360,h:530,x:56,y:19,vs:20},"freidora-aire-5-5l":{f:"hero-freidora-1",w:714,h:700,x:52,y:42,vs:22}};
 const ALTO={frio:80,lavado:54,coccion:50,clima:56,pequeno:27};
 let ESCENA=W.escaparate.map(porId).filter(x=>x&&x.tara).slice(0,3);
 if(ESCENA.length<3) ESCENA=ESCENA.concat(P.filter(x=>x.tara&&!ESCENA.includes(x)).slice(0,3-ESCENA.length));
-ESCENA=ESCENA.map((x,j)=>{ const rc=RECORTES[x.id], m=x.marca||[50,50,22], al=ALTO[x.c]||54;
+ESCENA=ESCENA.map((x,j)=>{ const rc=recorteDe(x), m=x.marca||[50,50,22], al=ALTO[x.c]||54;
   const b={id:x.id,cls:"pz-"+(j+1),al:rc?al:Math.round(al*1.22),lado:"der"};
   return rc?Object.assign(b,rc):Object.assign(b,{f:x.f,w:600,h:600,x:m[0],y:m[1],vs:m[2]||22,foto:true}); });
 let escenaI=0, turnoEscena=0;
