@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Propuesta para Tan'ni Sushi · Innovarte Agency</title>
+<meta property="og:title" content="Propuesta para Tan'ni Sushi">
+<meta property="og:description" content="Web de pedidos para Elche, Aspe y Crevillente, con los pedidos en vuestro WhatsApp y la tarjeta Tanni Lovers en el móvil.">
+<meta property="og:image" content="https://clientes.innovarteweb.com/tanni-sushi/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--blanco:#fff;--sup:#F1F4F8;--borde:#DCE2EA;--tinta:#141619;--suave:#5B6573;--azul:#3B6DAF;--azul-p:#2A5592;--salmon:#EC8A72}
+*{box-sizing:border-box}
+body{margin:0;background:var(--blanco);color:var(--tinta);font:400 16px/1.6 "Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.hoja{max-width:860px;margin:0 auto;padding:0 20px}
+section{padding:48px 0;border-top:1px solid var(--borde)}
+h1,h2,h3{line-height:1.15;letter-spacing:-.015em;margin:0}
+h2{font-size:28px;font-weight:800;margin-bottom:18px}
+h3{font-size:19px;font-weight:700;margin-bottom:6px}
+p{margin:0 0 12px}
+.suave{color:var(--suave)}
+.etq{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--azul)}
+a{color:var(--azul)}
+/* portada */
+.portada{padding:56px 0 40px;display:grid;gap:28px}
+.portada h1{font-size:clamp(34px,7vw,52px);font-weight:800;margin:10px 0 14px}
+.portada h1 span{color:var(--azul)}
+.portada .sub{font-size:19px;color:var(--suave);max-width:36ch}
+.portada .de{font-size:15px;color:var(--suave);margin-top:18px}
+.moviles{display:flex;gap:14px;align-items:flex-end}
+.movil{border:6px solid #141619;border-radius:24px;overflow:hidden;background:#141619;flex:1;max-width:220px}
+.movil img{display:block;width:100%;height:auto}
+@media (min-width:760px){.portada{grid-template-columns:1.1fr 1fr;align-items:center}}
+/* lo que hemos visto */
+.visto{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.visto li{padding:14px 16px;background:var(--sup);border-radius:8px}
+.visto b{display:block}
+/* propuesta */
+.punto{display:grid;gap:18px;padding:26px 0;border-bottom:1px solid var(--borde)}
+.punto:last-child{border-bottom:0}
+.punto .num{font-size:15px;font-weight:800;color:var(--azul)}
+.punto ul{margin:8px 0 0;padding-left:20px}
+.punto li{margin:4px 0}
+.punto figure{margin:0;display:flex;gap:12px}
+.punto figure .movil{max-width:200px}
+@media (min-width:760px){.punto{grid-template-columns:1.25fr 1fr;align-items:start}}
+.enlaces{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:8px;background:var(--azul);color:#fff;font-weight:600;text-decoration:none}
+.btn.b2{background:var(--sup);color:var(--tinta);border:1px solid var(--borde)}
+/* tablas */
+table{width:100%;border-collapse:collapse;font-size:16px}
+td,th{padding:12px 0;border-bottom:1px solid var(--borde);text-align:left;vertical-align:top}
+th{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--suave);font-weight:600}
+td.p{text-align:right;white-space:nowrap;font-weight:700;padding-left:16px}
+tr.total td{font-size:20px;font-weight:800;border-bottom:2px solid var(--tinta)}
+.nota{background:var(--sup);border-radius:8px;padding:16px 18px;margin-top:18px}
+.nota ul{margin:6px 0 0;padding-left:20px}
+.marca{display:inline-block;padding:4px 10px;border-radius:999px;background:#E9F0F9;color:var(--azul-p);font-size:13px;font-weight:600}
+.pasos{counter-reset:p;list-style:none;padding:0;margin:0}
+.pasos li{counter-increment:p;display:grid;grid-template-columns:36px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--borde)}
+.pasos li::before{content:counter(p);width:28px;height:28px;border-radius:50%;background:var(--azul);color:#fff;font-weight:700;display:grid;place-items:center;font-size:14px}
+.pie{padding:40px 0 60px;border-top:1px solid var(--borde)}
+.pie b{font-size:20px}
+/* impresión */
+@page{size:A4;margin:14mm 14mm}
+@media print{
+  body{font-size:12.5px}
+  .hoja{max-width:none;padding:0}
+  section{padding:22px 0;break-inside:auto}
+  .portada{grid-template-columns:1.1fr 1fr;padding:18mm 0 10mm}
+  .visto li{padding:9px 12px}
+  .pie{padding:14px 0 0}
+  td,th{padding:6px 0}
+  td .suave{font-size:11.5px}
+  .punto ul{margin-top:4px}
+  .punto li{margin:2px 0}
+  .pie p:last-child{font-size:10px}
+  .punto{grid-template-columns:1.3fr 1fr;break-inside:avoid;padding:16px 0}
+  .punto figure .movil{max-width:150px}
+  .movil{border-width:4px;border-radius:16px}
+  h2{font-size:22px}
+  .salto{break-before:page}
+  .btn{min-height:0;padding:6px 12px}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div class="hoja">
+
+<header class="portada">
+  <div>
+    <div class="etq">Innovarte Agency · Propuesta · noviembre 2026</div>
+    <h1>Vuestra web de pedidos para <span>Elche, Aspe y Crevillente</span></h1>
+    <p class="sub">Los pedidos llegan a vuestro WhatsApp, sin comisión por pedido, y la tarjeta Tanni Lovers pasa al móvil.</p>
+    <p class="de">Para Tan'ni Sushi · Preparada por Jose, Innovarte Agency</p>
+  </div>
+  <div class="moviles">
+    <div class="movil"><img src="capturas/portada-oscura.webp" width="600" height="1302" alt="Portada de la maqueta, versión oscura"></div>
+    <div class="movil"><img src="capturas/portada-blanca.webp" width="600" height="1302" alt="Portada de la maqueta, versión blanca"></div>
+  </div>
+</header>
+
+<section>
+  <h2>Lo que hemos visto</h2>
+  <ul class="visto">
+    <li><b>La gente ya os quiere.</b><span class="suave">667 reseñas en Google entre los tres locales (Elche 4,6 · Aspe 4,5 · Crevillente 5,0) y 20,1 mil seguidores en Instagram.</span></li>
+    <li><b>Vuestra web no recoge pedidos.</b><span class="suave">Los tres botones «Pedir online» no llevan a ninguna parte, aunque la carta dice «¡Ahora tu pedido también por la web!».</span></li>
+    <li><b>Google manda vuestros clientes a las plataformas.</b><span class="suave">El botón «Pedir online» de vuestra ficha lleva a Uber Eats, Glovo y Just Eat, que se quedan una parte de cada pedido.</span></li>
+    <li><b>La carta no tiene los alérgenos.</b><span class="suave">Al vender comida a distancia, tienen que estar a la vista antes de que el cliente pague.</span></li>
+    <li><b>La tarjeta Tanni Lovers es de cartón.</b><span class="suave">Se pierde, se olvida en casa y no sabéis quién la usa.</span></li>
+  </ul>
+</section>
+
+<section class="salto">
+  <h2>Lo que os proponemos</h2>
+
+  <div class="punto">
+    <div>
+      <div class="num">01</div>
+      <h3>Una web nueva para los tres locales</h3>
+      <ul>
+        <li>La carta entera (95 platos y los menús), con una página para cada plato.</li>
+        <li>Una página por local con su dirección, horario y zonas de reparto. Así salís en Google al buscar «sushi a domicilio» en Elche, Aspe o Crevillente.</li>
+        <li>Pensada para el móvil, rápida, con el asistente para dudas y el WhatsApp de cada local.</li>
+        <li>Con el logo y los colores nuevos de vuestro branding.</li>
+      </ul>
+      <div class="enlaces">
+        <a class="btn" href="https://clientes.innovarteweb.com/tanni-sushi/">Ver la maqueta</a>
+        <a class="btn b2" href="https://clientes.innovarteweb.com/tanni-sushi/blanca/">Versión blanca</a>
+      </div>
+    </div>
+    <figure><div class="movil"><img src="capturas/carta-oscura.webp" width="600" height="1302" alt="La carta en el móvil"></div><div class="movil"><img src="capturas/ficha-oscura.webp" width="600" height="1302" alt="Ficha de un menú en el móvil"></div></figure>
+  </div>
+
+  <div class="punto">
+    <div>
+      <div class="num">02</div>
+      <h3>Pedidos que llegan a vuestro WhatsApp</h3>
+      <ul>
+        <li>El cliente elige recoger en un local o que se lo llevéis, según su zona, y a qué hora.</li>
+        <li>Paga en la web con tarjeta o Bizum, o al recoger o al repartidor.</li>
+        <li>El pedido entra al momento en el WhatsApp del local que toca, en un chat «Pedidos Web»: un mensaje por pedido con nombre, teléfono, dirección, platos, total, si está pagado y las alergias.</li>
+        <li>Seguís trabajando desde WhatsApp, como ahora. Sin paneles nuevos.</li>
+        <li><b>Nosotros no cobramos nada por pedido.</b></li>
+      </ul>
+    </div>
+    <figure><div class="movil" style="max-width:240px;border:0;background:none"><img src="capturas/whatsapp.webp" width="600" height="1000" alt="Así llega el pedido al WhatsApp del local"></div></figure>
+  </div>
+
+  <div class="punto">
+    <div>
+      <div class="num">03</div>
+      <h3>La tarjeta Tanni Lovers, en el móvil</h3>
+      <ul>
+        <li>Vuestra misma regla: un sello cada 20 €, y con 10 sellos, 10 € de descuento.</li>
+        <li>Si el cliente pide y paga en la web, el sello se suma solo.</li>
+        <li>Sirve en los tres locales y sabéis quién repite.</li>
+        <li>Cómo se marcan los sellos de los pedidos por WhatsApp y teléfono lo decidimos con vosotros, para que no os dé trabajo.</li>
+      </ul>
+    </div>
+    <figure><div class="movil"><img src="capturas/tarjeta-oscura.webp" width="600" height="1302" alt="La tarjeta Tanni Lovers en el móvil"></div></figure>
+  </div>
+
+  <div class="punto">
+    <div>
+      <div class="num">04</div>
+      <h3>Y además, dentro</h3>
+      <ul>
+        <li><b>Carta con alérgenos</b> en cada plato, con la lista que nos paséis.</li>
+        <li><b>Más reseñas:</b> enlace directo y código QR para pedir opinión después de cada pedido.</li>
+        <li><b>Vuestras tres fichas de Google, ordenadas:</b> mismo nombre y misma web en las tres (la de Aspe aún lleva a una web antigua) y el botón de pedir apuntando a vuestra web.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Más adelante, cuando queráis</h2>
+  <table>
+    <tr><th>Qué</th><th style="text-align:right">Precio</th></tr>
+    <tr><td><b>Eventos y talleres de sushi</b><br><span class="suave">Página para pedir presupuesto de un evento y reservar plaza en el taller.</span></td><td class="p">500 €</td></tr>
+    <tr><td><b>Mensajes a vuestros clientes</b><br><span class="suave">Avisos de la promo del martes, novedades y menús a quien se haya apuntado.</span></td><td class="p">400 €</td></tr>
+    <tr><td><b>Panel de los tres locales</b><br><span class="suave">Pedidos y ventas por local, platos que más salen e informe semanal al móvil.</span></td><td class="p">700 €</td></tr>
+    <tr><td><b>Anuncios en Instagram, Facebook y Google</b><br><span class="suave">Para que vuestros clientes pidan en la web y no en las plataformas. El dinero de los anuncios va aparte y lo pagáis directamente.</span></td><td class="p">400 €<br><span class="suave" style="font-weight:400">+ 150 €/mes</span></td></tr>
+    <tr><td><b>Vídeos animados para redes</b><br><span class="suave">Por ejemplo, «pide en la web y suma sellos».</span></td><td class="p">Según el vídeo</td></tr>
+  </table>
+</section>
+
+<section class="salto">
+  <h2>Precio y forma de pago</h2>
+  <table>
+    <tr><th>Lo que os proponemos ahora</th><th style="text-align:right">Pago único</th></tr>
+    <tr><td>Web nueva para los tres locales, pedidos al WhatsApp, tarjeta Tanni Lovers digital, carta con alérgenos y sistema de reseñas</td><td class="p">1.200 €</td></tr>
+    <tr><td>Las tres fichas de Google ordenadas</td><td class="p">200 €</td></tr>
+    <tr class="total"><td>Total</td><td class="p">1.400 €</td></tr>
+  </table>
+  <p class="suave" style="margin-top:8px">Precios sin IVA.</p>
+  <p class="suave" style="margin-top:4px"><span class="marca">Ya en marcha</span> El branding y el logo nuevos los está preparando nuestro equipo de diseño. La web saldrá ya con ellos.</p>
+
+  <div class="nota">
+    <b>Cómo cobramos</b>
+    <ul>
+      <li><b>Nada por adelantado.</b> Se paga cuando la web está publicada y funcionando.</li>
+      <li><b>Pago único:</b> sin cuotas y sin comisión por pedido.</li>
+      <li><b>Lo que cobran otros va a vuestra cuenta, sin pasar por nosotros:</b> los mensajes de WhatsApp (unos céntimos por pedido, a Meta), la comisión de vuestro banco por los pagos con tarjeta y el dominio, que ya tenéis.</li>
+      <li><b>Mantenimiento opcional y sin permanencia:</b> lo hablamos con vosotros.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Siguientes pasos</h2>
+  <ol class="pasos">
+    <li><span>Nos decís qué os parece y ajustamos lo que queráis.</span></li>
+    <li><span>Nos pasáis la carta con los alérgenos, las zonas de reparto de Aspe y Crevillente y los datos para cobrar con tarjeta y Bizum.</span></li>
+    <li><span>Os ayudamos a abrir la cuenta de WhatsApp para los pedidos de la web.</span></li>
+    <li><span>Montamos la web con vuestro branding nuevo: <b>de 2 a 3 semanas</b> desde que tengamos todo.</span></li>
+    <li><span>La probáis con pedidos de prueba en los tres locales y, cuando os guste, la publicamos.</span></li>
+  </ol>
+</section>
+
+<footer class="pie">
+  <b>Jose · Innovarte Agency</b>
+  <p class="suave" style="margin-top:6px">634 45 25 34 · <a href="mailto:innovarte.sl@gmail.com">innovarte.sl@gmail.com</a> · <a href="https://innovarteweb.com">innovarteweb.com</a></p>
+  <p class="suave" style="font-size:13px">Datos de Google e Instagram consultados el 9 de noviembre de 2026. La maqueta es una demostración: los pedidos, pagos y sellos son de prueba.</p>
+</footer>
+
+</div>
+</body>
+</html>

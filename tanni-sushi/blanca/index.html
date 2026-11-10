@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sushi a domicilio en Elche, Aspe y Crevillente · Tan'ni Sushi</title>
+<meta name="description" content="Pide sushi para llevar o a domicilio en Elche, Aspe y Crevillente. Carta completa, menús desde 12 € y tu tarjeta Tanni Lovers en el móvil: cada 20 €, un sello.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://tannisushi.com/">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tan'ni Sushi · Pide en Elche, Aspe y Crevillente">
+<meta property="og:description" content="Carta completa, menús y tu tarjeta Tanni Lovers en el móvil. El pedido llega directo a tu local.">
+<meta property="og:image" content="https://clientes.innovarteweb.com/tanni-sushi/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23181716'/%3E%3Ccircle cx='32' cy='34' r='19' fill='%23EC8A72'/%3E%3Cpath d='M40 6 L22 40 M48 10 L28 42' stroke='%23F1ECE4' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=Figtree:wght@400;500;700&family=Italianno&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="fotos/portada-humo.webp">
+<style>
+:root{
+  /* TEMA: blanco */
+  --fondo:#FFFFFF;--hondo:#F1EFEC;--tinta:#1D1B19;--tinta2:#3D3A36;--suave:#6B665F;
+  --linea:#D5D1CA;--raya:#E9E6E1;--borde:#DDD9D3;--caja:#FAF9F7;--campo:#FFFFFF;--flota:#FFFFFF;
+  --salmon:#EC8A72;--acento:#C24E36;--salmon-hondo:#C24E36;--sobre-salmon:#181716;--sobre-tinta:#FFFFFF;
+  --papel:#FCF4EF;--papel-tinta:#2A2622;--papel-borde:#EDD9D0;
+  --cab-fondo:rgba(255,255,255,.94);--cats-fondo:rgba(255,255,255,.96);--hero-rgb:255,255,255;--pie-fondo:#F4F2EF;
+  --btn-borde:rgba(29,27,25,.4);--error:#B3261E;--verde-ok:#2E9B63;--burbuja:#F1EFEC;--sombra:rgba(60,40,30,.28);
+  --wa-cab:#008069;--wa-cab-tinta:#FFFFFF;--wa-cab-sub:#D5EBE6;--wa-fondo:#EFEAE2;--wa-msg:#FFFFFF;--wa-msg-tinta:#111B21;--wa-hora:#667781;
+  --grano:none;
+  /* FIN TEMA */
+  --verde-wa:#1F7A4D;
+  --cab:60px;--r:6px;--sal:cubic-bezier(0.23,1,0.32,1);
+  --script:"Italianno",cursive;--bodoni:"Bodoni Moda",Georgia,serif;--sans:"Figtree",system-ui,sans-serif;
+  --palillos:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' fill='none' stroke='%232A2622' stroke-opacity='.09' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 50 L52 14 M18 56 L58 20'/%3E%3Cpath d='M70 110 L108 74 M76 116 L114 80'/%3E%3Ccircle cx='90' cy='28' r='9'/%3E%3Ccircle cx='90' cy='28' r='3'/%3E%3Ccircle cx='28' cy='92' r='9'/%3E%3Ccircle cx='28' cy='92' r='3'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--cab) + 64px)}
+body{margin:0;background:var(--fondo) var(--grano);color:var(--tinta);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+a{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--acento);outline-offset:3px}
+.saltar{position:absolute;left:-999px;top:8px;background:var(--salmon);color:var(--sobre-salmon);padding:10px 14px;border-radius:var(--r);z-index:99}
+.saltar:focus{left:12px}
+.env{width:min(1160px,100% - 32px);margin-inline:auto}
+.oculto{display:none!important}
+
+/* títulos como en su Instagram: palabra caligráfica + mayúsculas espaciadas */
+.rotulo{margin:0 0 22px}
+.rotulo .firma{display:block;font:400 clamp(64px,13vw,104px)/.8 var(--script);color:var(--acento);margin:0 0 2px -4px;padding-bottom:6px}
+.rotulo .linea{display:block;font:500 clamp(13px,2.6vw,15px)/1.3 var(--bodoni);letter-spacing:.32em;text-transform:uppercase;color:var(--tinta)}
+.rotulo p{color:var(--suave);max-width:46ch;margin:14px 0 0}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:var(--r);border:1px solid transparent;font-weight:700;font-size:16px;text-decoration:none;transition:transform .14s var(--sal),background-color .14s var(--sal)}
+.btn:active{transform:scale(.97)}
+.btn-salmon{background:var(--salmon);color:var(--sobre-salmon)}
+.btn-borde{border-color:var(--btn-borde);color:var(--tinta);background:transparent}
+.btn-papel{background:var(--papel);color:var(--papel-tinta)}
+.btn-ancho{width:100%}
+@media (hover:hover) and (pointer:fine){
+  .btn-salmon:hover{background:#F29C86}
+  .btn-borde:hover{border-color:var(--tinta)}
+  .fila:hover .fila-nom{color:var(--acento)}
+}
+.ico{width:20px;height:20px;flex:none}
+
+/* cabecera */
+.cab{position:sticky;top:0;z-index:40;background:var(--cab-fondo);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--borde)}
+.cab-in{display:flex;align-items:center;gap:18px;height:var(--cab)}
+.marca{display:flex;align-items:baseline;gap:8px;text-decoration:none;margin-right:auto}
+.marca b{font:400 40px/1 var(--script);color:var(--acento);font-weight:400;transform:translateY(4px)}
+.marca span{font:500 11px/1 var(--bodoni);letter-spacing:.4em;text-transform:uppercase}
+.nav{display:none;gap:26px}
+.nav a{text-decoration:none;font-weight:500;color:var(--suave);font-size:15px}
+.nav a:hover,.nav a[aria-current]{color:var(--tinta)}
+.cab-acc{display:flex;gap:8px}
+.cab-btn{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;min-width:44px;justify-content:center;padding:0 12px;border-radius:var(--r);background:transparent;border:1px solid var(--borde);text-decoration:none;font-weight:600;font-size:15px}
+.cab-btn .txt{display:none}
+.contador{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;border-radius:10px;background:var(--salmon);color:var(--sobre-salmon);font:700 12px/20px var(--sans);text-align:center;padding:0 5px}
+.contador.salta{animation:salta .32s var(--sal)}
+@keyframes salta{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+@media (min-width:900px){.nav{display:flex}.cab-btn .txt{display:inline}}
+
+/* vistas */
+.vista{display:none}
+.vista.activa{display:block}
+
+/* HERO */
+.hero{position:relative;min-height:calc(100svh - var(--cab));display:grid;overflow:hidden;background:rgb(var(--hero-rgb))}
+.hero-foto{position:absolute;inset:0}
+.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--hero-rgb),.1) 0%,rgba(var(--hero-rgb),0) 30%,rgba(var(--hero-rgb),.82) 62%,rgb(var(--hero-rgb)) 88%)}
+.hero-txt{position:relative;align-self:end;padding:0 16px max(26px,env(safe-area-inset-bottom));width:min(1160px,100%);margin-inline:auto}
+.hero .firma{font:400 clamp(66px,18vw,128px)/.7 var(--script);color:var(--acento);margin:0 0 6px -6px;display:block;padding-bottom:10px}
+.hero h1 .nw{display:block;white-space:nowrap}
+.hero h1{font:500 clamp(13px,3.5vw,21px)/1.6 var(--bodoni);letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px;max-width:30ch}
+.hero p{margin:0 0 20px;color:var(--tinta2);max-width:40ch;font-size:16px}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
+.hero-btns .btn{flex:1 1 150px}
+.hero-dato{display:flex;gap:4px 14px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:var(--suave)}
+.hero-dato b{color:var(--tinta);font-weight:600}
+@media (min-width:900px){
+  .hero{grid-template-columns:1fr 1fr}
+  .hero-foto{position:relative;grid-column:2;grid-row:1}
+  .hero-foto::after{background:linear-gradient(90deg,rgb(var(--hero-rgb)) 0%,rgba(var(--hero-rgb),0) 30%)}
+  .hero-txt{grid-column:1;grid-row:1;align-self:center;padding:40px 0 40px max(16px,calc((100vw - 1160px)/2));margin:0}
+  .hero-btns .btn{flex:0 0 auto}
+}
+
+/* bloques de la portada */
+.bloque{padding:72px 0}
+.bloque+.bloque{border-top:1px solid var(--raya)}
+
+/* así funciona */
+.pasos{display:grid;gap:0;counter-reset:p;margin:0;padding:0;list-style:none;border-top:1px solid var(--linea)}
+.pasos li{display:grid;grid-template-columns:46px 1fr;gap:4px 12px;padding:18px 0;border-bottom:1px solid var(--linea)}
+.pasos li::before{counter-increment:p;content:counter(p,decimal-leading-zero);font:500 22px/1 var(--bodoni);color:var(--acento);grid-row:span 2;padding-top:3px}
+.pasos b{font-size:18px}
+.pasos span{color:var(--suave)}
+@media (min-width:900px){.pasos{grid-template-columns:repeat(3,1fr);border-top:0}.pasos li{border-bottom:0;border-left:1px solid var(--linea);padding:6px 24px}}
+
+/* menús */
+.menus{display:grid;gap:28px}
+.menus figure{margin:0;border-radius:var(--r);overflow:hidden;background:var(--hondo)}
+.menus figure img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.menus figcaption{font-size:13px;color:var(--suave);padding:8px 2px}
+.lista-menus{list-style:none;margin:0;padding:0}
+.lista-menus li{border-bottom:1px solid var(--linea)}
+.lista-menus a{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:18px 0;text-decoration:none}
+.lista-menus .mn{font:700 20px/1.2 var(--sans)}
+.lista-menus .mp{font:500 30px/1 var(--bodoni);color:var(--acento);grid-row:span 2;align-self:center}
+.lista-menus .md{color:var(--suave);font-size:15px}
+.lista-menus .solo{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--sobre-salmon);background:var(--salmon);border-radius:3px;padding:2px 7px;margin-left:8px;vertical-align:3px;font-weight:700}
+@media (min-width:900px){.menus{grid-template-columns:5fr 7fr;gap:56px;align-items:start}}
+
+/* del instagram a tu casa */
+.tira{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 18px;margin:0 -16px;scrollbar-width:thin;overscroll-behavior-x:contain}
+.tira a{flex:0 0 min(62vw,240px);scroll-snap-align:start;text-decoration:none}
+.tira img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--r);background:var(--hondo)}
+.tira b{display:block;margin-top:10px;font-size:16px}
+.tira span{color:var(--suave);font-size:14px}
+.cats-portada{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:20px;border:1px solid var(--linea);text-decoration:none;font-size:15px;background:transparent;white-space:nowrap}
+.chip[aria-current="true"]{background:var(--tinta);color:var(--sobre-tinta);border-color:var(--tinta);font-weight:600}
+
+/* lovers */
+.lovers{display:grid;gap:36px;align-items:center}
+.lovers ul{list-style:none;padding:0;margin:20px 0 26px}
+.lovers li{padding:10px 0 10px 26px;position:relative;color:var(--tinta2)}
+.lovers li::before{content:"";position:absolute;left:0;top:18px;width:12px;height:12px;border-radius:50%;background:var(--salmon)}
+.carton{position:relative}
+.carton img{border-radius:var(--r);width:78%;aspect-ratio:4/5;object-fit:cover}
+.carton .tarjeta{position:absolute;right:0;bottom:-18px;width:66%;transform:rotate(3deg)}
+.carton small{display:block;color:var(--suave);font-size:13px;margin-top:30px}
+@media (min-width:900px){.lovers{grid-template-columns:1fr 1fr;gap:72px}}
+
+/* tarjeta lovers (objeto de papel) */
+.tarjeta{border:1px solid var(--papel-borde);background:var(--papel) var(--palillos);color:var(--papel-tinta);border-radius:14px;padding:18px 18px 16px;box-shadow:0 1px 0 rgba(0,0,0,.2),0 18px 40px -18px var(--sombra)}
+.tarjeta-cab{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.tarjeta-cab .tl{font:400 46px/.7 var(--script);color:var(--salmon-hondo);padding-bottom:6px}
+.tarjeta-cab .tc{font:500 10px/1.3 var(--bodoni);letter-spacing:.3em;text-transform:uppercase}
+.tarjeta-cab .tn{font-size:13px;text-align:right;color:#6B635A}
+.sellos{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0 12px}
+.sello{aspect-ratio:1;border-radius:50%;border:1.5px dashed rgba(42,38,34,.32);display:grid;place-items:center}
+.sello.lleno{border:0;background:var(--salmon)}
+.sello.lleno svg{width:58%;height:58%}
+.sello.nuevo{animation:sello .5s var(--sal) both}
+@keyframes sello{0%{transform:scale(1.6) rotate(-25deg);opacity:0}100%{transform:none;opacity:1}}
+.tarjeta-pie{display:flex;justify-content:space-between;font-size:14px;font-weight:600}
+.tarjeta-pie span:last-child{color:#6B635A;font-weight:500}
+
+/* locales */
+.locales{display:grid;gap:22px}
+.local{display:grid;grid-template-columns:112px 1fr;gap:16px;padding-bottom:22px;border-bottom:1px solid var(--linea)}
+.local img{width:112px;aspect-ratio:1;object-fit:cover;border-radius:var(--r)}
+.local h3{margin:0 0 4px;font:400 50px/.8 var(--script);color:var(--acento);padding-bottom:6px}
+.local p{margin:2px 0;color:var(--suave);font-size:15px}
+.estado{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--tinta)}
+.estado::before{content:"";width:8px;height:8px;border-radius:50%;background:#8E877E}
+.estado.abierto::before{background:var(--verde-ok)}
+.local .acc{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.local .acc .btn{min-height:44px;padding:0 14px;font-size:15px}
+@media (min-width:900px){.locales{grid-template-columns:repeat(3,1fr);gap:28px}.local{grid-template-columns:1fr;border-bottom:0}.local img{width:100%;aspect-ratio:4/3}}
+
+/* opiniones */
+.opis{display:grid;gap:18px;margin:0;padding:0;list-style:none}
+.opis li{border-left:2px solid var(--acento);padding:4px 0 4px 16px}
+.opis q{font:500 19px/1.45 var(--bodoni);quotes:"«" "»"}
+.opis span{display:block;color:var(--suave);font-size:14px;margin-top:8px}
+@media (min-width:900px){.opis{grid-template-columns:repeat(3,1fr);gap:32px}}
+
+/* eventos */
+.eventos{display:grid;gap:28px;align-items:center}
+.eventos img{border-radius:var(--r);aspect-ratio:4/5;object-fit:cover;width:100%;max-width:440px}
+@media (min-width:900px){.eventos{grid-template-columns:5fr 7fr;gap:56px}}
+
+/* pie */
+.pie{background:var(--pie-fondo);padding:48px 0 calc(120px + env(safe-area-inset-bottom));color:var(--suave);font-size:15px}
+.pie-grid{display:grid;gap:26px}
+.pie h4{margin:0 0 10px;color:var(--tinta);font:500 12px/1 var(--bodoni);letter-spacing:.3em;text-transform:uppercase}
+.pie a{text-decoration:none}
+.pie p{margin:4px 0}
+.aviso-maqueta{margin-top:30px;padding-top:18px;border-top:1px solid var(--borde);font-size:13px}
+@media (min-width:900px){.pie-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* CARTA */
+.carta-cab{padding:34px 0 8px}
+.cats{position:sticky;top:var(--cab);z-index:30;background:var(--cats-fondo);backdrop-filter:blur(6px);border-bottom:1px solid var(--raya)}
+.cats-in{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none;width:min(1160px,100%);margin-inline:auto}
+.cats-in::-webkit-scrollbar{display:none}
+.cat-sec{padding:34px 0 6px}
+.cat-sec h2{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 6px;font:500 15px/1.3 var(--bodoni);letter-spacing:.28em;text-transform:uppercase}
+.cat-sec h2 small{font:400 14px/1.3 var(--sans);letter-spacing:0;text-transform:none;color:var(--suave)}
+.filas{list-style:none;margin:0;padding:0}
+.fila{display:grid;grid-template-columns:auto 1fr auto 44px;align-items:center;gap:0 12px;padding:14px 0;border-bottom:1px solid var(--raya)}
+.fila-foto{width:56px;height:56px;border-radius:var(--r);object-fit:cover}
+.fila-num{width:56px;font:500 14px/1 var(--bodoni);color:var(--suave);text-align:center}
+.fila-info{text-decoration:none;min-width:0}
+.fila-nom{font-weight:700;font-size:16px;transition:color .14s}
+.fila-desc{display:block;color:var(--suave);font-size:14px;line-height:1.4;margin-top:2px}
+.fila-tag{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sobre-salmon);background:var(--salmon);border-radius:3px;padding:2px 6px;margin-left:6px;font-weight:700;vertical-align:2px}
+.fila-precio{font:500 17px/1 var(--bodoni);white-space:nowrap;text-align:right}
+.fila-precio small{display:block;font:400 12px/1.2 var(--sans);color:var(--suave)}
+.mas{width:44px;height:44px;border-radius:50%;border:1px solid var(--acento);background:transparent;color:var(--acento);display:grid;place-items:center;transition:transform .14s var(--sal),background-color .14s}
+.mas:active{transform:scale(.9);background:var(--salmon);color:var(--sobre-salmon)}
+@media (min-width:900px){.cat-sec .filas{columns:2;column-gap:48px}.fila{break-inside:avoid}}
+
+/* FICHA DE PLATO */
+.ficha{padding:22px 0 40px}
+.volver{display:inline-flex;align-items:center;gap:8px;min-height:44px;background:none;border:0;padding:0;color:var(--suave);font-weight:600;text-decoration:none}
+.ficha-grid{display:grid;gap:26px;margin-top:8px}
+.ficha-foto{border-radius:var(--r);overflow:hidden;background:var(--hondo)}
+.ficha-foto img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.lamina{aspect-ratio:3/4;display:grid;place-content:center;text-align:center;padding:24px;background:var(--hondo) var(--grano)}
+.lamina b{font:400 clamp(60px,15vw,96px)/.85 var(--script);color:var(--acento);font-weight:400;padding-bottom:10px}
+.lamina span{font:500 12px/1.4 var(--bodoni);letter-spacing:.3em;text-transform:uppercase;color:var(--suave);margin-top:10px}
+.ficha-cat{font:500 12px/1.3 var(--bodoni);letter-spacing:.3em;text-transform:uppercase;color:var(--suave)}
+.ficha h1{font:700 clamp(28px,6vw,40px)/1.1 var(--sans);margin:8px 0 10px;letter-spacing:-.01em}
+.ficha .precio-g{font:500 34px/1 var(--bodoni);color:var(--acento);margin:6px 0 16px}
+.ficha .desc{font-size:17px;color:var(--tinta2);max-width:52ch}
+fieldset{border:0;padding:0;margin:22px 0 0}
+legend{font-weight:700;margin-bottom:10px;padding:0}
+legend small{font-weight:400;color:var(--suave)}
+.opc{display:flex;align-items:center;gap:12px;min-height:52px;padding:0 14px;border:1px solid var(--linea);border-radius:var(--r);margin-bottom:8px;cursor:pointer;background:var(--caja)}
+.opc input{width:20px;height:20px;accent-color:var(--acento);flex:none;margin:0}
+.opc span{flex:1}
+.opc em{font-style:normal;color:var(--suave);font-size:15px}
+.opc:has(input:checked){border-color:var(--acento)}
+.opc:has(input:disabled){opacity:.45}
+.alergenos{margin-top:22px;padding:14px 16px;border:1px dashed var(--linea);border-radius:var(--r);font-size:15px;color:var(--suave)}
+.alergenos b{color:var(--tinta)}
+.anadir{display:flex;gap:10px;margin-top:24px;position:sticky;bottom:max(12px,env(safe-area-inset-bottom));z-index:5}
+.cantidad{display:flex;align-items:center;border:1px solid var(--linea);border-radius:var(--r);background:var(--campo)}
+.cantidad button{width:46px;height:50px;background:none;border:0;display:grid;place-items:center}
+.cantidad output{min-width:26px;text-align:center;font-weight:700}
+.anadir .btn{flex:1}
+.vecinos{display:flex;justify-content:space-between;gap:12px;margin-top:30px;padding-top:18px;border-top:1px solid var(--linea)}
+.vecinos a{text-decoration:none;color:var(--suave);font-size:15px;max-width:48%}
+.vecinos a b{display:block;color:var(--tinta)}
+@media (min-width:900px){.ficha-grid{grid-template-columns:5fr 6fr;gap:56px;align-items:start}.ficha-foto{position:sticky;top:calc(var(--cab) + 20px)}.anadir{position:static}}
+
+/* PEDIDO */
+.pedido{padding:30px 0 60px}
+.pedido-grid{display:grid;gap:28px}
+.paso{border:1px solid var(--borde);border-radius:var(--r);padding:18px 16px;background:var(--caja)}
+.paso h2{margin:0 0 14px;font:500 13px/1.3 var(--bodoni);letter-spacing:.3em;text-transform:uppercase;display:flex;gap:10px;align-items:center}
+.paso h2 i{font-style:normal;color:var(--acento)}
+.linea-p{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 0;border-bottom:1px solid var(--raya)}
+.linea-p:last-child{border-bottom:0}
+.linea-p .ln{font-weight:600}
+.linea-p .ld{color:var(--suave);font-size:14px}
+.linea-p .lp{font:500 16px/1 var(--bodoni);text-align:right}
+.linea-p .cantidad{grid-column:1/-1;justify-self:start;margin-top:6px}
+.linea-p .cantidad button{height:40px;width:40px}
+.vacio{color:var(--suave);padding:6px 0}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tog{min-height:52px;border-radius:var(--r);border:1px solid var(--linea);background:transparent;font-weight:700}
+.tog[aria-pressed="true"]{background:var(--tinta);color:var(--sobre-tinta);border-color:var(--tinta)}
+label.campo{display:block;margin-top:14px;font-weight:600;font-size:15px}
+.campo input,.campo select,.campo textarea{display:block;width:100%;margin-top:6px;min-height:50px;padding:12px 14px;font-size:16px;border-radius:var(--r);border:1px solid var(--linea);background:var(--campo);color:var(--tinta)}
+.campo textarea{min-height:84px;resize:vertical}
+.campo small{display:block;font-weight:400;color:var(--suave);margin-top:6px;font-size:14px}
+.err{color:var(--error);font-size:14px;margin-top:6px;font-weight:500}
+.resumen{position:relative}
+.resumen .fila-t{display:flex;justify-content:space-between;padding:6px 0;color:var(--suave)}
+.resumen .fila-t.total{color:var(--tinta);font-weight:700;font-size:20px;border-top:1px solid var(--linea);margin-top:8px;padding-top:12px}
+.lovers-caja{border:1px solid var(--papel-borde);margin-top:14px;padding:14px;border-radius:var(--r);background:var(--papel) var(--palillos);color:var(--papel-tinta);font-size:15px}
+.lovers-caja b{font-weight:700}
+.lovers-caja a,.lovers-caja button.enl{color:var(--salmon-hondo);font-weight:700;background:none;border:0;padding:0;text-decoration:underline}
+.lovers-caja label{display:flex;gap:10px;align-items:center;margin-top:10px;min-height:44px}
+.lovers-caja input{width:20px;height:20px;accent-color:var(--salmon-hondo)}
+@media (min-width:900px){.pedido-grid{grid-template-columns:7fr 5fr;align-items:start}.resumen{position:sticky;top:calc(var(--cab) + 20px)}}
+
+/* confirmación con el chat de WhatsApp */
+.hecho{padding:30px 0 70px;display:grid;gap:30px}
+.movil{max-width:380px;width:100%;margin-inline:auto;border-radius:30px;border:8px solid #0d0d0c;background:#0d0d0c;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.wa-cab{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--wa-cab);color:var(--wa-cab-tinta)}
+.wa-av{width:38px;height:38px;border-radius:50%;background:var(--salmon);display:grid;place-items:center;font:400 22px/1 var(--script);color:var(--sobre-salmon)}
+.wa-cab b{display:block;font-size:15px}
+.wa-cab span{font-size:12px;color:var(--wa-cab-sub)}
+.wa-fondo{background:var(--wa-fondo);padding:16px 12px 22px;min-height:360px}
+.wa-msg{background:var(--wa-msg);color:var(--wa-msg-tinta);border-radius:0 10px 10px 10px;padding:8px 10px 18px;font-size:14px;line-height:1.45;position:relative;white-space:pre-wrap;max-width:92%}
+.wa-msg time{position:absolute;right:8px;bottom:4px;font-size:11px;color:var(--wa-hora)}
+.wa-msg b{font-weight:700}
+.hecho-txt h1{font:500 clamp(15px,3.6vw,18px)/1.5 var(--bodoni);letter-spacing:.24em;text-transform:uppercase;margin:0 0 12px}
+.hecho-txt .firma{display:block;font:400 clamp(70px,18vw,110px)/.75 var(--script);color:var(--acento);padding-bottom:8px}
+.nota-demo{font-size:14px;color:var(--suave);border-left:2px solid var(--linea);padding-left:12px;margin:18px 0}
+@media (min-width:900px){.hecho{grid-template-columns:1fr 1fr;align-items:center}}
+
+/* TARJETA (cuenta) */
+.cuenta{padding:30px 0 70px;display:grid;gap:30px}
+.cuenta .tarjeta{max-width:420px}
+.qr{border:1px solid var(--papel-borde);background:var(--papel);color:var(--papel-tinta);border-radius:14px;padding:18px;max-width:420px;text-align:center}
+.qr svg{width:200px;height:200px;margin:8px auto}
+.qr code{font:600 15px/1 var(--sans);letter-spacing:.2em}
+.historial{list-style:none;padding:0;margin:0}
+.historial li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--raya);font-size:15px}
+.historial li span:last-child{color:var(--acento);white-space:nowrap}
+.form-cuenta{max-width:420px}
+@media (min-width:900px){.cuenta{grid-template-columns:1fr 1fr;align-items:start}}
+
+/* modo local */
+.caja{padding:30px 0 70px;max-width:560px}
+.visor{aspect-ratio:1;max-width:320px;border-radius:14px;background:#0d0d0c;position:relative;display:grid;place-items:center;margin:16px 0;overflow:hidden}
+.visor::before{content:"";position:absolute;inset:16%;border:3px solid var(--acento);border-radius:12px;opacity:.9}
+.visor span{color:var(--suave);font-size:14px;position:relative;text-align:center;padding:0 30px}
+.cliente-caja{border:1px solid var(--linea);border-radius:var(--r);padding:16px;margin-top:16px}
+
+/* barra de cesta y flotantes */
+.barra-cesta{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:45;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:0 18px;border-radius:10px;background:var(--salmon);color:var(--sobre-salmon);font-weight:700;text-decoration:none;box-shadow:0 14px 30px -12px var(--sombra);transform:translateY(0);transition:transform .22s var(--sal),opacity .22s}
+.barra-cesta.fuera{transform:translateY(140%);opacity:0;pointer-events:none}
+@media (min-width:900px){.barra-cesta{left:auto;right:24px;width:340px}}
+.flotan{position:fixed;right:14px;bottom:calc(max(12px,env(safe-area-inset-bottom)) + 70px);z-index:44;display:flex;flex-direction:column;gap:10px;transition:opacity .2s,transform .2s var(--sal)}
+.flotan.fuera{opacity:0;transform:translateY(12px);pointer-events:none}
+.flotan.bajo{bottom:max(12px,env(safe-area-inset-bottom))}
+.flot{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--borde);background:var(--flota);color:var(--tinta);box-shadow:0 10px 24px -10px var(--sombra)}
+.flot.wa{background:var(--verde-wa);border-color:var(--verde-wa);color:#fff}
+body[data-vista=carta] .flotan{right:auto;left:14px}
+@media (min-width:900px){.flotan{right:24px;bottom:96px}body[data-vista=carta] .flotan{left:auto;right:24px}}
+.panel{position:fixed;right:12px;left:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:60;background:var(--flota);border:1px solid var(--borde);border-radius:14px;padding:16px;max-height:min(78svh,620px);display:flex;flex-direction:column;box-shadow:0 20px 50px -20px var(--sombra);animation:sube .22s var(--sal)}
+@keyframes sube{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
+@media (min-width:700px){.panel{left:auto;width:380px;right:24px;bottom:24px}}
+.panel-cab{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.panel-cab b{font:400 38px/.8 var(--script);color:var(--acento);font-weight:400;padding-bottom:4px}
+.cerrar{width:44px;height:44px;border-radius:50%;border:1px solid var(--borde);background:none;display:grid;place-items:center}
+.chat-log{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:8px;padding:4px 0 10px}
+.burbuja{max-width:88%;padding:10px 12px;border-radius:12px;font-size:15px;line-height:1.45}
+.burbuja.yo{align-self:flex-end;background:var(--salmon);color:var(--sobre-salmon);border-bottom-right-radius:4px}
+.burbuja.el{align-self:flex-start;background:var(--burbuja);border-bottom-left-radius:4px}
+.sug{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.sug button{min-height:38px;padding:0 12px;border-radius:19px;border:1px solid var(--linea);background:none;font-size:14px}
+.chat-form{display:flex;gap:8px}
+.chat-form input{flex:1;min-height:46px;border-radius:var(--r);border:1px solid var(--linea);background:var(--campo);padding:0 12px;font-size:16px}
+.chat-form button{min-width:46px;border-radius:var(--r);border:0;background:var(--salmon);color:var(--sobre-salmon);font-weight:700;padding:0 14px}
+.wa-lista a{display:flex;justify-content:space-between;align-items:center;min-height:56px;border-bottom:1px solid var(--raya);text-decoration:none;font-weight:600}
+.wa-lista a span{color:var(--suave);font-weight:400}
+.aviso{position:fixed;left:50%;top:calc(var(--cab) + 12px);transform:translateX(-50%);z-index:70;background:var(--tinta);color:var(--sobre-tinta);padding:10px 16px;border-radius:var(--r);font-weight:600;font-size:15px;animation:sube .2s var(--sal);max-width:calc(100% - 32px)}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* solo versión blanca */
+@media (max-width:899px){
+  .hero{grid-template-rows:minmax(190px,1fr) auto}
+  .hero-foto{position:relative;inset:auto}
+  .hero-foto img{position:absolute;inset:0}
+  .hero-foto::after{background:linear-gradient(180deg,rgba(255,255,255,0) 72%,#fff 100%)}
+  .hero-txt{padding-top:4px}
+}
+.pie{border-top:1px solid var(--raya)}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebSite","@id":"https://tannisushi.com/#web","url":"https://tannisushi.com/","name":"Tan'ni Sushi","inLanguage":"es"},
+{"@type":"Organization","@id":"https://tannisushi.com/#org","name":"Tan'ni Sushi","url":"https://tannisushi.com/","email":"tannisushinfo@gmail.com","sameAs":["https://www.instagram.com/tanni_sushi/"]},
+{"@type":"Restaurant","@id":"https://tannisushi.com/#elche","name":"Tan'ni Sushi Elche","parentOrganization":{"@id":"https://tannisushi.com/#org"},"telephone":"+34622474652","servesCuisine":["Japonesa","Sushi"],"priceRange":"10-20 €","hasMenu":"https://tannisushi.com/#carta","address":{"@type":"PostalAddress","streetAddress":"Carrer Orihuela, 9","postalCode":"03203","addressLocality":"Elche","addressRegion":"Alicante","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":38.2689368,"longitude":-0.6777749},
+ "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"19:30","closes":"23:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Thursday","Friday","Saturday","Sunday"],"opens":"12:30","closes":"15:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday","Sunday"],"opens":"19:30","closes":"23:30"}]},
+{"@type":"Restaurant","@id":"https://tannisushi.com/#aspe","name":"Tan'ni Sushi Aspe","parentOrganization":{"@id":"https://tannisushi.com/#org"},"telephone":"+34666904824","servesCuisine":["Japonesa","Sushi"],"priceRange":"10-20 €","address":{"@type":"PostalAddress","streetAddress":"Av. Nia Coca, 5","postalCode":"03680","addressLocality":"Aspe","addressRegion":"Alicante","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":38.3431275,"longitude":-0.7617109},
+ "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"20:00","closes":"23:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Thursday","Friday"],"opens":"12:30","closes":"15:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"13:00","closes":"15:30"}]},
+{"@type":"Restaurant","@id":"https://tannisushi.com/#crevillente","name":"Tan'ni Sushi Crevillente","parentOrganization":{"@id":"https://tannisushi.com/#org"},"telephone":"+34601672928","servesCuisine":["Japonesa","Sushi"],"priceRange":"10-20 €","address":{"@type":"PostalAddress","streetAddress":"Carrer Manuel Broseta Pont, 4","postalCode":"03330","addressLocality":"Crevillent","addressRegion":"Alicante","addressCountry":"ES"},
+ "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Thursday","Friday","Saturday","Sunday"],"opens":"12:30","closes":"15:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Thursday","Friday","Saturday","Sunday"],"opens":"20:00","closes":"23:30"}]}
+]}
+</script>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cesta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8Z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M9 10V6.5a3 3 0 0 1 6 0V10"/></symbol>
+  <symbol id="i-tarjeta" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="16" cy="12" r="1.6" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+  <symbol id="i-mas" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-menos" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-atras" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4h0A1.5 1.5 0 0 1 4 14.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="9" cy="10" r="1.1" fill="currentColor"/><circle cx="12" cy="10" r="1.1" fill="currentColor"/><circle cx="15" cy="10" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5Zm0 17.3a7.8 7.8 0 0 1-4-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A7.8 7.8 0 1 1 12 19.8Zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.4 6.4 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.8 2c0 1.2.9 2.3 1 2.5.1.2 1.7 2.7 4.2 3.7 1.6.6 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.3Z"/></symbol>
+  <symbol id="i-palillos" viewBox="0 0 24 24"><path d="M5 19 19 4M8 20 20 7" stroke="#2A2622" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="cab" id="cab">
+  <div class="env cab-in">
+    <a class="marca" href="#inicio" aria-label="Tan'ni Sushi, inicio"><b>Tan'ni</b><span>sushi</span></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#carta">Carta</a><a href="#menus">Menús</a><a href="#locales">Locales</a><a href="#lovers">Tanni Lovers</a>
+    </nav>
+    <div class="cab-acc">
+      <a class="cab-btn" href="#tarjeta" aria-label="Mi tarjeta Tanni Lovers"><svg class="ico"><use href="#i-tarjeta"/></svg><span class="txt">Mi tarjeta</span></a>
+      <a class="cab-btn" href="#pedido" aria-label="Mi pedido"><svg class="ico"><use href="#i-cesta"/></svg><span class="txt">Mi pedido</span><span class="contador oculto" id="contador">0</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+
+<!-- ===================== INICIO ===================== -->
+<section class="vista" id="v-inicio" data-vista="inicio">
+  <div class="hero" id="hero">
+    <div class="hero-foto">
+      <img src="fotos/portada-humo.webp" width="1080" height="1350" alt="Uramakis de Tan'ni sobre una tabla de madera, con humo, en una encimera oscura" fetchpriority="high">
+    </div>
+    <div class="hero-txt">
+      <span class="firma" aria-hidden="true">Sushi lovers</span>
+      <h1>Sushi para llevar y a domicilio <span class="nw">Elche · Aspe · Crevillente</span></h1>
+      <p>Pides aquí y el pedido llega al momento al WhatsApp de tu local. Cada 20 € suma un sello en tu tarjeta Tanni Lovers.</p>
+      <div class="hero-btns">
+        <a class="btn btn-salmon" href="#carta">Hacer mi pedido</a>
+        <a class="btn btn-borde" href="#menus">Ver menús</a>
+      </div>
+      <div class="hero-dato" id="hero-hoy"></div>
+    </div>
+  </div>
+
+  <section class="bloque" aria-labelledby="t-como">
+    <div class="env">
+      <h2 class="rotulo" id="t-como"><span class="firma">Pedir</span><span class="linea">En tres pasos, sin llamar</span></h2>
+      <ol class="pasos">
+        <li><b>Elige en la carta</b><span>Los 95 platos y los menús, con sus precios de siempre.</span></li>
+        <li><b>Recoger o a casa</b><span>En tu local o con nuestros repartidores, a la hora que quieras.</span></li>
+        <li><b>Llega a tu local</b><span>El pedido entra en su WhatsApp y empiezan a prepararlo.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bloque" id="menus" aria-labelledby="t-menus">
+    <div class="env menus">
+      <figure>
+        <img src="fotos/bandeja-take-away.webp" width="900" height="1126" loading="lazy" alt="Bandejas de take away de Tan'ni con uramakis, gyozas y entrantes, vistas desde arriba">
+        <figcaption>Así salen las bandejas de take away.</figcaption>
+      </figure>
+      <div>
+        <h2 class="rotulo" id="t-menus"><span class="firma">Menús</span><span class="linea">Ninja · Shogun · Emperador</span></h2>
+        <ul class="lista-menus" id="lista-menus"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque" aria-labelledby="t-carta">
+    <div class="env">
+      <h2 class="rotulo" id="t-carta"><span class="firma">Carta</span><span class="linea">Sushi, pokes, baos y platos calientes</span></h2>
+      <div class="tira" id="tira"></div>
+      <div class="cats-portada" id="cats-portada"></div>
+    </div>
+  </section>
+
+  <section class="bloque" id="lovers" aria-labelledby="t-lovers">
+    <div class="env lovers">
+      <div>
+        <h2 class="rotulo" id="t-lovers"><span class="firma">Lovers</span><span class="linea">Tu tarjeta de sellos, en el móvil</span></h2>
+        <ul>
+          <li>Cada 20 € de pedido, un sello. Con 10 sellos, 10 € de descuento.</li>
+          <li>Si pagas en la web, el sello se suma solo.</li>
+          <li>Si pagas al recoger, enseñas tu código QR en el local y te lo marcan.</li>
+          <li>Entras solo con tu teléfono. Sin contraseñas.</li>
+        </ul>
+        <a class="btn btn-salmon" href="#tarjeta">Crear mi tarjeta</a>
+      </div>
+      <div class="carton">
+        <img src="fotos/tarjetas-carton.webp" width="900" height="1126" loading="lazy" alt="Tarjetas Tanni Lovers de cartón con las casillas para los sellos">
+        <div class="tarjeta" aria-hidden="true" id="tarjeta-muestra"></div>
+        <small>La tarjeta de cartón de siempre, ahora también en el móvil.</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque" id="locales" aria-labelledby="t-locales">
+    <div class="env">
+      <h2 class="rotulo" id="t-locales"><span class="firma">Locales</span><span class="linea">Aspe · Elche · Crevillente</span></h2>
+      <div class="locales" id="locales-lista"></div>
+    </div>
+  </section>
+
+  <section class="bloque" aria-labelledby="t-opis">
+    <div class="env">
+      <h2 class="rotulo" id="t-opis"><span class="firma">Opiniones</span><span class="linea">667 reseñas en Google entre los tres locales</span></h2>
+      <ul class="opis">
+        <li><q>Los sabores son increíbles y las porciones son muy generosas.</q><span>Resumen de reseñas de Google · Elche · 4,6 de 288</span></li>
+        <li><q>Sushi de muy buena calidad, propuesta original y excelente servicio de atención.</q><span>Resumen de reseñas de Google · Aspe · 4,5 de 296</span></li>
+        <li><q>Te atienden muy bien por WhatsApp y cualquier duda que tengas por llamada.</q><span>Resumen de reseñas de Google · Crevillente · 5,0 de 83</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloque" id="eventos" aria-labelledby="t-eventos">
+    <div class="env eventos">
+      <img src="fotos/taller-sushi.webp" width="800" height="1000" loading="lazy" alt="Cartel de un taller de sushi impartido por Tan'ni en Elche">
+      <div>
+        <h2 class="rotulo" id="t-eventos"><span class="firma">Eventos</span><span class="linea">Bandejas para celebraciones y talleres de sushi</span></h2>
+        <p style="color:var(--tinta2);max-width:46ch">Llevamos el sushi a tu celebración y damos talleres para aprender a hacerlo. Cuéntanos la fecha y cuántos sois.</p>
+        <div class="hero-btns" style="margin-top:20px">
+          <a class="btn btn-salmon" href="mailto:tannisushinfo@gmail.com?subject=Evento%20Tan'ni%20Sushi">Escribir para un evento</a>
+          <button class="btn btn-borde" type="button" data-abre="wa">Preguntar por WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ===================== CARTA ===================== -->
+<section class="vista" id="v-carta" data-vista="carta">
+  <div class="env carta-cab">
+    <h1 class="rotulo"><span class="firma">Carta</span><span class="linea">95 platos · los tres locales</span></h1>
+    <p style="color:var(--suave);margin:-8px 0 0" id="carta-local"></p>
+  </div>
+  <nav class="cats" aria-label="Secciones de la carta"><div class="cats-in" id="cats"></div></nav>
+  <div class="env" id="carta-lista"></div>
+</section>
+
+<!-- ===================== FICHA ===================== -->
+<section class="vista" id="v-plato" data-vista="plato"><div class="env ficha" id="ficha"></div></section>
+
+<!-- ===================== PEDIDO ===================== -->
+<section class="vista" id="v-pedido" data-vista="pedido"><div class="env pedido" id="pedido"></div></section>
+
+<!-- ===================== HECHO ===================== -->
+<section class="vista" id="v-hecho" data-vista="hecho"><div class="env hecho" id="hecho"></div></section>
+
+<!-- ===================== TARJETA ===================== -->
+<section class="vista" id="v-tarjeta" data-vista="tarjeta"><div class="env cuenta" id="cuenta"></div></section>
+
+<!-- ===================== LOCAL ===================== -->
+<section class="vista" id="v-local" data-vista="local"><div class="env ficha" id="local-ficha"></div></section>
+
+<!-- ===================== MODO LOCAL ===================== -->
+<section class="vista" id="v-caja" data-vista="caja"><div class="env caja" id="caja"></div></section>
+
+</main>
+
+<footer class="pie">
+  <div class="env">
+    <div class="pie-grid">
+      <div><a class="marca" href="#inicio" style="margin-bottom:10px"><b>Tan'ni</b><span>sushi</span></a><p>Take away, delivery &amp; events.</p><p><a href="https://www.instagram.com/tanni_sushi/" rel="noopener" target="_blank">@tanni_sushi en Instagram</a></p></div>
+      <div><h4>Elche</h4><p>Carrer Orihuela, 9</p><p><a href="tel:+34622474652">622 47 46 52</a></p></div>
+      <div><h4>Aspe</h4><p>Av. Nia Coca, 5</p><p><a href="tel:+34666904824">666 90 48 24</a></p></div>
+      <div><h4>Crevillente</h4><p>C/ Manuel Broseta Pont, 4</p><p><a href="tel:+34601672928">601 67 29 28</a></p></div>
+    </div>
+    <p style="margin-top:26px">Eventos: <a href="mailto:tannisushinfo@gmail.com">tannisushinfo@gmail.com</a> · <a href="#caja">Modo local (para el equipo)</a></p>
+    <p class="aviso-maqueta">Maqueta de demostración preparada por Innovarte para Tan'ni Sushi. Los pedidos, pagos y sellos de esta página son de prueba y no se envían a nadie. Carta y precios copiados de la carta de Tan'ni (noviembre 2026); alérgenos pendientes de confirmar con el restaurante.</p>
+  </div>
+</footer>
+
+<a class="barra-cesta fuera" id="barra" href="#pedido"><span id="barra-n">Ver mi pedido</span><span id="barra-t">0 €</span></a>
+<div class="flotan fuera" id="flotan">
+  <button class="flot" type="button" data-abre="chat" aria-label="Abrir el asistente"><svg class="ico"><use href="#i-chat"/></svg></button>
+  <button class="flot wa" type="button" data-abre="wa" aria-label="Escribir por WhatsApp a un local"><svg class="ico"><use href="#i-wa"/></svg></button>
+</div>
+<div id="capa"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
+<script>
+"use strict";
+/* ---------- datos verificados (web, carta PDF y Google, 09/11/2026) ---------- */
+const LOCALES={
+  elche:{id:'elche',nombre:'Elche',dir:'Carrer Orihuela, 9 · 03203 Elche',tel:'622474652',telv:'622 47 46 52',foto:'local-elche',nota:'4,6 · 288 reseñas',
+    h:{1:[[1170,1380]],2:[[1170,1380]],3:[[1170,1380]],4:[[750,930],[1170,1380]],5:[[750,930],[1170,1410]],6:[[750,930],[1170,1410]],0:[[750,930],[1170,1410]]}},
+  aspe:{id:'aspe',nombre:'Aspe',dir:'Av. Nia Coca, 5 · 03680 Aspe',tel:'666904824',telv:'666 90 48 24',foto:'local-aspe',nota:'4,5 · 296 reseñas',
+    h:{1:null,2:[[1200,1380]],3:[[1200,1380]],4:[[750,930],[1200,1380]],5:[[750,930],[1200,1380]],6:[[780,930],[1200,1380]],0:[[780,930],[1200,1380]]}},
+  crevillente:{id:'crevillente',nombre:'Crevillente',dir:'C/ Manuel Broseta Pont, 4 · 03330 Crevillent',tel:'601672928',telv:'601 67 29 28',foto:'local-crevillente',nota:'5,0 · 83 reseñas',
+    h:{1:null,2:null,3:null,4:[[750,930],[1200,1410]],5:[[750,930],[1200,1410]],6:[[750,930],[1200,1410]],0:[[750,930],[1200,1410]]}}
+};
+const ORDEN_LOC=['elche','aspe','crevillente'];
+const DIAS=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+/* Zonas: solo las de Elche son de su carta. Aspe y Crevillente, pendientes. */
+const ZONAS=[
+  {id:'elche',t:'Elche casco urbano',local:'elche',gratis:20,envio:2},
+  {id:'torrellano',t:'Torrellano',local:'elche',gratis:30,envio:null},
+  {id:'altet',t:'El Altet y Arenales del Sol',local:'elche',gratis:50,envio:null},
+  {id:'pedanias',t:'Otras pedanías y campo de Elche',local:'elche',gratis:null,envio:null},
+  {id:'aspe',t:'Aspe',local:'aspe',gratis:null,envio:null},
+  {id:'crevillente',t:'Crevillente',local:'crevillente',gratis:null,envio:null}
+];
+const CATS=[
+  {id:'menus',t:'Menús'},{id:'entrantes',t:'Entrantes'},{id:'tartares',t:'Tartares, tatakis y sashimis'},
+  {id:'tacos',t:'Tacos',s:'2 unidades'},{id:'baos',t:'Baos',s:'2 unidades'},{id:'caliente',t:'Caliente',s:'Huevo +1,50 €'},
+  {id:'pokes',t:'Pokes',s:'Base de arroz · añade sushi +1,50 €'},{id:'hosomakis',t:'Hosomakis',s:'8 piezas · el pequeñito de un ingrediente'},
+  {id:'nigiris',t:'Nigiris',s:'2 piezas'},{id:'uramakis',t:'Uramakis'},{id:'futomakis',t:'Futomakis',s:'En tempura +2 €'},{id:'postres',t:'Postres'}
+];
+const EXTRAS={caliente:[['Huevo',1.5]],pokes:[['Añadir sushi',1.5]],hosomakis:[['Otro ingrediente',1.5],['Tempura y panko',2]],futomakis:[['En tempura',2]]};
+const BALFEGO=[['Atún rojo Balfegó',2]];
+const ENTR_SHOGUN=['Takoyaki de pulpo','Gyozas en panko','Pollo katsu','Gyozas de cerdo','Ensalada wakame','Ensalada de langostinos'];
+const ENTR_EMP=['Takoyaki de pulpo','Gyozas en panko','Langostino torpedo','Gyozas de cerdo','Ensalada wakame','Ensalada de langostinos','Bao de cangrejo'];
+const P=(n,cat,nombre,precio,desc,o)=>Object.assign({n,cat,nombre,precio,desc:desc||''},o||{});
+const CARTA=[
+ P('M1','menus','Menú Ninja',12,'2 gyozas · 4 uramakis California · 4 uramakis de atún flambeado al shichimi · 6 piezas en tempura del día',{foto:'bandeja-take-away'}),
+ P('M2','menus','Menú Shogun',25,'2 entrantes a elegir + bandeja degustación: 6 uramakis tempura de salmón, queso crema y cebollino · 4 uramakis de salmón, queso crema y aguacate · 4 uramakis de atún flambeado al shichimi · 6 futomakis de pollo parmesano',{elige:[2,ENTR_SHOGUN],foto:'variado-tabla'}),
+ P('M3','menus','Menú Emperador',35,'3 entrantes a elegir.',{elige:[3,ENTR_EMP]}),
+ P('M4','menus','Entrante + bandeja',20,'Elige un entrante y una bandeja de sushi.',{soloDia:2}),
+ P(1,'entrantes','Japobravas',5,'',{foto:'japobravas'}),P(2,'entrantes','Pollo katsu',6),P(3,'entrantes','Gyozas gratén y pull pork',6),
+ P(4,'entrantes','Gyozas panko',5.5,'Con teriyaki y aceite de sésamo (4 unid.)'),P(5,'entrantes','Gyozas de cerdo',5,'Con sweet chilly y cebolla frita (4 unid.)'),
+ P(6,'entrantes','Gyozas de verdura',5.5,'Con mayokimche y wakame (4 unid.)'),P(7,'entrantes','Ensalada wakame',4),
+ P(8,'entrantes','Gambones al sweet chilly',5,'Con sésamo y cebollino'),P(9,'entrantes','Oyaki',5,'4 unid.',{opciones:['Vegano','Queso','Ternera']}),
+ P(10,'entrantes','Karaage de pollo',5.5,'Con mahonesa japonesa (4 unid.)'),P(11,'entrantes','Takoyaki de pulpo',6,'4 unid.',{foto:'takoyaki'}),
+ P(12,'entrantes','Langostinos crujientes',4.5,'Con salsa sweet chilly (2 unid.)'),P(13,'entrantes','Hot dog sushi',6.5,'2 unid.',{opciones:['Salmón','Atún','Pollo parmesano']}),
+ P(14,'tartares','Tartar de salmón',9,'Salmón, aguacate, mango y wakame'),P(15,'tartares','Tartar de atún marinado',12,'Con aguacate y alga wakame'),
+ P(16,'tartares','Tataki de atún rojo Balfegó',10),P(17,'tartares','Tataki de salmón',9),P(18,'tartares','Sashimi de atún',6,'4 cortes'),P(19,'tartares','Sashimi de salmón',6,'4 cortes'),
+ P(20,'tacos','Taco de pollo mechado',6.5,'Con parmesano y cebolla roja'),P(21,'tacos','Taco de pull pork',6.5,'Con cebolla roja, queso parmesano y sweet chilly'),
+ P(22,'tacos','Taco de atún a la plancha',8,'Con aguacate y salsa sweet mayo',{foto:'taco-atun'}),P(23,'tacos','Taco de salmón',6.5,'Con queso crema y cebolla caramelizada'),
+ P(24,'baos','Bao vegano',6.5,'De verdura con tofu en tempura'),P(25,'baos','Bao de pollo mechado',6.5,'Con parmesano y cebolla roja'),
+ P(26,'baos','Bao de pull pork',6.5,'Con cebolla roja y queso parmesano'),P(27,'baos','Bao de panceta lacada',7,'Con queso brie',{foto:'bao-panceta'}),
+ P(28,'baos','Bao de langostino crujiente',8,'Con cebolla roja, aguacate y salsa mayokimche'),P(29,'baos','Bao de tartar de atún rojo',8.5,'Con huevo de codorniz'),
+ P(30,'caliente','Katsu-don',8.5,'Pollo katsu, tortilla, arroz, salsa sweet y teriyaki',{foto:'katsu-don'}),
+ P(31,'caliente','Katsu-karee',9,'Receta original de Japón: pollo katsu, curry y arroz',{opciones:['Con pollo katsu','Tofu-karee (vegano)']}),
+ P(32,'caliente','Gyudon',8.5,'Arroz salteado con ternera al miso a baja temperatura'),
+ P(33,'caliente','Noodles al wok',7,'Fideo fino salteado con col, panceta y langostinos con salsa casera de carne',{opciones:['Normal','Vegano']}),
+ P(34,'caliente','Yakiudon',8,'Fideo gordo salteado con col, panceta y langostinos con salsa casera de carne'),
+ P(35,'caliente','Yakimeshi de gambas',8,'Arroz salteado con puerro, langostinos, salsa yakimeshi y huevo revuelto'),
+ P(36,'pokes','Poke katsu',8.5,'Pechuga de pollo empanada, mix de quesos, cebolla roja, salsa sweet mayo y cebolla crispy',{tag:'El más pedido',salsa:true}),
+ P(37,'pokes','Poke vegano de tofu',8,'Edamame, wakame, tomate cherry y aguacate',{salsa:true}),
+ P(38,'pokes','Poke pull pork',8.5,'Cerdo a baja temperatura, salsa barbacoa, mix de quesos, cebolla roja, salsa sweet y cebolla crispy',{salsa:true}),
+ P(39,'pokes','Poke de salmón',9,'Salmón, wakame, cherry confitado, aguacate, edamame, queso crema y salsa teriyaki',{salsa:true}),
+ P(40,'pokes','Poke de atún',9,'Atún, wakame, maíz, cherry confitado, aguacate, edamame y salsa sweet mayo',{salsa:true}),
+ P(41,'pokes','Poke de langostinos en tempura',11,'Langostinos en tempura, maíz, cebolla roja y guacamole con pico de gallo',{salsa:true}),
+ P(42,'hosomakis','Hosomaki de salmón',4.5),P(43,'hosomakis','Hosomaki de atún',5,'',{balfego:true}),P(44,'hosomakis','Hosomaki de pez mantequilla',4),
+ P(45,'hosomakis','Hosomaki de langostino cocido',4.5),P(46,'hosomakis','Hosomaki de anguila',5.5),P(47,'hosomakis','Hosomaki de pollo parmesano',4.5),
+ P(48,'hosomakis','Hosomaki de pull pork',4.5),P(49,'hosomakis','Hosomaki de langostino en tempura',5.5),P(50,'hosomakis','Hosomaki de pepino',4),
+ P(51,'hosomakis','Hosomaki de aguacate',4),P(52,'hosomakis','Hosomaki de crema de queso y salsa de mango',4.5),P(53,'hosomakis','Hosomaki de verdura salteada',4),P(54,'hosomakis','Hosomaki de mango',4),
+ P(55,'nigiris','Nigiri de salmón',4),P(56,'nigiris','Nigiri de atún',4.5,'',{balfego:true}),P(57,'nigiris','Nigiri de pez mantequilla',4),
+ P(58,'nigiris','Nigiri de anguila braseada',5),P(59,'nigiris','Nigiri de wagyu A5',8.5,'Wagyu de origen japonés con aceite trufado'),
+ P(60,'nigiris','Nigiri de salmón flambeado con teriyaki',4),P(61,'nigiris','Nigiri de atún con foie',5),P(62,'nigiris','Nigiri de salmón con queso crema y mango',4.5),
+ P(63,'nigiris','Nigiri de atún con huevo de codorniz',6),P(64,'nigiris','Nigiri de salmón flambeado con huevo de codorniz',5.5,'',{foto:'nigiri-salmon-codorniz'}),
+ P(65,'nigiris','Nigiri de langostino ebi',4.5,'Con mahonesa japonesa'),P(66,'nigiris','Nigiri de solomillo de vaca',6.5,'Con huevo de codorniz'),
+ P(67,'nigiris','Nigiri de solomillo con foie caramelizado',6.5),
+ P(68,'uramakis','Noruega roll',11,'8 piezas · langostino torpedo y aguacate, recubierto de salmón flambeado con salsa sweet mayo'),
+ P(69,'uramakis','Rainbow roll',11,'8 piezas · California, aguacate y pepino, recubierto de sashimi de atún, salmón y pez mantequilla'),
+ P(70,'uramakis','Sweet samurai roll',10,'8 piezas · salmón, aguacate y queso crema con fresas naturales'),
+ P(71,'uramakis','Pollo parmesano roll',5.5,'Pollo mechado gratinado con queso parmesano, salsa sweet y cebolla crispy',{var:[['4 piezas',5.5],['8 piezas',10]]}),
+ P(72,'uramakis','California roll',5,'California y aguacate, con sésamo de colores',{var:[['4 piezas',5],['8 piezas',9]]}),
+ P(73,'uramakis','Salmón flambeado roll',5.5,'Mango, aguacate y queso crema',{var:[['4 piezas',5.5],['8 piezas',10]]}),
+ P(74,'uramakis','Mamba roll',11,'8 piezas · langostino torpedo, queso crema y aguacate, recubierto de salmón flambeado con cebolla caramelizada y teriyaki'),
+ P(75,'uramakis','Nuriki roll',12,'8 piezas · langostino torpedo y aguacate, recubierto de atún flambeado con foie de oca'),
+ P(76,'uramakis','Caterpillar roll',12,'8 piezas · langostino torpedo con acorazado de aguacate, queso crema, teriyaki y cebolla crispy'),
+ P(77,'uramakis','Doble atún roll',11,'8 piezas · atún picante y pepino, recubierto de sashimi de atún y salsa sweet chilly',{balfego:true,foto:'doble-atun'}),
+ P(78,'uramakis','Dragón roll',10,'8 piezas · salmón en tempura, queso crema y cebolla roja, recubierto de plátano caramelizado',{foto:'dragon-roll'}),
+ P(79,'uramakis','Brie ebi roll',10,'8 piezas · langostino cocido, queso brie en tempura con mermelada de tomate y cebolla crispy'),
+ P(80,'uramakis','Doble langostino roll',12,'8 piezas · langostino torpedo, aguacate y pepino, recubierto de langostino ebi con mahonesa japonesa'),
+ P(81,'uramakis','Doble salmón roll',12,'8 piezas · salmón, queso crema y cebollino, recubierto de salmón flambeado con queso crema y cebolla caramelizada'),
+ P(82,'uramakis','Butterfoie roll',11,'8 piezas · anguila, pepino y aguacate, recubierto de pez mantequilla y foie de oca caramelizado'),
+ P(83,'futomakis','Futomaki de pato',6,'Pato mechado, salsa hoisin y mozzarella con cebolla crispy',{var:[['6 piezas',6],['12 piezas',11]]}),
+ P(84,'futomakis','Futomaki de atún picante',5.5,'Atún picante, pepino y salsa sweet chilly',{var:[['6 piezas',5.5],['12 piezas',10]]}),
+ P(85,'futomakis','Futomaki de langostino en tempura',6.5,'Langostino en tempura, cangrejo, queso crema y salmón con salsa teriyaki',{var:[['6 piezas',6.5],['12 piezas',12]]}),
+ P(86,'futomakis','Futomaki de salmón',5.5,'Salmón, aguacate y queso crema',{var:[['6 piezas',5.5],['12 piezas',10]]}),
+ P(87,'futomakis','Futomaki de langostino cocido',6,'Langostino, aguacate y queso crema',{var:[['6 piezas',6],['12 piezas',11]]}),
+ P(88,'futomakis','Futomaki de pollo parmesano',6,'Pollo mechado, mix de quesos con salsa sweet mayo y parmesano en polvo',{var:[['6 piezas',6],['12 piezas',11]]}),
+ P(89,'futomakis','Futomaki de salmón en tempura',6.5,'Con queso crema, pepino e ikura de salmón',{var:[['6 piezas',6.5],['12 piezas',12]]}),
+ P(90,'futomakis','Futomaki vegano',5,'Tofu, aguacate, pepino y wakame',{var:[['6 piezas',5],['12 piezas',9]]}),
+ P(91,'futomakis','Futomaki de atún',6,'Atún, aguacate y cebollino',{var:[['6 piezas',6],['12 piezas',11]],balfego:true}),
+ P(92,'futomakis','Futomaki de anguila',6,'Anguila, aguacate y salsa unagi',{var:[['6 piezas',6],['12 piezas',11]]}),
+ P(93,'postres','Brownie de chocolate',2.5),P(94,'postres','Tarta de queso casera',4.5),
+ P(95,'postres','Mochi',1.75,'',{opciones:['Mango','Tarta de queso','Chocolate','Coco','Almendras','Té matcha']})
+];
+const slug=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+CARTA.forEach(p=>{p.slug=slug(p.nombre);p.sencillo=!p.var&&!p.opciones&&!p.elige&&!p.salsa&&!p.soloDia;});
+const BUSCA=Object.fromEntries(CARTA.map(p=>[p.slug,p]));
+
+/* ---------- utilidades ---------- */
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const eur=n=>(Math.round(n*100)/100).toFixed(2).replace('.',',').replace(',00','')+' €';
+const hm=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+const ico=(id,c='ico')=>`<svg class="${c}" aria-hidden="true"><use href="#i-${id}"/></svg>`;
+const leer=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}};
+const guardar=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+function avisar(t){const a=document.createElement('div');a.className='aviso';a.setAttribute('role','status');a.textContent=t;document.body.appendChild(a);setTimeout(()=>a.remove(),2200)}
+
+/* ---------- horarios ---------- */
+function ahora(){const d=new Date();return{dia:d.getDay(),min:d.getHours()*60+d.getMinutes()}}
+function franjasHoy(loc,dia){return LOCALES[loc].h[dia]||null}
+function abierto(loc){const {dia,min}=ahora();const f=franjasHoy(loc,dia);return !!(f&&f.some(([a,b])=>min>=a&&min<b))}
+function textoHoy(loc){const {dia}=ahora();const f=franjasHoy(loc,dia);return f?f.map(([a,b])=>hm(a)+'–'+hm(b)).join(' · '):'Hoy cerrado'}
+function horas(loc){ /* horas de hoy y mañana, cada 15 min, con 30 min de margen */
+  const {dia,min}=ahora();const out=[];
+  for(let k=0;k<2&&out.length<40;k++){const d=(dia+k)%7;const f=franjasHoy(loc,d);if(!f)continue;
+    f.forEach(([a,b])=>{for(let m=a+15;m<=b-15;m+=15){if(k===0&&m<min+30)continue;out.push({v:k+'-'+m,t:(k?'Mañana ':'Hoy ')+hm(m)})}})}
+  if(!out.length){for(let k=2;k<7;k++){const d=(dia+k)%7;const f=franjasHoy(loc,d);if(f){out.push({v:k+'-'+(f[0][0]+15),t:DIAS[d]+' '+hm(f[0][0]+15)});break}}}
+  return out;
+}
+
+/* ---------- estado ---------- */
+let cesta=leer('tn_cesta',[]);
+let cuenta=leer('tn_cuenta',null);
+let pref=leer('tn_pref',{modo:'recoger',local:'elche',zona:'elche'});
+const total=()=>cesta.reduce((s,l)=>s+l.u*l.q,0);
+const piezas=()=>cesta.reduce((s,l)=>s+l.q,0);
+function guardarCesta(){guardar('tn_cesta',cesta);pintarContador()}
+function pintarContador(){
+  const n=piezas(),c=$('#contador');c.textContent=n;c.classList.toggle('oculto',!n);
+  c.classList.remove('salta');void c.offsetWidth;c.classList.add('salta');
+  $('#barra-n').textContent=n?`Ver mi pedido · ${n} ${n===1?'plato':'platos'}`:'Ver mi pedido';$('#barra-t').textContent=eur(total());
+  actualizarFlotantes();
+}
+function anadir(p,opts={}){
+  const det=[opts.var,opts.opcion,opts.salsa&&('salsa '+opts.salsa),...(opts.elige||[]),...(opts.extras||[]).map(e=>'+ '+e[0])].filter(Boolean).join(' · ');
+  const u=(opts.precio??p.precio)+(opts.extras||[]).reduce((s,e)=>s+e[1],0);
+  const clave=p.slug+'|'+det;const l=cesta.find(x=>x.k===clave);
+  if(l)l.q+=opts.q||1;else cesta.push({k:clave,slug:p.slug,nombre:p.nombre,det,u,q:opts.q||1});
+  guardarCesta();avisar(`${p.nombre} añadido`);
+}
+
+/* ---------- portada ---------- */
+function pintarPortada(){
+  $('#lista-menus').innerHTML=CARTA.filter(p=>p.cat==='menus').map(p=>`<li><a href="#plato/${p.slug}"><span class="mn">${esc(p.nombre)}${p.soloDia?'<span class="solo">Solo martes</span>':''}</span><span class="mp">${eur(p.precio)}</span><span class="md">${esc(p.desc)}</span></a></li>`).join('');
+  $('#tira').innerHTML=CARTA.filter(p=>p.foto&&p.cat!=='menus').map(p=>`<a href="#plato/${p.slug}"><img src="fotos/${p.foto}.webp" width="600" height="800" loading="lazy" alt="${esc(p.nombre)} de Tan'ni"><b>${esc(p.nombre)}</b><span>${eur(p.precio)}</span></a>`).join('');
+  $('#cats-portada').innerHTML=CATS.map(c=>`<a class="chip" href="#carta/${c.id}">${esc(c.t)}</a>`).join('');
+  $('#locales-lista').innerHTML=ORDEN_LOC.map(id=>{const L=LOCALES[id];return `<article class="local"><img src="fotos/${L.foto}.webp" width="900" height="676" loading="lazy" alt="Local de Tan'ni en ${L.nombre}"><div><h3>${L.nombre}</h3><p>${esc(L.dir)}</p><p><span class="estado ${abierto(id)?'abierto':''}">${abierto(id)?'Abierto ahora':'Cerrado ahora'}</span> · ${textoHoy(id)}</p><p>Google: ${L.nota}</p><div class="acc"><a class="btn btn-salmon" href="#local/${id}">Ver local</a><a class="btn btn-borde" href="tel:+34${L.tel}">Llamar</a></div></div></article>`}).join('');
+  $('#hero-hoy').innerHTML='<span>Hoy:</span>'+ORDEN_LOC.map(id=>`<span><b>${LOCALES[id].nombre}</b> ${abierto(id)?'abierto ahora':(textoHoy(id)==='Hoy cerrado'?'cerrado':textoHoy(id))}</span>`).join('');
+  $('#tarjeta-muestra').innerHTML=htmlTarjeta({nombre:'Tu nombre',sellos:7});
+}
+function htmlTarjeta(c,nuevos=0){
+  const s=Math.min(c.sellos,10);
+  return `<div class="tarjeta-cab"><div><div class="tl">Lovers</div><div class="tc">Tanni Lovers card</div></div><div class="tn">${esc(c.nombre)}${c.desde?'<br>desde '+esc(c.desde):''}</div></div>
+  <div class="sellos" role="img" aria-label="${s} de 10 sellos">${Array.from({length:10},(_,i)=>`<span class="sello ${i<s?'lleno':''} ${i<s&&i>=s-nuevos?'nuevo':''}" style="animation-delay:${(i-(s-nuevos))*120}ms">${i<s?'<svg viewBox="0 0 24 24"><use href="#i-palillos"/></svg>':''}</span>`).join('')}</div>
+  <div class="tarjeta-pie"><span>${s} de 10 sellos</span><span>${s>=10?'Tienes 10 € de descuento':'Te faltan '+(10-s)}</span></div>`;
+}
+
+/* ---------- carta ---------- */
+function pintarCarta(catId){
+  $('#cats').innerHTML=CATS.map(c=>`<a class="chip" href="#carta/${c.id}" ${c.id===catId?'aria-current="true"':''}>${esc(c.t)}</a>`).join('');
+  $('#carta-local').textContent=pref.modo==='recoger'?`Pides para recoger en ${LOCALES[pref.local].nombre}. Lo cambias al terminar el pedido.`:`Pides a domicilio: ${ZONAS.find(z=>z.id===pref.zona).t}. Lo cambias al terminar el pedido.`;
+  $('#carta-lista').innerHTML=CATS.map(c=>`<section class="cat-sec" id="cat-${c.id}" aria-labelledby="h-${c.id}"><h2 id="h-${c.id}">${esc(c.t)}${c.s?`<small>${esc(c.s)}</small>`:''}</h2><ul class="filas">${CARTA.filter(p=>p.cat===c.id).map(fila).join('')}</ul></section>`).join('');
+  if(catId){const el=$('#cat-'+catId);if(el)requestAnimationFrame(()=>el.scrollIntoView())}
+}
+function fila(p){
+  const precio=p.var?`<small>desde</small>${eur(p.var[0][1])}`:eur(p.precio);
+  const izq=p.foto?`<img class="fila-foto" src="fotos/${p.foto}.webp" width="56" height="56" loading="lazy" alt="">`:`<span class="fila-num">${typeof p.n==='number'?p.n:''}</span>`;
+  return `<li class="fila">${izq}<a class="fila-info" href="#plato/${p.slug}"><span class="fila-nom">${esc(p.nombre)}</span>${p.tag?`<span class="fila-tag">${esc(p.tag)}</span>`:''}${p.desc?`<span class="fila-desc">${esc(p.desc)}</span>`:''}</a><span class="fila-precio">${precio}</span><button class="mas" type="button" data-mas="${p.slug}" aria-label="Añadir ${esc(p.nombre)}">${ico('mas')}</button></li>`;
+}
+
+/* ---------- ficha de plato ---------- */
+function pintarPlato(s){
+  const p=BUSCA[s];if(!p){location.hash='#carta';return}
+  const cat=CATS.find(c=>c.id===p.cat);const mismos=CARTA.filter(x=>x.cat===p.cat);const i=mismos.indexOf(p);
+  const ant=mismos[i-1],sig=mismos[i+1];
+  const extras=[...(EXTRAS[p.cat]||[]),...(p.balfego?BALFEGO:[])];
+  const hoyMartes=new Date().getDay()===2;
+  let f='';
+  if(p.var)f+=`<fieldset><legend>Tamaño</legend>${p.var.map((v,k)=>`<label class="opc"><input type="radio" name="var" value="${k}" ${k?'':'checked'}><span>${v[0]}</span><em>${eur(v[1])}</em></label>`).join('')}</fieldset>`;
+  if(p.opciones)f+=`<fieldset><legend>Elige</legend>${p.opciones.map((o,k)=>`<label class="opc"><input type="radio" name="opc" value="${esc(o)}" ${k?'':'checked'}><span>${esc(o)}</span></label>`).join('')}</fieldset>`;
+  if(p.salsa)f+=`<fieldset><legend>Salsa</legend>${['Teriyaki','Mayokimche','Sweet chilly'].map((o,k)=>`<label class="opc"><input type="radio" name="salsa" value="${o}" ${k?'':'checked'}><span>${o}</span></label>`).join('')}</fieldset>`;
+  if(p.elige)f+=`<fieldset id="elige"><legend>Entrantes <small>· elige ${p.elige[0]}</small></legend>${p.elige[1].map(o=>`<label class="opc"><input type="checkbox" name="elige" value="${esc(o)}"><span>${esc(o)}</span></label>`).join('')}<p class="err oculto" id="err-elige">Elige ${p.elige[0]} entrantes.</p></fieldset>`;
+  if(extras.length)f+=`<fieldset><legend>Añadidos <small>· opcional</small></legend>${extras.map((e,k)=>`<label class="opc"><input type="checkbox" name="extra" value="${k}"><span>${e[0]}</span><em>+${eur(e[1])}</em></label>`).join('')}</fieldset>`;
+  const vis=p.foto?`<div class="ficha-foto"><img src="fotos/${p.foto}.webp" width="600" height="800" alt="${esc(p.nombre)} de Tan'ni"></div>`:`<div class="ficha-foto lamina" aria-hidden="true"><b>${esc(p.nombre.split(' ')[0])}</b><span>${esc(p.nombre)}</span></div>`;
+  $('#ficha').innerHTML=`<a class="volver" href="#carta/${p.cat}" data-volver>${ico('atras')} Volver a la carta</a>
+  <div class="ficha-grid">${vis}<div>
+    <div class="ficha-cat">${esc(cat.t)}${typeof p.n==='number'?' · n.º '+p.n:''}</div>
+    <h1>${esc(p.nombre)}</h1>
+    <div class="precio-g" id="precio-g">${eur(p.var?p.var[0][1]:p.precio)}</div>
+    ${p.desc?`<p class="desc">${esc(p.desc)}</p>`:''}
+    ${p.tag?`<p class="desc" style="color:var(--acento)">${esc(p.tag)}, según su carta.</p>`:''}
+    ${p.soloDia&&!hoyMartes?`<p class="alergenos"><b>Solo los martes.</b> Hoy no se puede pedir: vuelve el martes.</p>`:''}
+    ${p.soloDia?`<p class="desc">Dinos qué entrante y qué bandeja quieres en las notas del pedido.</p>`:''}
+    <form id="form-plato">${f}
+      <div class="alergenos"><b>Alérgenos:</b> pendientes de que el restaurante los confirme plato a plato. Si tienes alguna alergia, dínoslo en las notas del pedido.</div>
+      <div class="anadir"><div class="cantidad"><button type="button" data-cant="-1" aria-label="Uno menos">${ico('menos')}</button><output id="cant">1</output><button type="button" data-cant="1" aria-label="Uno más">${ico('mas')}</button></div>
+      <button class="btn btn-salmon" type="submit" id="btn-anadir" ${p.soloDia&&!hoyMartes?'disabled style="opacity:.5"':''}>Añadir · <span id="btn-precio"></span></button></div>
+    </form>
+    <nav class="vecinos" aria-label="Otros platos">${ant?`<a href="#plato/${ant.slug}">← Anterior<b>${esc(ant.nombre)}</b></a>`:'<span></span>'}${sig?`<a href="#plato/${sig.slug}" style="text-align:right">Siguiente →<b>${esc(sig.nombre)}</b></a>`:''}</nav>
+  </div></div>`;
+  const form=$('#form-plato');let q=1;
+  const calc=()=>{const v=p.var?p.var[+form.querySelector('[name=var]:checked').value][1]:p.precio;const ex=$$('[name=extra]:checked',form).reduce((s,i)=>s+extras[+i.value][1],0);$('#precio-g').textContent=eur(v);$('#btn-precio').textContent=eur((v+ex)*q);return v};
+  form.addEventListener('change',e=>{if(e.target.name==='elige'&&p.elige){const n=$$('[name=elige]:checked',form).length;$$('[name=elige]',form).forEach(i=>{i.disabled=!i.checked&&n>=p.elige[0]});$('#err-elige').classList.add('oculto')}calc()});
+  form.addEventListener('click',e=>{const b=e.target.closest('[data-cant]');if(!b)return;q=Math.max(1,Math.min(20,q+ +b.dataset.cant));$('#cant').textContent=q;calc()});
+  form.addEventListener('submit',e=>{e.preventDefault();
+    const el=$$('[name=elige]:checked',form).map(i=>i.value);
+    if(p.elige&&el.length!==p.elige[0]){$('#err-elige').classList.remove('oculto');$('#elige').scrollIntoView({block:'center'});return}
+    const vi=p.var?+form.querySelector('[name=var]:checked').value:null;
+    anadir(p,{q,precio:calc(),var:p.var?p.var[vi][0]:null,opcion:(form.querySelector('[name=opc]:checked')||{}).value,salsa:(form.querySelector('[name=salsa]:checked')||{}).value,elige:el.length?['Entrantes: '+el.join(', ')]:[],extras:$$('[name=extra]:checked',form).map(i=>extras[+i.value])});
+  });
+  calc();
+}
+
+/* ---------- pedido ---------- */
+let pedidoTmp={modo:pref.modo,local:pref.local,zona:pref.zona,pago:'ahora',usar:false};
+function envio(sub){if(pedidoTmp.modo!=='domicilio')return{c:0,t:'—'};const z=ZONAS.find(x=>x.id===pedidoTmp.zona);
+  if(z.gratis!=null&&sub>=z.gratis)return{c:0,t:'Gratis'};if(z.envio!=null)return{c:z.envio,t:eur(z.envio)+` (gratis desde ${eur(z.gratis)})`};
+  return{c:0,t:z.gratis!=null?`Gratis desde ${eur(z.gratis)}; si no, te lo dice el local`:'Te lo confirma el local'};}
+function localPedido(){return pedidoTmp.modo==='recoger'?pedidoTmp.local:ZONAS.find(z=>z.id===pedidoTmp.zona).local}
+function pintarPedido(){
+  const sub=total();const env=envio(sub);const loc=localPedido();const L=LOCALES[loc];
+  const desc=(cuenta&&cuenta.sellos>=10&&pedidoTmp.usar)?Math.min(10,sub):0;const tot=Math.max(0,sub-desc)+env.c;
+  const sellos=Math.floor(Math.max(0,sub-desc)/20);
+  const lineas=cesta.length?cesta.map((l,k)=>`<div class="linea-p"><div><div class="ln">${esc(l.nombre)}</div>${l.det?`<div class="ld">${esc(l.det)}</div>`:''}</div><div class="lp">${eur(l.u*l.q)}</div><div class="cantidad"><button type="button" data-lin="${k}" data-d="-1" aria-label="Quitar uno de ${esc(l.nombre)}">${ico('menos')}</button><output>${l.q}</output><button type="button" data-lin="${k}" data-d="1" aria-label="Añadir uno de ${esc(l.nombre)}">${ico('mas')}</button></div></div>`).join(''):`<p class="vacio">Aún no has elegido nada.</p><a class="btn btn-salmon" href="#carta">Ir a la carta</a>`;
+  const hs=horas(loc);
+  const lovers=cuenta?`<div class="lovers-caja"><b>${esc(cuenta.nombre.split(' ')[0])}, llevas ${Math.min(cuenta.sellos,10)} de 10 sellos.</b><br>Este pedido suma <b>${sellos} ${sellos===1?'sello':'sellos'}</b> ${pedidoTmp.pago==='ahora'?'al pagar.':'cuando enseñes tu QR '+(pedidoTmp.modo==='recoger'?'en el local.':'al repartidor.')}${cuenta.sellos>=10?`<label><input type="checkbox" id="usar" ${pedidoTmp.usar?'checked':''}> Usar mis 10 € de descuento</label>`:''}</div>`
+    :`<div class="lovers-caja">Este pedido son <b>${sellos} ${sellos===1?'sello':'sellos'}</b> Tanni Lovers. <a href="#tarjeta">Entra con tu teléfono</a> para que se sumen.</div>`;
+  $('#pedido').innerHTML=`<h1 class="rotulo"><span class="firma">Tu pedido</span><span class="linea">Llega al WhatsApp de Tan'ni ${L.nombre}</span></h1>
+  <div class="pedido-grid"><form id="form-pedido" novalidate>
+   <div class="paso"><h2><i>01</i> Lo que llevas</h2>${lineas}</div>
+   <div class="paso"><h2><i>02</i> ¿Cómo lo quieres?</h2>
+     <div class="dos" role="group" aria-label="Recoger o a domicilio"><button type="button" class="tog" data-modo="recoger" aria-pressed="${pedidoTmp.modo==='recoger'}">Recoger</button><button type="button" class="tog" data-modo="domicilio" aria-pressed="${pedidoTmp.modo==='domicilio'}">A domicilio</button></div>
+     ${pedidoTmp.modo==='recoger'?`<fieldset><legend>¿En qué local?</legend>${ORDEN_LOC.map(id=>`<label class="opc"><input type="radio" name="local" value="${id}" ${id===pedidoTmp.local?'checked':''}><span>${LOCALES[id].nombre}<br><em>${esc(LOCALES[id].dir)}</em></span><em>${abierto(id)?'Abierto':'Hoy '+textoHoy(id).toLowerCase()}</em></label>`).join('')}</fieldset>`
+     :`<label class="campo">¿Dónde estás?<select name="zona">${ZONAS.map(z=>`<option value="${z.id}" ${z.id===pedidoTmp.zona?'selected':''}>${esc(z.t)}</option>`).join('')}</select><small>Lo prepara y lo lleva el local de ${L.nombre}. Envío: ${env.t}.</small></label>
+       <label class="campo">Dirección<input name="direccion" autocomplete="street-address" placeholder="Calle, número, piso y puerta" value="${esc(pedidoTmp.direccion||'')}"></label><p class="err oculto" id="err-dir">Escribe la dirección para el repartidor.</p>`}
+     <label class="campo">¿Para cuándo?<select name="hora">${hs.map(h=>`<option value="${h.v}" ${h.v===pedidoTmp.hora?'selected':''}>${h.t}</option>`).join('')}</select><small>${L.nombre} hoy: ${textoHoy(loc)}.</small></label>
+   </div>
+   <div class="paso"><h2><i>03</i> Tus datos</h2>
+     <label class="campo">Nombre<input name="nombre" autocomplete="name" value="${esc(pedidoTmp.nombre||(cuenta?cuenta.nombre:''))}"></label><p class="err oculto" id="err-nom">Dinos tu nombre.</p>
+     <label class="campo">Teléfono<input name="tel" type="tel" inputmode="tel" autocomplete="tel" value="${esc(pedidoTmp.tel||(cuenta?cuenta.tel:''))}"><small>Por si el local tiene que avisarte.</small></label><p class="err oculto" id="err-tel">Escribe un teléfono de 9 cifras.</p>
+     <label class="campo">Notas y alergias<textarea name="notas" placeholder="Sin cebolla, alergia al sésamo, timbre que no funciona…">${esc(pedidoTmp.notas||'')}</textarea></label>
+   </div>
+   <div class="paso"><h2><i>04</i> Pago</h2>
+     <label class="opc"><input type="radio" name="pago" value="ahora" ${pedidoTmp.pago==='ahora'?'checked':''}><span>Pagar ahora<br><em>Tarjeta o Bizum</em></span></label>
+     <label class="opc"><input type="radio" name="pago" value="luego" ${pedidoTmp.pago==='luego'?'checked':''}><span>${pedidoTmp.modo==='recoger'?'Pagar al recoger':'Pagar al repartidor'}<br><em>Efectivo o tarjeta</em></span></label>
+   </div>
+  </form>
+  <aside class="resumen paso" aria-label="Resumen"><h2><i>05</i> Resumen</h2>
+    <div class="fila-t"><span>Platos</span><span>${eur(sub)}</span></div>
+    ${desc?`<div class="fila-t"><span>Tanni Lovers</span><span>−${eur(desc)}</span></div>`:''}
+    <div class="fila-t"><span>Envío</span><span>${pedidoTmp.modo==='domicilio'?(env.c?eur(env.c):env.t.split(';')[0]):'Recoges tú'}</span></div>
+    <div class="fila-t total"><span>Total</span><span>${eur(tot)}</span></div>
+    ${lovers}
+    <button class="btn btn-salmon btn-ancho" type="button" id="enviar" style="margin-top:16px" ${cesta.length?'':'disabled'}>${pedidoTmp.pago==='ahora'?'Pagar y enviar':'Enviar'} a Tan'ni ${L.nombre}</button>
+    <p style="color:var(--suave);font-size:14px;margin:10px 0 0">El pedido entra al momento en el WhatsApp del local, en su chat «Pedidos Web».</p>
+  </aside></div>`;
+}
+function datosForm(){const f=$('#form-pedido');if(!f)return;const g=n=>f.elements[n]?f.elements[n].value:undefined;
+  ['direccion','nombre','tel','notas','hora'].forEach(k=>{const v=g(k);if(v!==undefined)pedidoTmp[k]=v});
+  const l=f.querySelector('[name=local]:checked');if(l)pedidoTmp.local=l.value;const z=g('zona');if(z)pedidoTmp.zona=z;
+  const p=f.querySelector('[name=pago]:checked');if(p)pedidoTmp.pago=p.value;}
+function enviarPedido(){
+  datosForm();let ok=true;const tel=(pedidoTmp.tel||'').replace(/\D/g,'').replace(/^34/,'');
+  const err=(id,mal)=>{$('#'+id)&&$('#'+id).classList.toggle('oculto',!mal);if(mal)ok=false};
+  err('err-nom',!(pedidoTmp.nombre||'').trim());err('err-tel',tel.length!==9);if(pedidoTmp.modo==='domicilio')err('err-dir',!(pedidoTmp.direccion||'').trim());
+  if(!ok){const e=$('.err:not(.oculto)');e&&e.scrollIntoView({block:'center'});return}
+  const sub=total();const env=envio(sub);const desc=(cuenta&&cuenta.sellos>=10&&pedidoTmp.usar)?Math.min(10,sub):0;
+  const num=leer('tn_num',1040)+1;guardar('tn_num',num);
+  const hs=horas(localPedido());const h=hs.find(x=>x.v===pedidoTmp.hora)||hs[0];
+  const sellos=Math.floor(Math.max(0,sub-desc)/20);
+  const p={num,modo:pedidoTmp.modo,local:localPedido(),zona:pedidoTmp.zona,direccion:pedidoTmp.direccion,cuando:h?h.t:'',nombre:pedidoTmp.nombre.trim(),tel,notas:(pedidoTmp.notas||'').trim(),pago:pedidoTmp.pago,lineas:cesta.slice(),sub,desc,env,total:Math.max(0,sub-desc)+env.c,sellos,cuenta:!!cuenta};
+  let nuevos=0;
+  if(cuenta){if(desc){cuenta.sellos-=10;cuenta.hist.unshift({t:'Descuento de 10 € usado · pedido #'+num,s:'−10 sellos'})}
+    if(p.pago==='ahora'&&sellos){cuenta.sellos+=sellos;nuevos=sellos;cuenta.hist.unshift({t:`Pedido web #${num} · ${eur(p.total)}`,s:'+'+sellos})}
+    else if(sellos){cuenta.pend={num,importe:Math.max(0,sub-desc),local:p.local}}
+    guardar('tn_cuenta',cuenta)}
+  guardar('tn_ultimo',{p,nuevos});cesta=[];guardarCesta();pedidoTmp.notas='';pedidoTmp.usar=false;
+  pref={modo:p.modo,local:pedidoTmp.local,zona:pedidoTmp.zona};guardar('tn_pref',pref);
+  location.hash='#hecho';
+}
+function mensaje(p){
+  const L=LOCALES[p.local];const z=ZONAS.find(x=>x.id===p.zona);
+  const r=[`*PEDIDO WEB #${p.num}* · ${L.nombre}`,`${p.modo==='recoger'?'Para RECOGER':'A DOMICILIO'} · ${p.cuando}`,'',`*${p.nombre}* · ${p.tel.replace(/(\d{3})(\d{2})(\d{2})(\d{2})/,'$1 $2 $3 $4')}`];
+  if(p.modo==='domicilio')r.push(`${p.direccion} (${z.t})`);
+  r.push('');p.lineas.forEach(l=>r.push(`${l.q}× ${l.nombre}${l.det?' ('+l.det+')':''} · ${eur(l.u*l.q)}`));r.push('');
+  if(p.desc)r.push(`Tanni Lovers: −${eur(p.desc)}`);
+  if(p.modo==='domicilio')r.push(`Envío: ${p.env.c?eur(p.env.c):p.env.t.split(';')[0]}`);
+  r.push(`*Total: ${eur(p.total)}*`);
+  r.push(p.pago==='ahora'?'✓ PAGADO (tarjeta o Bizum)':`Paga ${p.modo==='recoger'?'al recoger':'al repartidor'} (efectivo o tarjeta)`);
+  if(p.notas)r.push('',`*Notas y alergias:* ${p.notas}`);
+  if(p.cuenta&&p.sellos){const ss=p.sellos===1?'1 sello':p.sellos+' sellos';r.push('',p.pago==='ahora'?`Tanni Lovers: +${ss} ya sumados`:`Tanni Lovers: ${ss} al escanear su QR`)}
+  return r.join('\n');
+}
+function pintarHecho(){
+  const u=leer('tn_ultimo',null);if(!u){location.hash='#carta';return}const p=u.p;const L=LOCALES[p.local];
+  const t=new Date();const hora=hm(t.getHours()*60+t.getMinutes());
+  const txt=esc(mensaje(p)).replace(/\*([^*\n]+)\*/g,'<b>$1</b>');
+  $('#hecho').innerHTML=`<div class="hecho-txt"><span class="firma">¡Hecho!</span><h1>Tu pedido #${p.num} ya está en Tan'ni ${L.nombre}</h1>
+   <p style="color:var(--tinta2);max-width:44ch">${p.modo==='recoger'?`Pásate a recogerlo ${p.cuando.toLowerCase()} por ${esc(L.dir)}.`:`Te lo llevan ${p.cuando.toLowerCase()}.`} Si hay cualquier cosa, el local te escribe al ${esc(p.tel)}.</p>
+   ${cuenta?`<div class="tarjeta" style="max-width:380px;margin-top:18px">${htmlTarjeta(cuenta,u.nuevos)}</div>${p.pago!=='ahora'&&p.sellos?`<p class="nota-demo">Tus ${p.sellos} ${p.sellos===1?'sello':'sellos'} se suman cuando enseñes tu QR ${p.modo==='recoger'?'en el local':'al repartidor'}. <a href="#tarjeta">Ver mi QR</a></p>`:''}`:''}
+   <p class="nota-demo">Demostración: este es el mensaje tal como le llega al local en su WhatsApp. En la web de verdad se envía solo, sin que el cliente haga nada más.</p>
+   <div class="hero-btns"><a class="btn btn-salmon" href="#carta">Volver a la carta</a>${cuenta?'':'<a class="btn btn-borde" href="#tarjeta">Crear mi tarjeta Lovers</a>'}</div></div>
+   <div class="movil" aria-label="Vista previa del WhatsApp del local"><div class="wa-cab"><div class="wa-av">T</div><div><b>Pedidos Web · Tan'ni</b><span>WhatsApp del local de ${L.nombre}</span></div></div>
+   <div class="wa-fondo"><div class="wa-msg">${txt}<time>${hora}</time></div></div></div>`;
+  if(u.nuevos){u.nuevos=0;guardar('tn_ultimo',u)}
+}
+
+/* ---------- tarjeta (cuenta) ---------- */
+let pasoCuenta='datos',tmpCuenta={};
+function pintarCuenta(){
+  const c=$('#cuenta');
+  if(!cuenta){
+    c.innerHTML=`<div><h1 class="rotulo"><span class="firma">Lovers</span><span class="linea">Crea tu tarjeta en un minuto</span></h1><p style="color:var(--tinta2);max-width:42ch">Cada 20 € de pedido, un sello. Con 10 sellos, 10 € de descuento en tu siguiente pedido. Sirve en los tres locales.</p><div class="tarjeta" style="max-width:380px;margin-top:20px" aria-hidden="true">${htmlTarjeta({nombre:'Tu nombre',sellos:0})}</div></div>
+    <form class="form-cuenta paso" id="form-cuenta" novalidate>${pasoCuenta==='datos'?`<h2><i>01</i> Tus datos</h2>
+      <label class="campo">Nombre<input name="nombre" autocomplete="name" value="${esc(tmpCuenta.nombre||'')}"></label>
+      <label class="campo">Teléfono móvil<input name="tel" type="tel" inputmode="tel" autocomplete="tel" value="${esc(tmpCuenta.tel||'')}"><small>Te mandamos un código por WhatsApp para entrar. Sin contraseñas.</small></label><p class="err oculto" id="err-c">Escribe tu nombre y un móvil de 9 cifras.</p>
+      <label class="opc" style="margin-top:14px"><input type="checkbox" name="ok"><span>Acepto que Tan'ni guarde mi nombre y teléfono para la tarjeta.</span></label><p class="err oculto" id="err-ok">Tienes que aceptarlo para crear la tarjeta.</p>
+      <button class="btn btn-salmon btn-ancho" style="margin-top:16px">Mandarme el código</button>`
+    :`<h2><i>02</i> Código</h2><p style="color:var(--suave);margin:0">Te lo hemos mandado por WhatsApp al ${esc(tmpCuenta.tel)}. <b style="color:var(--tinta)">En esta demostración vale cualquier número de 4 cifras.</b></p>
+      <label class="campo">Código<input name="codigo" inputmode="numeric" autocomplete="one-time-code" maxlength="4" style="letter-spacing:.5em;font-size:22px"></label><p class="err oculto" id="err-cod">Son 4 cifras.</p>
+      <button class="btn btn-salmon btn-ancho" style="margin-top:16px">Entrar</button><button type="button" class="btn btn-borde btn-ancho" style="margin-top:8px" data-cuenta="atras">Cambiar el teléfono</button>`}</form>`;
+    return;
+  }
+  const qrCod='TL-'+cuenta.tel.slice(-4)+'-'+cuenta.id;
+  c.innerHTML=`<div><h1 class="rotulo"><span class="firma">Hola, ${esc(cuenta.nombre.split(' ')[0])}</span><span class="linea">Tu tarjeta Tanni Lovers</span></h1>
+    <div class="tarjeta">${htmlTarjeta(cuenta)}</div>
+    ${cuenta.pend?`<p class="nota-demo">Pendiente: pedido #${cuenta.pend.num} (${eur(cuenta.pend.importe)}). Enseña tu QR al recogerlo y se suman sus sellos.</p>`:''}
+    <h2 style="font:500 13px/1.3 var(--bodoni);letter-spacing:.3em;text-transform:uppercase;margin:30px 0 8px">Movimientos</h2>
+    <ul class="historial">${cuenta.hist.length?cuenta.hist.map(h=>`<li><span>${esc(h.t)}</span><span>${esc(h.s)}</span></li>`).join(''):'<li><span>Aún no hay movimientos.</span><span></span></li>'}</ul>
+    <button class="btn btn-borde" style="margin-top:20px" data-cuenta="salir">Salir</button></div>
+  <div><div class="qr"><div style="font-weight:700">Enséñalo al pagar en el local</div><div id="qr-svg" aria-label="Código QR de tu tarjeta"></div><code>${qrCod}</code><p style="font-size:14px;color:#6B635A;margin:10px 0 0">El local lo escanea y te marca los sellos de ese pedido.</p></div>
+  <p class="nota-demo">Para probarlo en la reunión: abre <a href="#caja">Modo local</a> y «escanea» este QR.</p></div>`;
+  pintarQR(qrCod);
+}
+function pintarQR(t){const el=$('#qr-svg');if(!el)return;if(window.qrcode){const q=qrcode(0,'M');q.addData(t);q.make();el.innerHTML=q.createSvgTag({cellSize:5,margin:2,scalable:true})}else setTimeout(()=>pintarQR(t),300)}
+
+/* ---------- modo local ---------- */
+let cajaEstado={};
+function pintarCaja(){
+  const c=$('#caja');const cli=cajaEstado.leido&&cuenta;
+  c.innerHTML=`<h1 class="rotulo"><span class="firma">Local</span><span class="linea">Marcar sellos · para el equipo</span></h1>
+  <p style="color:var(--tinta2)">Pantalla para el móvil o la tablet del local. Se escanea el QR del cliente y se marcan los sellos del pedido.</p>
+  <label class="campo">Local<select id="caja-local">${ORDEN_LOC.map(id=>`<option value="${id}" ${id===(cajaEstado.local||'elche')?'selected':''}>${LOCALES[id].nombre}</option>`).join('')}</select></label>
+  ${cli?`<div class="cliente-caja"><b style="font-size:20px">${esc(cuenta.nombre)}</b><p style="color:var(--suave);margin:4px 0 12px">Tel. acabado en ${cuenta.tel.slice(-3)} · ${Math.min(cuenta.sellos,10)} de 10 sellos</p>
+     <div class="tarjeta" style="max-width:360px">${htmlTarjeta(cuenta,cajaEstado.nuevos||0)}</div>
+     <label class="campo">Importe del pedido (€)<input id="caja-imp" inputmode="decimal" value="${cuenta.pend?String(cuenta.pend.importe).replace('.',','):''}"><small>Un sello por cada 20 €.</small></label>
+     <button class="btn btn-salmon btn-ancho" style="margin-top:12px" data-caja="sumar">Marcar sellos</button>
+     ${cuenta.sellos>=10?'<button class="btn btn-papel btn-ancho" style="margin-top:8px" data-caja="canjear">Canjear 10 € de descuento</button>':''}
+     <button class="btn btn-borde btn-ancho" style="margin-top:8px" data-caja="otro">Escanear otro cliente</button></div>`
+  :`<div class="visor"><span>Aquí se abre la cámara del móvil del local</span></div>
+     <button class="btn btn-salmon" data-caja="leer">Escanear QR (demostración)</button>
+     <p class="nota-demo">${cuenta?`Leerá la tarjeta de prueba de ${esc(cuenta.nombre)}.`:'Primero crea una tarjeta de prueba en <a href="#tarjeta">Mi tarjeta</a>.'}</p>`}`;
+}
+
+/* ---------- local ---------- */
+function pintarLocal(id){
+  const L=LOCALES[id];if(!L){location.hash='#locales';return}
+  const zonas=ZONAS.filter(z=>z.local===id);
+  $('#local-ficha').innerHTML=`<a class="volver" href="#locales">${ico('atras')} Todos los locales</a>
+  <div class="ficha-grid"><div class="ficha-foto"><img src="fotos/${L.foto}.webp" width="900" height="676" alt="Local de Tan'ni en ${L.nombre}" style="aspect-ratio:4/3"></div><div>
+    <h1 class="rotulo"><span class="firma">${L.nombre}</span><span class="linea">Tan'ni Sushi ${L.nombre}</span></h1>
+    <p class="desc">${esc(L.dir)}<br><a href="tel:+34${L.tel}">${L.telv}</a> · Google ${L.nota}</p>
+    <p><span class="estado ${abierto(id)?'abierto':''}">${abierto(id)?'Abierto ahora':'Cerrado ahora'}</span></p>
+    <ul class="historial" style="max-width:420px">${[1,2,3,4,5,6,0].map(d=>`<li><span>${DIAS[d]}</span><span style="color:var(--tinta)">${L.h[d]?L.h[d].map(([a,b])=>hm(a)+'–'+hm(b)).join(' · '):'Cerrado'}</span></li>`).join('')}</ul>
+    <h2 style="font:500 13px/1.3 var(--bodoni);letter-spacing:.3em;text-transform:uppercase;margin:26px 0 8px">Reparto</h2>
+    <ul class="historial" style="max-width:420px">${zonas.map(z=>`<li><span>${esc(z.t)}</span><span style="color:var(--tinta)">${z.gratis!=null?'Gratis desde '+eur(z.gratis):'Pregunta al local'}</span></li>`).join('')}</ul>
+    <div class="hero-btns" style="margin-top:22px"><button class="btn btn-salmon" data-recoger="${id}">Pedir para recoger aquí</button><a class="btn btn-borde" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Tan'ni Sushi "+L.dir)}" target="_blank" rel="noopener">Cómo llegar</a></div>
+  </div></div>`;
+}
+
+/* ---------- asistente y WhatsApp ---------- */
+function abrirPanel(tipo){
+  const capa=$('#capa');
+  if(tipo==='wa'){capa.innerHTML=`<div class="panel" role="dialog" aria-label="WhatsApp de los locales"><div class="panel-cab"><b>WhatsApp</b><button class="cerrar" data-cierra aria-label="Cerrar">${ico('x')}</button></div><p style="color:var(--suave);margin:0 0 6px">¿Con qué local quieres hablar?</p><div class="wa-lista">${ORDEN_LOC.map(id=>`<a href="https://wa.me/34${LOCALES[id].tel}" target="_blank" rel="noopener">${LOCALES[id].nombre}<span>${LOCALES[id].telv}</span></a>`).join('')}</div></div>`;}
+  else{capa.innerHTML=`<div class="panel" role="dialog" aria-label="Asistente de Tan'ni"><div class="panel-cab"><b>Asistente</b><button class="cerrar" data-cierra aria-label="Cerrar">${ico('x')}</button></div>
+    <div class="chat-log" id="log" aria-live="polite"><div class="burbuja el">Hola. Te ayudo con horarios, reparto, la tarjeta Lovers o la carta. ¿Qué necesitas?</div></div>
+    <div class="sug">${['¿Abrís ahora?','¿Llegáis a Torrellano?','¿Opciones veganas?','¿Cómo va la tarjeta?','Alérgenos'].map(s=>`<button type="button" data-preg="${s}">${s}</button>`).join('')}</div>
+    <form class="chat-form" id="chat-form"><input name="q" aria-label="Escribe tu pregunta" placeholder="Escribe tu pregunta" autocomplete="off"><button>Enviar</button></form></div>`;}
+  const b=$('[data-cierra]',capa);b&&b.focus();
+}
+function responder(q){
+  const t=q.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  if(/abr|horar|hora|cerr/.test(t))return ORDEN_LOC.map(id=>`${LOCALES[id].nombre}: ${abierto(id)?'abierto ahora':'cerrado ahora'} (hoy ${textoHoy(id).toLowerCase()})`).join('. ')+'.';
+  if(/torrellano|altet|arenales|reparto|domicilio|envio|llev/.test(t))return 'Desde Elche repartimos al casco urbano (gratis desde 20 €; si no, 2 €), Torrellano (gratis desde 30 €) y El Altet y Arenales (gratis desde 50 €). Otras pedanías y los repartos de Aspe y Crevillente, pregunta al local por WhatsApp.';
+  if(/vegan|vegetar/.test(t))return 'Sí: poke vegano de tofu, bao vegano, futomaki vegano, oyaki vegano, tofu-karee y noodles al wok en versión vegana.';
+  if(/tarjeta|sello|lovers|punto|descuento/.test(t))return 'Cada 20 € de pedido es un sello. Con 10 sellos tienes 10 € de descuento. Si pagas en la web se suma solo; si pagas en el local, enseñas tu QR desde «Mi tarjeta».';
+  if(/alerg|gluten|celiac|intoler/.test(t))return 'Los alérgenos de cada plato los está confirmando el restaurante. Mientras tanto, pregúntalo por WhatsApp al local y escríbelo en las notas del pedido.';
+  if(/evento|taller|boda|cumple|empresa/.test(t))return 'Hacemos eventos y talleres de sushi. Escribe a tannisushinfo@gmail.com con la fecha y cuántos sois.';
+  if(/menu|barato|precio/.test(t))return 'Menú Ninja 12 €, Menú Shogun 25 €, Menú Emperador 35 € y, solo los martes, entrante + bandeja por 20 €.';
+  return 'Eso prefiero que te lo diga el local. Pulsa el botón verde de WhatsApp y elige Elche, Aspe o Crevillente.';
+}
+
+/* ---------- rutas ---------- */
+const scrolls={};let rutaActual='';
+function ruta(){
+  const h=decodeURIComponent(location.hash.slice(1));const [r,a]=h.split('/');
+  scrolls[rutaActual]=scrollY;
+  const anclas=['menus','lovers','locales','eventos'];
+  let vista='inicio';
+  if(r==='carta'){vista='carta';pintarCarta(a)}
+  else if(r==='plato'){vista='plato';pintarPlato(a)}
+  else if(r==='pedido'){vista='pedido';pintarPedido()}
+  else if(r==='hecho'){vista='hecho';pintarHecho()}
+  else if(r==='tarjeta'){vista='tarjeta';pintarCuenta()}
+  else if(r==='caja'){vista='caja';pintarCaja()}
+  else if(r==='local'){vista='local';pintarLocal(a)}
+  else pintarPortada();
+  $$('.vista').forEach(v=>v.classList.toggle('activa',v.dataset.vista===vista));
+  $$('.nav a').forEach(x=>x.toggleAttribute('aria-current',x.getAttribute('href')==='#'+r));
+  document.body.dataset.vista=vista;
+  if(vista==='inicio'&&anclas.includes(r)){requestAnimationFrame(()=>$('#'+r).scrollIntoView())}
+  else if(vista==='carta'&&a){}
+  else if(scrolls[h]!=null&&vista==='carta'){requestAnimationFrame(()=>scrollTo(0,scrolls[h]))}
+  else scrollTo(0,0);
+  rutaActual=h;actualizarFlotantes();
+}
+let heroVisible=true;
+function actualizarFlotantes(){
+  const v=document.body.dataset.vista;const enHero=v==='inicio'&&heroVisible;
+  const barra=piezas()>0&&!['pedido','hecho','caja','plato'].includes(v);
+  $('#barra').classList.toggle('fuera',!barra||enHero);
+  $('#flotan').classList.toggle('fuera',enHero||['caja','plato','pedido','hecho'].includes(v));
+  $('#flotan').classList.toggle('bajo',!barra||enHero);
+}
+
+/* ---------- eventos ---------- */
+document.addEventListener('click',e=>{
+  const m=e.target.closest('[data-mas]');if(m){const p=BUSCA[m.dataset.mas];if(p.sencillo)anadir(p);else location.hash='#plato/'+p.slug;return}
+  const ab=e.target.closest('[data-abre]');if(ab){abrirPanel(ab.dataset.abre);return}
+  if(e.target.closest('[data-cierra]')){$('#capa').innerHTML='';return}
+  const pr=e.target.closest('[data-preg]');if(pr){preguntar(pr.dataset.preg);return}
+  const vo=e.target.closest('[data-volver]');if(vo&&history.length>1&&sessionStorage.getItem('tn_dentro')){e.preventDefault();history.back();return}
+  const lin=e.target.closest('[data-lin]');if(lin){datosForm();const l=cesta[+lin.dataset.lin];l.q+= +lin.dataset.d;if(l.q<=0)cesta.splice(+lin.dataset.lin,1);guardarCesta();pintarPedido();return}
+  const mo=e.target.closest('[data-modo]');if(mo){datosForm();pedidoTmp.modo=mo.dataset.modo;pedidoTmp.hora=null;pintarPedido();return}
+  if(e.target.closest('#enviar')){enviarPedido();return}
+  const rc=e.target.closest('[data-recoger]');if(rc){pedidoTmp.modo='recoger';pedidoTmp.local=rc.dataset.recoger;pref.modo='recoger';pref.local=rc.dataset.recoger;guardar('tn_pref',pref);location.hash='#carta';return}
+  const cu=e.target.closest('[data-cuenta]');if(cu){if(cu.dataset.cuenta==='salir'){cuenta=null;guardar('tn_cuenta',null);pasoCuenta='datos'}else pasoCuenta='datos';pintarCuenta();return}
+  const cj=e.target.closest('[data-caja]');if(cj){const a=cj.dataset.caja;cajaEstado.local=$('#caja-local').value;
+    if(a==='leer'){if(!cuenta)return;cajaEstado.leido=true;cajaEstado.nuevos=0}
+    if(a==='otro'){cajaEstado.leido=false}
+    if(a==='sumar'){const imp=parseFloat(($('#caja-imp').value||'0').replace(',','.'))||0;const s=Math.floor(imp/20);if(!s){avisar('Menos de 20 €: no suma sello');return}
+      cuenta.sellos+=s;cuenta.hist.unshift({t:`En el local de ${LOCALES[cajaEstado.local].nombre} · ${eur(imp)}`,s:'+'+s});if(cuenta.pend)delete cuenta.pend;guardar('tn_cuenta',cuenta);cajaEstado.nuevos=s;avisar(`${s} ${s===1?'sello marcado':'sellos marcados'}`)}
+    if(a==='canjear'){cuenta.sellos-=10;cuenta.hist.unshift({t:`Descuento de 10 € en ${LOCALES[cajaEstado.local].nombre}`,s:'−10 sellos'});guardar('tn_cuenta',cuenta);cajaEstado.nuevos=0;avisar('Descuento aplicado')}
+    pintarCaja();return}
+});
+document.addEventListener('change',e=>{
+  if(e.target.closest('#form-pedido')){datosForm();if(['local','zona','pago'].includes(e.target.name)){pedidoTmp.hora=null;pintarPedido()}}
+  if(e.target.id==='usar'){pedidoTmp.usar=e.target.checked;pintarPedido()}
+});
+document.addEventListener('submit',e=>{
+  if(e.target.id==='chat-form'){e.preventDefault();const i=e.target.q;if(i.value.trim())preguntar(i.value.trim());i.value='';}
+  if(e.target.id==='form-cuenta'){e.preventDefault();const f=e.target;
+    if(pasoCuenta==='datos'){const n=f.nombre.value.trim(),t=f.tel.value.replace(/\D/g,'').replace(/^34/,'');
+      const mal=!n||t.length!==9;$('#err-c').classList.toggle('oculto',!mal);$('#err-ok').classList.toggle('oculto',f.ok.checked);if(mal||!f.ok.checked)return;
+      tmpCuenta={nombre:n,tel:t};pasoCuenta='codigo';pintarCuenta();$('[name=codigo]').focus()}
+    else{if(!/^\d{4}$/.test(f.codigo.value)){$('#err-cod').classList.remove('oculto');return}
+      const d=new Date();cuenta={nombre:tmpCuenta.nombre,tel:tmpCuenta.tel,id:Math.random().toString(36).slice(2,6).toUpperCase(),sellos:0,hist:[],desde:d.toLocaleDateString('es-ES',{month:'long',year:'numeric'})};
+      guardar('tn_cuenta',cuenta);pasoCuenta='datos';avisar('Tarjeta creada');pintarCuenta()}}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#capa').innerHTML=''});
+function preguntar(q){const log=$('#log');if(!log)return;log.insertAdjacentHTML('beforeend',`<div class="burbuja yo">${esc(q)}</div><div class="burbuja el">${esc(responder(q))}</div>`);log.scrollTop=log.scrollHeight}
+
+/* ---------- arranque ---------- */
+function medirCab(){document.documentElement.style.setProperty('--cab',$('#cab').offsetHeight+'px')}
+medirCab();addEventListener('resize',medirCab);
+new IntersectionObserver(([en])=>{heroVisible=en.isIntersecting&&en.intersectionRatio>.35;actualizarFlotantes()},{threshold:[0,.35,1]}).observe($('#hero'));
+addEventListener('hashchange',()=>{sessionStorage.setItem('tn_dentro','1');ruta()});
+pintarContador();ruta();
+</script>
+</body>
+</html>
