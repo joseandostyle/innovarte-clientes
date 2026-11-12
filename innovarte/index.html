@@ -7,10 +7,11 @@
 <meta name="description" content="Somos Innovarte Agency. Hacemos la marca, la web, los programas a medida y los vídeos que necesita un negocio local. Cuéntanos el tuyo por WhatsApp.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0A0B0E">
-<link rel="icon" type="image/png" href="assets/isotipo-oscuro.png">
-<link rel="preload" href="assets/fonts/BowlbyOne.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preload" href="assets/logotipo.svg" as="image" type="image/svg+xml">
 <style>
 @font-face{font-family:"Bowlby One";src:url(assets/fonts/BowlbyOne.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Comfortaa";src:url(assets/fonts/Comfortaa-700.woff2) format("woff2");font-weight:700;font-display:swap}
 @font-face{font-family:"Chakra Petch";src:url(assets/fonts/ChakraPetch-400.woff2) format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Chakra Petch";src:url(assets/fonts/ChakraPetch-500.woff2) format("woff2");font-weight:500;font-display:swap}
 @font-face{font-family:"Chakra Petch";src:url(assets/fonts/ChakraPetch-600.woff2) format("woff2");font-weight:600;font-display:swap}
@@ -20,8 +21,9 @@
   --negro:#0A0B0E; --blanco:#EEF1F5;
   --sobre-negro:#F2F4F7; --sobre-negro-2:#A3ACB9;
   --carbon:#141619; --pizarra:#5B6573;
-  --azul:#3B6DAF; --cielo:#5F8FCB; --claro:#AAC8EA; --profundo:#2A5592;
+  --azul:#3B6DAF; --cielo:#73A4CE; --claro:#AAC8EA; --profundo:#2A5592;
   --titulo:"Bowlby One","Arial Black",Impact,sans-serif;
+  --redonda:"Comfortaa","Chakra Petch","Segoe UI",sans-serif;
   --texto:"Chakra Petch","Segoe UI",system-ui,sans-serif;
   --margen:clamp(16px,4.5vw,64px);
   --radio-hoja:clamp(28px,4vw,44px);
@@ -38,6 +40,11 @@ h1,h2,h3,p{margin:0}
 button,a,input,textarea{touch-action:manipulation}
 :focus-visible{outline:2px solid var(--cielo);outline-offset:3px}
 .oculto-visual{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Nada se sale por los lados. «clip» (y no «hidden») para que las fichas que se apilan sigan pegándose.
+   Va en un contenedor de verdad y no solo en el body: en el móvil, el del body no basta. */
+.lienzo{overflow-x:clip}
+@supports not (overflow-x:clip){.lienzo{overflow-x:hidden}}
 
 /* ---------- Títulos ---------- */
 .titulo{font:400 clamp(40px,8.2vw,136px)/.95 var(--titulo);text-transform:uppercase;letter-spacing:-.01em;text-wrap:balance}
@@ -61,21 +68,21 @@ button,a,input,textarea{touch-action:manipulation}
 .menu{display:flex;justify-content:space-between;gap:8px;padding:max(6px,env(safe-area-inset-top)) var(--margen) 0;position:relative;z-index:4}
 .menu a{display:inline-flex;align-items:center;min-height:48px;font:600 clamp(11.5px,1vw,14px)/1 var(--texto);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--sobre-negro)}
 @media (hover:hover) and (pointer:fine){.menu a{transition:color .15s}.menu a:hover{color:var(--claro)}}
-.portada-titulo{position:relative;z-index:1;text-align:center;font:400 13.1vw/.9 var(--titulo);text-transform:uppercase;letter-spacing:-.015em;padding:0 var(--margen);margin-top:.1em}
-.portada-titulo .l{display:block;overflow:hidden;padding:.06em 0 .1em;margin:-.06em 0 -.1em}
-.portada-titulo .l>span{display:inline-block;background:linear-gradient(180deg,#fff 18%,#aeb9c9 62%,#7d8a9d 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.portada-logo{position:relative;z-index:2;margin-top:-6.5vw;min-height:0}
+.portada{--ancho-logo:calc(100vw - 2 * var(--margen));--saludo:clamp(24px,7.4vw,40px)}
+.portada-titulo{position:relative;z-index:1;width:var(--ancho-logo);margin:clamp(6px,2svh,22px) auto 0}
+.saludo{display:block;overflow:hidden;font:700 var(--saludo)/1.3 var(--redonda);color:#fff;letter-spacing:-.01em;padding-left:.1em}
+.saludo>span{display:inline-block}
+.logotipo{display:block;width:100%;height:auto}
+.portada-logo{position:relative;z-index:2;margin-top:calc(var(--ancho-logo) / 5.16 * -.1);min-height:0}
 .portada-logo canvas,.portada-logo img{position:absolute;inset:0;width:100%;height:100%}
 .portada-logo img{object-fit:contain;padding:14% 0 6%}
 .con-3d .portada-logo img{display:none}
 .portada-pie{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:0 var(--margen) max(20px,env(safe-area-inset-bottom))}
 .portada-lema{font:600 clamp(13px,1.05vw,15px)/1.45 var(--texto);letter-spacing:.08em;text-transform:uppercase;max-width:24em;color:var(--sobre-negro)}
 @media (min-width:760px){
-  .portada-titulo{font-size:min(11.3vw,21svh)}
-  .portada-titulo .l{display:inline-block;vertical-align:top}
-  .portada-titulo .l.fin{display:block}
-  .portada-logo{margin-top:calc(min(11.3vw,21svh) * -.95)}
-  .portada-pie{position:absolute;left:0;right:0;top:calc(64px + min(11.3vw,21svh) * 1.95);flex-direction:row;justify-content:space-between;align-items:flex-start;text-align:left;padding-bottom:0;pointer-events:none}
+  .portada{--ancho-logo:min(86vw,168svh);--saludo:clamp(34px,4.3vw,70px)}
+  .portada-logo{margin-top:calc(var(--ancho-logo) / 5.16 * -.2)}
+  .portada-pie{position:absolute;left:0;right:0;top:calc(64px + var(--saludo) * 1.3 + var(--ancho-logo) / 5.16 + clamp(22px,5svh,54px));flex-direction:row;justify-content:space-between;align-items:flex-start;text-align:left;padding-bottom:0;pointer-events:none}
   .portada-pie>*{pointer-events:auto}
   .portada-lema{max-width:17em}
 }
@@ -113,14 +120,26 @@ button,a,input,textarea{touch-action:manipulation}
 .servicios{padding:clamp(56px,8vw,120px) var(--margen) calc(clamp(64px,9vw,130px) + var(--radio-hoja))}
 .servicios .titulo{text-align:center;margin-bottom:clamp(32px,5vw,72px)}
 .lista{list-style:none;margin:0 auto;padding:0;max-width:1180px}
-.lista li{position:relative;display:grid;grid-template-columns:clamp(64px,11vw,170px) minmax(0,1fr);column-gap:clamp(12px,2vw,32px);align-items:start;padding:clamp(20px,2.6vw,36px) 0}
+.lista li{position:relative;perspective:1100px}
 .lista li::before{content:"";position:absolute;left:0;right:0;top:0;height:1.5px;background:var(--carbon);transform:scaleX(var(--raya,1));transform-origin:left}
+.serv{position:relative;display:grid;grid-template-columns:clamp(64px,11vw,170px) minmax(0,1fr) auto;column-gap:clamp(12px,2vw,32px);align-items:start;padding:clamp(20px,2.6vw,36px) 0;color:inherit;text-decoration:none;background:var(--blanco);border-radius:0;transform-style:preserve-3d;will-change:transform;cursor:pointer}
+.serv-ir{align-self:center;display:inline-flex;align-items:center;gap:10px;font:600 12.5px/1 var(--texto);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.serv-ir svg{width:46px;height:46px;padding:12px;border:1.5px solid var(--carbon);border-radius:50%;transition:background-color .2s,color .2s,transform .25s var(--salida)}
+.serv.saliendo{border-radius:20px;box-shadow:0 34px 70px rgba(10,11,14,.3);padding-left:clamp(12px,2vw,28px);padding-right:clamp(12px,2vw,28px);margin:0 calc(clamp(12px,2vw,28px) * -1)}
+.serv.saliendo .serv-ir svg{background:var(--carbon);color:var(--blanco)}
+@media (hover:hover) and (pointer:fine){
+  .serv:hover .serv-ir svg{background:var(--carbon);color:var(--blanco);transform:translateX(5px)}
+}
+@media (max-width:759px){
+  .serv-ir span{display:none}
+  .serv-ir svg{width:40px;height:40px;padding:10px}
+}
 .lista .num{font:400 clamp(38px,6vw,88px)/.9 var(--titulo)}
 .lista h3{font:700 clamp(15px,1.5vw,21px)/1.25 var(--texto);letter-spacing:.08em;text-transform:uppercase;margin:.2em 0 .5em}
 .lista p{color:var(--pizarra);max-width:44em;font-weight:500}
 
 /* ---------- Trabajos ---------- */
-.trabajos{padding:clamp(56px,8vw,120px) 0 calc(clamp(40px,6vw,90px) + var(--radio-hoja));clip-path:none}
+.trabajos{padding:clamp(56px,8vw,120px) 0 calc(clamp(40px,6vw,90px) + var(--radio-hoja));clip-path:none;overflow:clip}
 .trabajos-cab{text-align:center;padding:0 var(--margen);margin-bottom:clamp(28px,4vw,56px)}
 .trabajos-cab p{max-width:36em;margin:clamp(16px,2vw,26px) auto 0;color:var(--sobre-negro-2);font-weight:500}
 .trabajos-cab strong{color:var(--sobre-negro);font-weight:600}
@@ -157,8 +176,9 @@ button,a,input,textarea{touch-action:manipulation}
 .campo input,.campo textarea{width:100%;border:0;border-bottom:1.5px solid var(--carbon);border-radius:0;background:transparent;color:var(--carbon);font:500 17px/1.4 var(--texto);padding:10px 0;min-height:48px;transition:border-color .15s}
 .campo textarea{resize:vertical;min-height:96px}
 .campo input:focus,.campo textarea:focus{outline:none;border-bottom-color:var(--azul);box-shadow:0 1.5px 0 var(--azul)}
-.formulario .boton{justify-self:start;border-color:var(--carbon);margin-top:6px}
-.formulario small{color:var(--pizarra);font-size:14px}
+.envio{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:6px}
+.envio .boton{flex:none;border-color:var(--carbon)}
+.envio p{margin:0;color:var(--pizarra);font:500 14.5px/1.45 var(--texto)}
 .contacto .a5{right:2%;top:5%}
 .contacto .a6{left:38%;bottom:3%}
 @media (min-width:860px){
@@ -166,7 +186,7 @@ button,a,input,textarea{touch-action:manipulation}
   .formulario{padding-top:clamp(20px,5vw,90px)}
 }
 @media (max-width:859px){
-  .contacto .a5{right:1%;top:128px}.contacto .a6{left:auto;right:-3%;bottom:1%}
+  .contacto .a5{right:1%;top:128px}.contacto .a6{display:none}
 }
 
 /* ---------- Pie ---------- */
@@ -220,6 +240,27 @@ button,a,input,textarea{touch-action:manipulation}
 .chat-form button:disabled{opacity:.45;cursor:default}
 .chat-form button svg{width:20px;height:20px}
 
+/* ---------- Página de un servicio ---------- */
+.en-servicio .lienzo{display:none}
+.vista{min-height:100svh;background:var(--negro);color:var(--sobre-negro);overflow-x:clip;padding-bottom:clamp(48px,7vw,96px)}
+.vista-menu{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:max(6px,env(safe-area-inset-top)) var(--margen) 0}
+.vista-menu a{display:inline-flex;align-items:center;gap:8px;min-height:48px;font:600 clamp(11.5px,1vw,14px)/1 var(--texto);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--sobre-negro)}
+.vista-menu svg{width:18px;height:18px}
+.vista-menu img{width:auto;height:34px}
+.vista-cab{position:relative;text-align:center;padding:clamp(28px,6vw,90px) var(--margen) clamp(28px,4.5vw,64px)}
+.vista-num{display:block;font:400 clamp(20px,2.4vw,34px)/1 var(--titulo);color:var(--cielo);margin-bottom:.5em}
+.vista-cab .titulo:focus{outline:none}
+.vista-texto{max-width:34em;margin:clamp(16px,2.2vw,30px) auto 0;color:var(--sobre-negro-2);font:500 clamp(16px,1.4vw,20px)/1.5 var(--texto);text-wrap:pretty}
+.vista-trabajos{--cab:62px;--alto-img:min(40svh,360px);max-width:1280px;margin:0 auto;padding:0 var(--margen)}
+.vista-trabajos .ficha{position:relative;top:auto;margin-bottom:clamp(16px,2vw,26px)}
+.vista-vacio{max-width:30em;margin:0 auto;padding:clamp(22px,3vw,40px) clamp(20px,3vw,40px);border:1.5px dashed rgba(242,244,247,.4);border-radius:28px;text-align:center;font:500 clamp(16px,1.4vw,19px)/1.5 var(--texto);color:var(--sobre-negro);width:calc(100% - 2 * var(--margen))}
+.vista-cta{display:flex;justify-content:center;padding:clamp(28px,4vw,56px) var(--margen) 0}
+.vista-otros{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 12px;max-width:1100px;margin:clamp(40px,6vw,90px) auto 0;padding:0 var(--margen)}
+.vista-otros a{display:inline-flex;align-items:center;min-height:46px;padding:0 18px;border:1.5px solid rgba(242,244,247,.55);border-radius:999px;font:600 12.5px/1 var(--texto);letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--sobre-negro);transition:background-color .2s,color .2s,border-color .2s}
+@media (hover:hover) and (pointer:fine){.vista-otros a:hover,.vista-menu a:hover{color:var(--claro)}.vista-otros a:hover{border-color:var(--claro)}}
+@media (max-width:759px){.vista-trabajos{--cab:54px;--alto-img:min(30svh,230px)}}
+.sin-movimiento .vista .ficha-fotos{overflow-x:auto}
+
 /* ---------- Pegatina del chacal ---------- */
 .trabajos-cab{position:relative}
 .pegatina{position:absolute;z-index:2;right:max(3%,calc(50% - 560px));top:-18px;width:clamp(78px,10.5vw,158px);height:auto;border:5px solid #fff;border-radius:14px;transform:rotate(9deg);box-shadow:0 12px 26px rgba(0,0,0,.5)}
@@ -233,6 +274,7 @@ button,a,input,textarea{touch-action:manipulation}
 </head>
 <body>
 
+<div class="lienzo" id="lienzo">
 <main>
 <!-- ========== PORTADA ========== -->
 <section class="portada" id="inicio">
@@ -243,13 +285,12 @@ button,a,input,textarea{touch-action:manipulation}
     <a href="#contacto">Contacto</a>
   </nav>
   <h1 class="portada-titulo" aria-label="Hola, somos Innovarte">
-    <span class="l" aria-hidden="true"><span>Hola,</span></span>
-    <span class="l" aria-hidden="true"><span>somos</span></span>
-    <span class="l fin" aria-hidden="true"><span>Innovarte</span></span>
+    <span class="saludo" aria-hidden="true"><span>hola, somos</span></span>
+    <img class="logotipo" src="assets/logotipo.svg" width="1274" height="247" alt="">
   </h1>
   <div class="portada-logo">
     <canvas id="logo3d" aria-hidden="true"></canvas>
-    <img src="assets/isotipo-oscuro.png" width="191" height="189" alt="Isotipo de Innovarte: una i y una n enlazadas">
+    <img src="assets/isotipo.svg" width="271" height="300" alt="Isotipo de Innovarte: una i y una n enlazadas">
   </div>
   <div class="portada-pie">
     <p class="portada-lema">Marca, web, programas a medida y vídeo para negocios locales</p>
@@ -304,12 +345,12 @@ button,a,input,textarea{touch-action:manipulation}
 <section class="hoja blanca servicios" id="servicios" data-hoja>
   <h2 class="titulo" data-partir>Servicios</h2>
   <ol class="lista">
-    <li><span class="num" aria-hidden="true">01</span><div><h3>Marca y branding</h3><p>El logo, los colores, las letras y todo lo que toca tu cliente: envases, cartelería y redes. Lo dibuja a mano nuestro diseñador, sin inteligencia artificial.</p></div></li>
-    <li><span class="num" aria-hidden="true">02</span><div><h3>Webs que venden</h3><p>Rápida en el móvil, preparada para salir en Google cuando te buscan en tu ciudad y con el WhatsApp siempre a la vista.</p></div></li>
-    <li><span class="num" aria-hidden="true">03</span><div><h3>Programas a medida</h3><p>Sistemas de reservas, pedidos online, paneles y tarjetas de fidelización, hechos para tu negocio. Nuestros sistemas de reservas se pagan una vez: sin cuota ni comisión.</p></div></li>
-    <li><span class="num" aria-hidden="true">04</span><div><h3>Asistentes y automatizaciones con IA</h3><p>Un asistente que contesta con la información real de tu negocio, y las tareas de cada semana hechas solas: recordar la cita, pedir la reseña o preparar el presupuesto.</p></div></li>
-    <li><span class="num" aria-hidden="true">05</span><div><h3>Vídeos y contenido para redes</h3><p>Vídeos verticales para Reels y TikTok, e historias listas para publicar hechas con tus productos y tus fotos reales.</p></div></li>
-    <li><span class="num" aria-hidden="true">06</span><div><h3>Publicidad y SEO</h3><p>Revisamos tus campañas de Google y Meta con los datos de tu propia cuenta y trabajamos para que te encuentren en tu ciudad.</p></div></li>
+    <li><a class="serv" href="#servicio/branding" data-titulo="Branding"><span class="num" aria-hidden="true">01</span><div><h3>Marca y branding</h3><p>El logo, los colores, las letras y todo lo que toca tu cliente: envases, cartelería y redes. Lo dibuja a mano nuestro diseñador, sin inteligencia artificial.</p></div><span class="serv-ir"><span>Ver trabajos</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    <li><a class="serv" href="#servicio/webs" data-titulo="Webs"><span class="num" aria-hidden="true">02</span><div><h3>Webs que venden</h3><p>Rápida en el móvil, preparada para salir en Google cuando te buscan en tu ciudad y con el WhatsApp siempre a la vista.</p></div><span class="serv-ir"><span>Ver trabajos</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    <li><a class="serv" href="#servicio/programas" data-titulo="Programas a medida"><span class="num" aria-hidden="true">03</span><div><h3>Programas a medida</h3><p>Sistemas de reservas, pedidos online, paneles y tarjetas de fidelización, hechos para tu negocio.</p></div><span class="serv-ir"><span>Ver trabajos</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    <li><a class="serv" href="#servicio/ia" data-titulo="IA y automatizaciones"><span class="num" aria-hidden="true">04</span><div><h3>Asistentes y automatizaciones con IA</h3><p>Un asistente que contesta con la información real de tu negocio, y las tareas de cada semana hechas solas: recordar la cita, pedir la reseña o preparar el presupuesto.</p></div><span class="serv-ir"><span>Ver trabajos</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    <li><a class="serv" href="#servicio/videos" data-titulo="Vídeos y redes"><span class="num" aria-hidden="true">05</span><div><h3>Vídeos y contenido para redes</h3><p>Vídeos verticales para Reels y TikTok, e historias listas para publicar hechas con tus productos y tus fotos reales.</p></div><span class="serv-ir"><span>Ver trabajos</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    <li><a class="serv" href="#servicio/publicidad" data-titulo="Publicidad y SEO"><span class="num" aria-hidden="true">06</span><div><h3>Publicidad y SEO</h3><p>Revisamos tus campañas de Google y Meta con los datos de tu propia cuenta y trabajamos para que te encuentren en tu ciudad.</p></div><span class="serv-ir"><span>Ver trabajos</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
   </ol>
 </section>
 
@@ -321,7 +362,7 @@ button,a,input,textarea{touch-action:manipulation}
     <p><strong>Dos marcas, cinco propuestas.</strong> Todas dibujadas a mano por nuestro diseñador, sin inteligencia artificial. Son propuestas de marca: los caminos que le presentamos a cada negocio.</p>
   </div>
   <div class="pila">
-    <article class="ficha" style="--i:0">
+    <article class="ficha" data-servicio="branding" style="--i:0">
       <header class="ficha-cab"><span class="num" aria-hidden="true">01</span><div class="quien"><small>Cliente</small><b>Chakal</b></div><span class="sello">Propuesta 1 de 3</span></header>
       <p class="ficha-texto">Hamburguesas en Elche. El chacal se convierte en personaje: reparte pizzas en moto y presume de sabor ilicitano.</p>
       <div class="ficha-fotos"><div>
@@ -332,7 +373,7 @@ button,a,input,textarea{touch-action:manipulation}
         <img src="assets/img/c1-bolsas.webp" width="748" height="640" loading="lazy" decoding="async" alt="Chakal, propuesta 1: bolsas de papel">
       </div></div>
     </article>
-    <article class="ficha" style="--i:1">
+    <article class="ficha" data-servicio="branding" style="--i:1">
       <header class="ficha-cab"><span class="num" aria-hidden="true">02</span><div class="quien"><small>Cliente</small><b>Chakal</b></div><span class="sello">Propuesta 2 de 3</span></header>
       <p class="ficha-texto">Los colores salen de la propia hamburguesa: tomate, pan, queso y lechuga. Las letras se vuelven un laberinto.</p>
       <div class="ficha-fotos"><div>
@@ -342,7 +383,7 @@ button,a,input,textarea{touch-action:manipulation}
         <img src="assets/img/c2-pegatinas.webp" width="1300" height="640" loading="lazy" decoding="async" alt="Chakal, propuesta 2: pegatinas redondas">
       </div></div>
     </article>
-    <article class="ficha" style="--i:2">
+    <article class="ficha" data-servicio="branding" style="--i:2">
       <header class="ficha-cab"><span class="num" aria-hidden="true">03</span><div class="quien"><small>Cliente</small><b>Chakal</b></div><span class="sello">Propuesta 3 de 3</span></header>
       <p class="ficha-texto">La hamburguesa se esconde dentro del nombre: la H funciona sola como isotipo y una red modular cubre todo el envase.</p>
       <div class="ficha-fotos"><div>
@@ -353,7 +394,7 @@ button,a,input,textarea{touch-action:manipulation}
         <img src="assets/img/c3-takeaway.webp" width="838" height="640" loading="lazy" decoding="async" alt="Chakal, propuesta 3: cartelería de comida para llevar">
       </div></div>
     </article>
-    <article class="ficha" style="--i:3">
+    <article class="ficha" data-servicio="branding" style="--i:3">
       <header class="ficha-cab"><span class="num" aria-hidden="true">04</span><div class="quien"><small>Cliente</small><b>La aceitera de la Abuela</b></div><span class="sello">Propuesta 1 de 2</span></header>
       <p class="ficha-texto">Aceite con más de cien años de historia. Un logo cubista, de círculos y líneas rectas, que se repite y forma el estampado de la botella.</p>
       <div class="ficha-fotos"><div>
@@ -364,7 +405,7 @@ button,a,input,textarea{touch-action:manipulation}
         <img src="assets/img/p1-papel.webp" width="632" height="640" loading="lazy" decoding="async" alt="La aceitera de la Abuela, propuesta 1: el logo en relieve sobre papel">
       </div></div>
     </article>
-    <article class="ficha" style="--i:4">
+    <article class="ficha" data-servicio="branding" style="--i:4">
       <header class="ficha-cab"><span class="num" aria-hidden="true">05</span><div class="quien"><small>Cliente</small><b>La aceitera de la Abuela</b></div><span class="sello">Propuesta 2 de 2</span></header>
       <p class="ficha-texto">Un solo trazo para dibujar a quien lo empezó todo. Letra caligráfica y tres colores de campo: oliva, blanco y verde oscuro.</p>
       <div class="ficha-fotos"><div>
@@ -392,10 +433,12 @@ button,a,input,textarea{touch-action:manipulation}
     <div class="campo"><label for="f-nombre">Tu nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required></div>
     <div class="campo"><label for="f-negocio">Tu negocio</label><input id="f-negocio" name="negocio" autocomplete="organization"></div>
     <div class="campo"><label for="f-mensaje">Qué necesitas</label><textarea id="f-mensaje" name="mensaje" rows="3" required></textarea></div>
-    <button class="boton" type="submit">Enviar por WhatsApp
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </button>
-    <small id="f-aviso" role="status">Se abre WhatsApp con tu mensaje ya escrito. Te contesta Jose.</small>
+    <div class="envio">
+      <button class="boton" type="submit">Enviar por WhatsApp
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <p id="f-aviso" role="status">Se abre WhatsApp con tu mensaje ya escrito. Te contestamos.</p>
+    </div>
   </form>
 </section>
 </main>
@@ -423,10 +466,33 @@ button,a,input,textarea{touch-action:manipulation}
   </div>
   <p class="pie-legal">© 2026 Innovarte Agency</p>
 </footer>
+</div>
+
+<!-- ========== PÁGINA DE UN SERVICIO (se abre con #servicio/<nombre>) ========== -->
+<section class="vista" id="vista" hidden>
+  <nav class="vista-menu" aria-label="Volver">
+    <a class="vista-volver" href="#servicios"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Servicios</a>
+    <a href="#inicio"><img src="assets/isotipo.svg" width="271" height="300" alt="Innovarte, inicio"></a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <header class="vista-cab">
+    <span class="vista-num" id="vista-num" aria-hidden="true"></span>
+    <h2 class="titulo" id="vista-titulo" tabindex="-1"></h2>
+    <p class="vista-texto" id="vista-texto"></p>
+  </header>
+  <div class="vista-trabajos" id="vista-trabajos"></div>
+  <p class="vista-vacio" id="vista-vacio" hidden>Estamos preparando los trabajos de este servicio para enseñártelos aquí. Mientras tanto, cuéntanos qué necesita tu negocio y te decimos qué haríamos.</p>
+  <div class="vista-cta">
+    <a class="boton" href="https://wa.me/34634452534" target="_blank" rel="noopener">Escríbenos por WhatsApp
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+  <nav class="vista-otros" id="vista-otros" aria-label="Otros servicios"></nav>
+</section>
 
 <section class="chat" id="chat" hidden aria-label="Asistente de Innovarte" data-lenis-prevent>
   <header class="chat-cab">
-    <img src="assets/isotipo-oscuro.png" width="191" height="189" alt="">
+    <img src="assets/isotipo.svg" width="271" height="300" alt="">
     <div><b>Asistente de Innovarte</b><small>Asistente virtual · responde al momento</small></div>
     <button type="button" id="chat-cerrar" aria-label="Cerrar el chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </header>
@@ -534,7 +600,7 @@ window.iniciarChatInnovarte = function(cfg){
 
   function fallo(p){
     p.className = 'burbuja bot';
-    p.innerHTML = 'Ahora mismo no puedo contestar. Escríbenos por <a href="https://wa.me/34634452534" target="_blank" rel="noopener">WhatsApp</a> y te responde Jose.';
+    p.innerHTML = 'Ahora mismo no puedo contestar. Escríbenos por <a href="https://wa.me/34634452534" target="_blank" rel="noopener">WhatsApp</a> y te respondemos.';
   }
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -603,7 +669,7 @@ if (MOVER){
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
-    $$('a[href^="#"]').forEach(function(a){
+    $$('#lienzo a[href^="#"]:not(.serv)').forEach(function(a){
       a.addEventListener('click', function(e){
         var d = $(a.getAttribute('href')); if (!d) return;
         e.preventDefault(); lenis.scrollTo(d, { duration: 1.3 });
@@ -613,7 +679,8 @@ if (MOVER){
   }
 
   // Entrada de la portada
-  gsap.from('.portada-titulo .l > span', { yPercent: 115, duration: 1, ease: 'power4.out', stagger: 0.09, delay: 0.1 });
+  gsap.from('.saludo > span', { yPercent: 115, duration: 0.9, ease: 'power4.out', delay: 0.1 });
+  gsap.fromTo('.logotipo', { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.35, ease: 'power3.inOut', delay: 0.25, clearProps: 'clipPath' });
   gsap.from('.menu a', { y: -16, opacity: 0, duration: 0.6, ease: 'power3.out', stagger: 0.05, delay: 0.5 });
   gsap.from('.portada-pie > *', { y: 22, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.1, delay: 0.75 });
 
@@ -677,7 +744,7 @@ if (MOVER){
   });
 
   // Pegatina del chacal: se pega de golpe
-  gsap.from('.pegatina', { scale: 1.7, rotation: 34, opacity: 0, duration: 0.55, ease: 'back.out(1.6)',
+  gsap.from('.pegatina', { scale: 1.3, rotation: 26, opacity: 0, duration: 0.55, ease: 'back.out(1.6)',
     scrollTrigger: { trigger: '.trabajos-cab', start: 'top 70%', once: true } });
 
   // Contacto y pie
@@ -689,6 +756,111 @@ if (MOVER){
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
   window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
 }
+
+/* ---------- Servicios: cada fila sale en 3D y abre su página ----------
+   La página de un servicio no es otro archivo: es la sección #vista, que se abre con la
+   dirección #servicio/<nombre> (se puede enviar y funciona atrás y adelante).
+   Enseña las fichas de Trabajos que lleven data-servicio="<nombre>". */
+(function(){
+  var filas = $$('.serv'), vista = $('#vista'), lienzo = $('#lienzo');
+  var tituloBase = document.title, abierta = null, vuelta = 0, deLaVista = [], deCasa = [], ocupado = false;
+  if (!MOVER) document.documentElement.classList.add('sin-movimiento');
+
+  function filaDe(hash){ return filas.filter(function(f){ return f.getAttribute('href') === hash; })[0] || null; }
+  function irA(y){
+    if (typeof lenis !== 'undefined' && lenis) lenis.scrollTo(y, { immediate: true, force: true });
+    else window.scrollTo({ top: y, left: 0, behavior: 'instant' });
+  }
+  function dos(n){ return (n < 10 ? '0' : '') + n; }
+
+  function pintar(fila){
+    var nombre = fila.getAttribute('href').split('/')[1], titulo = $('#vista-titulo');
+    $('#vista-num').textContent = $('.num', fila).textContent;
+    titulo.removeAttribute('aria-label'); titulo.textContent = fila.dataset.titulo;
+    $('#vista-texto').textContent = $('p', fila).textContent;
+    var caja = $('#vista-trabajos'), fichas = $$('.ficha[data-servicio~="' + nombre + '"]', lienzo);
+    caja.innerHTML = '';
+    fichas.forEach(function(f, i){
+      var c = f.cloneNode(true);
+      c.removeAttribute('style');
+      $$('[style]', c).forEach(function(e){ e.removeAttribute('style'); });
+      $('.num', c).textContent = dos(i + 1);
+      caja.appendChild(c);
+    });
+    $('#vista-vacio').hidden = fichas.length > 0;
+    $('#vista-otros').innerHTML = filas.filter(function(f){ return f !== fila; }).map(function(f){
+      return '<a href="' + f.getAttribute('href') + '">' + f.dataset.titulo + '</a>';
+    }).join('');
+    document.title = fila.dataset.titulo + ' · Innovarte Agency';
+  }
+  function soltar(){
+    deLaVista.forEach(function(t){ if (t.scrollTrigger) t.scrollTrigger.kill(); t.kill(); });
+    deLaVista = [];
+  }
+  function abrir(fila){
+    if (!abierta){
+      vuelta = window.scrollY;
+      if (MOVER){ deCasa = ScrollTrigger.getAll(); deCasa.forEach(function(st){ st.disable(false); }); }
+    }
+    soltar();
+    abierta = fila; pintar(fila);
+    document.body.classList.add('en-servicio'); vista.hidden = false;
+    irA(0);
+    if (MOVER){
+      gsap.from(partirLetras($('#vista-titulo')), { yPercent: 120, duration: 0.8, ease: 'power4.out', stagger: 0.035 });
+      gsap.from('#vista-num, #vista-texto', { y: 20, opacity: 0, duration: 0.6, ease: 'power3.out', stagger: 0.08, delay: 0.15 });
+      gsap.from('#vista-trabajos .ficha, #vista-vacio:not([hidden]), .vista-cta, #vista-otros', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.09, delay: 0.25, clearProps: 'transform,opacity' });
+      $$('#vista-trabajos .ficha').forEach(function(f){
+        var caja = $('.ficha-fotos', f), tira = $('.ficha-fotos > div', f);
+        var rango = function(){ var cs = getComputedStyle(caja); return Math.max(0, tira.scrollWidth - (caja.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight))); };
+        deLaVista.push(gsap.fromTo(tira, { x: 0 }, { x: function(){ return -rango(); }, ease: 'none',
+          scrollTrigger: { trigger: f, start: 'clamp(top 88%)', end: 'bottom 18%', scrub: 0.5, invalidateOnRefresh: true } }));
+      });
+    }
+    $('#vista-titulo').focus({ preventScroll: true });
+  }
+  function cerrar(hash){
+    soltar(); abierta = null; ocupado = false;
+    vista.hidden = true; document.body.classList.remove('en-servicio'); document.title = tituloBase;
+    filas.forEach(function(f){ f.classList.remove('saliendo'); });
+    if (MOVER) gsap.set(filas, { clearProps: 'transform,opacity' });
+    var destino = hash && hash.length > 1 && hash !== '#servicios' ? document.getElementById(hash.slice(1)) : null;
+    var colocar = function(){ irA(destino ? destino.getBoundingClientRect().top + window.scrollY : (vuelta || $('#servicios').getBoundingClientRect().top + window.scrollY)); };
+    colocar();
+    if (MOVER){ deCasa.forEach(function(st){ st.enable(); }); deCasa = []; ScrollTrigger.refresh(); colocar(); }
+  }
+  function ruta(){
+    var fila = filaDe(location.hash);
+    if (fila) abrir(fila); else if (abierta) cerrar(location.hash);
+  }
+  window.addEventListener('hashchange', ruta);
+  ruta();
+
+  filas.forEach(function(a){
+    a.addEventListener('click', function(e){
+      if (!MOVER || e.metaKey || e.ctrlKey || e.shiftKey) return; // sin movimiento: el enlace abre la página tal cual
+      e.preventDefault();
+      if (ocupado) return; ocupado = true;
+      a.classList.add('saliendo');
+      var otras = filas.filter(function(f){ return f !== a; });
+      gsap.timeline({ onComplete: function(){ location.hash = a.getAttribute('href'); } })
+        .to(otras, { opacity: 0.1, z: -140, duration: 0.4, ease: 'power2.out', overwrite: true }, 0)
+        .to(a, { z: 120, rotationX: -9, rotationY: 0, duration: 0.34, ease: 'power3.out', overwrite: true }, 0)
+        .to(a, { z: 820, rotationX: -58, yPercent: -30, opacity: 0, duration: 0.44, ease: 'power3.in' }, 0.34);
+    });
+    if (MOVER && FINO){
+      a.addEventListener('pointermove', function(e){
+        if (ocupado) return;
+        var r = a.getBoundingClientRect();
+        gsap.to(a, { rotationY: ((e.clientX - r.left) / r.width - 0.5) * 5, rotationX: -((e.clientY - r.top) / r.height - 0.5) * 7, z: 22, duration: 0.35, ease: 'power2.out', overwrite: 'auto' });
+      });
+      a.addEventListener('pointerleave', function(){
+        if (ocupado) return;
+        gsap.to(a, { rotationY: 0, rotationX: 0, z: 0, duration: 0.5, ease: 'power3.out', overwrite: 'auto' });
+      });
+    }
+  });
+})();
 
 /* ---------- 3D: isotipo de portada y adornos ---------- */
 (function(){
@@ -748,7 +920,7 @@ if (MOVER){
     s.closePath(); return s;
   }
   function volumen(pts, fondo){
-    var g = new THREE.ExtrudeGeometry(forma(pts), { depth: fondo, bevelEnabled: true, bevelThickness: 13, bevelSize: 10, bevelOffset: -10, bevelSegments: 7, curveSegments: 1 });
+    var g = new THREE.ExtrudeGeometry(forma(pts), { depth: fondo, bevelEnabled: true, bevelThickness: 11, bevelSize: 8, bevelOffset: -8, bevelSegments: 7, curveSegments: 1 });
     g.translate(0, 0, -fondo / 2);
     return suavizar(g, 0.55);
   }
@@ -757,10 +929,10 @@ if (MOVER){
   var T = window.LOGO_TRAZADO;
   var escena = new THREE.Scene(); escena.environment = entorno(render);
   var foco = new THREE.DirectionalLight(0xffffff, 1.4); foco.position.set(-300, 500, 700); escena.add(foco);
-  var plata = plastico(0xe9eef5), azul = plastico(0x3f78c4, { roughness: 0.2 });
+  var plata = plastico(0xf3f5f8), azul = plastico(new THREE.Color(T.azul), { roughness: 0.2 });
   var logo = new THREE.Group();
   var cuerpoI = new THREE.Mesh(volumen(T.i, 70), plata), punto = new THREE.Mesh(volumen(T.punto, 70), plata), ene = new THREE.Mesh(volumen(T.n, 70), azul);
-  ene.position.z = 5;
+  ene.position.z = 12; // la «n» va delante: la «i» pasa por debajo, como en el logo
   logo.add(cuerpoI, punto, ene);
   // centrar por su caja
   var caja = new THREE.Box3().setFromObject(logo), centro = caja.getCenter(new THREE.Vector3()), tam = caja.getSize(new THREE.Vector3());
@@ -818,7 +990,7 @@ if (MOVER){
     var esc = new THREE.Scene(); esc.environment = entorno(r);
     var luz = new THREE.DirectionalLight(0xffffff, 1.3); luz.position.set(-3, 5, 6); esc.add(luz);
     var cam = new THREE.PerspectiveCamera(30, 1, 0.1, 50); cam.position.set(0, 0, 7.4);
-    var BLANCO = 0xeef2f7, AZUL = 0x3f78c4, CIELO = 0x6f9fdc, CLARO = 0xaac8ea, HONDO = 0x2a5592;
+    var BLANCO = 0xeef2f7, AZUL = 0x4f86c6, CIELO = 0x73a4ce, CLARO = 0xaac8ea, HONDO = 0x2a5592;
 
     function extruida(dibuja, fondo){
       var s = new THREE.Shape(); dibuja(s);
