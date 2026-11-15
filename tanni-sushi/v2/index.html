@@ -134,10 +134,11 @@ a{-webkit-tap-highlight-color:transparent}
 .lovers ul{list-style:none;padding:0;margin:20px 0 26px}
 .lovers li{padding:10px 0 10px 26px;position:relative;color:var(--tinta2)}
 .lovers li::before{content:"";position:absolute;left:0;top:18px;width:12px;height:12px;border-radius:50%;background:var(--salmon)}
-.carton{position:relative}
-.carton img{border-radius:var(--r);width:78%;aspect-ratio:4/5;object-fit:cover}
-.carton .tarjeta{position:absolute;right:0;bottom:-18px;width:66%;transform:rotate(3deg)}
-.carton small{display:block;color:var(--suave);font-size:13px;margin-top:30px}
+.carton{position:relative;display:grid;grid-template-columns:minmax(0,1fr)}
+.carton>img{grid-area:1/1;border-radius:var(--r);width:78%;aspect-ratio:4/5;object-fit:cover}
+.carton .tarjeta{grid-area:1/1;position:relative;align-self:end;justify-self:end;width:min(84%,340px);transform:translateY(28px) rotate(3deg)}
+.carton .tarjeta .sellos{gap:6px}
+.carton small{display:block;color:var(--suave);font-size:13px;margin-top:52px}
 @media (min-width:900px){.lovers{grid-template-columns:1fr 1fr;gap:72px}}
 
 /* tarjeta lovers (objeto de papel) */
@@ -321,6 +322,16 @@ label.campo{display:block;margin-top:14px;font-weight:600;font-size:15px}
 .flotan.bajo{bottom:max(12px,env(safe-area-inset-bottom))}
 .flot{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--borde);background:var(--flota);color:var(--tinta);box-shadow:0 10px 24px -10px var(--sombra)}
 .flot.wa{background:var(--verde-wa);border-color:var(--verde-wa);color:#fff}
+.flot-gato{width:64px;height:64px;padding:0;border:0;background:none;box-shadow:none;filter:drop-shadow(0 8px 12px rgba(38,38,38,.3));transition:transform .16s var(--sal)}
+.flot-gato img{width:100%;height:auto;transform:rotate(-6deg)}
+.flot-gato:active{transform:scale(.92)}
+@media (hover:hover) and (pointer:fine){.flot-gato:hover{transform:rotate(6deg) scale(1.06)}}
+.chat-cab{display:flex;align-items:center;gap:10px}
+.chat-cab img{width:52px;height:auto;flex:none;margin:-6px 0 -4px -4px}
+.chat-cab small{display:block;font:400 13px/1.3 var(--sans);color:var(--suave)}
+.burbuja-gato{display:flex;gap:8px;align-items:flex-end;align-self:flex-start;max-width:92%}
+.burbuja-gato img{width:30px;height:auto;flex:none}
+.burbuja-gato .burbuja{max-width:none}
 body[data-vista=carta] .flotan{right:auto;left:14px}
 @media (min-width:900px){.flotan{right:24px;bottom:96px}body[data-vista=carta] .flotan{left:auto;right:24px}}
 .panel{position:fixed;right:12px;left:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:60;background:var(--flota);border:1px solid var(--borde);border-radius:14px;padding:16px;max-height:min(78svh,620px);display:flex;flex-direction:column;box-shadow:0 20px 50px -20px var(--sombra);animation:sube .22s var(--sal)}
@@ -386,15 +397,15 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
 .hero-btns .btn{flex:1 1 150px}
 .btn-tinta{background:#262626;color:#fff}
 .btn-blanco{background:#fff;color:#262626}
-.hero-vis{position:relative;width:min(80vw,37svh,420px);margin:0 auto;justify-self:center}
-.hero-aro{position:relative;aspect-ratio:1;border-radius:50%;background:#fff;border:clamp(12px,3.6vw,22px) solid #262626;padding:5%;box-shadow:0 26px 50px -24px rgba(60,20,0,.6)}
+.hero-vis{position:relative;width:min(72vw,33svh,420px);margin:0 auto;justify-self:center}
+.hero-aro{position:relative;z-index:1;isolation:isolate;aspect-ratio:1;border-radius:50%;background:#fff;border:clamp(12px,3.6vw,22px) solid #262626;padding:5%;box-shadow:0 26px 50px -24px rgba(60,20,0,.6)}
 .hero-aro .pk-plato{width:100%}
 .hero-aro .pk-cuenco{filter:drop-shadow(0 6px 8px rgba(38,38,38,.18))}
-.hero-nota{position:absolute;right:-6%;bottom:6%;display:flex;flex-direction:column;gap:2px;padding:9px 13px;border-radius:10px;background:#262626;color:#fff;text-decoration:none;box-shadow:0 10px 24px -10px rgba(0,0,0,.5);transform:rotate(3deg);max-width:62%;transition:opacity .25s ease-out}
+.hero-nota{position:relative;z-index:4;margin:14px auto 0;width:max-content;max-width:100%;display:flex;flex-direction:column;gap:2px;padding:9px 13px;border-radius:10px;background:#262626;color:#fff;text-decoration:none;box-shadow:0 10px 24px -10px rgba(0,0,0,.5);transform:rotate(-2deg);transition:opacity .25s ease-out;align-items:center;text-align:center}
 .hero-nota b{font:700 14px/1.2 var(--disp)}
 .hero-nota span{font-size:12.5px;color:#FFB585;font-variant-numeric:tabular-nums}
 .hero-nota.cambia{opacity:0}
-.hero-gato{position:absolute;left:-14%;top:-8%;width:40%;height:auto;transform:rotate(-10deg);filter:drop-shadow(0 6px 10px rgba(60,20,0,.35))}
+.hero-gato{position:absolute;z-index:3;left:-20%;bottom:-4%;width:42%;height:auto;transform:rotate(-10deg);filter:drop-shadow(0 6px 10px rgba(60,20,0,.35));pointer-events:none}
 .hero-hoy{background:#262626;color:#C9C4BC;font-size:13px}
 .hero-hoy .hero-dato{display:flex;flex-wrap:wrap;gap:3px 14px;padding:11px 0 max(11px,env(safe-area-inset-bottom))}
 .hero-hoy .hero-dato b{color:#fff;font-weight:600}
@@ -405,12 +416,16 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
   .hero-sub{font-size:18px}
   .hero-btns .btn{flex:0 0 auto}
   .hero-vis{width:min(44vw,calc(100svh - var(--cab) - 170px),560px)}
-  .hero-nota{padding:12px 16px}.hero-nota b{font-size:16px}.hero-nota span{font-size:14px}
+  .hero-nota{position:absolute;right:-8%;bottom:6%;margin:0;padding:12px 16px;transform:rotate(3deg);align-items:flex-start;text-align:left}.hero-nota b{font-size:16px}.hero-nota span{font-size:14px}
+  .hero-gato{left:-16%;top:-10%;bottom:auto;width:40%}
 }
 
 /* tarjeta Tanni Lovers con la espiral */
 .tarjeta{background:#fff var(--espiral) right -70px bottom -84px/250px no-repeat;border-color:var(--papel-borde);box-shadow:0 1px 0 rgba(0,0,0,.04),0 22px 44px -26px var(--sombra)}
-.tarjeta-cab .tl-f{display:block;width:108px;height:auto}
+.tarjeta-cab .tl-f{display:block;width:108px;max-width:100%;height:auto}
+.tarjeta-cab{min-width:0}.tarjeta-cab .tn{min-width:0;overflow-wrap:anywhere}
+.sello.lleno img{display:block;border-radius:50%}
+.tarjeta-pie{gap:10px;flex-wrap:wrap}
 .tarjeta-cab .tc{font:700 10px/1.3 var(--sans);letter-spacing:.2em;color:var(--acento);margin-top:6px}
 .sello{font:700 13px/1 var(--disp);color:#8D887F;border-color:#BEB8AE;background:rgba(255,255,255,.7)}
 .sello.lleno{background:none}
@@ -445,17 +460,18 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
 .pk-regla{list-style:none;margin:0 0 22px;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;max-width:460px}
 .pk-regla li{background:#fff;border:1px solid var(--borde);border-radius:var(--r);padding:10px 4px;text-align:center;font-size:12.5px;line-height:1.2;color:var(--suave)}
 .pk-regla b{display:block;font:800 24px/1 var(--disp);color:var(--tinta);margin-bottom:4px}
-.pk-home-v{position:relative;max-width:420px;width:100%;margin-inline:auto}
-.pk-gato{position:absolute;right:-2%;top:-16%;width:26%;height:auto;transform:rotate(8deg);filter:drop-shadow(0 6px 10px rgba(38,38,38,.25))}
-.pk-pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
-.pk-pasos li{grid-column:span 2;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;align-items:center;column-gap:10px;padding:10px;background:#fff;border:1px solid var(--borde);border-radius:var(--r)}
-.pk-pasos li:nth-child(4){grid-column:2/span 2}
-.pk-pasos img{grid-row:span 2;width:52px;height:52px;object-fit:contain;transform:scale(1.2)}
+.pk-home-v{position:relative;max-width:560px;width:100%;margin-inline:auto}
+.pk-pasos li.pk-paso-gato{background:none;border:0;display:grid;place-items:center;padding:0}
+.pk-pasos li.pk-paso-gato img{grid-row:auto;width:auto;height:84px;transform:rotate(8deg);filter:drop-shadow(0 6px 10px rgba(38,38,38,.22))}
+.pk-pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pk-pasos li{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;align-items:center;column-gap:10px;padding:10px;background:#fff;border:1px solid var(--borde);border-radius:var(--r)}
+.pk-pasos img{grid-row:span 2;width:52px;height:52px;max-width:none;object-fit:contain;transform:scale(1.2)}
+.pk-pasos li>span{font-size:12.5px}
 .pk-pasos li:first-child img{transform:none}
 .pk-pasos b{font:800 26px/1 var(--disp)}
 .pk-pasos span{font-size:13px;color:var(--suave);line-height:1.2}
-@media (max-width:420px){.pk-pasos{grid-template-columns:1fr 1fr}.pk-pasos li,.pk-pasos li:nth-child(4){grid-column:auto}.pk-pasos li:last-child{grid-column:1/-1}}
-@media (min-width:900px){.pk-home-in{grid-template-columns:6fr 5fr;gap:64px}}
+@media (max-width:560px){.pk-pasos{grid-template-columns:1fr 1fr}}
+@media (min-width:900px){.pk-home-in{grid-template-columns:1fr 1fr;gap:56px}}
 
 /* vista: montar el poke */
 .pk-escena{position:sticky;top:var(--cab);z-index:20;background:var(--fondo);border-bottom:1px solid var(--raya);overflow-x:clip}
@@ -573,9 +589,9 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
       <div class="hero-vis">
         <div class="hero-aro" aria-hidden="true">
           <div class="pk-plato" id="hero-poke"><img class="pk-cuenco" src="crea-tu-poke/img/basearroz.webp" width="900" height="900" alt="" fetchpriority="high"><div class="pk-m"></div><div class="pk-s"></div></div>
+          <img class="hero-gato" src="marca/gato-dormido.webp" width="427" height="320" alt="">
         </div>
         <a class="hero-nota" href="#poke" id="hero-nota"><b id="hero-nota-n">Tu poke</b><span id="hero-nota-p">Créalo a tu gusto</span></a>
-        <img class="hero-gato" src="marca/gato-dormido.webp" width="427" height="320" alt="" aria-hidden="true">
       </div>
     </div>
     <div class="hero-hoy"><div class="env hero-dato" id="hero-hoy"></div></div>
@@ -606,8 +622,8 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
           <li><img src="crea-tu-poke/img/aguacate.webp" width="512" height="512" alt="" loading="lazy"><b>5</b><span>complementos</span></li>
           <li><img src="crea-tu-poke/img/sesamo.webp" width="512" height="512" alt="" loading="lazy"><b>3</b><span>toppings</span></li>
           <li><img src="crea-tu-poke/img/teriyaki.webp" width="512" height="512" alt="" loading="lazy"><b>2</b><span>salsas</span></li>
+          <li class="pk-paso-gato" aria-hidden="true"><img src="marca/gato-sorpresa.webp" width="331" height="320" alt="" loading="lazy"></li>
         </ol>
-        <img class="pk-gato" src="marca/gato-feliz.webp" width="331" height="320" alt="" aria-hidden="true" loading="lazy">
       </div>
     </div>
   </section>
@@ -735,7 +751,7 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
 
 <a class="barra-cesta fuera" id="barra" href="#pedido"><span id="barra-n">Ver mi pedido</span><span id="barra-t">0 €</span></a>
 <div class="flotan fuera" id="flotan">
-  <button class="flot" type="button" data-abre="chat" aria-label="Abrir el asistente"><svg class="ico"><use href="#i-chat"/></svg></button>
+  <button class="flot flot-gato" type="button" data-abre="chat" aria-label="Preguntar al gato de Tanni"><img src="marca/gato-feliz.webp" width="331" height="320" alt=""></button>
   <button class="flot wa" type="button" data-abre="wa" aria-label="Escribir por WhatsApp a un local"><svg class="ico"><use href="#i-wa"/></svg></button>
 </div>
 <div id="capa"></div>
@@ -1280,8 +1296,8 @@ function pintarLocal(id){
 function abrirPanel(tipo){
   const capa=$('#capa');
   if(tipo==='wa'){capa.innerHTML=`<div class="panel" role="dialog" aria-label="WhatsApp de los locales"><div class="panel-cab"><b>WhatsApp</b><button class="cerrar" data-cierra aria-label="Cerrar">${ico('x')}</button></div><p style="color:var(--suave);margin:0 0 6px">¿Con qué local quieres hablar?</p><div class="wa-lista">${ORDEN_LOC.map(id=>`<a href="https://wa.me/34${LOCALES[id].tel}" target="_blank" rel="noopener">${LOCALES[id].nombre}<span>${LOCALES[id].telv}</span></a>`).join('')}</div></div>`;}
-  else{capa.innerHTML=`<div class="panel" role="dialog" aria-label="Asistente de Tanni"><div class="panel-cab"><b>Asistente</b><button class="cerrar" data-cierra aria-label="Cerrar">${ico('x')}</button></div>
-    <div class="chat-log" id="log" aria-live="polite"><div class="burbuja el">Hola. Te ayudo con horarios, reparto, la tarjeta Lovers o la carta. ¿Qué necesitas?</div></div>
+  else{capa.innerHTML=`<div class="panel" role="dialog" aria-label="El gato de Tanni, asistente"><div class="panel-cab"><div class="chat-cab"><img src="marca/gato-feliz.webp" width="331" height="320" alt=""><div><b>El gato de Tanni</b><small>Te contesta al momento</small></div></div><button class="cerrar" data-cierra aria-label="Cerrar">${ico('x')}</button></div>
+    <div class="chat-log" id="log" aria-live="polite">${gatoDice('¡Miau! Soy el gato de Tanni. Te ayudo con los horarios, el reparto, tu poke o la tarjeta Lovers. ¿Qué necesitas?')}</div>
     <div class="sug">${['¿Abrís ahora?','¿Llegáis a Torrellano?','¿Opciones veganas?','¿Cómo va la tarjeta?','Alérgenos'].map(s=>`<button type="button" data-preg="${s}">${s}</button>`).join('')}</div>
     <form class="chat-form" id="chat-form"><input name="q" aria-label="Escribe tu pregunta" placeholder="Escribe tu pregunta" autocomplete="off"><button>Enviar</button></form></div>`;}
   const b=$('[data-cierra]',capa);b&&b.focus();
@@ -1393,7 +1409,8 @@ document.addEventListener('submit',e=>{
       guardar('tn_cuenta',cuenta);pasoCuenta='datos';avisar('Tarjeta creada');pintarCuenta()}}
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#capa').innerHTML=''});
-function preguntar(q){const log=$('#log');if(!log)return;log.insertAdjacentHTML('beforeend',`<div class="burbuja yo">${esc(q)}</div><div class="burbuja el">${esc(responder(q))}</div>`);log.scrollTop=log.scrollHeight}
+function gatoDice(t){return `<div class="burbuja-gato"><img src="marca/gato-feliz.webp" width="331" height="320" alt=""><div class="burbuja el">${esc(t)}</div></div>`}
+function preguntar(q){const log=$('#log');if(!log)return;log.insertAdjacentHTML('beforeend',`<div class="burbuja yo">${esc(q)}</div>${gatoDice(responder(q))}`);log.scrollTop=log.scrollHeight}
 
 /* ---------- arranque ---------- */
 function medirCab(){document.documentElement.style.setProperty('--cab',$('#cab').offsetHeight+'px')}
