@@ -182,7 +182,10 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
 .colgante s{font:600 13px/1 Barlow,sans-serif;color:#FFE6D6}
 .colgante .dto{display:inline-block;margin-top:5px;background:var(--tinta);color:#fff}
 .colgante.cae{opacity:1;pointer-events:auto;animation:cuelga 1000ms var(--salida) both}
-@keyframes cuelga{0%{opacity:0;transform:translateY(-30px) rotate(14deg)}22%{opacity:1;transform:translateY(0) rotate(-7deg)}46%{transform:rotate(4deg)}68%{transform:rotate(-2deg)}86%{transform:rotate(.8deg)}100%{transform:rotate(0)}}
+/* Se balancea sobre todo hacia fuera; hacia el aparato, solo lo que cabe en el hueco (--a lo calcula colocarEtiquetas) */
+@keyframes cuelga{0%{opacity:0;transform:translateY(-30px) rotate(calc(var(--a,1deg)*-4))}22%{opacity:1;transform:translateY(0) rotate(calc(var(--a,1deg)*-2.6))}46%{transform:rotate(var(--a,1deg))}68%{transform:rotate(calc(var(--a,1deg)*-.8))}86%{transform:rotate(calc(var(--a,1deg)*.3))}100%{transform:rotate(0)}}
+/* Etiqueta corta para los aparatos pequeños: sin el precio de antes, para que no sea más grande que el aparato */
+.colgante.peq s,.colgante.peq br{display:none}
 /* Aviso de la tara: llega después de la etiqueta */
 .aviso-tara{height:42px;background:var(--tinta);color:#fff;display:flex;align-items:center}
 .aviso-tara .cont{display:flex;align-items:center;gap:10px;width:100%;font:600 15px/1.25 Barlow,sans-serif;opacity:0;transform:translateY(6px);transition:opacity 240ms ease,transform 280ms var(--salida)}
@@ -230,7 +233,7 @@ mark{background:var(--pegatina);color:inherit;padding:0 1px}
   .hero-rot p{font-size:19px;margin-top:12px}
   .estante{--tw:106px;--gap:14px;max-width:1100px;margin:0 auto;padding:0 24px}
   .peg-precio{font-size:24px;padding:5px 9px}
-  .colgante{width:var(--tw)}.colgante b{font-size:30px}.colgante .tg{padding:18px 6px 9px}
+  .colgante{width:var(--tw)}.colgante b{font-size:30px}.colgante .tg{padding:18px 6px 9px}.colgante.peq{width:calc(var(--tw)*.8)}.colgante.peq b{font-size:25px}
   .acc-in{display:flex;align-items:center;justify-content:space-between;gap:24px}
   .acc-fila{padding:14px 0;flex-wrap:nowrap}
   .ventajas{border-top:0}
@@ -746,10 +749,13 @@ function colocarEtiquetas(){
   const es=$("#escaparate"); if(!es) return; const e=es.getBoundingClientRect(), est=es.querySelector(".estante"), gap=parseFloat(getComputedStyle(est).getPropertyValue("--gap"))||6;
   const pzs=es.querySelectorAll(".pieza");
   es.querySelectorAll(".colgante").forEach((cg,j)=>{ const pz=pzs[j]; if(!pz) return;
-    const r=pz.getBoundingClientRect(), w=cg.offsetWidth||52, h=(cg.querySelector(".tg")||cg).offsetHeight||80;
+    const r=pz.getBoundingClientRect(); cg.classList.remove("peq"); if(((cg.querySelector(".tg")||cg).offsetHeight||80)>r.height) cg.classList.add("peq");
+    const w=cg.offsetWidth||52, h=(cg.querySelector(".tg")||cg).offsetHeight||80;
     const left=Math.min(r.right-e.left+gap,e.width-w-2);
     const suelo=e.height*.87, cuerda=Math.max(10,Math.min(r.top-e.top+r.height*.06,suelo-h-6));
-    cg.style.setProperty("--cx",left+"px"); cg.style.setProperty("--cuerda",cuerda+"px"); });
+    cg.style.setProperty("--cx",left+"px"); cg.style.setProperty("--cuerda",cuerda+"px");
+    const hueco=left-(r.right-e.left), ang=Math.max(0,Math.min(3.5,Math.asin(Math.max(0,Math.min(1,(hueco-2)/(cuerda+h))))*180/Math.PI));
+    cg.style.setProperty("--a",ang.toFixed(2)+"deg"); });
 }
 const colocarEtiqueta=colocarEtiquetas;
 function contarTara(i){ const x=porId(ESCENA[i].id), av=$("#aviso-tara"); if(!av) return;
