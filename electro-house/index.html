@@ -754,7 +754,7 @@ function colocarEtiquetas(){
     const left=Math.min(r.right-e.left+gap,e.width-w-2);
     const suelo=e.height*.87, cuerda=Math.max(10,Math.min(r.top-e.top+r.height*.06,suelo-h-6));
     cg.style.setProperty("--cx",left+"px"); cg.style.setProperty("--cuerda",cuerda+"px");
-    const hueco=left-(r.right-e.left), ang=Math.max(0,Math.min(3.5,Math.asin(Math.max(0,Math.min(1,(hueco-2)/(cuerda+h))))*180/Math.PI));
+    const hueco=left-(r.right-e.left), ang=Math.max(0,Math.min(3.5,Math.asin(Math.max(0,Math.min(1,(hueco-2)*.65/(cuerda+h))))*180/Math.PI));
     cg.style.setProperty("--a",ang.toFixed(2)+"deg"); });
 }
 const colocarEtiqueta=colocarEtiquetas;
