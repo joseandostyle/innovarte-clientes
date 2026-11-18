@@ -529,6 +529,48 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
   .pk-barra{background:none;border-top:0;padding:6px 0 0;position:static}
 }
 
+/* tarjeta en la Wallet (vista previa) */
+.w-btns{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px}
+.w-btns p{width:100%;margin:0;font-size:13.5px;color:var(--suave)}
+.w-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:10px;border:1px solid #000;background:#000;color:#fff;font:600 14px/1.1 var(--sans);transition:transform .14s var(--sal)}
+.w-btn:active{transform:scale(.97)}
+.w-btn svg{width:20px;height:20px;flex:none}
+@keyframes w-in{from{opacity:0}to{opacity:1}}
+.w-fondo{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.58);animation:w-in .2s ease-out}
+.w-dlg{position:fixed;z-index:81;left:50%;top:50%;transform:translate(-50%,-50%);width:min(420px,calc(100% - 24px));max-height:calc(100svh - 24px);overflow:auto;overscroll-behavior:contain;padding:16px;border-radius:16px;background:var(--flota);color:var(--tinta);box-shadow:0 30px 60px -20px rgba(0,0,0,.6);animation:w-in .2s ease-out}
+.w-cab{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.w-cab b{font:700 18px/1.2 var(--sans)}
+.w-tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;margin-bottom:14px;border-radius:10px;background:rgba(128,128,128,.16)}
+.w-tabs button{min-height:40px;border:0;border-radius:8px;background:none;color:var(--suave);font-weight:600}
+.w-tabs button[aria-selected="true"]{background:var(--salmon);color:var(--sobre-salmon);box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.w-vista{padding:16px 14px;border-radius:14px;background:#F2F2F7}
+.w-vista.google{background:#F1F3F4}
+.w-vista-t{margin:0 2px 10px;font:700 22px/1.1 -apple-system,"Segoe UI",Roboto,sans-serif;color:#111}
+.wp{overflow:hidden;color:#fff;background:var(--w-fondo);font-family:-apple-system,"Segoe UI",Roboto,sans-serif;box-shadow:0 12px 26px -14px rgba(0,0,0,.6)}
+.wp small{display:block;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--w-acento)}
+.wp-apple{border-radius:12px}
+.wp-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px}
+.wp-logo{display:flex;align-items:center;gap:8px;min-width:0}
+.wp-hf{text-align:right}
+.wp-hf b{font-size:21px;font-weight:500}
+.wp-strip{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;padding:12px 10px;background:var(--w-strip)}
+.wp-strip span{position:relative;aspect-ratio:1;border-radius:50%;border:1.5px dashed rgba(255,255,255,.55)}
+.wp-strip span.si{border:0}
+.wp-strip span.si>*{position:absolute;inset:0;width:100%;height:100%;border-radius:50%}
+.wp-campos{display:flex;justify-content:space-between;gap:12px;padding:10px 14px}
+.wp-campos b{display:block;font-size:15px;font-weight:500;margin-top:2px}
+.wp-campos div:last-child{text-align:right}
+.wp-qr{width:max-content;margin:6px auto 14px;padding:8px 8px 6px;border-radius:8px;background:#fff;color:#111;text-align:center}
+.wp-qr svg{display:block;width:118px;height:118px}
+.wp-qr code{font-size:11px;letter-spacing:.12em}
+.wp-google{border-radius:20px}
+.wp-g-cab{display:flex;align-items:center;gap:10px;padding:14px 16px 4px;font-size:14px}
+.wp-g-logo{width:32px;height:32px;flex:none;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden}
+.wp-g-tit{padding:6px 16px 4px;font-size:22px}
+.wp-google .wp-qr{margin:10px auto 16px;border-radius:12px;padding:10px 10px 8px}
+.wp-google .wp-strip{padding:14px 12px}
+.w-nota{margin:12px 2px 0;font-size:13.5px;line-height:1.45;color:var(--suave)}
+
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 <script type="application/ld+json">
@@ -598,17 +640,6 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
     <div class="hero-hoy"><div class="env hero-dato" id="hero-hoy"></div></div>
   </div>
 
-  <section class="bloque" aria-labelledby="t-como">
-    <div class="env">
-      <h2 class="rotulo" id="t-como"><span class="firma">Pedir</span><span class="linea">En tres pasos, sin llamar</span></h2>
-      <ol class="pasos">
-        <li><b>Elige en la carta</b><span>Los 95 platos, los menús y tu poke a tu gusto.</span></li>
-        <li><b>Recoger o a casa</b><span>En tu local o con nuestros repartidores, a la hora que quieras.</span></li>
-        <li><b>Llega a tu local</b><span>El pedido entra en su WhatsApp y empiezan a prepararlo.</span></li>
-      </ol>
-    </div>
-  </section>
-
   <section class="bloque pk-home" id="tupoke" aria-labelledby="t-poke">
     <div class="env pk-home-in">
       <div>
@@ -626,6 +657,17 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
           <li class="pk-paso-gato" aria-hidden="true"><img src="marca/gato-sorpresa.webp" width="331" height="320" alt="" loading="lazy"></li>
         </ol>
       </div>
+    </div>
+  </section>
+
+  <section class="bloque" aria-labelledby="t-como">
+    <div class="env">
+      <h2 class="rotulo" id="t-como"><span class="firma">Pedir</span><span class="linea">En tres pasos, sin llamar</span></h2>
+      <ol class="pasos">
+        <li><b>Elige en la carta</b><span>Los 95 platos, los menús y tu poke a tu gusto.</span></li>
+        <li><b>Recoger o a casa</b><span>En tu local o con nuestros repartidores, a la hora que quieras.</span></li>
+        <li><b>Llega a tu local</b><span>El pedido entra en su WhatsApp y empiezan a prepararlo.</span></li>
+      </ol>
     </div>
   </section>
 
@@ -662,6 +704,7 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
           <li>Entras solo con tu teléfono. Sin contraseñas.</li>
         </ul>
         <a class="btn btn-salmon" href="#tarjeta">Crear mi tarjeta</a>
+        <div id="w-portada"></div>
       </div>
       <div class="carton">
         <img src="fotos/tarjetas-carton.webp" width="900" height="1126" loading="lazy" alt="Tarjetas Tanni Lovers de cartón con las casillas para los sellos">
@@ -915,6 +958,7 @@ function pintarPortada(){
   $('#cats-portada').innerHTML=CATS.map(c=>`<a class="chip" href="#carta/${c.id}">${esc(c.t)}</a>`).join('');
   $('#locales-lista').innerHTML=ORDEN_LOC.map(id=>{const L=LOCALES[id];return `<article class="local"><img src="fotos/${L.foto}.webp" width="900" height="676" loading="lazy" alt="Local de Tanni en ${L.nombre}"><div><h3>${L.nombre}</h3><p>${esc(L.dir)}</p><p><span class="estado ${abierto(id)?'abierto':''}">${abierto(id)?'Abierto ahora':'Cerrado ahora'}</span> · ${textoHoy(id)}</p><p>Google: ${L.nota}</p><div class="acc"><a class="btn btn-salmon" href="#local/${id}">Ver local</a><a class="btn btn-borde" href="tel:+34${L.tel}">Llamar</a></div></div></article>`}).join('');
   $('#hero-hoy').innerHTML='<span>Hoy</span>'+ORDEN_LOC.map(id=>`<span><b>${LOCALES[id].nombre}</b> ${abierto(id)?'abierto ahora':(textoHoy(id)==='Hoy cerrado'?'cerrado':textoHoy(id))}</span>`).join('');
+  $('#w-portada').innerHTML=walletBotones('Y llévala en la Wallet de tu móvil:');
   $('#tarjeta-muestra').innerHTML=htmlTarjeta({nombre:'Tu nombre',sellos:7});
   heroPoke();
 }
@@ -1251,6 +1295,7 @@ function pintarCuenta(){
     <ul class="historial">${cuenta.hist.length?cuenta.hist.map(h=>`<li><span>${esc(h.t)}</span><span>${esc(h.s)}</span></li>`).join(''):'<li><span>Aún no hay movimientos.</span><span></span></li>'}</ul>
     <button class="btn btn-borde" style="margin-top:20px" data-cuenta="salir">Salir</button></div>
   <div><div class="qr"><div style="font-weight:700">Enséñalo al pagar en el local</div><div id="qr-svg" aria-label="Código QR de tu tarjeta"></div><code>${qrCod}</code><p style="font-size:14px;color:#6B635A;margin:10px 0 0">El local lo escanea y te marca los sellos de ese pedido.</p></div>
+  ${walletBotones('Guárdala también en tu móvil y ábrela sin entrar en la web:')}
   <p class="nota-demo">Para probarlo en la reunión: abre <a href="#caja">Modo local</a> y «escanea» este QR.</p></div>`;
   pintarQR(qrCod);
 }
@@ -1291,6 +1336,40 @@ function pintarLocal(id){
     <ul class="historial" style="max-width:420px">${zonas.map(z=>`<li><span>${esc(z.t)}</span><span style="color:var(--tinta)">${z.gratis!=null?'Gratis desde '+eur(z.gratis):'Pregunta al local'}</span></li>`).join('')}</ul>
     <div class="hero-btns" style="margin-top:22px"><button class="btn btn-salmon" data-recoger="${id}">Pedir para recoger aquí</button><a class="btn btn-borde" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Tanni Sushi "+L.dir)}" target="_blank" rel="noopener">Cómo llegar</a></div>
   </div></div>`;
+}
+
+const WALLET={nombre:'Tanni Sushi &amp; Poke',fondo:'#262626',strip:'#F36B1C',acento:'#FFB585',
+  logo:'<img src="marca/tanni-simbolo.webp" width="30" height="30" alt=""><img src="marca/tanni-firma-blanca.webp" width="70" height="22" alt="Tanni" style="height:22px;width:auto">',
+  gLogo:'<img src="marca/tanni-simbolo.webp" width="32" height="32" alt="">',
+  sello:'<img src="marca/tanni-simbolo.webp" alt="">'};
+/* ---------- la tarjeta en la Wallet (vista previa) ---------- */
+const W_ICO='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M16 14.5h2"/><path d="M6 6V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg>';
+function walletBotones(texto){return `<div class="w-btns">${texto?`<p>${texto}</p>`:''}<button class="w-btn" type="button" data-wallet="apple">${W_ICO}Añadir a Apple Wallet</button><button class="w-btn" type="button" data-wallet="google">${W_ICO}Añadir a Google Wallet</button></div>`}
+function walletDatos(){return cuenta?{n:cuenta.nombre,s:Math.min(cuenta.sellos,10),c:'TL-'+cuenta.tel.slice(-4)+'-'+cuenta.id}:{n:'Tu nombre',s:7,c:'TL-0000-DEMO'}}
+function walletQR(t){if(!window.qrcode)return '<div style="width:118px;height:118px"></div>';const q=qrcode(0,'M');q.addData(t);q.make();return q.createSvgTag({cellSize:4,margin:0,scalable:true})}
+function walletSellos(s){return '<div class="wp-strip" role="img" aria-label="'+s+' de 10 sellos">'+Array.from({length:10},(_,i)=>`<span class="${i<s?'si':''}">${i<s?WALLET.sello:''}</span>`).join('')+'</div>'}
+function walletPase(tipo){
+  const d=walletDatos(),qr=`<div class="wp-qr">${walletQR(d.c)}<code>${esc(d.c)}</code></div>`;
+  if(tipo==='google')return `<div class="w-vista google"><p class="w-vista-t">Google Wallet</p><div class="wp wp-google"><div class="wp-g-cab"><span class="wp-g-logo">${WALLET.gLogo}</span><span>${WALLET.nombre}</span></div><div class="wp-g-tit">Tanni Lovers</div><div class="wp-campos"><div><small>Sellos</small><b>${d.s} de 10</b></div><div><small>Socio</small><b>${esc(d.n)}</b></div></div>${qr}${walletSellos(d.s)}</div></div>`;
+  return `<div class="w-vista"><p class="w-vista-t">Cartera</p><div class="wp wp-apple"><div class="wp-top"><span class="wp-logo">${WALLET.logo}</span><span class="wp-hf"><small>Sellos</small><b>${d.s}/10</b></span></div>${walletSellos(d.s)}<div class="wp-campos"><div><small>Socio</small><b>${esc(d.n)}</b></div><div><small>Premio</small><b>10 € con 10 sellos</b></div></div>${qr}</div></div>`;
+}
+function walletPintar(tipo){
+  $('#w-pase').innerHTML=walletPase(tipo);
+  $$('[data-wtab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.wtab===tipo)));
+  $('#w-nota').textContent=tipo==='google'?'En Android se abre desde Google Wallet. Los sellos se ponen al día solos y el móvil avisa con cada sello nuevo.':'En el iPhone se abre con doble clic en el botón lateral, sin entrar en la web. Los sellos se ponen al día solos y el móvil avisa con cada sello nuevo.';
+}
+function walletAbrir(tipo){
+  $('#capa').innerHTML=`<div class="w-fondo" data-cierra></div><div class="w-dlg" role="dialog" aria-modal="true" aria-labelledby="w-tit" style="--w-fondo:${WALLET.fondo};--w-strip:${WALLET.strip};--w-acento:${WALLET.acento}">
+    <div class="w-cab"><b id="w-tit">Tu tarjeta Lovers en el móvil</b><button class="cerrar" type="button" data-cierra aria-label="Cerrar">${ico('x')}</button></div>
+    <div class="w-tabs" role="tablist" aria-label="Wallet"><button type="button" role="tab" data-wtab="apple">Apple Wallet</button><button type="button" role="tab" data-wtab="google">Google Wallet</button></div>
+    <div id="w-pase"></div><p class="w-nota" id="w-nota"></p>
+    <p class="nota-demo">Demostración: así se vería al guardarla. Para activarla de verdad hay que dar de alta la tarjeta en Apple y en Google.</p></div>`;
+  walletPintar(tipo);$('.w-dlg [data-cierra]').focus();
+}
+function walletClick(e){
+  const w=e.target.closest('[data-wallet]');if(w){walletAbrir(w.dataset.wallet);return true}
+  const t=e.target.closest('[data-wtab]');if(t){walletPintar(t.dataset.wtab);return true}
+  return false;
 }
 
 /* ---------- asistente y WhatsApp ---------- */
@@ -1376,6 +1455,7 @@ function actualizarFlotantes(){
 /* ---------- eventos ---------- */
 document.addEventListener('click',e=>{
   if(pkClick(e))return;
+  if(walletClick(e))return;
   const m=e.target.closest('[data-mas]');if(m){const p=BUSCA[m.dataset.mas];if(p.sencillo)anadir(p);else location.hash='#plato/'+p.slug;return}
   const ab=e.target.closest('[data-abre]');if(ab){abrirPanel(ab.dataset.abre);return}
   if(e.target.closest('[data-cierra]')){$('#capa').innerHTML='';return}

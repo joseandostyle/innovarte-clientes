@@ -362,6 +362,141 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
 .wa-lista a span{color:var(--suave);font-weight:400}
 .aviso{position:fixed;left:50%;top:calc(var(--cab) + 12px);transform:translateX(-50%);z-index:70;background:var(--tinta);color:var(--sobre-tinta);padding:10px 16px;border-radius:var(--r);font-weight:600;font-size:15px;animation:sube .2s var(--sal);max-width:calc(100% - 32px)}
 
+/* el cuenco que se monta */
+.pk-plato{position:relative;aspect-ratio:1;width:100%}
+.pk-cuenco{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 12px 16px rgba(0,0,0,.35))}
+.pk-m,.pk-s{position:absolute;inset:0}
+.pk-mon{position:absolute;max-width:none;height:auto;transition:left .42s var(--sal),top .42s var(--sal),width .42s var(--sal),transform .42s var(--sal),opacity .2s ease-out;filter:drop-shadow(0 2px 2px rgba(0,0,0,.3))}
+.pk-s{inset:10.5%;border-radius:50%;overflow:hidden;pointer-events:none}
+.pk-sal{position:absolute;left:-10%;top:-10%;width:120%;max-width:none;opacity:0;transform:scale(.94);transition:opacity .28s ease-out,transform .42s var(--sal);filter:drop-shadow(0 1px 1px rgba(0,0,0,.28))}
+.pk-sal.puesta{opacity:.95;transform:none}
+
+/* portada: crea tu poke */
+.pk-home{position:relative;overflow:hidden;background:var(--hondo)}
+.pk-home-in{display:grid;gap:26px;align-items:center}
+.pk-home p{color:var(--tinta2);max-width:44ch;margin:0 0 18px}
+.pk-home-v{position:relative;max-width:560px;width:100%;margin-inline:auto}
+.pk-pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pk-pasos li{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;align-items:center;column-gap:10px;padding:10px;background:var(--caja);border:1px solid var(--borde);border-radius:var(--r)}
+.pk-pasos img{grid-row:span 2;width:52px;height:52px;max-width:none;object-fit:contain;transform:scale(1.2)}
+.pk-pasos li>span{font-size:12.5px}
+.pk-pasos li:first-child img{transform:none}
+.pk-pasos b{font:500 26px/1 var(--bodoni)}
+.pk-pasos span{font-size:13px;color:var(--suave);line-height:1.2}
+@media (max-width:560px){.pk-pasos{grid-template-columns:1fr 1fr}}
+@media (min-width:900px){.pk-home-in{grid-template-columns:1fr 1fr;gap:56px}}
+
+/* vista: montar el poke */
+.pk-escena{position:sticky;top:var(--cab);z-index:20;background:var(--fondo);border-bottom:1px solid var(--raya);overflow-x:clip}
+.pk-escena-in{display:grid;grid-template-columns:minmax(0,1fr) min(48vw,30svh,240px);align-items:center;gap:10px;padding:12px 0}
+.pk-escena .rotulo{margin:0;gap:6px}
+.pk-escena .rotulo .firma{font-size:clamp(46px,12.5vw,58px)}
+.pk-escena .rotulo .linea{font-size:11px;letter-spacing:.18em}
+.pk-precio{margin:10px 0 0;font:500 26px/1 var(--bodoni);font-variant-numeric:tabular-nums}
+.pk-precio small{display:block;margin-top:5px;font:400 13px/1.3 var(--sans);color:var(--suave)}
+.pk-pista{margin:8px 0 0;min-height:38px;font-size:13.5px;line-height:1.4;color:var(--suave)}
+.pk-pista.aviso{color:var(--acento);font-weight:700}
+.pk-mesa{padding:18px 0 30px}
+.pk-g{margin:0 0 26px}
+.pk-g-cab{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid var(--linea)}
+.pk-g h2{margin:0;font:500 13px/1.3 var(--bodoni);letter-spacing:.28em;text-transform:uppercase}
+.pk-g-cab span{font-size:13.5px;color:var(--suave);text-align:right;font-variant-numeric:tabular-nums}
+.pk-g-cab span.lleno{color:var(--acento);font-weight:700}
+.pk-ings{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.pk-i{display:flex;flex-direction:column;align-items:center;padding:8px 4px 9px;border:1px solid var(--borde);border-radius:var(--r);background:var(--caja);text-align:center;transition:transform .14s var(--sal),border-color .14s ease-out,background-color .14s ease-out}
+.pk-i:active{transform:scale(.96)}
+.pk-i-f{width:60px;height:60px;display:grid;place-items:center}
+.pk-i-f img{width:100%;height:100%;object-fit:contain;transform:scale(1.3)}
+.pk-i.base .pk-i-f img{transform:none}
+.pk-i-n{margin-top:6px;font-weight:500;font-size:13.5px;line-height:1.15;text-wrap:balance}
+.pk-i-p{margin-top:3px;font-size:12.5px;line-height:1.2;color:var(--suave);font-variant-numeric:tabular-nums}
+.pk-i[aria-pressed="true"]{border-color:var(--salmon);background:rgba(236,138,114,.14);box-shadow:inset 0 0 0 1px var(--salmon)}
+.pk-i[aria-pressed="true"] .pk-i-n{font-weight:700}
+.pk-i[aria-pressed="true"] .pk-i-p{color:var(--acento);font-weight:700}
+.pk-ideas{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.pk-ideas .chip{min-height:44px;font-weight:500;background:var(--caja)}
+.pk-lleva{margin:0;padding:0;list-style:none}
+.pk-lleva li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--raya);font-size:15px}
+.pk-lleva li span:last-child{font-variant-numeric:tabular-nums;color:var(--suave);white-space:nowrap}
+.pk-lleva .total{border-bottom:0;font-weight:700;font-size:17px}
+.pk-lleva .total span:last-child{color:var(--tinta);font-family:var(--bodoni)}
+.pk-acc{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pk-acc .btn{min-height:44px;font-size:15px;padding:0 14px}
+.pk-notas{margin:16px 0 0;font-size:13.5px;line-height:1.5;color:var(--suave)}
+.pk-notas p{margin:0 0 8px}
+.pk-barra{position:sticky;bottom:0;z-index:25;background:var(--cab-fondo);border-top:1px solid var(--borde);padding:10px 0 calc(10px + env(safe-area-inset-bottom))}
+.pk-barra .btn{width:100%;justify-content:space-between;min-height:54px}
+.pk-barra .btn b{font:500 19px/1 var(--bodoni);font-variant-numeric:tabular-nums}
+.pk-barra .btn[disabled]{opacity:.5}
+@media (hover:hover) and (pointer:fine){.pk-i:hover{border-color:var(--suave)}.pk-i[aria-pressed="true"]:hover{border-color:var(--salmon)}}
+@media (min-width:560px){.pk-ings{grid-template-columns:repeat(auto-fill,minmax(98px,1fr))}}
+@media (min-width:900px){
+  .pk{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:52px;align-items:start;width:min(1160px,100% - 32px);margin-inline:auto}
+  .pk .env{width:100%}
+  .pk-escena{border-bottom:0;background:none;top:calc(var(--cab) + 8px)}
+  .pk-escena-in{grid-template-columns:1fr;padding:26px 0 0}
+  .pk-escena .rotulo .firma{font-size:92px}
+  .pk-escena .pk-plato{width:min(100%,calc(100svh - var(--cab) - 300px),440px);margin:8px auto 0}
+  .pk-precio{font-size:32px}.pk-pista{min-height:22px}
+  .pk-mesa{padding-top:34px}
+  .pk-barra{background:none;border-top:0;padding:6px 0 0;position:static}
+}
+
+/* tarjeta: lo nuevo */
+.tb-s{font:700 13px/1 var(--sans);font-variant-numeric:tabular-nums}
+.empuje{display:block;margin-top:10px}
+.empuje i{display:block;height:6px;border-radius:3px;background:rgba(42,38,34,.14);margin-top:6px;overflow:hidden}
+.empuje i b{display:block;height:100%;background:var(--salmon);border-radius:3px}
+.mis-pokes{list-style:none;margin:0;padding:0}
+.mis-pokes li{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 0;border-bottom:1px solid var(--raya);font-size:15px}
+.mis-pokes span{color:var(--suave);font-size:14px;grid-column:1}
+.mis-pokes .acc{grid-column:1/-1;display:flex;gap:6px;align-items:center;margin-top:6px}
+.mis-pokes .btn{min-height:44px;padding:0 14px;font-size:15px}
+.enl{background:none;border:0;padding:0 6px;min-height:44px;color:var(--suave);text-decoration:underline;text-underline-offset:3px;font-size:14px}
+.h-mini{font:500 13px/1.3 var(--bodoni);letter-spacing:.3em;text-transform:uppercase;margin:30px 0 8px}
+
+/* tarjeta en la Wallet (vista previa) */
+.w-btns{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px}
+.w-btns p{width:100%;margin:0;font-size:13.5px;color:var(--suave)}
+.w-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:10px;border:1px solid #000;background:#000;color:#fff;font:600 14px/1.1 var(--sans);transition:transform .14s var(--sal)}
+.w-btn:active{transform:scale(.97)}
+.w-btn svg{width:20px;height:20px;flex:none}
+@keyframes w-in{from{opacity:0}to{opacity:1}}
+.w-fondo{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.58);animation:w-in .2s ease-out}
+.w-dlg{position:fixed;z-index:81;left:50%;top:50%;transform:translate(-50%,-50%);width:min(420px,calc(100% - 24px));max-height:calc(100svh - 24px);overflow:auto;overscroll-behavior:contain;padding:16px;border-radius:16px;background:var(--flota);color:var(--tinta);box-shadow:0 30px 60px -20px rgba(0,0,0,.6);animation:w-in .2s ease-out}
+.w-cab{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.w-cab b{font:700 18px/1.2 var(--sans)}
+.w-tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;margin-bottom:14px;border-radius:10px;background:rgba(128,128,128,.16)}
+.w-tabs button{min-height:40px;border:0;border-radius:8px;background:none;color:var(--suave);font-weight:600}
+.w-tabs button[aria-selected="true"]{background:var(--salmon);color:var(--sobre-salmon);box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.w-vista{padding:16px 14px;border-radius:14px;background:#F2F2F7}
+.w-vista.google{background:#F1F3F4}
+.w-vista-t{margin:0 2px 10px;font:700 22px/1.1 -apple-system,"Segoe UI",Roboto,sans-serif;color:#111}
+.wp{overflow:hidden;color:#fff;background:var(--w-fondo);font-family:-apple-system,"Segoe UI",Roboto,sans-serif;box-shadow:0 12px 26px -14px rgba(0,0,0,.6)}
+.wp small{display:block;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--w-acento)}
+.wp-apple{border-radius:12px}
+.wp-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px}
+.wp-logo{display:flex;align-items:center;gap:8px;min-width:0}
+.wp-hf{text-align:right}
+.wp-hf b{font-size:21px;font-weight:500}
+.wp-strip{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;padding:12px 10px;background:var(--w-strip)}
+.wp-strip span{position:relative;aspect-ratio:1;border-radius:50%;border:1.5px dashed rgba(255,255,255,.55)}
+.wp-strip span.si{border:0}
+.wp-strip span.si>*{position:absolute;inset:0;width:100%;height:100%;border-radius:50%}
+.wp-campos{display:flex;justify-content:space-between;gap:12px;padding:10px 14px}
+.wp-campos b{display:block;font-size:15px;font-weight:500;margin-top:2px}
+.wp-campos div:last-child{text-align:right}
+.wp-qr{width:max-content;margin:6px auto 14px;padding:8px 8px 6px;border-radius:8px;background:#fff;color:#111;text-align:center}
+.wp-qr svg{display:block;width:118px;height:118px}
+.wp-qr code{font-size:11px;letter-spacing:.12em}
+.wp-google{border-radius:20px}
+.wp-g-cab{display:flex;align-items:center;gap:10px;padding:14px 16px 4px;font-size:14px}
+.wp-g-logo{width:32px;height:32px;flex:none;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden}
+.wp-g-tit{padding:6px 16px 4px;font-size:22px}
+.wp-google .wp-qr{margin:10px auto 16px;border-radius:12px;padding:10px 10px 8px}
+.wp-google .wp-strip{padding:14px 12px}
+.w-nota{margin:12px 2px 0;font-size:13.5px;line-height:1.45;color:var(--suave)}
+
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 /* solo versión blanca */
@@ -406,10 +541,10 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
   <div class="env cab-in">
     <a class="marca" href="#inicio" aria-label="Tan'ni Sushi, inicio"><b>Tan'ni</b><span>sushi</span></a>
     <nav class="nav" aria-label="Principal">
-      <a href="#carta">Carta</a><a href="#menus">Menús</a><a href="#locales">Locales</a><a href="#lovers">Tanni Lovers</a>
+      <a href="#carta">Carta</a><a href="#poke">Crea tu poke</a><a href="#menus">Menús</a><a href="#locales">Locales</a><a href="#lovers">Tanni Lovers</a>
     </nav>
     <div class="cab-acc">
-      <a class="cab-btn" href="#tarjeta" aria-label="Mi tarjeta Tanni Lovers"><svg class="ico"><use href="#i-tarjeta"/></svg><span class="txt">Mi tarjeta</span></a>
+      <a class="cab-btn" href="#tarjeta" aria-label="Mi tarjeta Tanni Lovers"><svg class="ico"><use href="#i-tarjeta"/></svg><span class="txt">Mi tarjeta</span><span class="tb-s oculto" id="tb-s"></span></a>
       <a class="cab-btn" href="#pedido" aria-label="Mi pedido"><svg class="ico"><use href="#i-cesta"/></svg><span class="txt">Mi pedido</span><span class="contador oculto" id="contador">0</span></a>
     </div>
   </div>
@@ -429,17 +564,36 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
       <p>Pides aquí y el pedido llega al momento al WhatsApp de tu local. Cada 20 € suma un sello en tu tarjeta Tanni Lovers.</p>
       <div class="hero-btns">
         <a class="btn btn-salmon" href="#carta">Hacer mi pedido</a>
-        <a class="btn btn-borde" href="#menus">Ver menús</a>
+        <a class="btn btn-borde" href="#poke">Crear mi poke</a>
       </div>
       <div class="hero-dato" id="hero-hoy"></div>
     </div>
   </div>
 
+  <section class="bloque pk-home" id="tupoke" aria-labelledby="t-poke">
+    <div class="env pk-home-in">
+      <div>
+        <h2 class="rotulo" id="t-poke"><span class="firma">Tu poke</span><span class="linea">Personalízalo y míralo montarse</span></h2>
+        <p>Eliges tú lo que lleva y lo ves en el cuenco antes de pedirlo. Cada poke lleva una base, una proteína, cinco complementos, tres toppings y dos salsas, y puedes añadir extras.</p>
+        <a class="btn btn-salmon" href="#poke">Crear mi poke</a>
+      </div>
+      <div class="pk-home-v">
+        <ol class="pk-pasos">
+          <li><img src="crea-tu-poke/img/basequinoa.webp" width="900" height="900" alt="" loading="lazy"><b>1</b><span>base</span></li>
+          <li><img src="crea-tu-poke/img/salmon.webp" width="512" height="512" alt="" loading="lazy"><b>1</b><span>proteína</span></li>
+          <li><img src="crea-tu-poke/img/aguacate.webp" width="512" height="512" alt="" loading="lazy"><b>5</b><span>complementos</span></li>
+          <li><img src="crea-tu-poke/img/sesamo.webp" width="512" height="512" alt="" loading="lazy"><b>3</b><span>toppings</span></li>
+          <li><img src="crea-tu-poke/img/teriyaki.webp" width="512" height="512" alt="" loading="lazy"><b>2</b><span>salsas</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
   <section class="bloque" aria-labelledby="t-como">
     <div class="env">
       <h2 class="rotulo" id="t-como"><span class="firma">Pedir</span><span class="linea">En tres pasos, sin llamar</span></h2>
       <ol class="pasos">
-        <li><b>Elige en la carta</b><span>Los 95 platos y los menús, con sus precios de siempre.</span></li>
+        <li><b>Elige en la carta</b><span>Los 95 platos, los menús y tu poke a tu gusto.</span></li>
         <li><b>Recoger o a casa</b><span>En tu local o con nuestros repartidores, a la hora que quieras.</span></li>
         <li><b>Llega a tu local</b><span>El pedido entra en su WhatsApp y empiezan a prepararlo.</span></li>
       </ol>
@@ -475,9 +629,11 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
           <li>Cada 20 € de pedido, un sello. Con 10 sellos, 10 € de descuento.</li>
           <li>Si pagas en la web, el sello se suma solo.</li>
           <li>Si pagas al recoger, enseñas tu código QR en el local y te lo marcan.</li>
+          <li>Guardas tus pokes favoritos y los repites con un toque.</li>
           <li>Entras solo con tu teléfono. Sin contraseñas.</li>
         </ul>
         <a class="btn btn-salmon" href="#tarjeta">Crear mi tarjeta</a>
+        <div id="w-portada"></div>
       </div>
       <div class="carton">
         <img src="fotos/tarjetas-carton.webp" width="900" height="1126" loading="lazy" alt="Tarjetas Tanni Lovers de cartón con las casillas para los sellos">
@@ -533,6 +689,9 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
 <!-- ===================== FICHA ===================== -->
 <section class="vista" id="v-plato" data-vista="plato"><div class="env ficha" id="ficha"></div></section>
 
+<!-- ===================== CREA TU POKE ===================== -->
+<section class="vista" id="v-poke" data-vista="poke"><div id="poke"></div></section>
+
 <!-- ===================== PEDIDO ===================== -->
 <section class="vista" id="v-pedido" data-vista="pedido"><div class="env pedido" id="pedido"></div></section>
 
@@ -559,7 +718,7 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
       <div><h4>Crevillente</h4><p>C/ Manuel Broseta Pont, 4</p><p><a href="tel:+34601672928">601 67 29 28</a></p></div>
     </div>
     <p style="margin-top:26px">Eventos: <a href="mailto:tannisushinfo@gmail.com">tannisushinfo@gmail.com</a> · <a href="#caja">Modo local (para el equipo)</a></p>
-    <p class="aviso-maqueta">Maqueta de demostración preparada por Innovarte para Tan'ni Sushi. Los pedidos, pagos y sellos de esta página son de prueba y no se envían a nadie. Carta y precios copiados de la carta de Tan'ni (noviembre 2026); alérgenos pendientes de confirmar con el restaurante.</p>
+    <p class="aviso-maqueta">Maqueta de demostración preparada por Innovarte para Tan'ni Sushi. Los pedidos, pagos y sellos de esta página son de prueba y no se envían a nadie. Carta y precios copiados de la carta de Tan'ni (noviembre 2026); el precio del poke a tu gusto y de sus extras es de ejemplo; alérgenos pendientes de confirmar con el restaurante. Las imágenes de los ingredientes del poke están creadas por ordenador.</p>
   </div>
 </footer>
 
@@ -596,7 +755,7 @@ const ZONAS=[
 const CATS=[
   {id:'menus',t:'Menús'},{id:'entrantes',t:'Entrantes'},{id:'tartares',t:'Tartares, tatakis y sashimis'},
   {id:'tacos',t:'Tacos',s:'2 unidades'},{id:'baos',t:'Baos',s:'2 unidades'},{id:'caliente',t:'Caliente',s:'Huevo +1,50 €'},
-  {id:'pokes',t:'Pokes',s:'Base de arroz · añade sushi +1,50 €'},{id:'hosomakis',t:'Hosomakis',s:'8 piezas · el pequeñito de un ingrediente'},
+  {id:'pokes',t:'Pokes',s:'Base de arroz · añade sushi +1,50 € · o créalo a tu gusto'},{id:'hosomakis',t:'Hosomakis',s:'8 piezas · el pequeñito de un ingrediente'},
   {id:'nigiris',t:'Nigiris',s:'2 piezas'},{id:'uramakis',t:'Uramakis'},{id:'futomakis',t:'Futomakis',s:'En tempura +2 €'},{id:'postres',t:'Postres'}
 ];
 const EXTRAS={caliente:[['Huevo',1.5]],pokes:[['Añadir sushi',1.5]],hosomakis:[['Otro ingrediente',1.5],['Tempura y panko',2]],futomakis:[['En tempura',2]]};
@@ -706,6 +865,7 @@ let pref=leer('tn_pref',{modo:'recoger',local:'elche',zona:'elche'});
 const total=()=>cesta.reduce((s,l)=>s+l.u*l.q,0);
 const piezas=()=>cesta.reduce((s,l)=>s+l.q,0);
 function guardarCesta(){guardar('tn_cesta',cesta);pintarContador()}
+function sellosCab(){const e=$('#tb-s');if(!e)return;e.classList.toggle('oculto',!cuenta);if(cuenta)e.textContent=Math.min(cuenta.sellos,10)+'/10'}
 function pintarContador(){
   const n=piezas(),c=$('#contador');c.textContent=n;c.classList.toggle('oculto',!n);
   c.classList.remove('salta');void c.offsetWidth;c.classList.add('salta');
@@ -727,6 +887,7 @@ function pintarPortada(){
   $('#cats-portada').innerHTML=CATS.map(c=>`<a class="chip" href="#carta/${c.id}">${esc(c.t)}</a>`).join('');
   $('#locales-lista').innerHTML=ORDEN_LOC.map(id=>{const L=LOCALES[id];return `<article class="local"><img src="fotos/${L.foto}.webp" width="900" height="676" loading="lazy" alt="Local de Tan'ni en ${L.nombre}"><div><h3>${L.nombre}</h3><p>${esc(L.dir)}</p><p><span class="estado ${abierto(id)?'abierto':''}">${abierto(id)?'Abierto ahora':'Cerrado ahora'}</span> · ${textoHoy(id)}</p><p>Google: ${L.nota}</p><div class="acc"><a class="btn btn-salmon" href="#local/${id}">Ver local</a><a class="btn btn-borde" href="tel:+34${L.tel}">Llamar</a></div></div></article>`}).join('');
   $('#hero-hoy').innerHTML='<span>Hoy:</span>'+ORDEN_LOC.map(id=>`<span><b>${LOCALES[id].nombre}</b> ${abierto(id)?'abierto ahora':(textoHoy(id)==='Hoy cerrado'?'cerrado':textoHoy(id))}</span>`).join('');
+  $('#w-portada').innerHTML=walletBotones('Y llévala en la Wallet de tu móvil:');
   $('#tarjeta-muestra').innerHTML=htmlTarjeta({nombre:'Tu nombre',sellos:7});
 }
 function htmlTarjeta(c,nuevos=0){
@@ -736,13 +897,20 @@ function htmlTarjeta(c,nuevos=0){
   <div class="tarjeta-pie"><span>${s} de 10 sellos</span><span>${s>=10?'Tienes 10 € de descuento':'Te faltan '+(10-s)}</span></div>`;
 }
 
+function empuje(importe){ /* cuánto falta para el siguiente sello */
+  if(importe<=0)return '';const resto=importe%20,falta=20-resto;
+  if(resto===0)return '';
+  return `<span class="empuje">Te faltan <b>${eur(falta)}</b> para otro sello.<i><b style="width:${Math.round(resto/20*100)}%"></b></i></span>`;
+}
+
 /* ---------- carta ---------- */
 function pintarCarta(catId){
   $('#cats').innerHTML=CATS.map(c=>`<a class="chip" href="#carta/${c.id}" ${c.id===catId?'aria-current="true"':''}>${esc(c.t)}</a>`).join('');
   $('#carta-local').textContent=pref.modo==='recoger'?`Pides para recoger en ${LOCALES[pref.local].nombre}. Lo cambias al terminar el pedido.`:`Pides a domicilio: ${ZONAS.find(z=>z.id===pref.zona).t}. Lo cambias al terminar el pedido.`;
-  $('#carta-lista').innerHTML=CATS.map(c=>`<section class="cat-sec" id="cat-${c.id}" aria-labelledby="h-${c.id}"><h2 id="h-${c.id}">${esc(c.t)}${c.s?`<small>${esc(c.s)}</small>`:''}</h2><ul class="filas">${CARTA.filter(p=>p.cat===c.id).map(fila).join('')}</ul></section>`).join('');
+  $('#carta-lista').innerHTML=CATS.map(c=>`<section class="cat-sec" id="cat-${c.id}" aria-labelledby="h-${c.id}"><h2 id="h-${c.id}">${esc(c.t)}${c.s?`<small>${esc(c.s)}</small>`:''}</h2><ul class="filas">${c.id==='pokes'?filaPoke():''}${CARTA.filter(p=>p.cat===c.id).map(fila).join('')}</ul></section>`).join('');
   if(catId){const el=$('#cat-'+catId);if(el)requestAnimationFrame(()=>el.scrollIntoView())}
 }
+function filaPoke(){return `<li class="fila"><img class="fila-foto" src="crea-tu-poke/img/basearroz.webp" width="56" height="56" loading="lazy" alt="" style="object-fit:contain"><a class="fila-info" href="#poke"><span class="fila-nom">Poke a tu gusto</span><span class="fila-tag">Nuevo</span><span class="fila-desc">Elige base, proteína, 5 complementos, 3 toppings y 2 salsas, y míralo montarse.</span></a><span class="fila-precio"><small>desde</small>${eur(PK_PRECIO)}</span><a class="mas" href="#poke" aria-label="Crear mi poke">${ico('mas')}</a></li>`}
 function fila(p){
   const precio=p.var?`<small>desde</small>${eur(p.var[0][1])}`:eur(p.precio);
   const izq=p.foto?`<img class="fila-foto" src="fotos/${p.foto}.webp" width="56" height="56" loading="lazy" alt="">`:`<span class="fila-num">${typeof p.n==='number'?p.n:''}</span>`;
@@ -792,6 +960,152 @@ function pintarPlato(s){
   calc();
 }
 
+/* ---------- crea tu poke (regla del folleto de la marca: 1 base, 1 proteína, 5 complementos, 3 toppings, 2 salsas) ---------- */
+const PK_PRECIO=9.5; /* DE EJEMPLO: Tanni tiene que decir el precio del poke a tu gusto y de los extras */
+const PK_G=[
+  {id:'base',t:'Base',uno:'base',incl:1,max:1,extra:0},
+  {id:'prot',t:'Proteína',uno:'proteína',incl:1,max:2,extra:3},
+  {id:'comp',t:'Complementos',uno:'complemento',incl:5,max:7,extra:1},
+  {id:'top',t:'Toppings',uno:'topping',incl:3,max:5,extra:.5},
+  {id:'salsa',t:'Salsas',uno:'salsa',incl:2,max:3,extra:.5}
+];
+const PK_I=[
+  ['arrozsushi','base','Arroz de sushi','basearroz'],['arroz','base','Arroz','basearroz'],['quinoa','base','Quinoa','basequinoa'],['couscous','base','Cous-cous','basecouscous'],
+  ['salmon','prot','Salmón'],['katsu','prot','Pollo empanado'],['atun','prot','Atún'],['tofu','prot','Tofu'],['langostinos','prot','Langostino en tempura'],
+  ['edamame','comp','Edamame'],['wakame','comp','Wakame'],['cherryconfitado','comp','Cherry confitado'],['aguacate','comp','Aguacate'],['maiz','comp','Maíz'],['quesocrema','comp','Queso crema'],['mango','comp','Mango'],['pepino','comp','Pepino'],['pina','comp','Piña'],
+  ['cebollacrispy','top','Cebolla crunchy'],['cebollaroja','top','Cebolla roja'],['picodegallo','top','Pico de gallo'],['sesamo','top','Sésamo'],['hueva','top','Hueva'],['nori','top','Alga nori'],
+  ['teriyaki','salsa','Teriyaki'],['mayokimche','salsa','Mayokimche'],['sweet','salsa','Sweet chilly'],['sweetmayo','salsa','Sweet mayo'],['barbacoa','salsa','Barbacoa']
+].map(([id,g,n,img],o)=>({id,g,n,img:img||id,o}));
+const PKI=Object.fromEntries(PK_I.map(i=>[i.id,i])), PKG=Object.fromEntries(PK_G.map(g=>[g.id,g]));
+const PK_IDEAS=[
+  ['Como el de salmón',{base:'arrozsushi',sel:['salmon','wakame','cherryconfitado','aguacate','edamame','quesocrema','teriyaki']}],
+  ['Como el de atún',{base:'arrozsushi',sel:['atun','wakame','maiz','cherryconfitado','aguacate','edamame','sweetmayo']}],
+  ['Vegano',{base:'quinoa',sel:['tofu','edamame','wakame','cherryconfitado','aguacate','pepino','sesamo','nori','teriyaki']}],
+  ['Empezar de cero',{base:'arrozsushi',sel:[]}]
+];
+let pk={base:'arrozsushi',sel:[]};
+const pkMin=s=>s.charAt(0).toLowerCase()+s.slice(1);
+const pkDel=(st,g)=>st.sel.filter(id=>PKI[id].g===g);
+const pkCod=st=>st.base+'/'+st.sel.join('.');
+function pkDe(c){const [b,l]=String(c||'').split('/');const st={base:PKI[b]&&PKI[b].g==='base'?b:'arrozsushi',sel:[]};
+  (l||'').split('.').forEach(id=>{const i=PKI[id];if(i&&i.g!=='base'&&!st.sel.includes(id)&&pkDel(st,i.g).length<PKG[i.g].max)st.sel.push(id)});
+  st.sel.sort((x,y)=>PKI[x].o-PKI[y].o);return st}
+function pkPrecioDe(st){return Math.round((PK_PRECIO+PK_G.reduce((t,g)=>t+Math.max(0,pkDel(st,g.id).length-g.incl)*g.extra,0))*100)/100}
+function pkNombre(st){const p=pkDel(st,'prot');return p.length?p.map(id=>pkMin(PKI[id].n)).join(' y '):'verduras'}
+function pkDetalle(st){const t=['Base de '+pkMin(PKI[st.base].n)];PK_G.slice(1).forEach(g=>{const l=pkDel(st,g.id);if(l.length)t.push(g.t+': '+l.map(id=>pkMin(PKI[id].n)).join(', '))});return t.join(' · ')}
+
+/* el cuenco: proteínas y complementos en montones, toppings más pequeños por encima y las salsas en hilo */
+function pkReparto(n,R){
+  if(n===0)return{m:0,k:0,d:0};if(n===1)return{m:1,k:0,d:R*.98};
+  for(let d=R*.86;d>R*.2;d-=R*.01){for(const m of [1,0,2,3,4]){const k=n-m;if(k<2)continue;const ro=R-d/2;
+    if(2*ro*Math.sin(Math.PI/k)<d*.9)continue;if(m===1&&ro<d*.9)continue;
+    if(m>=2&&ro-d*.9/(2*Math.sin(Math.PI/m))<d*.86)continue;return{m,k,d}}}
+  return{m:0,k:n,d:R*.2};
+}
+function pkPintar(root,st){
+  if(!root)return;const R=.395,cu=root.querySelector('.pk-cuenco'),src='crea-tu-poke/img/'+PKI[st.base].img+'.webp';
+  if(cu.getAttribute('src')!==src)cu.setAttribute('src',src);
+  const capa=root.querySelector('.pk-m'),anillo=st.sel.filter(id=>PKI[id].g==='prot'||PKI[id].g==='comp'),tops=pkDel(st,'top');
+  const {m,k,d}=pkReparto(anillo.length,R),ro=R-d/2,ri=m>=2?d*.9/(2*Math.sin(Math.PI/m)):0;
+  const sitios=[];
+  anillo.forEach((id,i)=>{let x=.5,y=.5,a=0;
+    if(i<m){if(m>=2){a=-Math.PI/2+Math.PI/m+i*2*Math.PI/m;x+=ri*Math.cos(a);y+=ri*Math.sin(a)}}
+    else{a=-Math.PI/2+(i-m)*2*Math.PI/k;x+=ro*Math.cos(a);y+=ro*Math.sin(a)}
+    sitios.push({id,x,y,d,a,z:i<m?30:10+i})});
+  const dt=anillo.length?Math.max(.13,Math.min(.2,d*.62)):.26,rt=anillo.length>1?(m?R*.52:R*.3):(anillo.length?R*.62:R*.5);
+  tops.forEach((id,i)=>{const a=-Math.PI/2+Math.PI/5+i*2*Math.PI/Math.max(tops.length,3);
+    sitios.push({id,x:.5+rt*Math.cos(a),y:.5+rt*Math.sin(a),d:dt,a,z:50+i})});
+  const vivos=new Set(sitios.map(s=>s.id));
+  sitios.forEach(s=>{
+    let img=capa.querySelector('[data-k="'+s.id+'"]');
+    const giro=s.a*180/Math.PI+90+(s.id.charCodeAt(0)*37+s.id.length*61)%360;
+    const t=e=>'translate(-50%,-50%) rotate('+giro.toFixed(0)+'deg) scale('+e+')';
+    const pon=()=>{img.style.left=(s.x*100)+'%';img.style.top=(s.y*100)+'%';img.style.width=(s.d/.66*100)+'%';img.style.zIndex=s.z};
+    if(!img){img=new Image();img.className='pk-mon';img.alt='';img.width=512;img.height=512;img.dataset.k=s.id;img.src='crea-tu-poke/img/'+PKI[s.id].img+'.webp';
+      pon();img.style.opacity='0';img.style.transform=t(.6);capa.appendChild(img);img.getBoundingClientRect()}
+    pon();img.style.opacity='1';img.style.transform=t(1);
+  });
+  capa.querySelectorAll('.pk-mon').forEach(img=>{if(vivos.has(img.dataset.k)||!img.dataset.k)return;img.dataset.k='';img.style.opacity='0';setTimeout(()=>img.remove(),230)});
+  const cs=root.querySelector('.pk-s');
+  PK_I.filter(i=>i.g==='salsa').forEach((i,n)=>{let e=cs.querySelector('[data-id="'+i.id+'"]');const va=st.sel.includes(i.id);
+    if(!e){if(!va)return;e=new Image();e.className='pk-sal';e.alt='';e.width=512;e.height=512;e.dataset.id=i.id;e.src='crea-tu-poke/img/'+i.img+'.webp';e.style.rotate=(n*67+20)+'deg';cs.appendChild(e);e.getBoundingClientRect()}
+    e.classList.toggle('puesta',va)});
+}
+
+function pintarPoke(a,b){
+  const c=$('#poke');
+  if(a)pk=pkDe(a+'/'+(b||''));
+  if(!c.firstChild){
+    c.innerHTML=`<div class="pk"><section class="pk-escena" aria-label="Tu poke"><div class="env pk-escena-in">
+      <div><h1 class="rotulo"><span class="firma">Tu poke</span><span class="linea">Como a ti te gusta</span></h1>
+        <p class="pk-precio"><span id="pk-precio"></span><small id="pk-nombre"></small></p>
+        <p class="pk-pista" id="pk-pista" role="status" aria-live="polite"></p></div>
+      <div class="pk-plato" id="pk-plato"><img class="pk-cuenco" src="crea-tu-poke/img/basearroz.webp" width="900" height="900" alt="Tu poke en su envase, visto desde arriba"><div class="pk-m" aria-hidden="true"></div><div class="pk-s" aria-hidden="true"></div></div>
+    </div></section>
+    <section class="pk-mesa"><div class="env">
+      <div class="pk-ideas" role="group" aria-label="Ideas para empezar">${PK_IDEAS.map((x,i)=>`<button class="chip" type="button" data-pkidea="${i}">${x[0]}</button>`).join('')}</div>
+      <div id="pk-grupos">${PK_G.map(g=>`<div class="pk-g"><div class="pk-g-cab"><h2>${g.t}</h2><span id="pk-c-${g.id}"></span></div><div class="pk-ings">${PK_I.filter(i=>i.g===g.id).map(i=>`<button class="pk-i ${g.id==='base'?'base':''}" type="button" data-pk="${i.id}" aria-pressed="false"><span class="pk-i-f"><img src="crea-tu-poke/img/${i.img}.webp" width="512" height="512" alt="" loading="lazy"></span><span class="pk-i-n">${i.n}</span><span class="pk-i-p"></span></button>`).join('')}</div></div>`).join('')}</div>
+      <div class="pk-g"><div class="pk-g-cab"><h2>Tu poke lleva</h2><span></span></div><ul class="pk-lleva" id="pk-lleva"></ul>
+        <div class="pk-acc"><button class="btn btn-borde" type="button" data-pkacc="guardar">Guardar en mi tarjeta</button><button class="btn btn-borde" type="button" data-pkacc="copiar">Copiar el enlace</button></div>
+        <div class="pk-notas"><p><b>Alérgenos:</b> pendientes de que el restaurante los confirme. Si tienes alguna alergia, dínoslo en las notas del pedido.</p><p>El precio del poke a tu gusto y de los extras es de ejemplo en esta demostración.</p></div></div>
+      <div class="pk-barra"><button class="btn btn-salmon" type="button" data-pkacc="anadir" id="pk-anadir"><span>Añadir al pedido</span><b id="pk-total"></b></button></div>
+    </div></section></div>`;
+  }
+  pkRefrescar();
+}
+function pkRefrescar(aviso){
+  const total=pkPrecioDe(pk);
+  PK_G.forEach(g=>{const n=g.id==='base'?1:pkDel(pk,g.id).length,e=$('#pk-c-'+g.id);
+    e.textContent=g.id==='base'?'Elige una':(n<=g.incl?`${n} de ${g.incl} incluidos`:`${g.incl} incluidos + ${n-g.incl} extra`)+(g.extra&&n>=g.incl&&n<g.max?` · otro +${eur(g.extra)}`:'');
+    e.classList.toggle('lleno',n>=g.incl&&g.id!=='base')});
+  $$('#pk-grupos .pk-i').forEach(b=>{const i=PKI[b.dataset.pk],g=PKG[i.g],l=pkDel(pk,i.g),va=i.g==='base'?pk.base===i.id:pk.sel.includes(i.id);
+    b.setAttribute('aria-pressed',String(va));
+    const pos=l.indexOf(i.id);let et;
+    if(i.g==='base')et=va?'elegida':'';
+    else if(va)et=pos>=g.incl?'extra +'+eur(g.extra):'incluido';
+    else et=l.length>=g.max?'no caben más':l.length>=g.incl?'+'+eur(g.extra):'incluido';
+    b.querySelector('.pk-i-p').textContent=et});
+  const filas=[`<li><span>Poke a tu gusto · base de ${pkMin(PKI[pk.base].n)}</span><span>${eur(PK_PRECIO)}</span></li>`];
+  PK_G.slice(1).forEach(g=>{const l=pkDel(pk,g.id);if(!l.length)return;const ex=Math.max(0,l.length-g.incl);
+    filas.push(`<li><span>${g.t}: ${l.map(id=>pkMin(PKI[id].n)).join(', ')}</span><span>${ex?'+'+eur(ex*g.extra):'incluido'}</span></li>`)});
+  filas.push(`<li class="total"><span>Total</span><span>${eur(total)}</span></li>`);
+  $('#pk-lleva').innerHTML=filas.join('');
+  $('#pk-precio').textContent=$('#pk-total').textContent=eur(total);
+  $('#pk-nombre').textContent='Poke de '+pkNombre(pk)+' · precio de ejemplo';
+  $('#pk-anadir').disabled=!pk.sel.length;
+  if(!aviso){const f=PK_G.slice(1).map(g=>[g,g.incl-pkDel(pk,g.id).length]).find(x=>x[1]>0);
+    pkPista(!pk.sel.length?'Toca lo que quieras: va cayendo en el cuenco.':f?`Te ${f[1]===1?'queda':'quedan'} ${f[1]} ${f[1]===1?f[0].uno:f[0].t.toLowerCase()} por elegir, ya ${f[1]===1?'incluido':'incluidos'} en el precio.`:'Completo. Puedes añadir extras o pedirlo ya.')}
+  pkPintar($('#pk-plato'),pk);
+  try{history.replaceState(null,'','#poke/'+pkCod(pk));rutaActual='poke/'+pkCod(pk)}catch(_){}
+}
+function pkPista(t,aviso){const e=$('#pk-pista');if(!e)return;e.textContent=t;e.classList.toggle('aviso',!!aviso)}
+function pkClick(e){
+  const b=e.target.closest('[data-pk]');
+  if(b){const i=PKI[b.dataset.pk],g=PKG[i.g];
+    if(i.g==='base'){pk.base=i.id;pkRefrescar();return true}
+    const p=pk.sel.indexOf(i.id);
+    if(p>-1){pk.sel.splice(p,1);pkRefrescar();return true}
+    if(pkDel(pk,i.g).length>=g.max){pkPista(`Máximo ${g.max} ${g.t.toLowerCase()}. Quita ${g.id==='prot'||g.id==='salsa'?'una':'uno'} para cambiar.`,true);return true}
+    pk.sel.push(i.id);pk.sel.sort((x,y)=>PKI[x].o-PKI[y].o);pkRefrescar();return true}
+  const id=e.target.closest('[data-pkidea]');
+  if(id){const st=PK_IDEAS[+id.dataset.pkidea][1];pk={base:st.base,sel:st.sel.slice().sort((x,y)=>PKI[x].o-PKI[y].o)};pkRefrescar();return true}
+  const bo=e.target.closest('[data-pkborra]');
+  if(bo){cuenta.pokes.splice(+bo.dataset.pkborra,1);guardar('tn_cuenta',cuenta);pintarCuenta();return true}
+  const ac=e.target.closest('[data-pkacc]');if(!ac)return false;
+  const a=ac.dataset.pkacc,cod=pkCod(pk);
+  if(a==='anadir'){if(!pk.sel.length)return true;
+    const det=pkDetalle(pk),clave='poke|'+cod,l=cesta.find(x=>x.k===clave);
+    if(l)l.q+=1;else cesta.push({k:clave,slug:'poke-a-tu-gusto',nombre:'Poke a tu gusto',det,u:pkPrecioDe(pk),q:1,poke:cod});
+    guardarCesta();avisar('Tu poke está en el pedido');pkPista('Añadido. Puedes montar otro o ir a tu pedido, arriba.',true)}
+  if(a==='guardar'){if(!cuenta){avisar('Crea tu tarjeta Lovers para guardarlo');location.hash='#tarjeta';return true}
+    if(!pk.sel.length){pkPista('Ponle algo antes de guardarlo.',true);return true}
+    cuenta.pokes=cuenta.pokes||[];if(!cuenta.pokes.includes(cod)){cuenta.pokes.unshift(cod);cuenta.pokes=cuenta.pokes.slice(0,6);guardar('tn_cuenta',cuenta)}
+    avisar('Guardado en tu tarjeta')}
+  if(a==='copiar'){const u=location.href.split('#')[0]+'#poke/'+cod;
+    (navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>avisar('Enlace copiado')).catch(()=>pkPista('Copia la dirección de la barra del navegador: lleva este poke.',true))}
+  return true;
+}
+
 /* ---------- pedido ---------- */
 let pedidoTmp={modo:pref.modo,local:pref.local,zona:pref.zona,pago:'ahora',usar:false};
 function envio(sub){if(pedidoTmp.modo!=='domicilio')return{c:0,t:'—'};const z=ZONAS.find(x=>x.id===pedidoTmp.zona);
@@ -801,11 +1115,11 @@ function localPedido(){return pedidoTmp.modo==='recoger'?pedidoTmp.local:ZONAS.f
 function pintarPedido(){
   const sub=total();const env=envio(sub);const loc=localPedido();const L=LOCALES[loc];
   const desc=(cuenta&&cuenta.sellos>=10&&pedidoTmp.usar)?Math.min(10,sub):0;const tot=Math.max(0,sub-desc)+env.c;
-  const sellos=Math.floor(Math.max(0,sub-desc)/20);
+  const sellos=Math.floor(Math.max(0,sub-desc)/20);const emp=empuje(Math.max(0,sub-desc));
   const lineas=cesta.length?cesta.map((l,k)=>`<div class="linea-p"><div><div class="ln">${esc(l.nombre)}</div>${l.det?`<div class="ld">${esc(l.det)}</div>`:''}</div><div class="lp">${eur(l.u*l.q)}</div><div class="cantidad"><button type="button" data-lin="${k}" data-d="-1" aria-label="Quitar uno de ${esc(l.nombre)}">${ico('menos')}</button><output>${l.q}</output><button type="button" data-lin="${k}" data-d="1" aria-label="Añadir uno de ${esc(l.nombre)}">${ico('mas')}</button></div></div>`).join(''):`<p class="vacio">Aún no has elegido nada.</p><a class="btn btn-salmon" href="#carta">Ir a la carta</a>`;
   const hs=horas(loc);
-  const lovers=cuenta?`<div class="lovers-caja"><b>${esc(cuenta.nombre.split(' ')[0])}, llevas ${Math.min(cuenta.sellos,10)} de 10 sellos.</b><br>Este pedido suma <b>${sellos} ${sellos===1?'sello':'sellos'}</b> ${pedidoTmp.pago==='ahora'?'al pagar.':'cuando enseñes tu QR '+(pedidoTmp.modo==='recoger'?'en el local.':'al repartidor.')}${cuenta.sellos>=10?`<label><input type="checkbox" id="usar" ${pedidoTmp.usar?'checked':''}> Usar mis 10 € de descuento</label>`:''}</div>`
-    :`<div class="lovers-caja">Este pedido son <b>${sellos} ${sellos===1?'sello':'sellos'}</b> Tanni Lovers. <a href="#tarjeta">Entra con tu teléfono</a> para que se sumen.</div>`;
+  const lovers=cuenta?`<div class="lovers-caja"><b>${esc(cuenta.nombre.split(' ')[0])}, llevas ${Math.min(cuenta.sellos,10)} de 10 sellos.</b><br>Este pedido suma <b>${sellos} ${sellos===1?'sello':'sellos'}</b> ${pedidoTmp.pago==='ahora'?'al pagar.':'cuando enseñes tu QR '+(pedidoTmp.modo==='recoger'?'en el local.':'al repartidor.')}${cuenta.sellos>=10?`<label><input type="checkbox" id="usar" ${pedidoTmp.usar?'checked':''}> Usar mis 10 € de descuento</label>`:''}${emp}</div>`
+    :`<div class="lovers-caja">Este pedido son <b>${sellos} ${sellos===1?'sello':'sellos'}</b> Tanni Lovers. <a href="#tarjeta">Entra con tu teléfono</a> para que se sumen.${emp}</div>`;
   $('#pedido').innerHTML=`<h1 class="rotulo"><span class="firma">Tu pedido</span><span class="linea">Llega al WhatsApp de Tan'ni ${L.nombre}</span></h1>
   <div class="pedido-grid"><form id="form-pedido" novalidate>
    <div class="paso"><h2><i>01</i> Lo que llevas</h2>${lineas}</div>
@@ -889,7 +1203,7 @@ function pintarHecho(){
 /* ---------- tarjeta (cuenta) ---------- */
 let pasoCuenta='datos',tmpCuenta={};
 function pintarCuenta(){
-  const c=$('#cuenta');
+  const c=$('#cuenta');sellosCab();
   if(!cuenta){
     c.innerHTML=`<div><h1 class="rotulo"><span class="firma">Lovers</span><span class="linea">Crea tu tarjeta en un minuto</span></h1><p style="color:var(--tinta2);max-width:42ch">Cada 20 € de pedido, un sello. Con 10 sellos, 10 € de descuento en tu siguiente pedido. Sirve en los tres locales.</p><div class="tarjeta" style="max-width:380px;margin-top:20px" aria-hidden="true">${htmlTarjeta({nombre:'Tu nombre',sellos:0})}</div></div>
     <form class="form-cuenta paso" id="form-cuenta" novalidate>${pasoCuenta==='datos'?`<h2><i>01</i> Tus datos</h2>
@@ -906,19 +1220,22 @@ function pintarCuenta(){
   c.innerHTML=`<div><h1 class="rotulo"><span class="firma">Hola, ${esc(cuenta.nombre.split(' ')[0])}</span><span class="linea">Tu tarjeta Tanni Lovers</span></h1>
     <div class="tarjeta">${htmlTarjeta(cuenta)}</div>
     ${cuenta.pend?`<p class="nota-demo">Pendiente: pedido #${cuenta.pend.num} (${eur(cuenta.pend.importe)}). Enseña tu QR al recogerlo y se suman sus sellos.</p>`:''}
-    <h2 style="font:500 13px/1.3 var(--bodoni);letter-spacing:.3em;text-transform:uppercase;margin:30px 0 8px">Movimientos</h2>
+    <h2 class="h-mini">Mis pokes</h2>${misPokes()}<h2 class="h-mini">Movimientos</h2>
     <ul class="historial">${cuenta.hist.length?cuenta.hist.map(h=>`<li><span>${esc(h.t)}</span><span>${esc(h.s)}</span></li>`).join(''):'<li><span>Aún no hay movimientos.</span><span></span></li>'}</ul>
     <button class="btn btn-borde" style="margin-top:20px" data-cuenta="salir">Salir</button></div>
   <div><div class="qr"><div style="font-weight:700">Enséñalo al pagar en el local</div><div id="qr-svg" aria-label="Código QR de tu tarjeta"></div><code>${qrCod}</code><p style="font-size:14px;color:#6B635A;margin:10px 0 0">El local lo escanea y te marca los sellos de ese pedido.</p></div>
+  ${walletBotones('Guárdala también en tu móvil y ábrela sin entrar en la web:')}
   <p class="nota-demo">Para probarlo en la reunión: abre <a href="#caja">Modo local</a> y «escanea» este QR.</p></div>`;
   pintarQR(qrCod);
 }
+function misPokes(){const l=(cuenta&&cuenta.pokes)||[];if(!l.length)return '<p style="color:var(--suave);margin:0">Aún no has guardado ninguno. <a href="#poke">Crea tu poke</a> y guárdalo aquí para repetirlo.</p>';
+  return '<ul class="mis-pokes">'+l.map((c,i)=>{const st=pkDe(c);return `<li><b>Poke de ${esc(pkNombre(st))}</b><span>${esc(pkDetalle(st))}</span><div class="acc"><a class="btn btn-salmon" href="#poke/${c}">Repetir</a><button class="enl" type="button" data-pkborra="${i}">Quitar</button></div></li>`}).join('')+'</ul>'}
 function pintarQR(t){const el=$('#qr-svg');if(!el)return;if(window.qrcode){const q=qrcode(0,'M');q.addData(t);q.make();el.innerHTML=q.createSvgTag({cellSize:5,margin:2,scalable:true})}else setTimeout(()=>pintarQR(t),300)}
 
 /* ---------- modo local ---------- */
 let cajaEstado={};
 function pintarCaja(){
-  const c=$('#caja');const cli=cajaEstado.leido&&cuenta;
+  const c=$('#caja');sellosCab();const cli=cajaEstado.leido&&cuenta;
   c.innerHTML=`<h1 class="rotulo"><span class="firma">Local</span><span class="linea">Marcar sellos · para el equipo</span></h1>
   <p style="color:var(--tinta2)">Pantalla para el móvil o la tablet del local. Se escanea el QR del cliente y se marcan los sellos del pedido.</p>
   <label class="campo">Local<select id="caja-local">${ORDEN_LOC.map(id=>`<option value="${id}" ${id===(cajaEstado.local||'elche')?'selected':''}>${LOCALES[id].nombre}</option>`).join('')}</select></label>
@@ -930,6 +1247,7 @@ function pintarCaja(){
      <button class="btn btn-borde btn-ancho" style="margin-top:8px" data-caja="otro">Escanear otro cliente</button></div>`
   :`<div class="visor"><span>Aquí se abre la cámara del móvil del local</span></div>
      <button class="btn btn-salmon" data-caja="leer">Escanear QR (demostración)</button>
+     <label class="campo">O teclea el teléfono del cliente<input id="caja-tel" type="tel" inputmode="tel" placeholder="Para pedidos por WhatsApp o teléfono"></label><button class="btn btn-borde" style="margin-top:10px" data-caja="tel">Buscar su tarjeta</button>
      <p class="nota-demo">${cuenta?`Leerá la tarjeta de prueba de ${esc(cuenta.nombre)}.`:'Primero crea una tarjeta de prueba en <a href="#tarjeta">Mi tarjeta</a>.'}</p>`}`;
 }
 
@@ -949,6 +1267,40 @@ function pintarLocal(id){
   </div></div>`;
 }
 
+const WALLET={nombre:"Tan'ni Sushi",fondo:'#181716',strip:'#2A2927',acento:'#EC8A72',
+  logo:'<span style="font:400 36px/.8 var(--script);color:#EC8A72;padding-bottom:4px">Tan\'ni</span><span style="font:500 9px/1 var(--bodoni);letter-spacing:.3em">SUSHI</span>',
+  gLogo:'<span style="font:400 26px/1 var(--script);color:#C24E36;padding-top:4px">T</span>',
+  sello:'<span style="background:#EC8A72;display:grid;place-items:center"><svg viewBox="0 0 24 24" style="width:62%;height:62%"><use href="#i-palillos"/></svg></span>'};
+/* ---------- la tarjeta en la Wallet (vista previa) ---------- */
+const W_ICO='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M16 14.5h2"/><path d="M6 6V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg>';
+function walletBotones(texto){return `<div class="w-btns">${texto?`<p>${texto}</p>`:''}<button class="w-btn" type="button" data-wallet="apple">${W_ICO}Añadir a Apple Wallet</button><button class="w-btn" type="button" data-wallet="google">${W_ICO}Añadir a Google Wallet</button></div>`}
+function walletDatos(){return cuenta?{n:cuenta.nombre,s:Math.min(cuenta.sellos,10),c:'TL-'+cuenta.tel.slice(-4)+'-'+cuenta.id}:{n:'Tu nombre',s:7,c:'TL-0000-DEMO'}}
+function walletQR(t){if(!window.qrcode)return '<div style="width:118px;height:118px"></div>';const q=qrcode(0,'M');q.addData(t);q.make();return q.createSvgTag({cellSize:4,margin:0,scalable:true})}
+function walletSellos(s){return '<div class="wp-strip" role="img" aria-label="'+s+' de 10 sellos">'+Array.from({length:10},(_,i)=>`<span class="${i<s?'si':''}">${i<s?WALLET.sello:''}</span>`).join('')+'</div>'}
+function walletPase(tipo){
+  const d=walletDatos(),qr=`<div class="wp-qr">${walletQR(d.c)}<code>${esc(d.c)}</code></div>`;
+  if(tipo==='google')return `<div class="w-vista google"><p class="w-vista-t">Google Wallet</p><div class="wp wp-google"><div class="wp-g-cab"><span class="wp-g-logo">${WALLET.gLogo}</span><span>${WALLET.nombre}</span></div><div class="wp-g-tit">Tanni Lovers</div><div class="wp-campos"><div><small>Sellos</small><b>${d.s} de 10</b></div><div><small>Socio</small><b>${esc(d.n)}</b></div></div>${qr}${walletSellos(d.s)}</div></div>`;
+  return `<div class="w-vista"><p class="w-vista-t">Cartera</p><div class="wp wp-apple"><div class="wp-top"><span class="wp-logo">${WALLET.logo}</span><span class="wp-hf"><small>Sellos</small><b>${d.s}/10</b></span></div>${walletSellos(d.s)}<div class="wp-campos"><div><small>Socio</small><b>${esc(d.n)}</b></div><div><small>Premio</small><b>10 € con 10 sellos</b></div></div>${qr}</div></div>`;
+}
+function walletPintar(tipo){
+  $('#w-pase').innerHTML=walletPase(tipo);
+  $$('[data-wtab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.wtab===tipo)));
+  $('#w-nota').textContent=tipo==='google'?'En Android se abre desde Google Wallet. Los sellos se ponen al día solos y el móvil avisa con cada sello nuevo.':'En el iPhone se abre con doble clic en el botón lateral, sin entrar en la web. Los sellos se ponen al día solos y el móvil avisa con cada sello nuevo.';
+}
+function walletAbrir(tipo){
+  $('#capa').innerHTML=`<div class="w-fondo" data-cierra></div><div class="w-dlg" role="dialog" aria-modal="true" aria-labelledby="w-tit" style="--w-fondo:${WALLET.fondo};--w-strip:${WALLET.strip};--w-acento:${WALLET.acento}">
+    <div class="w-cab"><b id="w-tit">Tu tarjeta Lovers en el móvil</b><button class="cerrar" type="button" data-cierra aria-label="Cerrar">${ico('x')}</button></div>
+    <div class="w-tabs" role="tablist" aria-label="Wallet"><button type="button" role="tab" data-wtab="apple">Apple Wallet</button><button type="button" role="tab" data-wtab="google">Google Wallet</button></div>
+    <div id="w-pase"></div><p class="w-nota" id="w-nota"></p>
+    <p class="nota-demo">Demostración: así se vería al guardarla. Para activarla de verdad hay que dar de alta la tarjeta en Apple y en Google.</p></div>`;
+  walletPintar(tipo);$('.w-dlg [data-cierra]').focus();
+}
+function walletClick(e){
+  const w=e.target.closest('[data-wallet]');if(w){walletAbrir(w.dataset.wallet);return true}
+  const t=e.target.closest('[data-wtab]');if(t){walletPintar(t.dataset.wtab);return true}
+  return false;
+}
+
 /* ---------- asistente y WhatsApp ---------- */
 function abrirPanel(tipo){
   const capa=$('#capa');
@@ -963,6 +1315,7 @@ function responder(q){
   const t=q.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
   if(/abr|horar|hora|cerr/.test(t))return ORDEN_LOC.map(id=>`${LOCALES[id].nombre}: ${abierto(id)?'abierto ahora':'cerrado ahora'} (hoy ${textoHoy(id).toLowerCase()})`).join('. ')+'.';
   if(/torrellano|altet|arenales|reparto|domicilio|envio|llev/.test(t))return 'Desde Elche repartimos al casco urbano (gratis desde 20 €; si no, 2 €), Torrellano (gratis desde 30 €) y El Altet y Arenales (gratis desde 50 €). Otras pedanías y los repartos de Aspe y Crevillente, pregunta al local por WhatsApp.';
+  if(/poke|personaliz|a mi gusto|ingrediente/.test(t))return 'Puedes crear tu poke a tu gusto: una base, una proteína, 5 complementos, 3 toppings y 2 salsas, y lo ves montarse en el cuenco. Está en «Crea tu poke».';
   if(/vegan|vegetar/.test(t))return 'Sí: poke vegano de tofu, bao vegano, futomaki vegano, oyaki vegano, tofu-karee y noodles al wok en versión vegana.';
   if(/tarjeta|sello|lovers|punto|descuento/.test(t))return 'Cada 20 € de pedido es un sello. Con 10 sellos tienes 10 € de descuento. Si pagas en la web se suma solo; si pagas en el local, enseñas tu QR desde «Mi tarjeta».';
   if(/alerg|gluten|celiac|intoler/.test(t))return 'Los alérgenos de cada plato los está confirmando el restaurante. Mientras tanto, pregúntalo por WhatsApp al local y escríbelo en las notas del pedido.';
@@ -974,12 +1327,13 @@ function responder(q){
 /* ---------- rutas ---------- */
 const scrolls={};let rutaActual='';
 function ruta(){
-  const h=decodeURIComponent(location.hash.slice(1));const [r,a]=h.split('/');
+  const h=decodeURIComponent(location.hash.slice(1));const [r,a,b]=h.split('/');
   scrolls[rutaActual]=scrollY;
   const anclas=['menus','lovers','locales','eventos'];
   let vista='inicio';
   if(r==='carta'){vista='carta';pintarCarta(a)}
   else if(r==='plato'){vista='plato';pintarPlato(a)}
+  else if(r==='poke'){vista='poke';pintarPoke(a,b)}
   else if(r==='pedido'){vista='pedido';pintarPedido()}
   else if(r==='hecho'){vista='hecho';pintarHecho()}
   else if(r==='tarjeta'){vista='tarjeta';pintarCuenta()}
@@ -993,19 +1347,21 @@ function ruta(){
   else if(vista==='carta'&&a){}
   else if(scrolls[h]!=null&&vista==='carta'){requestAnimationFrame(()=>scrollTo(0,scrolls[h]))}
   else scrollTo(0,0);
-  rutaActual=h;actualizarFlotantes();
+  rutaActual=h;actualizarFlotantes();sellosCab();
 }
 let heroVisible=true;
 function actualizarFlotantes(){
   const v=document.body.dataset.vista;const enHero=v==='inicio'&&heroVisible;
-  const barra=piezas()>0&&!['pedido','hecho','caja','plato'].includes(v);
+  const barra=piezas()>0&&!['pedido','hecho','caja','plato','poke'].includes(v);
   $('#barra').classList.toggle('fuera',!barra||enHero);
-  $('#flotan').classList.toggle('fuera',enHero||['caja','plato','pedido','hecho'].includes(v));
+  $('#flotan').classList.toggle('fuera',enHero||['caja','plato','pedido','hecho','poke'].includes(v));
   $('#flotan').classList.toggle('bajo',!barra||enHero);
 }
 
 /* ---------- eventos ---------- */
 document.addEventListener('click',e=>{
+  if(pkClick(e))return;
+  if(walletClick(e))return;
   const m=e.target.closest('[data-mas]');if(m){const p=BUSCA[m.dataset.mas];if(p.sencillo)anadir(p);else location.hash='#plato/'+p.slug;return}
   const ab=e.target.closest('[data-abre]');if(ab){abrirPanel(ab.dataset.abre);return}
   if(e.target.closest('[data-cierra]')){$('#capa').innerHTML='';return}
@@ -1019,6 +1375,7 @@ document.addEventListener('click',e=>{
   const cj=e.target.closest('[data-caja]');if(cj){const a=cj.dataset.caja;cajaEstado.local=$('#caja-local').value;
     if(a==='leer'){if(!cuenta)return;cajaEstado.leido=true;cajaEstado.nuevos=0}
     if(a==='otro'){cajaEstado.leido=false}
+    if(a==='tel'){const t=($('#caja-tel').value||'').replace(/\D/g,'').replace(/^34/,'');if(!cuenta||t!==cuenta.tel){avisar('No hay ninguna tarjeta con ese teléfono');return}cajaEstado.leido=true;cajaEstado.nuevos=0}
     if(a==='sumar'){const imp=parseFloat(($('#caja-imp').value||'0').replace(',','.'))||0;const s=Math.floor(imp/20);if(!s){avisar('Menos de 20 €: no suma sello');return}
       cuenta.sellos+=s;cuenta.hist.unshift({t:`En el local de ${LOCALES[cajaEstado.local].nombre} · ${eur(imp)}`,s:'+'+s});if(cuenta.pend)delete cuenta.pend;guardar('tn_cuenta',cuenta);cajaEstado.nuevos=s;avisar(`${s} ${s===1?'sello marcado':'sellos marcados'}`)}
     if(a==='canjear'){cuenta.sellos-=10;cuenta.hist.unshift({t:`Descuento de 10 € en ${LOCALES[cajaEstado.local].nombre}`,s:'−10 sellos'});guardar('tn_cuenta',cuenta);cajaEstado.nuevos=0;avisar('Descuento aplicado')}
