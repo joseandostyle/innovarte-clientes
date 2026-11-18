@@ -322,10 +322,10 @@ label.campo{display:block;margin-top:14px;font-weight:600;font-size:15px}
 .flotan.bajo{bottom:max(12px,env(safe-area-inset-bottom))}
 .flot{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--borde);background:var(--flota);color:var(--tinta);box-shadow:0 10px 24px -10px var(--sombra)}
 .flot.wa{background:var(--verde-wa);border-color:var(--verde-wa);color:#fff}
-.flot-gato{width:64px;height:64px;padding:0;border:0;background:none;box-shadow:none;filter:drop-shadow(0 8px 12px rgba(38,38,38,.3));transition:transform .16s var(--sal)}
-.flot-gato img{width:100%;height:auto;transform:rotate(-6deg)}
-.flot-gato:active{transform:scale(.92)}
-@media (hover:hover) and (pointer:fine){.flot-gato:hover{transform:rotate(6deg) scale(1.06)}}
+.flot.flot-ia{width:56px;height:56px;border:0;background:#262626;color:#fff;box-shadow:0 10px 24px -8px rgba(38,38,38,.55);transition:transform .16s var(--sal)}
+.flot-ia svg{width:28px;height:28px}
+.flot-ia:active{transform:scale(.92)}
+@media (hover:hover) and (pointer:fine){.flot-ia:hover{transform:scale(1.06)}}
 .chat-cab{display:flex;align-items:center;gap:10px}
 .chat-cab img{width:52px;height:auto;flex:none;margin:-6px 0 -4px -4px}
 .chat-cab small{display:block;font:400 13px/1.3 var(--sans);color:var(--suave)}
@@ -795,7 +795,7 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
 
 <a class="barra-cesta fuera" id="barra" href="#pedido"><span id="barra-n">Ver mi pedido</span><span id="barra-t">0 €</span></a>
 <div class="flotan fuera" id="flotan">
-  <button class="flot flot-gato" type="button" data-abre="chat" aria-label="Preguntar al gato de Tanni"><img src="marca/gato-feliz.webp" width="331" height="320" alt=""></button>
+  <button class="flot flot-ia" type="button" data-abre="chat" aria-label="Abrir el asistente con IA" title="Asistente con IA"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M5 9.5A3.5 3.5 0 0 1 8.5 6h8A3.5 3.5 0 0 1 20 9.5v6a3.5 3.5 0 0 1-3.5 3.5H11l-4.5 3.5V19A3 3 0 0 1 5 16Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="9.5" cy="12.7" r="1.3" fill="currentColor"/><circle cx="12.5" cy="12.7" r="1.3" fill="currentColor"/><circle cx="15.5" cy="12.7" r="1.3" fill="currentColor"/><path d="M22.5 2.5l.9 2.4 2.4.9-2.4.9-.9 2.4-.9-2.4-2.4-.9 2.4-.9Z" fill="#F36B1C"/><path d="M25 9.5l.45 1.2 1.2.45-1.2.45-.45 1.2-.45-1.2-1.2-.45 1.2-.45Z" fill="#F36B1C"/></svg></button>
   <button class="flot wa" type="button" data-abre="wa" aria-label="Escribir por WhatsApp a un local"><svg class="ico"><use href="#i-wa"/></svg></button>
 </div>
 <div id="capa"></div>
