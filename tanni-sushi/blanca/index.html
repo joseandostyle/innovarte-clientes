@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="fotos/portada-humo.webp">
+<link rel="preload" as="image" href="crea-tu-poke/img/basearroz.webp">
 <style>
 :root{
   /* TEMA: blanco */
@@ -29,7 +29,7 @@
   --cab-fondo:rgba(255,255,255,.94);--cats-fondo:rgba(255,255,255,.96);--hero-rgb:255,255,255;--pie-fondo:#F4F4F4;
   --btn-borde:rgba(17,17,17,.4);--error:#B3261E;--verde-ok:#2E9B63;--burbuja:#F2F2F2;--sombra:rgba(0,0,0,.22);
   --wa-cab:#008069;--wa-cab-tinta:#FFFFFF;--wa-cab-sub:#D5EBE6;--wa-fondo:#EFEAE2;--wa-msg:#FFFFFF;--wa-msg-tinta:#111B21;--wa-hora:#667781;
-  --grano:none;--barra:#000000;--logo:url("marca-alt/logo-negro.webp");
+  --grano:none;--barra:#000000;--aro:#111111;--logo:url("marca-alt/logo-negro.webp");
   /* FIN TEMA */
   --verde-wa:#1F7A4D;
   --cab:60px;--r:6px;--sal:cubic-bezier(0.23,1,0.32,1);
@@ -91,26 +91,35 @@ a{-webkit-tap-highlight-color:transparent}
 .vista{display:none}
 .vista.activa{display:block}
 
-/* HERO */
-.hero{position:relative;min-height:calc(100svh - var(--cab));display:grid;overflow:hidden;background:rgb(var(--hero-rgb))}
-.hero-foto{position:absolute;inset:0}
-.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.hero-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--hero-rgb),.1) 0%,rgba(var(--hero-rgb),0) 30%,rgba(var(--hero-rgb),.82) 62%,rgb(var(--hero-rgb)) 88%)}
-.hero-txt{position:relative;align-self:end;padding:0 16px max(26px,env(safe-area-inset-bottom));width:min(1160px,100%);margin-inline:auto}
-.hero .firma{font:400 clamp(66px,18vw,128px)/.7 var(--script);color:var(--acento);margin:0 0 6px -6px;display:block;padding-bottom:10px}
+/* HERO: el poke que se monta solo, con la marca negro, rojo y blanco */
+.hero{position:relative;min-height:calc(100svh - var(--cab));display:flex;flex-direction:column;overflow:hidden;background:var(--fondo);isolation:isolate}
+.hero::before{content:"";position:absolute;z-index:-1;width:min(118vw,600px);aspect-ratio:150/210;right:-38%;top:34%;background:url("marca-alt/lazo-grande.webp") center/contain no-repeat;transform:rotate(-14deg)}
+.hero-in{flex:1;display:grid;align-content:center;gap:20px;padding:22px 0 20px}
+.hero-txt{position:relative}
 .hero h1 .nw{display:block;white-space:nowrap}
-.hero h1{font:500 clamp(13px,3.5vw,21px)/1.6 var(--bodoni);letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px;max-width:30ch}
-.hero p{margin:0 0 20px;color:var(--tinta2);max-width:40ch;font-size:16px}
+.hero h1{font:700 clamp(13px,3.4vw,19px)/1.6 var(--bodoni);letter-spacing:.12em;text-transform:uppercase;margin:0 0 12px;max-width:32ch}
+.hero p{margin:0 0 18px;color:var(--tinta2);max-width:40ch;font-size:16px}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap}
 .hero-btns .btn{flex:1 1 150px}
-.hero-dato{display:flex;gap:4px 14px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:var(--suave)}
+.hero-dato{display:flex;gap:4px 14px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--suave)}
 .hero-dato b{color:var(--tinta);font-weight:600}
+.hero-vis{position:relative;width:min(78vw,38svh,400px);margin:0 auto;justify-self:center}
+.hero-aro{position:relative;z-index:1;isolation:isolate;aspect-ratio:1;border-radius:50%;background:#fff;border:clamp(10px,3.2vw,20px) solid var(--aro);padding:5%;box-shadow:0 26px 50px -24px rgba(0,0,0,.7)}
+.hero-aro .pk-plato{width:100%}
+.hero-aro .pk-cuenco{filter:drop-shadow(0 6px 8px rgba(0,0,0,.18))}
+.hero-nota{position:relative;z-index:4;margin:-24px auto 0;width:max-content;max-width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;padding:8px 13px;border-radius:8px;background:#fff;color:#111;border:2px solid #111;text-decoration:none;box-shadow:4px 4px 0 var(--salmon);transform:rotate(-2deg);transition:opacity .25s ease-out}
+.hero-nota b{font:700 14px/1.2 var(--script)}
+.hero-nota span{font-size:12.5px;color:#C10F1D;font-weight:600;font-variant-numeric:tabular-nums}
+.hero-nota.cambia{opacity:0}
+@media (max-width:899px){.hero-btns .btn{white-space:nowrap;padding:0 14px;flex:1 1 0}}
+@media (max-height:760px) and (max-width:899px){.hero p{display:none}}
 @media (min-width:900px){
-  .hero{grid-template-columns:1fr 1fr}
-  .hero-foto{position:relative;grid-column:2;grid-row:1}
-  .hero-foto::after{background:linear-gradient(90deg,rgb(var(--hero-rgb)) 0%,rgba(var(--hero-rgb),0) 30%)}
-  .hero-txt{grid-column:1;grid-row:1;align-self:center;padding:40px 0 40px max(16px,calc((100vw - 1160px)/2));margin:0}
+  .hero::before{width:700px;right:-110px;top:-40px}
+  .hero-in{grid-template-columns:1fr 1fr;align-items:center;gap:40px;padding:40px 0}
   .hero-btns .btn{flex:0 0 auto}
+  .hero-vis{width:min(42vw,calc(100svh - var(--cab) - 140px),540px)}
+  .hero-nota{position:absolute;right:-6%;bottom:6%;margin:0;padding:12px 16px;transform:rotate(3deg);align-items:flex-start;text-align:left}
+  .hero-nota b{font-size:16px}.hero-nota span{font-size:14px}
 }
 
 /* bloques de la portada */
@@ -505,11 +514,11 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
 .pie .marca-logo{width:130px;height:51px}
 .cab{border-bottom:0}
 .cab::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--barra) 0 50%,var(--salmon) 50%)}
-.rotulo .firma,.hero .firma,.hecho-txt .firma{font-family:var(--script);font-weight:700;letter-spacing:-.035em;color:var(--tinta);display:flex;align-items:flex-end;flex-wrap:wrap;gap:0 .14em}
-.rotulo .firma::after,.hero .firma::after,.hecho-txt .firma::after{content:"";width:.5em;height:.74em;margin-bottom:.02em;background:url("marca-alt/lazo-rojo.webp") center/contain no-repeat;flex:none}
+.rotulo .firma,.hero .firma,.hecho-txt .firma{font-family:var(--script);font-weight:700;letter-spacing:-.035em;color:var(--tinta);display:block}
+.rotulo .firma::after,.hero .firma::after,.hecho-txt .firma::after{content:"";display:inline-block;vertical-align:-.04em;margin-left:.14em;width:.5em;height:.74em;background:url("marca-alt/lazo-rojo.webp") center/contain no-repeat;flex:none}
 .rotulo .firma{font-size:clamp(40px,10.5vw,66px);line-height:1;margin:0 0 8px;padding:0}
 .rotulo .linea{font-weight:700;font-size:12px;letter-spacing:.24em;color:var(--acento)}
-.hero .firma{font-size:clamp(46px,13vw,88px);line-height:.95;margin:0 0 12px;padding:0;flex-wrap:nowrap}
+.hero .firma{font-size:clamp(46px,12.5vw,80px);line-height:.95;margin:0 0 12px;padding:0;white-space:nowrap}
 @media (min-width:900px){.cab .marca-logo{width:118px;height:46px}}
 .hero h1{font-weight:700;letter-spacing:.12em}
 .hecho-txt .firma{font-size:clamp(46px,12vw,80px);line-height:.95;padding:0 0 10px}
@@ -526,16 +535,9 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
 .carton .tarjeta img.tl-logo{width:auto;height:34px;aspect-ratio:auto;border-radius:0;object-fit:contain}
 .carton-marca{position:relative;width:78%;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:#000 url("marca-alt/patron-mixto.webp") 0 0/56px auto}
 .carton-marca::after{content:"";position:absolute;left:0;right:0;top:30%;height:30%;background:#000 url("marca-alt/logo-blanco.webp") center/70% auto no-repeat;border-block:4px solid var(--salmon)}
-.franja-lazos{height:72px;background:#000 url("marca-alt/patron-mixto.webp") 0 0/52px auto;border-top:4px solid var(--salmon)}
+.franja-lazos{height:calc(52px * 440 / 300 + 28px);background:#000 url("marca-alt/patron-mixto.webp") 0 10px/52px auto repeat-x;border-block:4px solid var(--salmon)}
 
 /* solo versión blanca */
-@media (max-width:899px){
-  .hero{grid-template-rows:minmax(190px,1fr) auto}
-  .hero-foto{position:relative;inset:auto}
-  .hero-foto img{position:absolute;inset:0}
-  .hero-foto::after{background:linear-gradient(180deg,rgba(255,255,255,0) 72%,#fff 100%)}
-  .hero-txt{padding-top:4px}
-}
 .pie{border-top:1px solid var(--raya)}
 </style>
 <script type="application/ld+json">
@@ -584,10 +586,8 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
 <!-- ===================== INICIO ===================== -->
 <section class="vista" id="v-inicio" data-vista="inicio">
   <div class="hero" id="hero">
-    <div class="hero-foto">
-      <img src="fotos/portada-humo.webp" width="1080" height="1350" alt="Uramakis de Tan'ni sobre una tabla de madera, con humo, en una encimera oscura" fetchpriority="high">
-    </div>
-    <div class="hero-txt">
+    <div class="hero-in env">
+      <div class="hero-txt">
       <span class="firma" aria-hidden="true">Sushi lovers</span>
       <h1>Sushi para llevar y a domicilio <span class="nw">Elche · Aspe · Crevillente</span></h1>
       <p>Pides aquí y el pedido llega al momento al WhatsApp de tu local. Cada 20 € suma un sello en tu tarjeta Tanni Lovers.</p>
@@ -596,6 +596,13 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
         <a class="btn btn-borde" href="#poke">Crear mi poke</a>
       </div>
       <div class="hero-dato" id="hero-hoy"></div>
+      </div>
+      <div class="hero-vis">
+        <div class="hero-aro" aria-hidden="true">
+          <div class="pk-plato" id="hero-poke"><img class="pk-cuenco" src="crea-tu-poke/img/basearroz.webp" width="900" height="900" alt="" fetchpriority="high"><div class="pk-m"></div><div class="pk-s"></div></div>
+        </div>
+        <a class="hero-nota" href="#poke" id="hero-nota"><b id="hero-nota-n">Tu poke</b><span id="hero-nota-p">Créalo a tu gusto</span></a>
+      </div>
     </div>
   </div>
 
@@ -632,7 +639,7 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
   <section class="bloque" id="menus" aria-labelledby="t-menus">
     <div class="env menus">
       <figure>
-        <img src="fotos/bandeja-take-away.webp" width="900" height="1126" loading="lazy" alt="Bandejas de take away de Tan'ni con uramakis, gyozas y entrantes, vistas desde arriba">
+        <img src="fotos/bandeja-take-away-v1.webp" width="900" height="1118" loading="lazy" alt="Bandejas de take away de Tanni con uramakis, gyozas y entrantes, vistas desde arriba">
         <figcaption>Así salen las bandejas de take away.</figcaption>
       </figure>
       <div>
@@ -692,7 +699,7 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
 
   <section class="bloque" id="eventos" aria-labelledby="t-eventos">
     <div class="env eventos">
-      <img src="fotos/taller-sushi.webp" width="800" height="1000" loading="lazy" alt="Cartel de un taller de sushi impartido por Tan'ni en Elche">
+      <img src="fotos/taller-sushi-v1.webp" width="800" height="994" loading="lazy" alt="Taller de sushi: varias personas enrollando makis en esterillas de bambú alrededor de una mesa">
       <div>
         <h2 class="rotulo" id="t-eventos"><span class="firma">Eventos</span><span class="linea">Bandejas para celebraciones y talleres de sushi</span></h2>
         <p style="color:var(--tinta2);max-width:46ch">Llevamos el sushi a tu celebración y damos talleres para aprender a hacerlo. Cuéntanos la fecha y cuántos sois.</p>
@@ -748,7 +755,7 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
       <div><h4>Crevillente</h4><p>C/ Manuel Broseta Pont, 4</p><p><a href="tel:+34601672928">601 67 29 28</a></p></div>
     </div>
     <p style="margin-top:26px">Eventos: <a href="mailto:tannisushinfo@gmail.com">tannisushinfo@gmail.com</a> · <a href="#caja">Modo local (para el equipo)</a></p>
-    <p class="aviso-maqueta">Maqueta de demostración preparada por Innovarte para Tan'ni Sushi. Los pedidos, pagos y sellos de esta página son de prueba y no se envían a nadie. Carta y precios copiados de la carta de Tan'ni (noviembre 2026); el precio del poke a tu gusto y de sus extras es de ejemplo; alérgenos pendientes de confirmar con el restaurante. Las imágenes de los ingredientes del poke están creadas por ordenador.</p>
+    <p class="aviso-maqueta">Maqueta de demostración preparada por Innovarte para Tan'ni Sushi. Los pedidos, pagos y sellos de esta página son de prueba y no se envían a nadie. Carta y precios copiados de la carta de Tan'ni (noviembre 2026); el precio del poke a tu gusto y de sus extras es de ejemplo; alérgenos pendientes de confirmar con el restaurante. Las imágenes de los ingredientes del poke y las fotos del taller y de las bandejas están creadas o retocadas por ordenador.</p>
   </div>
 </footer>
 
@@ -794,7 +801,7 @@ const ENTR_SHOGUN=['Takoyaki de pulpo','Gyozas en panko','Pollo katsu','Gyozas d
 const ENTR_EMP=['Takoyaki de pulpo','Gyozas en panko','Langostino torpedo','Gyozas de cerdo','Ensalada wakame','Ensalada de langostinos','Bao de cangrejo'];
 const P=(n,cat,nombre,precio,desc,o)=>Object.assign({n,cat,nombre,precio,desc:desc||''},o||{});
 const CARTA=[
- P('M1','menus','Menú Ninja',12,'2 gyozas · 4 uramakis California · 4 uramakis de atún flambeado al shichimi · 6 piezas en tempura del día',{foto:'bandeja-take-away'}),
+ P('M1','menus','Menú Ninja',12,'2 gyozas · 4 uramakis California · 4 uramakis de atún flambeado al shichimi · 6 piezas en tempura del día',{foto:'bandeja-take-away-v1'}),
  P('M2','menus','Menú Shogun',25,'2 entrantes a elegir + bandeja degustación: 6 uramakis tempura de salmón, queso crema y cebollino · 4 uramakis de salmón, queso crema y aguacate · 4 uramakis de atún flambeado al shichimi · 6 futomakis de pollo parmesano',{elige:[2,ENTR_SHOGUN],foto:'variado-tabla'}),
  P('M3','menus','Menú Emperador',35,'3 entrantes a elegir.',{elige:[3,ENTR_EMP]}),
  P('M4','menus','Entrante + bandeja',20,'Elige un entrante y una bandeja de sushi.',{soloDia:2}),
@@ -919,6 +926,7 @@ function pintarPortada(){
   $('#hero-hoy').innerHTML='<span>Hoy:</span>'+ORDEN_LOC.map(id=>`<span><b>${LOCALES[id].nombre}</b> ${abierto(id)?'abierto ahora':(textoHoy(id)==='Hoy cerrado'?'cerrado':textoHoy(id))}</span>`).join('');
   $('#w-portada').innerHTML=walletBotones('Y llévala en la Wallet de tu móvil:');
   $('#tarjeta-muestra').innerHTML=htmlTarjeta({nombre:'Tu nombre',sellos:7});
+  heroPoke();
 }
 function htmlTarjeta(c,nuevos=0){
   const s=Math.min(c.sellos,10);
@@ -1380,6 +1388,29 @@ function ruta(){
   rutaActual=h;actualizarFlotantes();sellosCab();
 }
 let heroVisible=true;
+/* el poke del hero: se monta ingrediente a ingrediente y cambia de receta */
+const HERO_POKES=[
+  {base:'arrozsushi',sel:['salmon','edamame','wakame','cherryconfitado','aguacate','mango','sesamo','cebollacrispy','nori','teriyaki','sweetmayo']},
+  {base:'quinoa',sel:['tofu','edamame','wakame','aguacate','pepino','pina','cebollaroja','sesamo','picodegallo','teriyaki','mayokimche']},
+  {base:'arrozsushi',sel:['atun','wakame','maiz','cherryconfitado','aguacate','pepino','hueva','sesamo','cebollaroja','sweetmayo','sweet']},
+  {base:'couscous',sel:['katsu','edamame','maiz','aguacate','quesocrema','mango','cebollacrispy','picodegallo','sesamo','sweetmayo','barbacoa']}
+];
+let heroPaso=0,heroReloj=null;
+function heroNota(st){const n=$('#hero-nota');if(!n)return;n.classList.add('cambia');setTimeout(()=>{$('#hero-nota-n').textContent='Poke de '+pkNombre(st);$('#hero-nota-p').textContent='Base de '+pkMin(PKI[st.base].n)+' · '+eur(pkPrecioDe(st));n.classList.remove('cambia')},250)}
+function heroPoke(){
+  const root=$('#hero-poke');if(!root)return;clearTimeout(heroReloj);
+  const quieto=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(quieto){const st=HERO_POKES[0];pkPintar(root,st);heroNota(st);return}
+  const idea=HERO_POKES[heroPaso%HERO_POKES.length];let k=0;
+  pkPintar(root,{base:idea.base,sel:[]});heroNota(idea);
+  const paso=()=>{
+    if(document.body.dataset.vista!=='inicio'){heroReloj=null;return}
+    if(!heroVisible||document.hidden){heroReloj=setTimeout(paso,600);return}
+    if(k<idea.sel.length){k++;const st={base:idea.base,sel:idea.sel.slice(0,k)};pkPintar(root,st);heroReloj=setTimeout(paso,k===1?500:300)}
+    else{heroPaso++;heroReloj=setTimeout(heroPoke,2800)}
+  };
+  heroReloj=setTimeout(paso,500);
+}
 function actualizarFlotantes(){
   const v=document.body.dataset.vista;const enHero=v==='inicio'&&heroVisible;
   const barra=piezas()>0&&!['pedido','hecho','caja','plato','poke'].includes(v);
