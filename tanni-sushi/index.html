@@ -93,7 +93,6 @@ a{-webkit-tap-highlight-color:transparent}
 
 /* HERO: el poke que se monta solo, con la marca negro, rojo y blanco */
 .hero{position:relative;min-height:calc(100svh - var(--cab));display:flex;flex-direction:column;overflow:hidden;background:var(--fondo);isolation:isolate}
-.hero::before{content:"";position:absolute;z-index:-1;width:min(118vw,600px);aspect-ratio:150/210;right:-38%;top:34%;background:url("marca-alt/lazo-grande.webp") center/contain no-repeat;transform:rotate(-14deg)}
 .hero-in{flex:1;display:grid;align-content:center;gap:20px;padding:22px 0 20px}
 .hero-txt{position:relative}
 .hero h1 .nw{display:block;white-space:nowrap}
@@ -101,9 +100,11 @@ a{-webkit-tap-highlight-color:transparent}
 .hero p{margin:0 0 18px;color:var(--tinta2);max-width:40ch;font-size:16px}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap}
 .hero-btns .btn{flex:1 1 150px}
-.hero-dato{display:flex;gap:4px 14px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--suave)}
+.hero-hoy{border-top:1px solid var(--raya);background:var(--hondo)}
+.hero-dato{display:flex;gap:4px 14px;flex-wrap:wrap;padding:11px 0 max(11px,env(safe-area-inset-bottom));font-size:13px;color:var(--suave)}
 .hero-dato b{color:var(--tinta);font-weight:600}
-.hero-vis{position:relative;width:min(78vw,38svh,400px);margin:0 auto;justify-self:center}
+.hero-vis{position:relative;width:min(86vw,50svh,460px);margin:0 auto;justify-self:center}
+.hero-lazo{position:absolute;z-index:3;left:-4%;bottom:-5%;width:27%;height:auto;transform:rotate(-12deg);filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));pointer-events:none}
 .hero-aro{position:relative;z-index:1;isolation:isolate;aspect-ratio:1;border-radius:50%;background:#fff;border:clamp(10px,3.2vw,20px) solid var(--aro);padding:5%;box-shadow:0 26px 50px -24px rgba(0,0,0,.7)}
 .hero-aro .pk-plato{width:100%}
 .hero-aro .pk-cuenco{filter:drop-shadow(0 6px 8px rgba(0,0,0,.18))}
@@ -114,10 +115,10 @@ a{-webkit-tap-highlight-color:transparent}
 @media (max-width:899px){.hero-btns .btn{white-space:nowrap;padding:0 14px;flex:1 1 0}}
 @media (max-height:760px) and (max-width:899px){.hero p{display:none}}
 @media (min-width:900px){
-  .hero::before{width:700px;right:-110px;top:-40px}
   .hero-in{grid-template-columns:1fr 1fr;align-items:center;gap:40px;padding:40px 0}
   .hero-btns .btn{flex:0 0 auto}
-  .hero-vis{width:min(42vw,calc(100svh - var(--cab) - 140px),540px)}
+  .hero-vis{width:min(46vw,calc(100svh - var(--cab) - 100px),620px)}
+  .hero-lazo{left:-10%;bottom:-3%;width:28%}
   .hero-nota{position:absolute;right:-6%;bottom:6%;margin:0;padding:12px 16px;transform:rotate(3deg);align-items:flex-start;text-align:left}
   .hero-nota b{font-size:16px}.hero-nota span{font-size:14px}
 }
@@ -592,15 +593,16 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
         <a class="btn btn-salmon" href="#carta">Hacer mi pedido</a>
         <a class="btn btn-borde" href="#poke">Crear mi poke</a>
       </div>
-      <div class="hero-dato" id="hero-hoy"></div>
       </div>
       <div class="hero-vis">
         <div class="hero-aro" aria-hidden="true">
           <div class="pk-plato" id="hero-poke"><img class="pk-cuenco" src="crea-tu-poke/img/basearroz.webp" width="900" height="900" alt="" fetchpriority="high"><div class="pk-m"></div><div class="pk-s"></div></div>
         </div>
+        <img class="hero-lazo" src="marca-alt/lazo-grande.webp" width="750" height="1050" alt="" aria-hidden="true">
         <a class="hero-nota" href="#poke" id="hero-nota"><b id="hero-nota-n">Tu poke</b><span id="hero-nota-p">Créalo a tu gusto</span></a>
       </div>
     </div>
+    <div class="hero-hoy"><div class="env hero-dato" id="hero-hoy"></div></div>
   </div>
 
   <section class="bloque pk-home" id="tupoke" aria-labelledby="t-poke">
