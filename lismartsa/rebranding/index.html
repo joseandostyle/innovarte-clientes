@@ -31,17 +31,14 @@
   <section class="bloque" id="analisis" aria-labelledby="t-analisis">
     <p class="eti">1 · Presentación de análisis</p>
     <h2 id="t-analisis">Lo que dice hoy <em>vuestra marca</em>.</h2>
-    <p class="intro">Nueve láminas: lo que hay que conservar, lo que os frena y los caminos posibles. Pasadlas con las flechas o deslizando el dedo.</p>
+    <p class="intro">Nueve láminas: lo que hay que conservar, lo que os frena y los caminos posibles. También podéis descargarlo en PDF.</p>
+  </section>
+</main>
 
-    <div class="visor" aria-roledescription="presentación" aria-label="Análisis de marca de Lismartsa">
-      <div class="escena" id="escena"></div>
-      <div class="mandos">
-        <button type="button" id="ant" aria-label="Lámina anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <span class="cuenta" id="cuenta" aria-live="polite">1 / 9</span>
-        <div class="puntos" id="puntos"></div>
-        <button type="button" id="sig" aria-label="Lámina siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-      </div>
-    </div>
+<div class="laminas" id="laminas" aria-label="Análisis de marca de Lismartsa"></div>
+
+<main class="env">
+  <section class="bloque" style="border-top:0;padding-top:0">
     <div class="descargas">
       <a class="boton p" href="lismartsa-analisis-de-marca-noviembre.pdf" download="Lismartsa - Análisis de marca.pdf"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar PDF <small>· 0,6 MB</small></a>
       <a class="boton s" href="lismartsa-analisis-de-marca-noviembre.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-8 8M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Abrir a pantalla completa</a>
@@ -71,39 +68,16 @@
 <script>
 // En el ordenador (sin publicar) el cuestionario está al lado, con su nombre de archivo
 if (location.protocol === "file:") document.getElementById("a-cuest").href = "lismartsa-cuestionario-trabajo-noviembre.html";
-// ---------- Visor del análisis ----------
+// ---------- Láminas del análisis, una debajo de otra ----------
 (function(){
-  const N = 9, escena = document.getElementById("escena"), puntos = document.getElementById("puntos");
-  const cuenta = document.getElementById("cuenta"), ant = document.getElementById("ant"), sig = document.getElementById("sig");
+  const N = 9, caja = document.getElementById("laminas");
   const alts = ["Portada: Lismartsa, casi 50 años después","Punto de partida: una empresa con oficio","Una marca, tres versiones","Lo que vale oro y lo que os frena","Vuestra web","Dónde vive vuestra marca y los 50 años","Tres caminos posibles","Cómo lo haríamos","Siguiente paso"];
-  const imgs = [];
   for (let i = 1; i <= N; i++){
     const im = document.createElement("img");
-    im.alt = `Lámina ${i} de ${N}. ${alts[i-1]}`; im.width = 1600; im.height = 900; im.decoding = "async";
-    if (i <= 2) im.src = `laminas/${i}.jpg`; else im.dataset.src = `laminas/${i}.jpg`;
-    escena.appendChild(im); imgs.push(im);
-    const p = document.createElement("button"); p.type = "button"; p.setAttribute("aria-label", `Ir a la lámina ${i}`);
-    p.onclick = () => ir(i-1); puntos.appendChild(p);
+    im.src = `laminas/${i}.jpg`; im.alt = `Lámina ${i} de ${N}. ${alts[i-1]}`;
+    im.width = 1600; im.height = 900; im.decoding = "async"; if (i > 2) im.loading = "lazy";
+    caja.appendChild(im);
   }
-  let k = 0;
-  function cargar(j){ const im = imgs[j]; if (im && im.dataset.src){ im.src = im.dataset.src; delete im.dataset.src; } }
-  function ir(j){
-    k = Math.max(0, Math.min(N-1, j));
-    imgs.forEach((im, i) => { im.classList.toggle("on", i === k); im.setAttribute("aria-hidden", i === k ? "false" : "true"); });
-    [...puntos.children].forEach((p, i) => p.classList.toggle("on", i === k));
-    cuenta.textContent = `${k+1} / ${N}`; ant.disabled = k === 0; sig.disabled = k === N-1;
-    cargar(k); cargar(k+1);
-  }
-  ant.onclick = () => ir(k-1); sig.onclick = () => ir(k+1);
-  document.addEventListener("keydown", e => {
-    if (e.target.closest("input,textarea")) return;
-    const r = escena.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
-    if (e.key === "ArrowRight") ir(k+1); if (e.key === "ArrowLeft") ir(k-1);
-  });
-  let x0 = null;
-  escena.addEventListener("pointerdown", e => { x0 = e.clientX; });
-  escena.addEventListener("pointerup", e => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 40) ir(k + (dx < 0 ? 1 : -1)); else if (e.pointerType === "mouse") ir(k+1); });
-  ir(0);
 })();
 
 // ---------- Briefing ----------
