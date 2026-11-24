@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<meta name="theme-color" content="#FAF8F4">
+<meta name="theme-color" content="#F5F4F1">
 <meta name="color-scheme" content="light">
 <title>Lismartsa · Propuesta de rebranding</title>
 <meta name="description" content="Análisis de la marca de Lismartsa y briefing para su nueva identidad.">
@@ -14,7 +14,7 @@
 <link rel="icon" href="img/simbolo-2022.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -31,7 +31,7 @@
   <section class="bloque" id="analisis" aria-labelledby="t-analisis">
     <p class="eti">1 · Presentación de análisis</p>
     <h2 id="t-analisis">Lo que dice hoy <em>vuestra marca</em>.</h2>
-    <p class="intro">Nueve láminas: lo que hay que conservar, lo que os frena y los caminos posibles. También podéis descargarlo en PDF.</p>
+    <p class="intro">El análisis de la marca actual, la competencia, la dirección creativa y lo que puede hacer una web nueva. También podéis descargarlo en PDF.</p>
   </section>
 </main>
 
@@ -40,7 +40,7 @@
 <main class="env">
   <section class="bloque" style="border-top:0;padding-top:0">
     <div class="descargas">
-      <a class="boton p" href="lismartsa-analisis-de-marca-noviembre.pdf" download="Lismartsa - Análisis de marca.pdf"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar PDF <small>· 0,6 MB</small></a>
+      <a class="boton p" href="lismartsa-analisis-de-marca-noviembre.pdf" download="Lismartsa - Análisis de marca.pdf"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar PDF <small>· 7,5 MB</small></a>
       <a class="boton s" href="lismartsa-analisis-de-marca-noviembre.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-8 8M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Abrir a pantalla completa</a>
     </div>
   </section>
@@ -70,11 +70,10 @@
 if (location.protocol === "file:") document.getElementById("a-cuest").href = "lismartsa-cuestionario-trabajo-noviembre.html";
 // ---------- Láminas del análisis, una debajo de otra ----------
 (function(){
-  const N = 9, caja = document.getElementById("laminas");
-  const alts = ["Portada: Lismartsa, casi 50 años después","Punto de partida: una empresa con oficio","Una marca, tres versiones","Lo que vale oro y lo que os frena","Vuestra web","Dónde vive vuestra marca y los 50 años","Tres caminos posibles","Cómo lo haríamos","Siguiente paso"];
+  const N = 38, caja = document.getElementById("laminas");
   for (let i = 1; i <= N; i++){
     const im = document.createElement("img");
-    im.src = `laminas/${i}.jpg`; im.alt = `Lámina ${i} de ${N}. ${alts[i-1]}`;
+    im.src = `laminas/${i}.jpg`; im.alt = `Lámina ${i} de ${N} del análisis de marca`;
     im.width = 1600; im.height = 900; im.decoding = "async"; if (i > 2) im.loading = "lazy";
     caja.appendChild(im);
   }
@@ -98,7 +97,7 @@ montarFormulario({
     ]},
     { titulo: "La imagen", preguntas: [
       { id:"p4", tipo:"una", t:"¿Hasta dónde queréis cambiar?",
-        a:"Los tres caminos están explicados en la lámina 7 del análisis.",
+        a:"Los tres caminos están explicados en el análisis, en «¿Hasta dónde cambiar?».",
         opciones:["Evolución: mantener el círculo y las dos eles","Renovación: redibujar la idea con un sistema completo","Marca nueva: solo se queda el nombre","No lo sabemos: aconsejadnos"],
         nota:"¿Qué queréis conservar sí o sí? ¿Entran en el cambio el nombre o el subtítulo «Sistemas y Planificación Limpieza»?" },
       { id:"p5", t:"¿Qué colores y estilo encajan con Lismartsa, y cuáles no?",
