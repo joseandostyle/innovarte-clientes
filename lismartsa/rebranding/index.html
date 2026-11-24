@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#FAF8F4">
+<meta name="color-scheme" content="light">
+<title>Lismartsa · Propuesta de rebranding</title>
+<meta name="description" content="Análisis de la marca de Lismartsa y briefing para su nueva identidad.">
+<meta property="og:title" content="Lismartsa · Propuesta de rebranding">
+<meta property="og:description" content="El análisis de vuestra marca y siete preguntas para empezar la nueva identidad.">
+<meta property="og:image" content="https://clientes.innovarteweb.com/lismartsa/rebranding/og.jpg">
+<link rel="icon" href="img/simbolo-2022.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header class="cab"><div class="env"><img src="img/logo-2022.png" width="1060" height="246" alt="Lismartsa"><span>Propuesta preparada por Innovarte<br>Noviembre de 2026</span></div></header>
+
+<main class="env">
+  <div class="portada">
+    <p class="eti">Propuesta de rebranding</p>
+    <h1>Lismartsa <span class="punto">·</span> Propuesta de rebranding</h1>
+    <p class="intro">Casi 50 años de oficio merecen una imagen a la altura. Aquí tenéis lo que hemos visto de vuestra marca y, debajo, unas pocas preguntas para empezar a diseñar la nueva.</p>
+    <nav class="saltos" aria-label="En esta página"><a href="#analisis"><b>1</b>Presentación de análisis</a><a href="#briefing"><b>2</b>Briefing</a></nav>
+  </div>
+
+  <section class="bloque" id="analisis" aria-labelledby="t-analisis">
+    <p class="eti">1 · Presentación de análisis</p>
+    <h2 id="t-analisis">Lo que dice hoy <em>vuestra marca</em>.</h2>
+    <p class="intro">Nueve láminas: lo que hay que conservar, lo que os frena y los caminos posibles. Pasadlas con las flechas o deslizando el dedo.</p>
+
+    <div class="visor" aria-roledescription="presentación" aria-label="Análisis de marca de Lismartsa">
+      <div class="escena" id="escena"></div>
+      <div class="mandos">
+        <button type="button" id="ant" aria-label="Lámina anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <span class="cuenta" id="cuenta" aria-live="polite">1 / 9</span>
+        <div class="puntos" id="puntos"></div>
+        <button type="button" id="sig" aria-label="Lámina siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="descargas">
+      <a class="boton p" href="lismartsa-analisis-de-marca-noviembre.pdf" download="Lismartsa - Análisis de marca.pdf"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar PDF <small>· 0,6 MB</small></a>
+      <a class="boton s" href="lismartsa-analisis-de-marca-noviembre.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-8 8M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Abrir a pantalla completa</a>
+    </div>
+  </section>
+
+  <section class="bloque" id="briefing" aria-labelledby="t-briefing" style="margin-top:48px">
+    <p class="eti">2 · Briefing</p>
+    <h2 id="t-briefing">Contadnos cómo es <em>Lismartsa</em>.</h2>
+    <p class="intro">Siete preguntas, unos diez minutos. No hay respuestas correctas: cuanto más sinceras y concretas, mejor saldrá la nueva marca. Si alguna no la tenéis clara, dejadla en blanco y la hablamos.</p>
+    <div id="form-briefing"></div>
+  </section>
+
+  <a class="otro" id="a-cuest" href="../cuestionario/">
+    <p class="eti">Y después</p>
+    <h3>Cuestionario de trabajo</h3>
+    <p>Cómo organizáis turnos, suplencias, partes e incidencias, para ver qué tareas os podemos automatizar o resolver con un programa propio.</p>
+    <b>Abrir el cuestionario →</b>
+  </a>
+
+  <footer>¿Alguna duda? Jose · <a href="https://wa.me/34634452534">WhatsApp 634 45 25 34</a> · <a href="mailto:innovarte.sl@gmail.com">innovarte.sl@gmail.com</a></footer>
+</main>
+
+<div class="progreso" id="progreso"><div class="in"><span class="c" id="pc">0 de 7 contestadas</span><div class="barra"><i id="pb"></i></div><a href="#briefing" id="pa">Ir a enviar ↓</a></div></div>
+
+<script src="formulario.js"></script>
+<script>
+// En el ordenador (sin publicar) el cuestionario está al lado, con su nombre de archivo
+if (location.protocol === "file:") document.getElementById("a-cuest").href = "lismartsa-cuestionario-trabajo-noviembre.html";
+// ---------- Visor del análisis ----------
+(function(){
+  const N = 9, escena = document.getElementById("escena"), puntos = document.getElementById("puntos");
+  const cuenta = document.getElementById("cuenta"), ant = document.getElementById("ant"), sig = document.getElementById("sig");
+  const alts = ["Portada: Lismartsa, casi 50 años después","Punto de partida: una empresa con oficio","Una marca, tres versiones","Lo que vale oro y lo que os frena","Vuestra web","Dónde vive vuestra marca y los 50 años","Tres caminos posibles","Cómo lo haríamos","Siguiente paso"];
+  const imgs = [];
+  for (let i = 1; i <= N; i++){
+    const im = document.createElement("img");
+    im.alt = `Lámina ${i} de ${N}. ${alts[i-1]}`; im.width = 1600; im.height = 900; im.decoding = "async";
+    if (i <= 2) im.src = `laminas/${i}.jpg`; else im.dataset.src = `laminas/${i}.jpg`;
+    escena.appendChild(im); imgs.push(im);
+    const p = document.createElement("button"); p.type = "button"; p.setAttribute("aria-label", `Ir a la lámina ${i}`);
+    p.onclick = () => ir(i-1); puntos.appendChild(p);
+  }
+  let k = 0;
+  function cargar(j){ const im = imgs[j]; if (im && im.dataset.src){ im.src = im.dataset.src; delete im.dataset.src; } }
+  function ir(j){
+    k = Math.max(0, Math.min(N-1, j));
+    imgs.forEach((im, i) => { im.classList.toggle("on", i === k); im.setAttribute("aria-hidden", i === k ? "false" : "true"); });
+    [...puntos.children].forEach((p, i) => p.classList.toggle("on", i === k));
+    cuenta.textContent = `${k+1} / ${N}`; ant.disabled = k === 0; sig.disabled = k === N-1;
+    cargar(k); cargar(k+1);
+  }
+  ant.onclick = () => ir(k-1); sig.onclick = () => ir(k+1);
+  document.addEventListener("keydown", e => {
+    if (e.target.closest("input,textarea")) return;
+    const r = escena.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+    if (e.key === "ArrowRight") ir(k+1); if (e.key === "ArrowLeft") ir(k-1);
+  });
+  let x0 = null;
+  escena.addEventListener("pointerdown", e => { x0 = e.clientX; });
+  escena.addEventListener("pointerup", e => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 40) ir(k + (dx < 0 ? 1 : -1)); else if (e.pointerType === "mouse") ir(k+1); });
+  ir(0);
+})();
+
+// ---------- Briefing ----------
+const prog = document.getElementById("progreso");
+montarFormulario({
+  contenedor: "#form-briefing",
+  clave: "lismartsa-briefing-2026-11",
+  asunto: "Lismartsa · respuestas del briefing",
+  deQuien: "Briefing Lismartsa",
+  bloques: [
+    { titulo: "La empresa", preguntas: [
+      { id:"p1", t:"¿Qué es hoy Lismartsa y hacia dónde queréis crecer?",
+        a:"Qué servicios y qué clientes pesan más (oficinas, comunidades, urbanizaciones, garajes…), a quién os gustaría atraer y quién suele decidir la contratación: un gerente, un administrador de fincas, un departamento de compras…" },
+      { id:"p2", t:"¿Qué os hace diferentes de otras empresas de limpieza de Madrid?",
+        a:"Trato, rapidez ante incidencias, maquinaria, personal fijo, ser empresa familiar… Lo que destacan los clientes que llevan años con vosotros." },
+      { id:"p3", t:"¿Qué tiene que sentir un cliente al ver vuestra marca, y qué no debe sentir nunca?",
+        a:"Tres palabras (confianza, cercanía, solidez, discreción…) y lo que no queréis parecer (anticuados, multinacional fría, low cost…). ¿Siguen valiendo Compromiso, Eficacia y Responsabilidad? ¿Habláis a los clientes de tú o de usted?" }
+    ]},
+    { titulo: "La imagen", preguntas: [
+      { id:"p4", tipo:"una", t:"¿Hasta dónde queréis cambiar?",
+        a:"Los tres caminos están explicados en la lámina 7 del análisis.",
+        opciones:["Evolución: mantener el círculo y las dos eles","Renovación: redibujar la idea con un sistema completo","Marca nueva: solo se queda el nombre","No lo sabemos: aconsejadnos"],
+        nota:"¿Qué queréis conservar sí o sí? ¿Entran en el cambio el nombre o el subtítulo «Sistemas y Planificación Limpieza»?" },
+      { id:"p5", t:"¿Qué colores y estilo encajan con Lismartsa, y cuáles no?",
+        a:"¿El rojo es intocable o estaríais abiertos a suavizarlo o cambiarlo? ¿Os veis más corporativos y sobrios, o más cercanos y modernos? Si hay marcas de cualquier sector que os gusten (o que no), contadnos cuáles.",
+        enlaces:true },
+      { id:"p6", tipo:"varias", t:"¿Dónde se ve vuestra marca en el día a día?",
+        a:"Marcad todas las que uséis.",
+        opciones:["Uniformes","Furgonetas","Carros y maquinaria","Presupuestos y contratos","Facturas","Tarjetas de visita","Firma de correo","Carteles en comunidades","Web","Redes sociales"],
+        nota:"¿Cuál es la más importante para vosotros? ¿Falta alguna?" },
+      { id:"p7", t:"¿Queréis aprovechar los 50 años?",
+        a:"¿En qué año se cumplen? ¿Os gustaría estrenar la imagen nueva con el aniversario? ¿Valoran vuestros clientes que seáis una empresa familiar?" }
+    ]}
+  ],
+  alContar: (h, t) => {
+    document.getElementById("pc").textContent = `${h} de ${t} contestadas`;
+    document.getElementById("pb").style.width = (100*h/t) + "%";
+  },
+  alEnviar: () => prog.remove()
+});
+// La barra de progreso solo aparece mientras se rellena el briefing
+const br = document.getElementById("briefing");
+if (document.body.contains(prog) && "IntersectionObserver" in window){
+  new IntersectionObserver(es => es.forEach(e => prog.classList.toggle("ver", e.isIntersecting)), {rootMargin:"0px 0px -30% 0px"}).observe(br);
+  document.getElementById("pa").addEventListener("click", e => { e.preventDefault(); br.querySelector(".final")?.scrollIntoView({behavior:"smooth", block:"center"}); });
+}
+</script>
+</body>
+</html>

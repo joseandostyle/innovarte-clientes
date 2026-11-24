@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#FAF8F4">
+<meta name="color-scheme" content="light">
+<title>Lismartsa · Cuestionario de trabajo</title>
+<meta name="description" content="Cómo organiza Lismartsa su trabajo, para ver qué se puede automatizar.">
+<meta property="og:title" content="Lismartsa · Cuestionario de trabajo">
+<meta property="og:description" content="14 preguntas sobre cómo os organizáis, para ver qué tareas os podemos quitar de encima.">
+<meta property="og:image" content="https://clientes.innovarteweb.com/lismartsa/rebranding/og.jpg">
+<link rel="icon" href="img/simbolo-2022.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header class="cab"><div class="env"><img src="img/logo-2022.png" width="1060" height="246" alt="Lismartsa"><span>Preparado por Innovarte<br>Noviembre de 2026</span></div></header>
+
+<main class="env">
+  <div class="portada">
+    <p class="eti">Cuestionario de trabajo</p>
+    <h1>¿Cómo trabajáis por dentro<span class="punto">?</span></h1>
+    <p class="intro">Queremos entender vuestro día a día para ver qué tareas se pueden automatizar o resolver con un programa hecho a vuestra medida: cuadrantes, suplencias, fichajes, partes, incidencias, presupuestos… Son 14 preguntas, casi todas para marcar. Unos 15 minutos.</p>
+    <p class="intro" style="font-size:15px;margin-top:10px">Lo puede rellenar quien mejor conozca la organización (gerencia, oficina o supervisión). Lo que no sepáis, en blanco.</p>
+  </div>
+
+  <section class="bloque" id="cuestionario" aria-label="Cuestionario" style="padding-top:8px">
+    <div id="form-trabajo"></div>
+  </section>
+
+  <footer>¿Alguna duda? Jose · <a href="https://wa.me/34634452534">WhatsApp 634 45 25 34</a> · <a href="mailto:innovarte.sl@gmail.com">innovarte.sl@gmail.com</a></footer>
+</main>
+
+<div class="progreso ver" id="progreso"><div class="in"><span class="c" id="pc">0 de 14 contestadas</span><div class="barra"><i id="pb"></i></div><a href="#cuestionario" id="pa">Ir a enviar ↓</a></div></div>
+
+<script src="formulario.js"></script>
+<script>
+const prog = document.getElementById("progreso");
+montarFormulario({
+  contenedor: "#form-trabajo",
+  clave: "lismartsa-trabajo-2026-11",
+  asunto: "Lismartsa · cuestionario de trabajo",
+  deQuien: "Cuestionario de trabajo Lismartsa",
+  bloques: [
+    { titulo: "Equipo y clientes", preguntas: [
+      { id:"q1", tipo:"una", t:"¿Cuántas personas trabajan en Lismartsa?",
+        opciones:["Menos de 10","10 a 30","30 a 80","80 a 200","Más de 200"],
+        nota:"¿Cuántas en la oficina, cuántas supervisando y cuántas limpiando?" },
+      { id:"q2", tipo:"una", t:"¿Cuántos clientes o centros atendéis?",
+        opciones:["Menos de 20","20 a 50","50 a 150","Más de 150"],
+        nota:"¿Hay trabajadores que van a varios centros en el mismo día?" },
+      { id:"q3", tipo:"varias", t:"¿Con qué os organizáis hoy?",
+        a:"Marcad todo lo que uséis.",
+        opciones:["Papel y carpetas","Excel u hojas de cálculo","WhatsApp","Correo","Programa de gestión","Programa de fichaje","La gestoría lleva nóminas y facturas"],
+        nota:"Si usáis algún programa, ¿cuál es? ¿Qué os gusta y qué no?" }
+    ]},
+    { titulo: "Organizar al personal", preguntas: [
+      { id:"q4", t:"¿Cómo hacéis los cuadrantes y los horarios?",
+        a:"Quién los hace, con qué, cuánto tiempo le lleva cada semana o cada mes, y cómo se entera cada trabajador de dónde y cuándo tiene que ir." },
+      { id:"q5", t:"Cuando alguien falta (baja, vacaciones, un imprevisto), ¿cómo encontráis suplente?",
+        a:"Cuánto se tarda, quién llama a quién, y si el cliente se entera o se queda sin servicio ese día." },
+      { id:"q6", tipo:"una", t:"¿Cómo registráis las horas de trabajo?",
+        a:"El registro de jornada es obligatorio para todas las empresas.",
+        opciones:["Hoja en papel","Aplicación de fichaje","Excel","Mensajes de WhatsApp","No lo llevamos de forma ordenada"],
+        nota:"¿Os cuesta comprobar que cada persona ha ido a su centro a su hora?" }
+    ]},
+    { titulo: "El día a día con el cliente", preguntas: [
+      { id:"q7", tipo:"varias", t:"¿Cómo os llegan las incidencias y peticiones de los clientes?",
+        opciones:["Llamada","WhatsApp","Correo","Las detecta el supervisor","Las cuenta el conserje o el trabajador"],
+        nota:"¿Cómo os aseguráis de que se resuelven y de que el cliente se entera? ¿Se pierde alguna?" },
+      { id:"q8", tipo:"varias", t:"¿Cómo demostráis al cliente que el trabajo está hecho?",
+        opciones:["Partes en papel","Fotos por WhatsApp","Visitas del supervisor","Informes periódicos","No se demuestra, se confía"],
+        nota:"¿Os lo piden los administradores de fincas o las empresas? ¿Habéis perdido algún cliente por esto?" },
+      { id:"q9", t:"¿Cómo controláis los productos y el material de cada centro?",
+        a:"Cómo sabéis qué se gasta en cada sitio, cuándo hay que reponer y cómo se reparte (vuestra furgoneta pone «Reparto de material»)." }
+    ]},
+    { titulo: "La oficina", preguntas: [
+      { id:"q10", t:"¿Cómo hacéis los presupuestos?",
+        a:"Con qué los hacéis, cuánto tardáis en mandar uno, cuántos hacéis al mes y cuántos acaban en contrato. ¿Hacéis visita antes de presupuestar?" },
+      { id:"q11", tipo:"una", t:"¿Cómo facturáis?",
+        opciones:["Programa de facturación","Lo hace la gestoría","Word o Excel","Otro"],
+        nota:"¿Cuántas facturas al mes? ¿Cambian cada mes (servicios extra, horas sueltas)?" },
+      { id:"q12", t:"¿Cómo buscáis y seleccionáis personal?",
+        a:"Por dónde os llegan los currículums, cuántos al mes y lo que más os cuesta (en la web pedís sobre todo cristaleros y abrillantadores de suelos). Y los papeles que os piden los clientes grandes: prevención de riesgos, certificados, coordinación de empresas…" }
+    ]},
+    { titulo: "Lo que más os pesa", preguntas: [
+      { id:"q13", t:"Si mañana pudierais quitaros de encima una tarea, ¿cuál sería?",
+        a:"La que más tiempo se come o más dolores de cabeza da. Si podéis, decid cuántas horas a la semana se le van." },
+      { id:"q14", t:"¿Hay algo que os gustaría saber y hoy no sabéis?",
+        a:"Por ejemplo: qué clientes os dejan más margen, cuántas horas reales se hacen en cada centro, cuánto producto gasta cada uno, qué trabajadores faltan más…" }
+    ]}
+  ],
+  alContar: (h, t) => {
+    document.getElementById("pc").textContent = `${h} de ${t} contestadas`;
+    document.getElementById("pb").style.width = (100*h/t) + "%";
+  },
+  alEnviar: () => prog.remove()
+});
+document.getElementById("pa").addEventListener("click", e => { e.preventDefault(); document.querySelector("#form-trabajo .final")?.scrollIntoView({behavior:"smooth", block:"center"}); });
+</script>
+</body>
+</html>
