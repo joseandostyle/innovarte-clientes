@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Presupuesto · Tanni Sushi · Innovarte</title>
+<meta name="description" content="Pack integral de branding para Tanni Sushi: identidad, branding y web con pedidos online. Montad vuestro presupuesto y ved lo que ahorráis.">
+<meta property="og:title" content="Presupuesto para Tanni Sushi · Pack integral de branding">
+<meta property="og:description" content="Identidad corporativa, branding y web con pedidos online en un solo proyecto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tinta:#232323; --tinta-2:#4a4a48; --gris:#7b7b78; --linea:#e3e2de; --fondo:#ffffff; --hueso:#f3f2ee; --hueso-2:#e9e8e3;
+  --naranja:#ef6a1f; --naranja-osc:#c9540f; --naranja-claro:#fde9dc; --verde:#1f7a4d;
+  --r:18px;
+  --display:"Inter Tight", "Inter", system-ui, sans-serif;
+  --texto:"Inter", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--fondo);color:var(--tinta);font:16px/1.55 var(--texto);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+.envoltura{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.035em;line-height:1.02;margin:0}
+.num{font-variant-numeric:tabular-nums}
+a{color:inherit}
+
+/* Cabecera */
+.cab{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding:28px 0 0}
+.logo{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em}
+.logo i{color:var(--naranja);font-style:normal}
+.datos{display:grid;grid-template-columns:auto auto;gap:2px 18px;font-size:14px;color:var(--gris)}
+.datos b{color:var(--tinta);font-weight:600;text-align:right}
+
+/* Portada */
+.portada{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:56px 0 40px}
+.etiqueta{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--naranja-osc)}
+.etiqueta:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--naranja)}
+.portada h1{font-size:clamp(44px,6.4vw,82px);font-weight:800;margin:14px 0 18px}
+.portada p.intro{font-size:19px;color:var(--tinta-2);max-width:30em;margin:0 0 26px}
+.bloques-mini{display:flex;flex-wrap:wrap;gap:8px}
+.bloques-mini span{background:var(--hueso);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:500}
+.bloques-mini b{font-weight:700}
+
+.tarjeta-pack{background:var(--tinta);color:#fff;border-radius:26px;padding:34px 34px 30px;position:relative;overflow:hidden}
+.tarjeta-pack .sello{position:absolute;top:22px;right:22px;background:var(--naranja);color:#fff;font:700 12px/1 var(--texto);letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px}
+.tarjeta-pack small{color:#b9b9b6;font-size:15px}
+.precio-grande{font-family:var(--display);font-weight:800;color:var(--naranja);font-size:clamp(68px,9vw,112px);letter-spacing:-.05em;line-height:.95;margin:10px 0 12px;display:flex;align-items:flex-start;gap:6px}
+.precio-grande sup{font-size:.36em;margin-top:.28em}
+.iva{display:inline-block;background:#3a3a3a;border-radius:8px;padding:5px 10px;font-weight:700;font-size:14px}
+.comparar-linea{margin-top:22px;padding-top:20px;border-top:1px solid #3d3d3d;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.comparar-linea p{margin:0;color:#cfcfcc;font-size:15px}
+.comparar-linea s{color:#9a9a97}
+.comparar-linea strong{color:#fff;font-size:20px;display:block;margin-top:4px;font-family:var(--display);letter-spacing:-.02em}
+.anillo{width:104px;height:104px;position:relative}
+.anillo svg{width:100%;height:100%;transform:rotate(-90deg)}
+.anillo .pct{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-family:var(--display);font-weight:800;font-size:26px;line-height:1}
+.anillo .pct span{display:block;font:500 11px/1.2 var(--texto);color:#b9b9b6;letter-spacing:.04em;margin-top:3px}
+.btn{appearance:none;border:0;cursor:pointer;font:600 16px/1 var(--texto);border-radius:999px;padding:16px 24px;display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;transition:transform .15s ease, background .2s ease}
+.btn:active{transform:scale(.97)}
+.btn-naranja{background:var(--naranja);color:#fff}
+.btn-naranja:hover{background:var(--naranja-osc)}
+.btn-borde{background:transparent;color:var(--tinta);box-shadow:inset 0 0 0 1.5px var(--tinta)}
+.btn-borde:hover{background:var(--hueso)}
+.tarjeta-pack .acciones{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.tarjeta-pack .btn-borde{color:#fff;box-shadow:inset 0 0 0 1.5px #5a5a5a}
+.tarjeta-pack .btn-borde:hover{background:#2f2f2f}
+
+/* Secciones */
+section{padding:56px 0}
+.titulo-sec{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:28px;flex-wrap:wrap}
+.titulo-sec h2{font-size:clamp(32px,4.2vw,50px);font-weight:800}
+.titulo-sec p{margin:10px 0 0;color:var(--tinta-2);max-width:36em;font-size:17px}
+
+/* Gráfico del ahorro */
+.grafico{background:var(--hueso);border-radius:26px;padding:34px}
+.fila-graf{display:grid;grid-template-columns:170px 1fr;gap:20px;align-items:center}
+.fila-graf + .fila-graf{margin-top:22px}
+.fila-graf .rot{font-weight:600;font-size:15px}
+.fila-graf .rot small{display:block;color:var(--gris);font-weight:400;font-size:13px}
+.barra{display:flex;height:64px;border-radius:14px;overflow:hidden;background:#fff}
+.seg{display:flex;flex-direction:column;justify-content:center;padding:0 14px;min-width:0;white-space:nowrap;overflow:hidden;font-size:13px;color:#fff;transform-origin:left;animation:crecer 1s cubic-bezier(.2,.8,.2,1) both}
+.seg b{font-family:var(--display);font-size:18px;letter-spacing:-.02em}
+.seg.b1{background:#3b3b39}.seg.b2{background:#555552}.seg.b3{background:#6f6f6b}
+.seg.pack{background:var(--naranja)}
+.seg.ahorro{background:repeating-linear-gradient(-45deg,#fff 0 8px,var(--naranja-claro) 8px 16px);color:var(--naranja-osc);box-shadow:inset 0 0 0 2px var(--naranja);border-radius:0 14px 14px 0;animation-delay:.35s}
+@keyframes crecer{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.leyenda-graf{display:flex;flex-wrap:wrap;gap:18px;margin-top:24px;padding-top:20px;border-top:1px solid var(--hueso-2);font-size:15px;color:var(--tinta-2)}
+.leyenda-graf strong{color:var(--tinta)}
+.cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.cifra{background:#fff;border-radius:16px;padding:20px 22px}
+.cifra b{display:block;font-family:var(--display);font-size:34px;letter-spacing:-.03em;font-weight:800}
+.cifra span{color:var(--gris);font-size:14px}
+.cifra.destacada b{color:var(--naranja)}
+
+/* Configurador */
+.config{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start}
+.bloque{margin-bottom:34px}
+.bloque-cab{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding-bottom:12px;border-bottom:2.5px solid var(--tinta)}
+.bloque-cab h3{font-size:28px;font-weight:800}
+.bloque-cab p{margin:4px 0 0;color:var(--gris);font-size:15px}
+.bloque-cab .suma{font-family:var(--display);font-weight:700;font-size:18px;white-space:nowrap;text-align:right}
+.bloque-cab .suma small{display:block;font:400 12px var(--texto);color:var(--gris)}
+.linkito{background:none;border:0;padding:0;font:500 13px var(--texto);color:var(--naranja-osc);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.serv{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:15px 4px;border-bottom:1px solid var(--linea);cursor:pointer;transition:background .15s}
+.serv:hover{background:#fafaf8}
+.serv input{position:absolute;opacity:0;pointer-events:none}
+.check{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 2px #c9c8c3;display:grid;place-items:center;transition:background .18s, box-shadow .18s}
+.check svg{width:14px;height:14px;opacity:0;transform:scale(.5);transition:.18s}
+.serv input:checked + .check{background:var(--naranja);box-shadow:none}
+.serv input:checked + .check svg{opacity:1;transform:none}
+.serv input:focus-visible + .check{outline:3px solid var(--naranja-claro);outline-offset:2px}
+.serv .nom{font-weight:600}
+.serv .desc{display:block;color:var(--gris);font-size:13.5px;margin-top:2px;line-height:1.4}
+.serv .pr{font-family:var(--display);font-weight:700;font-size:17px;white-space:nowrap;text-align:right}
+.serv .pr .gratis{color:var(--verde)}
+.serv:not(.on) .pr{color:#a5a4a0}
+.serv:not(.on) .nom{color:var(--tinta-2)}
+.locales{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap;font-size:13.5px;color:var(--tinta-2)}
+.locales button{width:34px;height:30px;border-radius:8px;border:1.5px solid var(--linea);background:#fff;font:600 14px var(--texto);cursor:pointer}
+.locales button[aria-pressed="true"]{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.mensual{background:var(--hueso);border-radius:16px;padding:6px 18px;margin-top:-10px}
+.mensual .serv{border-bottom:0}
+
+/* Resumen fijo */
+.resumen{position:sticky;top:20px;background:var(--tinta);color:#fff;border-radius:24px;padding:26px}
+.resumen .fila{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:15px;color:#cfcfcc}
+.resumen .fila b{color:#fff}
+.resumen hr{border:0;border-top:1px solid #3d3d3d;margin:16px 0}
+.total-sep{font-family:var(--display);font-weight:800;font-size:46px;letter-spacing:-.04em;line-height:1;margin:6px 0 2px}
+.mini-barras{margin:18px 0 6px;display:grid;gap:10px}
+.mb .rot{display:flex;justify-content:space-between;font-size:13px;color:#b9b9b6;margin-bottom:5px}
+.mb .rot b{color:#fff}
+.mb .pista{height:14px;background:#343434;border-radius:99px;overflow:hidden}
+.mb .relleno{height:100%;border-radius:99px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.mb.sep .relleno{background:#8c8c88}
+.mb.pk .relleno{background:var(--naranja)}
+.aviso{margin-top:16px;border-radius:16px;padding:16px 18px;background:#2f2f2f;font-size:15px;line-height:1.45}
+.aviso strong{color:var(--naranja);font-family:var(--display);font-size:22px;letter-spacing:-.02em;display:block;margin-bottom:4px}
+.aviso.ok{background:var(--naranja);color:#fff}
+.aviso.ok strong{color:#fff}
+.resumen .btn{width:100%;margin-top:16px}
+.resumen .nota{font-size:12.5px;color:#9a9a97;margin:12px 0 0}
+.resumen .mes{font-size:14px;color:#cfcfcc;margin-top:8px}
+
+/* Solo con el pack */
+.extras{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.extra{background:var(--hueso);border-radius:var(--r);padding:24px}
+.extra .ico{width:40px;height:40px;border-radius:12px;background:var(--naranja);display:grid;place-items:center;margin-bottom:16px}
+.extra .ico svg{width:20px;height:20px}
+.extra h3{font-size:21px;letter-spacing:-.02em;margin-bottom:6px}
+.extra p{margin:0;color:var(--tinta-2);font-size:14.5px}
+.extra .regalo{display:inline-block;margin-top:12px;font-weight:700;color:var(--naranja-osc);font-size:14px}
+
+/* Tabla comparativa */
+.tabla{width:100%;border-collapse:collapse;font-size:15px}
+.tabla th,.tabla td{padding:14px 12px;text-align:left;border-bottom:1px solid var(--linea)}
+.tabla th{font:700 13px var(--texto);letter-spacing:.06em;text-transform:uppercase;color:var(--gris)}
+.tabla td:nth-child(2),.tabla td:nth-child(3),.tabla th:nth-child(2),.tabla th:nth-child(3){text-align:right;white-space:nowrap}
+.tabla th:nth-child(3),.tabla td:nth-child(3){background:var(--naranja-claro)}
+.tabla th:nth-child(3){color:var(--naranja-osc);border-radius:12px 12px 0 0}
+.tabla tr:last-child td{border-bottom:0;font-weight:700}
+.tabla tr:last-child td:nth-child(3){border-radius:0 0 12px 12px;color:var(--naranja-osc);font-family:var(--display);font-size:20px}
+.tabla .si{color:var(--naranja-osc);font-weight:700}
+.tabla .no{color:#b0afab}
+
+/* Condiciones */
+.condiciones{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cond{border-radius:var(--r);padding:24px;background:var(--hueso)}
+.cond h3{font-size:20px;letter-spacing:-.02em;margin-bottom:8px}
+.cond p{margin:0;color:var(--tinta-2)}
+
+.cierre{background:var(--tinta);color:#fff;border-radius:28px;padding:48px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.cierre h2{font-size:clamp(30px,4vw,48px);font-weight:800}
+.cierre p{color:#cfcfcc;margin:12px 0 0;font-size:17px}
+.cierre .precio{font-family:var(--display);font-weight:800;color:var(--naranja);font-size:64px;letter-spacing:-.045em;line-height:1;text-align:right}
+.cierre .precio small{display:block;font:500 14px var(--texto);color:#b9b9b6;letter-spacing:0;margin-top:6px}
+
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--linea);margin-top:56px;padding:22px 0 40px;color:var(--gris);font-size:14px}
+footer a{text-decoration:none}
+
+/* Barra del móvil */
+.barra-movil{display:none}
+
+@media (max-width:980px){
+  .portada{grid-template-columns:1fr;padding-top:36px}
+  .config{grid-template-columns:1fr}
+  .resumen{position:static}
+  .extras{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .envoltura{padding:0 18px}
+  .cab{padding-top:20px}
+  .datos{font-size:12.5px}
+  section{padding:40px 0}
+  .tarjeta-pack{padding:26px 22px 24px;border-radius:22px}
+  .comparar-linea{grid-template-columns:1fr}
+  .anillo{display:none}
+  .grafico{padding:22px 16px;border-radius:20px}
+  .fila-graf{grid-template-columns:1fr;gap:8px}
+  .barra{height:54px}
+  .seg{padding:0 8px;font-size:11px}.seg b{font-size:14px}
+  .seg .txt-largo{display:none}
+  .cifras{grid-template-columns:1fr}
+  .extras,.condiciones{grid-template-columns:1fr}
+  .cierre{grid-template-columns:1fr;padding:30px 22px}
+  .cierre .precio{text-align:left}
+  .tabla{font-size:13.5px}.tabla th,.tabla td{padding:11px 6px}
+  .bloque-cab h3{font-size:24px}
+  .barra-movil{display:flex;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:20;background:var(--tinta);color:#fff;border-radius:18px;padding:12px 14px 12px 18px;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);transform:translateY(140%);transition:transform .3s ease}
+  .barra-movil.visible{transform:none}
+  .barra-movil .t{font-size:12px;color:#b9b9b6;line-height:1.3}
+  .barra-movil .t b{display:block;color:#fff;font-family:var(--display);font-size:20px;letter-spacing:-.02em}
+  .barra-movil .t em{font-style:normal;color:var(--naranja);font-weight:600}
+  .barra-movil .btn{padding:12px 16px;font-size:14px}
+  body{padding-bottom:90px}
+}
+@media print{.barra-movil,.acciones,.resumen .btn{display:none!important}.resumen{position:static}}
+</style>
+</head>
+<body>
+
+<div class="envoltura">
+  <header class="cab">
+    <div class="logo">INNOVARTE<i>.</i></div>
+    <div class="datos"><span>Fecha</span><b>23/11/2026</b><span>Cliente</span><b>Tanni Sushi · Elche</b></div>
+  </header>
+
+  <!-- PORTADA: el pack -->
+  <div class="portada">
+    <div>
+      <span class="etiqueta">Presupuesto · la opción recomendada</span>
+      <h1>Pack integral de branding</h1>
+      <p class="intro">Identidad corporativa, branding y web con pedidos online en un solo proyecto, para que la nueva imagen llegue igual a todos los locales.</p>
+      <div class="bloques-mini">
+        <span><b>Identidad corporativa</b> · 6 servicios</span>
+        <span><b>Branding</b> · 8 servicios</span>
+        <span><b>Web y digital</b> · 5 servicios</span>
+        <span><b>+ 3 extras</b> de regalo</span>
+      </div>
+    </div>
+
+    <div class="tarjeta-pack" id="pack">
+      <span class="sello">Todo incluido</span>
+      <small>Precio del pack</small>
+      <div class="precio-grande num">2.880<sup>€</sup></div>
+      <span class="iva">+ IVA (21 %)</span>
+      <div class="comparar-linea">
+        <div>
+          <p>Contratado por separado: <s class="num">4.280 €</s></p>
+          <strong class="num">Ahorráis 1.400 € (33 %)</strong>
+          <p>+ 3 extras solo del pack</p>
+        </div>
+        <div class="anillo" aria-hidden="true">
+          <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9" fill="none" stroke="#3a3a3a" stroke-width="3.4"/><circle id="anillo-arco" cx="18" cy="18" r="15.9" fill="none" stroke="#ef6a1f" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="0 100" style="transition:stroke-dasharray 1.2s cubic-bezier(.2,.8,.2,1)"/></svg>
+          <div class="pct">33 %<span>de ahorro</span></div>
+        </div>
+      </div>
+      <div class="acciones">
+        <button class="btn btn-naranja" data-elegir-pack>Elegir el pack integral</button>
+        <a class="btn btn-borde" href="#montar">Montarlo a medida</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EL AHORRO DE UN VISTAZO -->
+<section>
+  <div class="envoltura">
+    <div class="titulo-sec">
+      <div>
+        <h2>Lo que ahorráis, de un vistazo</h2>
+        <p>Los mismos 19 servicios, contratados uno a uno o juntos en el pack.</p>
+      </div>
+    </div>
+    <div class="grafico" role="img" aria-label="Por separado, 4.280 euros: identidad corporativa 1.550, branding 1.930 y web y digital 800. Con el pack, 2.880 euros: 1.400 euros de ahorro.">
+      <div class="fila-graf">
+        <div class="rot">Por separado<small>19 servicios</small></div>
+        <div class="barra">
+          <div class="seg b1" style="flex:1550"><span class="txt-largo">Identidad corporativa</span><b class="num">1.550 €</b></div>
+          <div class="seg b2" style="flex:1930"><span class="txt-largo">Branding</span><b class="num">1.930 €</b></div>
+          <div class="seg b3" style="flex:800"><span class="txt-largo">Web y digital</span><b class="num">800 €</b></div>
+        </div>
+      </div>
+      <div class="fila-graf">
+        <div class="rot">Pack integral<small>19 servicios + 3 extras</small></div>
+        <div class="barra">
+          <div class="seg pack" style="flex:2880"><span class="txt-largo">Lo que pagáis</span><b class="num">2.880 €</b></div>
+          <div class="seg ahorro" style="flex:1400"><span class="txt-largo">Lo que ahorráis</span><b class="num">1.400 €</b></div>
+        </div>
+      </div>
+      <div class="cifras">
+        <div class="cifra"><b class="num">4.280 €</b><span>Contratado por separado</span></div>
+        <div class="cifra destacada"><b class="num">2.880 €</b><span>Con el pack integral</span></div>
+        <div class="cifra destacada"><b class="num">1.400 €</b><span>De ahorro (33 %) + 3 extras de regalo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIGURADOR -->
+<section id="montar">
+  <div class="envoltura">
+    <div class="titulo-sec">
+      <div>
+        <h2>Montadlo a vuestra medida</h2>
+        <p>Cada servicio tiene su precio y se puede contratar por separado. Marcad los que os interesen y el total se calcula solo. A la derecha veréis siempre cuánto os ahorra el pack.</p>
+      </div>
+      <div style="display:flex;gap:16px">
+        <button class="linkito" data-todos="1">Marcar todos</button>
+        <button class="linkito" data-todos="0">Quitar todos</button>
+      </div>
+    </div>
+
+    <div class="config">
+      <div id="lista"></div>
+
+      <aside class="resumen" aria-live="polite">
+        <div class="fila"><span>Servicios seleccionados</span><b class="num" id="r-n">19 de 19</b></div>
+        <hr>
+        <div class="fila"><span>Total por separado</span></div>
+        <div class="total-sep num" id="r-total">4.280 €</div>
+        <div class="mes" id="r-mes" hidden>+ mantenimiento web, 50 €/mes</div>
+
+        <div class="mini-barras">
+          <div class="mb sep"><div class="rot"><span>Lo que habéis marcado</span><b class="num" id="mb-sep-t">4.280 €</b></div><div class="pista"><div class="relleno" id="mb-sep"></div></div></div>
+          <div class="mb pk"><div class="rot"><span>Pack integral, los 19 + 3 extras</span><b class="num" id="mb-pk-t">2.880 €</b></div><div class="pista"><div class="relleno" id="mb-pk"></div></div></div>
+        </div>
+
+        <div class="aviso" id="r-aviso"></div>
+        <button class="btn btn-naranja" data-elegir-pack>Elegir el pack integral</button>
+        <p class="nota">Precios sin IVA (21 %).</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- SOLO CON EL PACK -->
+<section>
+  <div class="envoltura">
+    <div class="titulo-sec">
+      <div>
+        <h2>Solo con el pack</h2>
+        <p>Sin coste añadido. No se contratan por separado.</p>
+      </div>
+    </div>
+    <div class="extras">
+      <div class="extra">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M16 8a5 5 0 0 1 0 8"/></svg></div>
+        <h3>Campaña de lanzamiento</h3>
+        <p>Publicaciones para anunciar la nueva imagen en redes.</p>
+        <span class="regalo">Regalo</span>
+      </div>
+      <div class="extra">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8l10-4 10 4-10 4z"/><path d="M6 10v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>
+        <h3>Formación de uso</h3>
+        <p>Sesión para que el equipo gestione la web, los pedidos y la carta online.</p>
+        <span class="regalo">Regalo</span>
+      </div>
+      <div class="extra">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div>
+        <h3>1 mes de mantenimiento web</h3>
+        <p>Hosting, copias de seguridad y cambios de carta; después, 50 €/mes.</p>
+        <span class="regalo">Regalo</span>
+      </div>
+      <div class="extra">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></div>
+        <h3>2 locales en la gráfica</h3>
+        <p>La gráfica aplicada al local incluye 2 locales en el pack; por separado, solo el primero. Cada local adicional, 200 €.</p>
+        <span class="regalo">Incluido</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVA -->
+<section>
+  <div class="envoltura">
+    <div class="titulo-sec"><div><h2>Por separado o en el pack</h2></div></div>
+    <table class="tabla">
+      <thead><tr><th>Qué incluye</th><th>Por separado</th><th>Pack integral</th></tr></thead>
+      <tbody>
+        <tr><td>Identidad corporativa · 6 servicios</td><td class="num">1.550 €</td><td class="si">Incluido</td></tr>
+        <tr><td>Branding · 8 servicios</td><td class="num">1.930 €</td><td class="si">Incluido</td></tr>
+        <tr><td>Web y digital · 5 servicios</td><td class="num">800 €</td><td class="si">Incluido</td></tr>
+        <tr><td>Gráfica aplicada al local</td><td>1 local</td><td class="si">2 locales</td></tr>
+        <tr><td>Campaña de lanzamiento</td><td class="no">No disponible</td><td class="si">Regalo</td></tr>
+        <tr><td>Formación de uso</td><td class="no">No disponible</td><td class="si">Regalo</td></tr>
+        <tr><td>Mantenimiento web</td><td class="num">50 €/mes</td><td class="si">1.er mes de regalo</td></tr>
+        <tr><td>Total (sin IVA)</td><td class="num">4.280 €</td><td class="num">2.880 €</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CONDICIONES -->
+<section style="padding-top:0">
+  <div class="envoltura">
+    <div class="condiciones">
+      <div class="cond">
+        <h3>Forma de pago</h3>
+        <p>30 % por adelantado al confirmar el proyecto y el 70 % restante al finalizar todas las fases. Precios sin IVA (21 %).</p>
+      </div>
+      <div class="cond">
+        <h3>Un pack flexible</h3>
+        <p>El plan integral se adapta a los requerimientos, necesidades y solicitudes del cliente, y permite ampliar material y servicios a medida que el proyecto lo necesite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="envoltura">
+    <div class="cierre">
+      <div>
+        <h2>Toda la nueva imagen de Tanni, en un solo proyecto</h2>
+        <p>Identidad corporativa, branding y web con pedidos online: 19 servicios y 3 extras de regalo.</p>
+      </div>
+      <div class="precio num">2.880 €<small>+ IVA · ahorráis 1.400 € (33 %)</small></div>
+    </div>
+    <footer>
+      <span>INNOVARTE · Estudio de diseño y branding</span>
+      <span><a href="mailto:innovarte.sl@gmail.com">innovarte.sl@gmail.com</a> · <a href="https://innovarteweb.com">innovarteweb.com</a> · <a href="tel:+34634452534">+34 634 452 534</a></span>
+    </footer>
+  </div>
+</section>
+
+<div class="barra-movil" id="barra-movil">
+  <div class="t">Por separado <b class="num" id="bm-total">4.280 €</b><em id="bm-txt">Con el pack: 2.880 €</em></div>
+  <button class="btn btn-naranja" data-elegir-pack>Pack 2.880 €</button>
+</div>
+
+<script>
+(function(){
+  const PACK = 2880, LOCAL_EXTRA = 200;
+  const BLOQUES = [
+    {id:'identidad', titulo:'Identidad corporativa', sub:'El logotipo, sus variantes, sus normas y cómo se ve aplicado', items:[
+      ['Logotipo','diseño, tipografía personalizada y versiones: horizontal, vertical, símbolo, positivo y negativo',450],
+      ['Mascota','variante del logotipo como personaje, con 3 poses o expresiones',250],
+      ['Mini manual de identidad','colores, tipografías, área de respeto, tamaños mínimos y usos incorrectos',350],
+      ['Aplicación de marca','mockups y ejemplos: delantal, rótulo, mural, packaging, uniformes y redes',200],
+      ['Papelería corporativa','tarjetas de visita, hoja de carta, sobre y firma de email',120],
+      ['Papelería promocional','flyer, tarjeta de fidelización y vale regalo',180]]},
+    {id:'branding', titulo:'Branding', sub:'La marca adaptada a cada soporte real, lista para producir', items:[
+      ['Personalidad de marca','valores, carácter y tono de voz en redes, carta y local',150],
+      ['Gráfica aplicada al local','mural y vinilos a medida, simulación sobre fotos y artes finales; sin mano de obra ni materiales. Primer local; cada local adicional, 200 €',600,'local'],
+      ['Rótulo de fachada','diseño a medida del local, listo para el rotulista',180],
+      ['Carta y menús','diseño y maquetación de la carta, versión impresa y digital con QR',250],
+      ['Packaging','cajas de sushi, bol de poke, bolsas, tarrinas de salsa y faja de palillos',350],
+      ['Uniformes','delantal, camiseta y gorra',100],
+      ['Pack de 5 stickers','cierre de envase, promociones y merchandising',100],
+      ['Kit de redes sociales','plantillas de posts y stories, portadas de destacados y perfil',200]]},
+    {id:'web', titulo:'Web y digital', sub:'La marca en el móvil del cliente, con pedidos directos', items:[
+      ['Web básica funcional','adaptada a móvil, con el sistema «Crea tu poke» incluido',500],
+      ['Tarjeta digital','tarjeta de visita digital con QR, contacto y enlaces',100],
+      ['Pedidos a través de la web','carta online, carrito y pedido para recoger o a domicilio',100],
+      ['Panel de administración propio','para subir y quitar contenido de la web sin depender de nadie',100],
+      ['Instalación y puesta en marcha','instalación de la web y configuración del hosting y el dominio',0]]}
+  ];
+
+  const eur = n => n.toLocaleString('es-ES',{useGrouping:'always'}) + ' €';
+  const tick = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  let locales = 1;
+  const servicios = [];
+
+  // Pintar la lista
+  const lista = document.getElementById('lista');
+  BLOQUES.forEach(b => {
+    const el = document.createElement('div');
+    el.className = 'bloque';
+    el.innerHTML = `<div class="bloque-cab"><div><h3>${b.titulo}</h3><p>${b.sub}</p></div><div class="suma num" id="suma-${b.id}"></div></div>`;
+    b.items.forEach(([nom, desc, precio, especial]) => {
+      const s = {nom, precio, bloque:b.id, especial, on:true};
+      const lab = document.createElement('label');
+      lab.className = 'serv on';
+      lab.innerHTML = `<input type="checkbox" checked><span class="check">${tick}</span>
+        <span><span class="nom">${nom}</span><span class="desc">(${desc})</span>${especial==='local' ? `<span class="locales" onclick="event.preventDefault()">¿Cuántos locales? <button type="button" data-loc="1" aria-pressed="true">1</button><button type="button" data-loc="2" aria-pressed="false">2</button><button type="button" data-loc="3" aria-pressed="false">3</button></span>` : ''}</span>
+        <span class="pr num">${precio ? eur(precio) : '<span class="gratis">Gratis</span>'}</span>`;
+      s.el = lab; s.input = lab.querySelector('input'); s.prEl = lab.querySelector('.pr');
+      s.input.addEventListener('change', () => { s.on = s.input.checked; lab.classList.toggle('on', s.on); pintar(); });
+      servicios.push(s);
+      el.appendChild(lab);
+    });
+    lista.appendChild(el);
+  });
+
+  // Mantenimiento mensual (aparte del total)
+  const mens = document.createElement('div');
+  mens.className = 'bloque';
+  mens.innerHTML = `<div class="bloque-cab"><div><h3>Servicio mensual</h3><p>Opcional, a partir de la entrega de la web</p></div><div class="suma num">50 €/mes</div></div>
+    <div class="mensual" style="margin-top:12px"><label class="serv" id="mant"><input type="checkbox"><span class="check">${tick}</span>
+    <span><span class="nom">Mantenimiento web</span><span class="desc">(hosting, copias de seguridad, actualizaciones y cambios de carta, precios y fotos) · con el pack, el primer mes es de regalo</span></span>
+    <span class="pr num">50 €/mes</span></label></div>`;
+  lista.appendChild(mens);
+  const mant = mens.querySelector('input');
+  mant.addEventListener('change', () => { mens.querySelector('.serv').classList.toggle('on', mant.checked); pintar(); });
+
+  // Locales
+  lista.querySelectorAll('[data-loc]').forEach(btn => btn.addEventListener('click', e => {
+    e.preventDefault(); e.stopPropagation();
+    locales = +btn.dataset.loc;
+    lista.querySelectorAll('[data-loc]').forEach(x => x.setAttribute('aria-pressed', x === btn));
+    pintar();
+  }));
+
+  const precioDe = s => s.especial === 'local' ? s.precio + LOCAL_EXTRA * (locales - 1) : s.precio;
+  const packPrecio = () => PACK + LOCAL_EXTRA * Math.max(0, locales - 2);
+
+  // Contador animado
+  const animar = (el, hasta) => {
+    const desde = +(el.dataset.v || hasta); el.dataset.v = hasta;
+    if (desde === hasta || matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = eur(hasta); return; }
+    const t0 = performance.now(), dur = 450;
+    const paso = t => { const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = eur(Math.round(desde + (hasta - desde) * e)); if (k < 1) requestAnimationFrame(paso); };
+    requestAnimationFrame(paso);
+  };
+
+  function pintar(){
+    const marcados = servicios.filter(s => s.on);
+    const sep = marcados.reduce((a, s) => a + precioDe(s), 0);
+    const todo = servicios.reduce((a, s) => a + precioDe(s), 0);
+    const pack = packPrecio();
+    const n = marcados.length, N = servicios.length;
+
+    servicios.forEach(s => { if (s.especial === 'local') s.prEl.textContent = eur(precioDe(s)); });
+    BLOQUES.forEach(b => {
+      const del = servicios.filter(s => s.bloque === b.id);
+      const on = del.filter(s => s.on);
+      document.getElementById('suma-' + b.id).innerHTML = eur(on.reduce((a, s) => a + precioDe(s), 0)) + `<small>${on.length} de ${del.length}</small>`;
+    });
+
+    document.getElementById('r-n').textContent = `${n} de ${N}`;
+    animar(document.getElementById('r-total'), sep);
+    document.getElementById('r-mes').hidden = !mant.checked;
+    document.getElementById('mb-sep-t').textContent = eur(sep);
+    document.getElementById('mb-pk-t').textContent = eur(pack);
+    const escala = Math.max(todo, sep, pack);
+    document.getElementById('mb-sep').style.width = (sep / escala * 100) + '%';
+    document.getElementById('mb-pk').style.width = (pack / escala * 100) + '%';
+
+    const av = document.getElementById('r-aviso');
+    const faltan = N - n, valorFalta = todo - sep;
+    let txtMovil;
+    av.classList.remove('ok');
+    if (n === 0) {
+      av.innerHTML = `<strong>Marcad lo que os interese</strong>El pack integral lo incluye todo por ${eur(pack)}.`;
+      txtMovil = `Pack: ${eur(pack)} todo`;
+    } else if (sep > pack) {
+      const ah = sep - pack, pct = Math.round(ah / sep * 100);
+      av.classList.add('ok');
+      av.innerHTML = `<strong>Con el pack ahorráis ${eur(ah)} (${pct} %)</strong>` +
+        (faltan ? `Y os lleváis además los ${faltan} servicio${faltan>1?'s':''} que no habéis marcado` : 'Los mismos 19 servicios') +
+        ` y los 3 extras de regalo, por ${eur(pack)}.`;
+      txtMovil = `Con el pack ahorráis ${eur(ah)}`;
+    } else {
+      const mas = pack - sep;
+      av.innerHTML = `<strong>Por ${eur(mas)} más, lo tenéis todo</strong>Con el pack sumáis los ${faltan} servicio${faltan>1?'s':''} que faltan (${eur(valorFalta)} por separado) y los 3 extras de regalo.`;
+      txtMovil = `Por ${eur(mas)} más, todo`;
+    }
+    document.getElementById('bm-total').textContent = eur(sep);
+    document.getElementById('bm-txt').textContent = txtMovil;
+  }
+
+  // Botones
+  document.querySelectorAll('[data-todos]').forEach(b => b.addEventListener('click', () => {
+    const v = b.dataset.todos === '1';
+    servicios.forEach(s => { s.on = v; s.input.checked = v; s.el.classList.toggle('on', v); });
+    pintar();
+  }));
+  document.querySelectorAll('[data-elegir-pack]').forEach(b => b.addEventListener('click', () => {
+    servicios.forEach(s => { s.on = true; s.input.checked = true; s.el.classList.add('on'); });
+    pintar();
+    const av = document.getElementById('r-aviso');
+    av.classList.add('ok');
+    av.innerHTML = `<strong>Pack integral: ${eur(packPrecio())} + IVA</strong>Los 19 servicios y los 3 extras de regalo. Ahorráis ${eur(servicios.reduce((a,s)=>a+precioDe(s),0) - packPrecio())} frente a contratarlos por separado.`;
+    document.querySelector('.resumen').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'center'});
+  }));
+
+  // Barra del móvil: aparece en el configurador
+  const barra = document.getElementById('barra-movil');
+  new IntersectionObserver(([e]) => barra.classList.toggle('visible', e.isIntersecting), {rootMargin:'0px 0px -40% 0px'})
+    .observe(document.getElementById('lista'));
+
+  // Anillo del 33 %
+  setTimeout(() => document.getElementById('anillo-arco').setAttribute('stroke-dasharray', '33 100'), 250);
+
+  pintar();
+})();
+</script>
+</body>
+</html>
