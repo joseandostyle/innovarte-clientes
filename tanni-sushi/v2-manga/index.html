@@ -580,15 +580,14 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
 /* Pedir: tira de viñetas */
 .tira-manga{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:18px}
 .vin{border:3px solid var(--m-tinta);background:#fff;box-shadow:6px 6px 0 var(--m-tinta);display:grid;grid-template-rows:auto 1fr}
-.vin-arte{position:relative;height:220px;overflow:hidden;border-bottom:3px solid var(--m-tinta);display:grid;grid-template-columns:46% 1fr;align-items:center}
-.vin-arte img{grid-column:1;align-self:end;width:100%;height:96%;object-fit:contain;object-position:bottom;position:relative;z-index:1;margin-bottom:-4px}
-.vin-arte .bocata{grid-column:2;justify-self:start;margin:0 14px 40px 4px;z-index:2}
-.vin-arte .bocata::after{left:-11px;bottom:14px;transform:rotate(90deg) skewX(-30deg)}
-.vin-arte .etiq{position:absolute;right:10px;bottom:10px;z-index:2}
+.vin-arte{position:relative;height:300px;overflow:hidden;border-bottom:3px solid var(--m-tinta);display:flex;flex-direction:column;align-items:center;padding:12px 12px 10px}
+.vin-arte img{flex:1 1 0;min-height:0;width:100%;margin-top:10px;object-fit:contain;object-position:center;position:relative;z-index:1}
+.vin-arte .bocata{flex:none;order:-1;margin:0;text-align:center;z-index:2}
+.vin-arte .bocata::after{left:50%;bottom:-14px;transform:translateX(-50%) skewX(-30deg)}
+.vin-txt .etiq{display:inline-block;margin-bottom:8px}
 .vin-1 .vin-arte{background:repeating-conic-gradient(from 0deg at 25% 100%,var(--salmon) 0 7deg,#fff 7deg 14deg)}
 .vin-2 .vin-arte{background:var(--m-puntos) 0 0/9px 9px,var(--m-gris)}
 .vin-3 .vin-arte{background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(29,42,68,.22) 22px 24px,transparent 24px 40px,rgba(29,42,68,.12) 40px 41px),#EEF0F3}
-.tira-manga .vin-4 .vin-arte img{position:absolute;left:2%;bottom:4px;width:96%;height:70%;margin:0;object-fit:contain;object-position:bottom center}
 .vin-4 .vin-arte{background:radial-gradient(rgba(243,107,28,.35) 1.6px,transparent 2px) 0 0/10px 10px,#FFF4EC}
 .vin-txt{padding:14px 16px 16px}
 .vin-txt b{display:block;font:700 22px/1.1 var(--m-letra);text-transform:uppercase;color:var(--m-tinta);letter-spacing:.01em}
@@ -601,21 +600,19 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
   .carton.manga small{margin-top:96px}
   .tira-manga{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
   .vin{border-width:2.5px;box-shadow:4px 4px 0 var(--m-tinta)}
-  .vin-arte{height:210px;grid-template-columns:1fr;border-bottom-width:2.5px}
-  .vin-arte img{grid-column:1;grid-row:1;width:88%;height:66%;justify-self:center}
-  .vin-arte .bocata{grid-column:1;grid-row:1;align-self:start;justify-self:center;margin:10px 8px 0;padding:6px 9px;border-width:2.5px;border-radius:12px;font-size:15px;line-height:1.05;text-align:center}
+  .vin-arte{height:236px;padding:8px 8px 6px;border-bottom-width:2.5px}
+  .vin-arte img{margin-top:8px}
+  .vin-arte .bocata{padding:6px 9px;border-width:2.5px;border-radius:12px;font-size:15px;line-height:1.05;text-align:center}
   .vin-arte .bocata::after{left:50%;bottom:-10px;width:12px;height:10px;border-width:2.5px;transform:translateX(-50%) skewX(-30deg)}
-  .vin-arte .etiq{right:6px;bottom:6px;font-size:11px;padding:3px 6px 2px;border-width:2px}
+  .vin-txt .etiq{font-size:11px;padding:3px 6px 2px;border-width:2px;margin-bottom:6px}
   .vin-txt{padding:10px 10px 12px}
   .vin-txt b{font-size:17px;line-height:1.1}
   .vin-txt span{font-size:13px;line-height:1.35}
 }
 @media (min-width:900px){
   .tira-manga{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch}
-  .vin-arte{height:270px;grid-template-columns:1fr}
-  .vin-arte img{grid-column:1;grid-row:1;width:86%;height:66%;justify-self:center}
-  .vin-arte .bocata{grid-column:1;grid-row:1;align-self:start;justify-self:center;margin:14px 10px 0;text-align:center;font-size:19px}
-  .vin-arte .bocata::after{left:50%;bottom:-14px;transform:translateX(-50%) skewX(-30deg)}
+  .vin-arte{height:310px;padding:14px 14px 12px}
+  .vin-arte .bocata{font-size:19px}
   .vin:nth-child(1){transform:rotate(-.6deg)}.vin:nth-child(3){transform:rotate(.6deg)}
 }
 /* Lovers como la camiseta */
@@ -740,20 +737,20 @@ body[data-vista=carta] .flotan{right:auto;left:14px}
       <h2 class="rotulo" id="t-como"><span class="firma">Pedir</span><span class="linea">En cuatro pasos, sin llamar</span></h2>
       <ol class="tira-manga">
         <li class="vin vin-1">
-          <div class="vin-arte"><img src="marca/manga/risa.webp" width="900" height="900" alt="" loading="lazy"><p class="bocata" aria-hidden="true">¡Hoy toca sushi!</p><span class="etiq">Paso 1</span></div>
-          <div class="vin-txt"><b>Elige en la carta</b><span>Los 95 platos, los menús y tu poke a tu gusto.</span></div>
+          <div class="vin-arte"><img src="marca/manga/stickers/tanni-sticker-gato-1-elige-en-la-carta.webp" width="952" height="998" alt="" loading="lazy"><p class="bocata" aria-hidden="true">¡Hoy toca sushi!</p></div>
+          <div class="vin-txt"><span class="etiq">Paso 1</span><b>Elige en la carta</b><span>Los 95 platos, los menús y tu poke a tu gusto.</span></div>
         </li>
         <li class="vin vin-2">
-          <div class="vin-arte"><img src="marca/manga/zenitso.webp" width="900" height="900" alt="" loading="lazy"><p class="bocata" aria-hidden="true">¿Lo recoges o te lo llevo?</p><span class="etiq">Paso 2</span></div>
-          <div class="vin-txt"><b>Recoger o a casa</b><span>En tu local o con nuestros repartidores, a la hora que quieras.</span></div>
+          <div class="vin-arte"><img src="marca/manga/stickers/tanni-sticker-gato-2-repartidor-en-moto.webp" width="838" height="927" alt="" loading="lazy"><p class="bocata" aria-hidden="true">¿Lo recoges o te lo llevo?</p></div>
+          <div class="vin-txt"><span class="etiq">Paso 2</span><b>Recoger o a casa</b><span>En tu local o con nuestros repartidores, a la hora que quieras.</span></div>
         </li>
         <li class="vin vin-3">
-          <div class="vin-arte"><img src="marca/manga/capitan.webp" width="900" height="900" alt="" loading="lazy"><p class="bocata" aria-hidden="true">¡Marchando!</p><span class="etiq">Paso 3</span></div>
-          <div class="vin-txt"><b>Llega a tu local</b><span>El pedido entra en su WhatsApp y empiezan a prepararlo.</span></div>
+          <div class="vin-arte"><img src="marca/manga/stickers/tanni-sticker-gato-3-marchando-cocina.webp" width="996" height="987" alt="" loading="lazy"><p class="bocata" aria-hidden="true">¡Marchando!</p></div>
+          <div class="vin-txt"><span class="etiq">Paso 3</span><b>Llega a tu local</b><span>El pedido entra en su WhatsApp y empiezan a prepararlo.</span></div>
         </li>
         <li class="vin vin-4">
-          <div class="vin-arte"><img src="marca/manga/gato-poke.webp" width="693" height="900" alt="" loading="lazy"><p class="bocata" aria-hidden="true">¡A disfrutar!</p><span class="etiq">Paso 4</span></div>
-          <div class="vin-txt"><b>A disfrutar</b><span>Recién hecho, en tu mesa o en tu sofá.</span></div>
+          <div class="vin-arte"><img src="marca/manga/gato-poke.webp" width="693" height="900" alt="" loading="lazy"><p class="bocata" aria-hidden="true">¡A disfrutar!</p></div>
+          <div class="vin-txt"><span class="etiq">Paso 4</span><b>A disfrutar</b><span>Recién hecho, en tu mesa o en tu sofá.</span></div>
         </li>
       </ol>
     </div>
